@@ -1,8 +1,6 @@
 #include "uniform_buffer.hpp"
 
-namespace kusengine
-{
-namespace render
+namespace ars_graphics
 {
 UniformBuffer::UniformBuffer()
     : Buffer(vk::BufferUsageFlagBits::eUniformBuffer,
@@ -10,5 +8,4 @@ UniformBuffer::UniformBuffer()
                  vk::MemoryPropertyFlagBits::eHostCoherent)
 {
 }
-}; // namespace render
-}; // namespace kusengine
+} // namespace ars_graphics

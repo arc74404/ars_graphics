@@ -1,8 +1,6 @@
 #include "index_buffer.hpp"
 
-namespace kusengine
-{
-namespace render
+namespace ars_graphics
 {
 IndexBuffer::IndexBuffer()
     : Buffer(vk::BufferUsageFlagBits::eIndexBuffer,
@@ -27,7 +25,5 @@ IndexBuffer::draw(const vk::CommandBuffer& command_buffer,
 {
     command_buffer.drawIndexed(index_count, instance_count, first_index,
                                vertex_offset, first_instance);
-    // command_buffer.drawIndexed(6, 3, 0, 0, 0);
 }
-}; // namespace render
-}; // namespace kusengine
+} // namespace ars_graphics

@@ -1,20 +1,13 @@
-#ifndef STORAGE_BUFFER_HPP
-#define STORAGE_BUFFER_HPP
-
+#pragma once
 #include "buffer.hpp"
 
-namespace kusengine
+namespace ars_graphics
 {
-namespace render
-{
-class StorageBuffer : public Buffer
+class StorageBuffer final : public Buffer
 {
 public:
     StorageBuffer();
 
 private:
 };
-}; // namespace render
-}; // namespace kusengine
-
-#endif // STORAGE_BUFFER_HPP
+} // namespace ars_graphics

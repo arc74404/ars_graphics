@@ -1,8 +1,6 @@
 #include "storage_buffer.hpp"
 
-namespace kusengine
-{
-namespace render
+namespace ars_graphics
 {
 StorageBuffer::StorageBuffer()
     : Buffer(vk::BufferUsageFlagBits::eStorageBuffer,
@@ -10,5 +8,4 @@ StorageBuffer::StorageBuffer()
                  vk::MemoryPropertyFlagBits::eHostCoherent)
 {
 }
-}; // namespace render
-}; // namespace kusengine
+} // namespace ars_graphics

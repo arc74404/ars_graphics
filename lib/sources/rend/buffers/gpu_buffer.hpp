@@ -10,7 +10,7 @@
 namespace ars_graphics
 {
 
-class GpuVertexBuffer : public Buffer
+class GpuVertexBuffer final : public Buffer
 {
 public:
     GpuVertexBuffer();

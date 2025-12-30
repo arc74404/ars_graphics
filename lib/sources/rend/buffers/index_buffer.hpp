@@ -1,22 +1,16 @@
-#ifndef INSTANCE_BUFFER_HPP
-#define INSTANCE_BUFFER_HPP
+#pragma once
 
 #include <initializer_list>
 #include <vector>
 
 #include "buffer.hpp"
 
-namespace kusengine
+namespace ars_graphics
 {
-namespace render
-{
-class IndexBuffer : public Buffer
+class IndexBuffer final : public Buffer
 {
 public:
     IndexBuffer();
-
-    // void setIndices(const std::initializer_list<uint32_t>& vertices);
-    // void setIndices(const std::vector<uint32_t>& vertices);
 
     void bind(const vk::CommandBuffer& command_buffer) const;
 
@@ -29,7 +23,4 @@ public:
 
 private:
 };
-}; // namespace render
-}; // namespace kusengine
-
-#endif // INSTANCE_BUFFER_HPP
+} // namespace ars_graphics

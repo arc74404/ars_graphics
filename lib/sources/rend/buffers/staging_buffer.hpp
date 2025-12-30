@@ -1,19 +1,14 @@
-#ifndef STAGING_BUFFER_HPP
-#define STAGING_BUFFER_HPP
+#pragma once
 
 #include "buffer.hpp"
 
-namespace kusengine
+namespace ars_graphics
 {
-    namespace render{
-class StagingBuffer : public Buffer
+class StagingBuffer final : public Buffer
 {
 public:
     StagingBuffer();
 
 private:
 };
-}; // namespace render
-}; // namespace kusengine
-
-#endif // STAGING_BUFFER_HPP
+} // namespace ars_graphics

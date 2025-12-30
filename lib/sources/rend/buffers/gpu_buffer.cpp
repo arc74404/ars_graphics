@@ -2,6 +2,8 @@
 
 #include <iostream>
 
+#include "../cmdbuf/command_buffer.hpp"
+
 namespace ars_graphics
 {
 GpuVertexBuffer::GpuVertexBuffer()
@@ -18,21 +20,26 @@ GpuVertexBuffer::bind(const vk::CommandBuffer& command_buffer) const
     command_buffer.bindVertexBuffers(0, 1, &(buffer()), &offsets);
 }
 
-void
+bool
 GpuVertexBuffer::setData(const LogicalDevice& logical_device,
                          const PhysicalDevice& physical_device,
                          void* data,
                          const vk::DeviceSize& byte_size)
 {
-    CommandBuffer command_buffer;
-    command_buffer.create();
+    CommandBuffer command_buffer{logical_device};
 
     StagingBuffer staging_buffer;
-    staging_buffer.setData(data, byte_size);
+    bool check = staging_buffer.setData(logical_device, physical_device, data,
+                                        byte_size);
+    if (check == false)
+    {
+        return false;
+    }
 
-    Buffer::copyBuffer(&staging_buffer, this,
-                       DEVICE_INSTANCE.getQueue("graphics"),
-                       command_buffer.commandBuffer());
+    Buffer::copyBuffer(logical_device, physical_device, &staging_buffer, this,
+                       logical_device.getQueue("graphics"),
+                       command_buffer.get());
+    return true;
 }
 
 }; // namespace ars_graphics
