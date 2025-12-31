@@ -1,7 +1,5 @@
-#ifndef GPU_BUFFER_HPP
-#define GPU_BUFFER_HPP
-
-#include "../cmdbuf/command_buffer.hpp
+#pragma once
+#include "../cmdbuf/command_buffer.hpp"
 
 #include "buffer.hpp"
 #include "staging_buffer.hpp"
@@ -25,5 +23,3 @@ public:
 private:
 };
 }; // namespace ars_graphics
-
-#endif // GPU_BUFFER_HPP

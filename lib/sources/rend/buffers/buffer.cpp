@@ -1,6 +1,6 @@
 #include "buffer.hpp"
 
-// #include "textures/image.hpp"
+#include "../textures/image.hpp"
 
 namespace ars_graphics
 {

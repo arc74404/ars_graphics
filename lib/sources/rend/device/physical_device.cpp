@@ -182,4 +182,10 @@ PhysicalDevice::getSurfaceSupportDetails(const vk::SurfaceKHR& surface) const
             .formats       = forms.value,
             .present_modes = modes.value};
 }
+
+const vk::PhysicalDevice&
+PhysicalDevice::get() const
+{
+    return m_physical_device;
+}
 } // namespace ars_graphics

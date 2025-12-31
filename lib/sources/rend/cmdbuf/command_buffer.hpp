@@ -13,7 +13,7 @@ public:
     CommandBuffer(const LogicalDevice& device);
 
     static void createCommandPool(const LogicalDevice& ls,
-                                  const LogicalDevice& phd);
+                                  const PhysicalDevice& phd);
 
     const vk::CommandBuffer& get() const noexcept;
 

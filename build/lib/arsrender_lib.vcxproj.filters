@@ -70,6 +70,21 @@
     <ClCompile Include="C:\Users\User\source\repos\arsrender_lib\lib\sources\rend\shaders\shader_module.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Users\User\source\repos\arsrender_lib\lib\sources\rend\textures\image.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\User\source\repos\arsrender_lib\lib\sources\rend\textures\texture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\User\source\repos\arsrender_lib\lib\sources\rend\textures\texture_manager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\User\source\repos\arsrender_lib\lib\sources\rend\vertex\all_attributes.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\User\source\repos\arsrender_lib\lib\sources\rend\vertex\vertex.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="C:\Users\User\source\repos\arsrender_lib\lib\sources\window\window.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

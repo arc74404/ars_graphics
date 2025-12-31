@@ -35,6 +35,8 @@ public:
     SwapChainSupportDetails getSurfaceSupportDetails(
         const vk::SurfaceKHR& surface) const;
 
+    const vk::PhysicalDevice& get() const;
+
 private:
     void choosePhysicalDevice(const Instance& instance,
                               const vk::SurfaceKHR& surface);

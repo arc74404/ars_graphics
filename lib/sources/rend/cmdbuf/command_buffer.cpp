@@ -9,7 +9,7 @@ std::unique_ptr<CommandPool> CommandBuffer::m_shared_command_pool = nullptr;
 
 void
 CommandBuffer::createCommandPool(const LogicalDevice& ls,
-                                 const LogicalDevice& phd)
+                                 const PhysicalDevice& phd)
 {
     m_shared_command_pool = std::make_unique<CommandPool>(ls, phd);
 }

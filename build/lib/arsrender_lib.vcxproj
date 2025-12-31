@@ -319,6 +319,11 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="C:\Users\User\source\repos\arsrender_lib\lib\sources\rend\renderer.cpp" />
     <ClCompile Include="C:\Users\User\source\repos\arsrender_lib\lib\sources\rend\shaders\shader_manager.cpp" />
     <ClCompile Include="C:\Users\User\source\repos\arsrender_lib\lib\sources\rend\shaders\shader_module.cpp" />
+    <ClCompile Include="C:\Users\User\source\repos\arsrender_lib\lib\sources\rend\textures\image.cpp" />
+    <ClCompile Include="C:\Users\User\source\repos\arsrender_lib\lib\sources\rend\textures\texture.cpp" />
+    <ClCompile Include="C:\Users\User\source\repos\arsrender_lib\lib\sources\rend\textures\texture_manager.cpp" />
+    <ClCompile Include="C:\Users\User\source\repos\arsrender_lib\lib\sources\rend\vertex\all_attributes.cpp" />
+    <ClCompile Include="C:\Users\User\source\repos\arsrender_lib\lib\sources\rend\vertex\vertex.cpp" />
     <ClCompile Include="C:\Users\User\source\repos\arsrender_lib\lib\sources\window\window.cpp" />
   </ItemGroup>
   <ItemGroup />
