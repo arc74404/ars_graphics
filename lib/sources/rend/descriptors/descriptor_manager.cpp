@@ -3,36 +3,75 @@
 namespace ars_graphics
 {
 
+namespace
+{
+std::vector<DescriptorBindingData>
+defaultVertexShaderBindings()
+{
+    std::vector<DescriptorBindingData> result(2);
+    result[0].count         = 1;
+    result[0].binding_index = 0;
+    result[0].stage         = vk::ShaderStageFlagBits::eVertex;
+    result[0].type          = vk::DescriptorType::eUniformBuffer;
+
+    result[1].count         = 1;
+    result[1].binding_index = 1;
+    result[1].stage         = vk::ShaderStageFlagBits::eVertex;
+    result[1].type          = vk::DescriptorType::eStorageBuffer;
+}
+
+std::vector<DescriptorBindingData>
+defaultMaterialShaderBindings()
+{
+    std::vector<DescriptorBindingData> result(6);
+
+    // Binding 0: Albedo map
+    result[0].count         = 1;
+    result[0].binding_index = 0;
+    result[0].stage         = vk::ShaderStageFlagBits::eFragment;
+    result[0].type          = vk::DescriptorType::eCombinedImageSampler;
+
+    // Binding 1: Normal map
+    result[1].count         = 1;
+    result[1].binding_index = 1;
+    result[1].stage         = vk::ShaderStageFlagBits::eFragment;
+    result[1].type          = vk::DescriptorType::eCombinedImageSampler;
+
+    // Binding 2: Metallic-Roughness map
+    result[2].count         = 1;
+    result[2].binding_index = 2;
+    result[2].stage         = vk::ShaderStageFlagBits::eFragment;
+    result[2].type          = vk::DescriptorType::eCombinedImageSampler;
+
+    // Binding 3: AO map
+    result[3].count         = 1;
+    result[3].binding_index = 3;
+    result[3].stage         = vk::ShaderStageFlagBits::eFragment;
+    result[3].type          = vk::DescriptorType::eCombinedImageSampler;
+
+    // Binding 4: Emissive map
+    result[4].count         = 1;
+    result[4].binding_index = 4;
+    result[4].stage         = vk::ShaderStageFlagBits::eFragment;
+    result[4].type          = vk::DescriptorType::eCombinedImageSampler;
+
+    // Binding 5: Height map
+    result[5].count         = 1;
+    result[5].binding_index = 5;
+    result[5].stage         = vk::ShaderStageFlagBits::eFragment;
+    result[5].type          = vk::DescriptorType::eCombinedImageSampler;
+
+    return result;
+}
+} // namespace
+
 DescriptorManager::DescriptorManager(const LogicalDevice& device)
 {
-    std::vector<DescriptorBindingData> default_vertex_shader_bindings_data(2);
-    default_vertex_shader_bindings_data[0].count         = 1;
-    default_vertex_shader_bindings_data[0].binding_index = 0;
-    default_vertex_shader_bindings_data[0].stage =
-        vk::ShaderStageFlagBits::eVertex;
-    default_vertex_shader_bindings_data[0].type =
-        vk::DescriptorType::eUniformBuffer;
+    addAllocator(DescriptorSetLayoutType::UBO_AND_STORAGE, device,
+                 defaultVertexShaderBindings(), 100, 100);
 
-    default_vertex_shader_bindings_data[1].count         = 1;
-    default_vertex_shader_bindings_data[1].binding_index = 1;
-    default_vertex_shader_bindings_data[1].stage =
-        vk::ShaderStageFlagBits::eVertex;
-    default_vertex_shader_bindings_data[1].type =
-        vk::DescriptorType::eStorageBuffer;
-
-    addAllocator(DescriptorSetLayoutType::UBO_x_STORAGE, device,
-                 default_vertex_shader_bindings_data, 100, 100);
-
-    std::vector<DescriptorBindingData> default_fragment_shader_bindings_data(1);
-    default_fragment_shader_bindings_data[0].count         = 1;
-    default_fragment_shader_bindings_data[0].binding_index = 0;
-    default_fragment_shader_bindings_data[0].stage =
-        vk::ShaderStageFlagBits::eFragment;
-    default_fragment_shader_bindings_data[0].type =
-        vk::DescriptorType::eCombinedImageSampler;
-
-    addAllocator(DescriptorSetLayoutType::COMBINED_IMAGE_SAMPLER, device,
-                 default_fragment_shader_bindings_data, 100, 100);
+    addAllocator(DescriptorSetLayoutType::MATERIAL, device,
+                 defaultMaterialShaderBindings(), 100, 100);
 }
 
 void

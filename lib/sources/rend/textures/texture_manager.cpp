@@ -37,8 +37,6 @@ TextureManager::addTexture(const LogicalDevice& logical_device,
 
     new_texture.loadTexture(logical_device, physical_device, file_path);
 
-    new_texture.allocDescriptorSet(logical_device, descriptor_manager);
-
     m_texture_storage.emplace(file_path, std::move(new_texture));
 }
 

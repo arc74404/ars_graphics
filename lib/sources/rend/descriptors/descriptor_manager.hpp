@@ -13,8 +13,8 @@ namespace ars_graphics
 
 enum class DescriptorSetLayoutType
 {
-    UBO_x_STORAGE,
-    COMBINED_IMAGE_SAMPLER
+    UBO_AND_STORAGE,
+    MATERIAL
 };
 
 class DescriptorManager

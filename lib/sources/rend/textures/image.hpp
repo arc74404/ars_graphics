@@ -28,6 +28,8 @@ struct ImageConfigInfo
 class Image
 {
 public:
+    Image() = default;
+
     Image(const LogicalDevice& logical_device,
           const PhysicalDevice& physical_device,
           const ImageConfigInfo& config_info);
