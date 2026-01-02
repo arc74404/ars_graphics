@@ -9,6 +9,12 @@
 namespace ars_graphics::attributes
 {
 
+#define DATA_IMPL                                      \
+    const char* dataImpl() const                       \
+    {                                                  \
+        return reinterpret_cast<const char*>(&m_data); \
+    }
+
 template <typename Derived, typename Cont = std::vector<char>>
 struct AttribueBase
 {
@@ -18,6 +24,10 @@ struct AttribueBase
         cont.resize(cont.size() + sizeof(Derived));
         void* begin = static_cast<void*>(&cont[cont.size() - sizeof(Derived)]);
         memcpy(begin, reinterpret_cast<const void*>(this), sizeof(Derived));
+    }
+    const char* data() const
+    {
+        return static_cast<const Derived*>(this)->dataImpl();
     }
 };
 
@@ -33,6 +43,8 @@ public:
     {
         m_data = pos;
     }
+
+    DATA_IMPL
 
 protected:
     glm::vec2 m_data;
@@ -51,6 +63,8 @@ public:
     {
         m_data = pos;
     }
+
+    DATA_IMPL
 
 protected:
     glm::vec3 m_data;
@@ -82,6 +96,8 @@ public:
         m_data = normal;
     }
 
+    DATA_IMPL
+
 protected:
     glm::vec3 m_data;
 };
@@ -98,6 +114,8 @@ public:
     {
         m_data = coord;
     }
+
+    DATA_IMPL
 
 protected:
     glm::vec2 m_data;
@@ -117,6 +135,8 @@ public:
         m_data = color;
     }
 
+    DATA_IMPL
+
 protected:
     glm::vec3 m_data;
 };
@@ -135,6 +155,8 @@ public:
     {
         m_data = color;
     }
+
+    DATA_IMPL
 
 protected:
     glm::vec4 m_data;

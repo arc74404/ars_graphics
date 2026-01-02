@@ -18,6 +18,8 @@ defaultVertexShaderBindings()
     result[1].binding_index = 1;
     result[1].stage         = vk::ShaderStageFlagBits::eVertex;
     result[1].type          = vk::DescriptorType::eStorageBuffer;
+
+    return result;
 }
 
 std::vector<DescriptorBindingData>

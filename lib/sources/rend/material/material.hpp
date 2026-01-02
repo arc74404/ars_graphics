@@ -13,31 +13,15 @@
 
 namespace ars_graphics
 {
-
-template <typename... VertexAttributes>
 class Material
 {
 public:
-    using VertexType = Vertex<VertexAttributes...>;
-
-    Material(const DescriptorManager& desc_manager,
+    Material(const LogicalDevice& device,
+             const DescriptorManager& desc_manager,
              const vk::PipelineLayout& pipelayout,
-             const PBRParameters& pbr)
-        : m_pipeline_layout(pipelayout),
-          m_pbr(pbr),
-          m_count_textures(pbr.countTextures())
-    {
-        m_descriptor_set =
-            desc_manager.getAllocator(DescriptorSetLayoutType::MATERIAL)
-                .allocate(logical_device);
-    }
+             const PBRParameters& pbr);
 
-    void bind(const vk::CommandBuffer& cmd) const
-    {
-        command_buffer.bindDescriptorSets(
-            vk::PipelineBindPoint::eGraphics, m_pipeline_layout, 1u, 1,
-            &(m_descriptor_set.get()), 0, nullptr);
-    }
+    void bind(const vk::CommandBuffer& cmd) const;
 
 private:
     uint8_t m_count_textures;
