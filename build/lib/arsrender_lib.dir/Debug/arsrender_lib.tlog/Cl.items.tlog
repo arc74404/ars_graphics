@@ -16,7 +16,6 @@ C:\Users\User\source\repos\arsrender_lib\lib\sources\rend\instance\instance.cpp;
 C:\Users\User\source\repos\arsrender_lib\lib\sources\rend\instance\validation_layers.cpp;C:\Users\User\source\repos\arsrender_lib\build\lib\arsrender_lib.dir\Debug\validation_layers.obj
 C:\Users\User\source\repos\arsrender_lib\lib\sources\rend\material\material.cpp;C:\Users\User\source\repos\arsrender_lib\build\lib\arsrender_lib.dir\Debug\material.obj
 C:\Users\User\source\repos\arsrender_lib\lib\sources\rend\model\load_funcs.cpp;C:\Users\User\source\repos\arsrender_lib\build\lib\arsrender_lib.dir\Debug\load_funcs.obj
-C:\Users\User\source\repos\arsrender_lib\lib\sources\rend\model\model_loader.cpp;C:\Users\User\source\repos\arsrender_lib\build\lib\arsrender_lib.dir\Debug\model_loader.obj
 C:\Users\User\source\repos\arsrender_lib\lib\sources\rend\pipelines\pipeline.cpp;C:\Users\User\source\repos\arsrender_lib\build\lib\arsrender_lib.dir\Debug\pipeline.obj
 C:\Users\User\source\repos\arsrender_lib\lib\sources\rend\pipelines\pipeline_creater.cpp;C:\Users\User\source\repos\arsrender_lib\build\lib\arsrender_lib.dir\Debug\pipeline_creater.obj
 C:\Users\User\source\repos\arsrender_lib\lib\sources\rend\render_pass\render_pass.cpp;C:\Users\User\source\repos\arsrender_lib\build\lib\arsrender_lib.dir\Debug\render_pass.obj

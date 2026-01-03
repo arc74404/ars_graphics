@@ -9,67 +9,61 @@
 #include "load_funcs.hpp"
 #include "model_manager.hpp"
 #include "model_path.hpp"
+#include "tiny_gltf.h"
 
 namespace ars_graphics
 {
 
-using ModelManagerConc = ModelManager<mesh_types::Standard3D>;
-
+template <typename ModelManagerType>
 class ModelLoader
 {
 public:
-    bool load(
-        const std::vector<ModelPath<mesh_types::Standard3D>>& standart_3d_paths,
-        ModelManagerConc& mesh_manager);
-
-private:
-    template <typename ModelT>
-    bool loadImpl(const std::vector<ModelPath<ModelT>>& paths,
-                  ModelManagerConc& model_manager);
-};
-
-template <>
-inline bool
-ModelLoader::loadImpl(
-    const std::vector<ModelPath<mesh_types::Standard3D>>& paths,
-    ModelManagerConc& model_manager)
-{
-    bool success = true;
-    for (const auto& path : paths)
+    void load(const std::vector<std::string>& paths,
+              ModelManagerType& model_manager)
     {
-        const std::string& filepath = path.m_path;
-
-        std::ifstream file(filepath, std::ios::binary);
-        if (!file.is_open())
+        for (auto&& path : paths)
         {
-            std::cerr << "Failed to open file: " << filepath << std::endl;
-            success = false;
-            continue;
-        }
-        file.close();
-
-        bool is_glb = filepath.find(".glb") != std::string::npos;
-
-        try
-        {
-            auto model = loadStandardModel(filepath, is_glb);
-            if (model)
+            if (false == fileOpenSuccess(path))
             {
-                model_manager.emplace<mesh_types::Standard3D>(
-                    path.m_path, std::move(*model));
+                std::cout << "Failed open file: " << path << '\n';
+                continue;
             }
-            else
+            tinygltf::Model model;
+            if (false == loadGLTFModel(path, isBinary(path), model))
             {
-                success = false;
+                std::cout << "Failed loadGLTFModel: " << path << '\n';
+                continue;
             }
-        }
-        catch (std::runtime_error& error)
-        {
-            std::cerr << error.what() << '\n';
-            success = false;
+
+            if (false ==
+                loadImpl<PriorityListPackSmall>(model, model_manager, path))
+            {
+                std::cout << "Failed load model: " << path << '\n';
+            }
         }
     }
-    return success;
-}
+
+private:
+    bool fileOpenSuccess(const std::string& path)
+    {
+        std::ifstream file(path, std::ios::binary);
+        if (false == file.is_open())
+        {
+            return false;
+        }
+        file.close();
+        return true;
+    }
+
+    template <typename... MeshTypes>
+    bool loadImpl(tinygltf::Model& model,
+                  ModelManagerType& model_manager,
+                  const std::string& path)
+    {
+        return (loadStandartModel<MeshTypes>(model, model_manager, path) ||
+                ...);
+        // return true;
+    }
+};
 
 } // namespace ars_graphics

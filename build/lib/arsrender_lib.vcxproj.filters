@@ -55,9 +55,6 @@
     <ClCompile Include="C:\Users\User\source\repos\arsrender_lib\lib\sources\rend\model\load_funcs.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\User\source\repos\arsrender_lib\lib\sources\rend\model\model_loader.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="C:\Users\User\source\repos\arsrender_lib\lib\sources\rend\pipelines\pipeline.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

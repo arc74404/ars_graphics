@@ -7,7 +7,10 @@ template <typename MeshType>
 class Model
 {
 public:
-    void addMesh(MeshType&& mesh);
+    void addMesh(MeshType&& mesh)
+    {
+        m_meshes.emplace_back(std::move(mesh));
+    }
 
 private:
     std::vector<MeshType> m_meshes;

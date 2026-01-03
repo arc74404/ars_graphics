@@ -16,7 +16,7 @@ namespace ars_graphics::attributes
     }
 
 template <typename Derived, typename Cont = std::vector<char>>
-struct AttribueBase
+struct AttributeBase
 {
     using ContType = Cont;
     void PushBytes(Cont& cont)
@@ -31,7 +31,7 @@ struct AttribueBase
     }
 };
 
-struct Position2D : AttribueBase<Position2D>
+struct Position2D : AttributeBase<Position2D>
 {
 public:
     constexpr void setPosition2D(float x, float y)
@@ -50,7 +50,7 @@ protected:
     glm::vec2 m_data;
 };
 
-struct Position3D : AttribueBase<Position3D>
+struct Position3D : AttributeBase<Position3D>
 {
 public:
     constexpr void setPosition3D(float x, float y, float z)
@@ -70,7 +70,7 @@ protected:
     glm::vec3 m_data;
 };
 
-struct OnlyAChannel : AttribueBase<OnlyAChannel>
+struct OnlyAChannel : AttributeBase<OnlyAChannel>
 {
 public:
     constexpr void setA(float d)
@@ -82,7 +82,7 @@ protected:
     float m_data;
 };
 
-struct Normal : AttribueBase<Normal>
+struct Normal : AttributeBase<Normal>
 {
 public:
     constexpr void setNormal(float x, float y, float z)
@@ -102,7 +102,7 @@ protected:
     glm::vec3 m_data;
 };
 
-struct TextureCoord : AttribueBase<TextureCoord>
+struct TextureCoord : AttributeBase<TextureCoord>
 {
 public:
     constexpr void setCoord(float u, float v)
@@ -121,7 +121,7 @@ protected:
     glm::vec2 m_data;
 };
 
-struct ColorRGB : AttribueBase<ColorRGB>
+struct ColorRGB : AttributeBase<ColorRGB>
 {
 public:
     constexpr void setColor(float r, float g, float b)
@@ -141,7 +141,7 @@ protected:
     glm::vec3 m_data;
 };
 
-struct ColorRGBA : AttribueBase<ColorRGBA>
+struct ColorRGBA : AttributeBase<ColorRGBA>
 {
 public:
     constexpr void setColor(float r, float g, float b, float a)

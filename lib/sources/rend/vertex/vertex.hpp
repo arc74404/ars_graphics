@@ -1,5 +1,7 @@
 #pragma once
 
+#include <tuple>
+
 #include "all_attributes.hpp"
 
 namespace ars_graphics
@@ -9,6 +11,8 @@ template <typename... Attributes>
 class Vertex : public Attributes...
 {
 public:
+    using TupleOfVectorAttributes = std::tuple<std::vector<Attributes>...>;
+
     using ContType =
         typename std::tuple_element<0,
                                     std::tuple<Attributes...>>::type::ContType;
