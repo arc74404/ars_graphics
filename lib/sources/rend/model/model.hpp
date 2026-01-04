@@ -1,18 +1,21 @@
 #pragma once
+#include <memory>
+#include <tuple>
 #include <vector>
+
+#include "../mesh/mesh.hpp"
 
 namespace ars_graphics
 {
-template <typename MeshType>
-class Model
+class Model final
 {
 public:
-    void addMesh(MeshType&& mesh)
+    void addMesh(Mesh&& mesh)
     {
         m_meshes.emplace_back(std::move(mesh));
     }
 
 private:
-    std::vector<MeshType> m_meshes;
+    std::vector<Mesh> m_meshes;
 };
 } // namespace ars_graphics

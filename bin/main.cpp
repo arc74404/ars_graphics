@@ -6,9 +6,9 @@ using namespace ars_graphics;
 int
 main()
 {
-    ModelManager<PriorityListPackSmall> manager;
+    ModelManager manager;
 
-    ModelLoader<ModelManager<PriorityListPackSmall>> loader;
+    ModelLoader loader;
 
     std::vector<std::string> paths = {
         "C:/Users/User/source/repos/arsrender_lib/models/"

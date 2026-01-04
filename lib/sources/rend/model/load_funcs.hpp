@@ -5,7 +5,7 @@
 #include <tuple>
 #include <vector>
 
-#include "../mesh/mesh_types.hpp"
+#include "../mesh/primitives_types.hpp"
 
 #include "model.hpp"
 #include "model_manager.hpp"
@@ -47,6 +47,10 @@ bool
 loadTexCoords(const tinygltf::Model& model,
               const tinygltf::Primitive& primitive,
               std::vector<attributes::TextureCoord>& texcoords);
+bool
+loadColorRGBA(const tinygltf::Model& model,
+              const tinygltf::Primitive& primitive,
+              std::vector<attributes::ColorRGBA>& texcoords);
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 template <typename AttributeType>
@@ -83,6 +87,14 @@ loadAttributes(const tinygltf::Model& model,
 {
     return loadTexCoords(model, primitive, attributes);
 }
+template <>
+inline bool
+loadAttributes(const tinygltf::Model& model,
+               const tinygltf::Primitive& primitive,
+               std::vector<attributes::ColorRGBA>& attributes)
+{
+    return loadColorRGBA(model, primitive, attributes);
+}
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -96,13 +108,14 @@ loadIndices(const tinygltf::Model& model,
 
 template <typename... VertexAttributes>
 bool
-loadAllAttributes(const tinygltf::Model& model,
-                  const tinygltf::Primitive& primitive,
-                  std::tuple<std::vector<VertexAttributes>...>& attributes)
+loadAllAttributes(
+    const tinygltf::Model& model,
+    const tinygltf::Primitive& primitive,
+    std::tuple<std::vector<VertexAttributes>...>& attributes_storage)
 {
     return (loadAttributes<VertexAttributes>(
                 model, primitive,
-                std::get<std::vector<VertexAttributes>>(attributes)) &&
+                std::get<std::vector<VertexAttributes>>(attributes_storage)) &&
             ...);
 }
 
@@ -163,57 +176,65 @@ calculateAllVertexAttribute(
      ...);
 }
 
-const tinygltf::Primitive*
-getTrianglePrimitive(const std::vector<tinygltf::Primitive>& primitives);
-
-template <typename MeshType, typename ModelManagerType>
 bool
-loadStandartModel(tinygltf::Model& model,
-                  ModelManagerType& manager,
-                  const std::string& path)
+hasIndices(const tinygltf::Primitive& primitive);
+
+vk::PrimitiveTopology
+convertGltfTopologyToVulkan(int gltf_topology);
+
+template <typename PrimitiveType>
+bool
+loadPrimitive(const tinygltf::Model& gltf_model,
+              const tinygltf::Primitive& gltf_primitive,
+              Mesh& mesh)
 {
-    Model<MeshType> result_model;
-
-    for (auto&& gltf_mesh : model.meshes)
+    std::vector<uint32_t> indices;
+    if (hasIndices(gltf_primitive))
     {
-        const tinygltf::Primitive* triangle_primitive =
-            getTrianglePrimitive(gltf_mesh.primitives);
+        CHECK(loadIndices(gltf_model, gltf_primitive, indices))
+    }
+    typename PrimitiveType::VertexType::TupleOfVectorAttributes attrs;
 
-        CHECK_PTR(triangle_primitive)
+    CHECK(loadAllAttributes(gltf_model, gltf_primitive, attrs))
 
-        //////////////////////////////////////////
+    size_t vertex_count = std::get<0>(attrs).size();
 
-        typename MeshType::VertexType::TupleOfVectorAttributes
-            vertex_attributes_vector_tuple;
+    CHECK(vertex_count)
+    // //////////////////////////////////////////
+    std::vector<typename PrimitiveType::VertexType> vertices;
+    vertices.reserve(vertex_count);
 
-        bool check_val = loadAllAttributes(model, *triangle_primitive,
-                                           vertex_attributes_vector_tuple);
+    for (size_t i = 0; i < vertex_count; ++i)
+    {
+        typename PrimitiveType::VertexType vertex;
+
+        calculateAllVertexAttribute(vertex, attrs, i);
+
+        vertices.push_back(std::move(vertex));
+    }
+    mesh.addPrimitive(
+        Primitive{std::move(indices), std::move(vertices),
+                  convertGltfTopologyToVulkan(gltf_primitive.mode)});
+    return true;
+}
+
+template <typename... PrimitiveTypes>
+bool
+loadMesh(tinygltf::Model& gltf_model,
+         tinygltf::Mesh& gltf_mesh,
+         Model& my_model,
+         const std::vector<Material>* materials)
+{
+    Mesh mesh;
+    for (auto&& primitive : gltf_mesh.primitives)
+    {
+        bool check_val =
+            (loadPrimitive<PrimitiveTypes>(gltf_model, primitive, mesh) || ...);
 
         CHECK(check_val)
-
-        std::vector<uint32_t> indices;
-        CHECK(loadIndices(model, *triangle_primitive, indices))
-
-        size_t vertex_count =
-            std::get<0>(vertex_attributes_vector_tuple).size();
-        CHECK(vertex_count)
-        //////////////////////////////////////////
-        std::vector<typename MeshType::VertexType> vertices;
-        vertices.reserve(vertex_count);
-
-        for (size_t i = 0; i < vertex_count; ++i)
-        {
-            typename MeshType::VertexType vertex;
-
-            calculateAllVertexAttribute(vertex, vertex_attributes_vector_tuple,
-                                        i);
-
-            vertices.push_back(std::move(vertex));
-        }
-        result_model.addMesh({std::move(indices), std::move(vertices)});
     }
+    my_model.addMesh(std::move(mesh));
 
-    manager.emplace(path, std::move(result_model));
     return true;
 }
 } // namespace ars_graphics

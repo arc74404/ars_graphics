@@ -64,6 +64,41 @@ loadAttributesPrimitive(const tinygltf::Model& model,
 }
 } // namespace
 
+vk::PrimitiveTopology
+ars_graphics::convertGltfTopologyToVulkan(int gltf_topology)
+{
+    switch (gltf_topology)
+    {
+        case TINYGLTF_MODE_POINTS:
+            return vk::PrimitiveTopology::ePointList;
+
+        case TINYGLTF_MODE_LINE:
+            return vk::PrimitiveTopology::eLineList;
+
+        case TINYGLTF_MODE_LINE_LOOP:
+            return vk::PrimitiveTopology::eLineList;
+
+        case TINYGLTF_MODE_LINE_STRIP:
+            return vk::PrimitiveTopology::eLineStrip;
+
+        case TINYGLTF_MODE_TRIANGLES:
+            return vk::PrimitiveTopology::eTriangleList;
+
+        case TINYGLTF_MODE_TRIANGLE_STRIP:
+            return vk::PrimitiveTopology::eTriangleStrip;
+
+        case TINYGLTF_MODE_TRIANGLE_FAN:
+            return vk::PrimitiveTopology::eTriangleFan;
+    }
+    return {};
+}
+
+bool
+ars_graphics::hasIndices(const tinygltf::Primitive& primitive)
+{
+    return false == (primitive.indices < 0);
+}
+
 bool
 ars_graphics::isBinary(const std::string& path)
 {
@@ -123,6 +158,14 @@ ars_graphics::loadNormals(const tinygltf::Model& model,
                           std::vector<attributes::Normal>& normals)
 {
     return loadAttributesPrimitive(model, primitive, "NORMAL", normals);
+}
+
+bool
+ars_graphics::loadColorRGBA(const tinygltf::Model& model,
+                            const tinygltf::Primitive& primitive,
+                            std::vector<attributes::ColorRGBA>& colors)
+{
+    return loadAttributesPrimitive(model, primitive, "COLOR_0", colors);
 }
 
 bool
@@ -279,84 +322,3 @@ ars_graphics::loadIndices(const tinygltf::Model& model,
 
     return true;
 }
-
-const tinygltf::Primitive*
-ars_graphics::getTrianglePrimitive(
-    const std::vector<tinygltf::Primitive>& primitives)
-{
-    const tinygltf::Primitive* triangle_primitive = nullptr;
-
-    for (auto&& primitive : primitives)
-    {
-        if (primitive.mode == TINYGLTF_MODE_TRIANGLES)
-        {
-            triangle_primitive = &primitive;
-            break;
-        }
-    }
-    return triangle_primitive;
-}
-
-// std::optional<ars_graphics::Model<ars_graphics::mesh_types::Standard3D>>
-// ars_graphics::loadStandardModel(tinygltf::Model& model)
-// {
-//     Model<mesh_types::Standard3D> result_model;
-
-//     for (auto&& gltf_mesh : model.meshes)
-//     {
-//         const tinygltf::Primitive* triangle_primitive =
-//             getTrianglePrimitive(gltf_mesh.primitives);
-
-//         CHECK_PTR(triangle_primitive)
-
-//         //////////////////////////////////////////
-
-//         std::vector<attributes::Position3D> positions;
-//         std::vector<attributes::Normal> normals;
-//         std::vector<attributes::TextureCoord> texcoords;
-//         std::vector<uint32_t> indices;
-
-//         CHECK(loadPositions(model, *triangle_primitive, positions))
-//         CHECK(loadNormals(model, *triangle_primitive, normals))
-//         CHECK(loadTexCoords(model, *triangle_primitive, texcoords))
-//         CHECK(loadIndices(model, *triangle_primitive, indices))
-
-//         size_t vertex_count = positions.size();
-//         CHECK(vertex_count)
-
-//         //////////////////////////////////////////
-//         std::vector<mesh_types::Standard3D::VertexType> vertices;
-//         vertices.reserve(vertex_count);
-
-//         for (size_t i = 0; i < vertex_count; ++i)
-//         {
-//             mesh_types::Standard3D::VertexType vertex;
-
-//             if (i < positions.size())
-//             {
-//                 vertex.setPosition3D(
-//                     *(reinterpret_cast<const
-//                     glm::vec3*>(positions[i].data())));
-//             }
-
-//             if (i < normals.size())
-//             {
-//                 vertex.setNormal(
-//                     *(reinterpret_cast<const
-//                     glm::vec3*>(normals[i].data())));
-//             }
-
-//             if (i < texcoords.size())
-//             {
-//                 vertex.setNormal(
-//                     *(reinterpret_cast<const
-//                     glm::vec3*>(texcoords[i].data())));
-//             }
-
-//             vertices.push_back(std::move(vertex));
-//         }
-//         result_model.addMesh({std::move(indices), std::move(vertices)});
-//     }
-
-//     return result_model;
-// }
