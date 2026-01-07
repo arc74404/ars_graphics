@@ -1,9 +1,7 @@
 {
 	"InstallScripts" : 
 	[
-		"C:/Users/User/source/repos/arsrender_lib/build/cmake_install.cmake",
-		"C:/Users/User/source/repos/arsrender_lib/build/lib/cmake_install.cmake",
-		"C:/Users/User/source/repos/arsrender_lib/build/bin/cmake_install.cmake"
+		"C:/Users/User/source/repos/arsrender_lib/build/cmake_install.cmake"
 	],
 	"Parallel" : false
 }
