@@ -12,7 +12,17 @@ namespace ars_graphics
 class TextureStorage
 {
 public:
-    std::vector<Texture>& pushTextures(std::vector<Texture>&& new_textures);
+    template <typename Cont>
+    void pushTextures(Cont&& cont)
+    {
+        auto& dest = m_texture_storage.emplace_back();
+        dest.reserve(cont.size());
+
+        for (Texture& el : cont)
+        {
+            dest.emplace_back(std::move(el));
+        }
+    }
 
 private:
     std::vector<std::vector<Texture>> m_texture_storage;

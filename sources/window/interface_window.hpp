@@ -10,6 +10,7 @@ class IWindow
 public:
     virtual ~IWindow() = default;
 
-    virtual vk::SurfaceKHR createSurface(const vk::Instance& instance) = 0;
+    virtual vk::UniqueSurfaceKHR createSurface(
+        const vk::Instance& instance) = 0;
 };
 } // namespace ars_graphics

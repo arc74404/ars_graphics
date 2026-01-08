@@ -1,5 +1,4 @@
-#ifndef DESCRIPTOR_POOL_HPP
-#define DESCRIPTOR_POOL_HPP
+#pragma once
 
 #define VULKAN_HPP_NO_EXCEPTIONS
 #include <vulkan/vulkan.hpp>
@@ -23,5 +22,3 @@ private:
     vk::UniqueDescriptorPool m_descriptor_pool;
 };
 }; // namespace ars_graphics
-
-#endif // DESCRIPTOR_POOL_HPP

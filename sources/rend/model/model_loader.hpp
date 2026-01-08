@@ -5,6 +5,8 @@
 #include <optional>
 
 #include "../material/material.hpp"
+#include "../material/material_creater.hpp"
+#include "../material/material_storage.hpp"
 #include "../mesh/primitives_types.hpp"
 #include "../textures/texture_creater.hpp"
 #include "../textures/texture_data.hpp"
@@ -25,6 +27,8 @@ public:
     void load(TextureDataStorage& texture_data_storage,
               TextureStorage& texture_storage,
               const TextureCreater& texture_creater,
+              MaterialStorage& material_storage,
+              const MaterialCreater& material_creater,
               const std::vector<std::string>& paths,
               std::unordered_map<std::string, Model>& model_storage) const;
 
@@ -36,6 +40,8 @@ private:
                   TextureDataStorage& texture_data_storage,
                   TextureStorage& texture_storage,
                   const TextureCreater& texture_creater,
+                  MaterialStorage& material_storage,
+                  const MaterialCreater& material_creater,
                   const std::string& path) const;
 
     bool loadTextures(const std::vector<tinygltf::Texture>& gltf_textures,

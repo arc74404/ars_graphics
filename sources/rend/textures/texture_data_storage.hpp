@@ -11,7 +11,7 @@ namespace ars_graphics
 class TextureDataStorage
 {
 public:
-    std::vector<TextureData>& pushTextures(
+    std::vector<TextureData>& pushDataTextures(
         std::vector<TextureData>&& new_textures_data);
 
 private:

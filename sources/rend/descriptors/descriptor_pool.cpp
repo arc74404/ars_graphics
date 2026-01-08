@@ -31,8 +31,8 @@ DescriptorPool::DescriptorPool(
 
     vk::DescriptorPoolCreateInfo poolInfo;
 
-    poolInfo.flags         = vk::DescriptorPoolCreateFlags();
-    poolInfo.maxSets       = max_sets;
+    poolInfo.flags   = vk::DescriptorPoolCreateFlagBits::eFreeDescriptorSet;
+    poolInfo.maxSets = max_sets;
     poolInfo.poolSizeCount = static_cast<uint32_t>(poolSizes.size());
     poolInfo.pPoolSizes    = poolSizes.data();
 

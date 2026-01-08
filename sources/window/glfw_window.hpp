@@ -27,12 +27,13 @@ public:
     GlfwWindow() = default;
     GlfwWindow(const GlfwWindowConfigInfo& config_info);
 
-    vk::SurfaceKHR createSurface(const vk::Instance& instance);
+    vk::UniqueSurfaceKHR createSurface(const vk::Instance& instance) override;
 
     ~GlfwWindow();
 
 private:
     std::unique_ptr<GLFWwindow, GlfwWindowDeleter> m_window;
+
     GlfwWindowConfigInfo m_config;
 };
 } // namespace ars_graphics

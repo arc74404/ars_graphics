@@ -39,13 +39,11 @@ GlfwWindow::GlfwWindow(const GlfwWindowConfigInfo& config_info)
     }
 }
 
-vk::SurfaceKHR
+vk::UniqueSurfaceKHR
 GlfwWindow::createSurface(const vk::Instance& instance)
 {
-    VkSurfaceKHR surface{};
-
-    glfwCreateWindowSurface(instance, m_window.get(), nullptr, &surface);
-
-    return surface;
+    VkSurfaceKHR row_surface;
+    glfwCreateWindowSurface(instance, m_window.get(), nullptr, &row_surface);
+    return vk::UniqueSurfaceKHR{row_surface};
 }
 } // namespace ars_graphics

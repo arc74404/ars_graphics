@@ -12,6 +12,8 @@ void
 ModelLoader::load(TextureDataStorage& texture_data_storage,
                   TextureStorage& texture_storage,
                   const TextureCreater& texture_creater,
+                  MaterialStorage& material_storage,
+                  const MaterialCreater& material_creater,
                   const std::vector<std::string>& paths,
                   std::unordered_map<std::string, Model>& model_storage) const
 {
@@ -30,7 +32,8 @@ ModelLoader::load(TextureDataStorage& texture_data_storage,
         }
 
         if (false == loadImpl(gltf_model, model_storage, texture_data_storage,
-                              texture_storage, texture_creater, path))
+                              texture_storage, texture_creater,
+                              material_storage, material_creater, path))
         {
             std::cout << "Failed load model: " << path << '\n';
         }
@@ -55,6 +58,8 @@ ModelLoader::loadImpl(tinygltf::Model& gltf_model,
                       TextureDataStorage& texture_data_storage,
                       TextureStorage& texture_storage,
                       const TextureCreater& texture_creater,
+                      MaterialStorage& material_storage,
+                      const MaterialCreater& material_creater,
                       const std::string& path) const
 {
     Model res_model;
@@ -68,7 +73,7 @@ ModelLoader::loadImpl(tinygltf::Model& gltf_model,
     }
 
     std::vector<TextureData>& realoc_textures_data =
-        texture_data_storage.pushTextures(std::move(textures_data));
+        texture_data_storage.pushDataTextures(std::move(textures_data));
 
     std::vector<ars_graphics::MaterialData> materials_data;
 
@@ -80,10 +85,13 @@ ModelLoader::loadImpl(tinygltf::Model& gltf_model,
         return false;
     }
 
+    std::vector<Material>& realoc_materials = material_storage.pushMaterials(
+        material_creater.convertToMaterials(std::move(materials_data)));
+
     for (auto&& gltf_mesh : gltf_model.meshes)
     {
         bool checker = loadMesh<PrimitivesPriorityListPack>(
-            gltf_model, gltf_mesh, res_model, nullptr);
+            gltf_model, gltf_mesh, res_model, realoc_materials);
 
         CHECK(checker)
     }
@@ -210,11 +218,11 @@ ModelLoader::loadMaterials(
         pbr_params.m_roughness =
             gltf_material.pbrMetallicRoughness.roughnessFactor;
 
-        std::set<Texture, TextureSetCompare> textures;
+        std::list<Texture> textures;
 
-        auto createTexture = [&textures, &texture_creater,
-                              &textures_data](size_t index, const Texture* dest,
-                                              Texture::TextureType texture_type)
+        auto createTexture = [&textures, &texture_creater, &textures_data](
+                                 size_t index, const Texture*& dest,
+                                 Texture::TextureType texture_type)
         {
             if (hasTexture(index))
             {
@@ -224,7 +232,8 @@ ModelLoader::loadMaterials(
                 {
                     return;
                 }
-                dest = &(*(textures.emplace(std::move(res.value())).first));
+                textures.push_back(std::move(res.value()));
+                dest = &textures.back();
             }
         };
         createTexture(gltf_material.pbrMetallicRoughness.baseColorTexture.index,
@@ -244,6 +253,8 @@ ModelLoader::loadMaterials(
 
         createTexture(gltf_material.occlusionTexture.index, pbr_params.m_ao_map,
                       Texture::TextureType::OCCLUSION);
+
+        texturue_storage.pushTextures(std::move(textures));
 
         material_data.m_pbrparams = std::move(pbr_params);
 

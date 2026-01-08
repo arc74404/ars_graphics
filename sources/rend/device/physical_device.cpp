@@ -32,7 +32,7 @@ bool
 PhysicalDevice::supportMailBox(const vk::PhysicalDevice& device,
                                const vk::SurfaceKHR& surface)
 {
-    auto&& modes = device.getSurfacePresentModesKHR();
+    auto&& modes = device.getSurfacePresentModesKHR(surface);
     if (modes.result != vk::Result::eSuccess)
     {
         throw std::runtime_error("Failed get surface present modes");

@@ -8,6 +8,7 @@ vk::PhysicalDeviceFeatures
 LogicalDevice::setupDeviceFeatures()
 {
     vk::PhysicalDeviceFeatures features;
+    features.samplerAnisotropy = vk::True;
     return features;
 }
 

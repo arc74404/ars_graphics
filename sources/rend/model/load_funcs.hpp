@@ -5,6 +5,7 @@
 #include <tuple>
 #include <vector>
 
+#include "../material/material.hpp"
 #include "../mesh/primitives_types.hpp"
 
 #include "model.hpp"
@@ -185,7 +186,8 @@ template <typename PrimitiveType>
 bool
 loadPrimitive(const tinygltf::Model& gltf_model,
               const tinygltf::Primitive& gltf_primitive,
-              Mesh& mesh)
+              Mesh& mesh,
+              const std::vector<Material>& materials)
 {
     std::vector<uint32_t> indices;
     if (hasIndices(gltf_primitive))
@@ -214,12 +216,10 @@ loadPrimitive(const tinygltf::Model& gltf_model,
 
     // -------------- //
 
-    // -- extra data -- //
-    // ----------------------- //
-
     mesh.addPrimitive(
         Primitive{std::move(indices), std::move(vertices),
-                  convertGltfTopologyToVulkan(gltf_primitive.mode), nullptr});
+                  convertGltfTopologyToVulkan(gltf_primitive.mode),
+                  &(materials[gltf_primitive.material])});
     return true;
 }
 
@@ -228,13 +228,14 @@ bool
 loadMesh(tinygltf::Model& gltf_model,
          tinygltf::Mesh& gltf_mesh,
          Model& my_model,
-         const std::vector<Material>* materials)
+         const std::vector<Material>& materials)
 {
     Mesh mesh;
     for (auto&& primitive : gltf_mesh.primitives)
     {
-        bool check_val =
-            (loadPrimitive<PrimitiveTypes>(gltf_model, primitive, mesh) || ...);
+        bool check_val = (loadPrimitive<PrimitiveTypes>(gltf_model, primitive,
+                                                        mesh, materials) ||
+                          ...);
 
         CHECK(check_val)
     }

@@ -1,6 +1,6 @@
-#ifndef DESCRIPTOR_MANAGER_HPP
-#define DESCRIPTOR_MANAGER_HPP
+#pragma once
 
+#define VULKAN_HPP_NO_EXCEPTIONS
 #include <vulkan/vulkan.hpp>
 
 #include <string>
@@ -37,5 +37,3 @@ private:
 };
 
 }; // namespace ars_graphics
-
-#endif // DESCRIPTOR_MANAGER_HPP
