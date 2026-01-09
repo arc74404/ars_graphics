@@ -19,7 +19,7 @@ GlfwWindowDeleter::operator()(GLFWwindow* window) const
 }
 
 GlfwWindow::GlfwWindow(const GlfwWindowConfigInfo& config_info)
-    : m_config(config_info)
+    : IWindow(config_info.base_config_info)
 {
     if (glfwInit() == GLFW_FALSE)
     {
@@ -28,9 +28,9 @@ GlfwWindow::GlfwWindow(const GlfwWindowConfigInfo& config_info)
     glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
     glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE);
 
-    m_window.reset(glfwCreateWindow(m_config.m_width, m_config.m_height,
-                                    m_config.m_title.c_str(), nullptr,
-                                    nullptr));
+    m_window.reset(glfwCreateWindow(
+        getWidth(), getHeight(), config_info.base_config_info.m_title.c_str(),
+        nullptr, nullptr));
 
     if (m_window == nullptr)
     {
@@ -39,11 +39,11 @@ GlfwWindow::GlfwWindow(const GlfwWindowConfigInfo& config_info)
     }
 }
 
-vk::UniqueSurfaceKHR
+vk::SurfaceKHR
 GlfwWindow::createSurface(const vk::Instance& instance)
 {
     VkSurfaceKHR row_surface;
     glfwCreateWindowSurface(instance, m_window.get(), nullptr, &row_surface);
-    return vk::UniqueSurfaceKHR{row_surface};
+    return vk::SurfaceKHR{row_surface};
 }
 } // namespace ars_graphics

@@ -164,23 +164,56 @@ PhysicalDevice::findMemoryTypeIndex(
     return 0;
 }
 
+std::vector<vk::SurfaceFormatKHR>
+PhysicalDevice::calculateSurfaceFormats(const vk::SurfaceKHR& surface) const
+{
+    auto&& forms = m_physical_device.getSurfaceFormatsKHR(surface);
+
+    if (forms.result != vk::Result::eSuccess)
+    {
+        throw std::runtime_error("Failed getSurfaceSupportDetails");
+    }
+
+    return forms.value;
+}
+
 SwapChainSupportDetails
 PhysicalDevice::getSurfaceSupportDetails(const vk::SurfaceKHR& surface) const
 {
-    auto&& cap   = m_physical_device.getSurfaceCapabilitiesKHR(surface);
-    auto&& forms = m_physical_device.getSurfaceFormatsKHR(surface);
+    auto&& cap = m_physical_device.getSurfaceCapabilitiesKHR(surface);
+
     auto&& modes = m_physical_device.getSurfacePresentModesKHR(surface);
 
     if (cap.result != vk::Result::eSuccess ||
-        forms.result != vk::Result::eSuccess ||
         modes.result != vk::Result::eSuccess)
     {
         throw std::runtime_error("Failed getSurfaceSupportDetails");
     }
 
-    return {.capabilities  = cap.value,
-            .formats       = forms.value,
-            .present_modes = modes.value};
+    return {.capabilities = cap.value, .present_modes = modes.value};
+}
+
+vk::Format
+PhysicalDevice::calculateSwapchainDepthFormat() const
+{
+    const std::vector<vk::Format> candidates = {
+        vk::Format::eD32SfloatS8Uint, vk::Format::eD24UnormS8Uint,
+        vk::Format::eD32Sfloat, vk::Format::eD16UnormS8Uint,
+        vk::Format::eD16Unorm};
+
+    for (auto&& format : candidates)
+    {
+        vk::FormatProperties props =
+            m_physical_device.getFormatProperties(format);
+
+        if (props.optimalTilingFeatures &
+            vk::FormatFeatureFlagBits::eDepthStencilAttachment)
+        {
+            return format;
+        }
+    }
+
+    throw std::runtime_error("Failed to find supported depth format!");
 }
 
 const vk::PhysicalDevice&

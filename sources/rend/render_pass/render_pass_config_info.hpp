@@ -8,6 +8,9 @@ namespace ars_graphics
 {
 struct RenderPassConfigInfo final
 {
-    vk::Format swap_chain_format;
+    vk::Format color_format;
+    vk::Format depth_format;
+    bool clear_color;
+    bool clear_depth;
 };
 } // namespace ars_graphics

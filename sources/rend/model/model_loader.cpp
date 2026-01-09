@@ -9,7 +9,9 @@
 namespace ars_graphics
 {
 void
-ModelLoader::load(TextureDataStorage& texture_data_storage,
+ModelLoader::load(PipelineManager& pipeline_manager,
+                  const vk::RenderPass& render_pass,
+                  TextureDataStorage& texture_data_storage,
                   TextureStorage& texture_storage,
                   const TextureCreater& texture_creater,
                   MaterialStorage& material_storage,
@@ -31,7 +33,8 @@ ModelLoader::load(TextureDataStorage& texture_data_storage,
             continue;
         }
 
-        if (false == loadImpl(gltf_model, model_storage, texture_data_storage,
+        if (false == loadImpl(pipeline_manager, render_pass, gltf_model,
+                              model_storage, texture_data_storage,
                               texture_storage, texture_creater,
                               material_storage, material_creater, path))
         {
@@ -53,7 +56,9 @@ ModelLoader::fileOpenSuccess(const std::string& path) const
 }
 
 bool
-ModelLoader::loadImpl(tinygltf::Model& gltf_model,
+ModelLoader::loadImpl(PipelineManager& pipeline_manager,
+                      const vk::RenderPass& render_pass,
+                      tinygltf::Model& gltf_model,
                       std::unordered_map<std::string, Model>& model_storage,
                       TextureDataStorage& texture_data_storage,
                       TextureStorage& texture_storage,
@@ -91,7 +96,8 @@ ModelLoader::loadImpl(tinygltf::Model& gltf_model,
     for (auto&& gltf_mesh : gltf_model.meshes)
     {
         bool checker = loadMesh<PrimitivesPriorityListPack>(
-            gltf_model, gltf_mesh, res_model, realoc_materials);
+            pipeline_manager, render_pass, gltf_model, gltf_mesh, res_model,
+            realoc_materials);
 
         CHECK(checker)
     }

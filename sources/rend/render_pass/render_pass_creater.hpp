@@ -12,35 +12,27 @@ class RenderPassCreater
 public:
     virtual ~RenderPassCreater() = default;
 
-    void init(const RenderPassConfigInfo& config_info);
+    RenderPassCreater(const LogicalDevice& device);
 
-    vk::UniqueRenderPass createRenderPass(const LogicalDevice& device);
-
-private:
-    virtual vk::AttachmentDescription colorAttachment() const;
-    virtual vk::AttachmentReference colorAttachmentRef() const;
-
-    virtual vk::AttachmentDescription depthAttachment() const;
-    virtual vk::AttachmentReference depthAttachmentRef() const;
-
-    virtual vk::SubpassDescription subpassGenerate() const;
-
-    virtual vk::RenderPassCreateInfo generateRenderPassInfo() const;
+    vk::UniqueRenderPass createRenderPass(
+        const RenderPassConfigInfo& config_info);
 
 private:
-    RenderPassConfigInfo m_config_info;
+    virtual vk::AttachmentDescription colorAttachment(
+        const RenderPassConfigInfo& config_info) const;
+    virtual vk::AttachmentReference colorAttachmentRef(
+        const RenderPassConfigInfo& config_info) const;
 
-    vk::AttachmentDescription m_color_attachment;
+    virtual vk::AttachmentDescription depthAttachment(
+        const RenderPassConfigInfo& config_info) const;
+    virtual vk::AttachmentReference depthAttachmentRef(
+        const RenderPassConfigInfo& config_info) const;
 
-    vk::AttachmentReference m_color_attachment_ref;
+    virtual vk::SubpassDescription subpassGenerate(
+        const vk::AttachmentReference& color,
+        const vk::AttachmentReference& depth) const;
 
-    vk::AttachmentDescription m_depth_attachment;
-
-    vk::AttachmentReference m_depth_attachment_ref;
-
-    vk::SubpassDescription m_subpass;
-
-    // final info
-    vk::RenderPassCreateInfo m_renderpass_info;
+private:
+    const LogicalDevice& m_device;
 };
 } // namespace ars_graphics

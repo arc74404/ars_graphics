@@ -10,15 +10,12 @@ Pipeline::bind(const vk::CommandBuffer& cmd) const
     cmd.bindPipeline(vk::PipelineBindPoint::eGraphics, m_pipeline.get());
 }
 
-Pipeline::Pipeline(std::unique_ptr<PipelineCreater>&& creater,
-                   const PipelineConfigInfo& pipeline_config_info,
+Pipeline::Pipeline(PipelineCreater& creater,
                    const vk::RenderPass& render_pass,
-                   const ShaderManager& shader_manager,
-                   const LogicalDevice& device)
+                   const PipelineConfigInfo& pipeline_config_info)
 {
-    creater->init(pipeline_config_info);
     m_pipeline =
-        std::move(creater->createPipeline(shader_manager, render_pass, device));
+        std::move(creater.createPipeline(render_pass, pipeline_config_info));
 }
 
 } // namespace ars_graphics

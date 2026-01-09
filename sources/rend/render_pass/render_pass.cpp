@@ -5,12 +5,16 @@
 namespace ars_graphics
 {
 
-RenderPass::RenderPass(const LogicalDevice& device,
-                       std::unique_ptr<RenderPassCreater>&& creater,
+RenderPass::RenderPass(RenderPassCreater& creater,
                        const RenderPassConfigInfo& config_info)
 {
-    creater->init(config_info);
-    m_render_pass = std::move(creater->createRenderPass(device));
+    m_render_pass = creater.createRenderPass(config_info);
+}
+
+vk::RenderPass
+RenderPass::get() const
+{
+    return m_render_pass.get();
 }
 
 void

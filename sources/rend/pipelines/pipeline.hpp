@@ -17,11 +17,9 @@ class Pipeline
 public:
     virtual ~Pipeline() = default;
 
-    Pipeline(std::unique_ptr<PipelineCreater>&& creater,
-             const PipelineConfigInfo& pipeline_core_config_info,
+    Pipeline(PipelineCreater& creater,
              const vk::RenderPass& render_pass,
-             const ShaderManager& shader_manager,
-             const LogicalDevice& device);
+             const PipelineConfigInfo& pipeline_config_info);
 
     void bind(const vk::CommandBuffer& cmd) const;
 

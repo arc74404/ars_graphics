@@ -12,9 +12,10 @@ struct RenderPassCreater;
 class RenderPass final
 {
 public:
-    RenderPass(const LogicalDevice& device,
-               std::unique_ptr<RenderPassCreater>&& creater,
+    RenderPass(RenderPassCreater& creater,
                const RenderPassConfigInfo& config_info);
+
+    vk::RenderPass get() const;
 
     void begin(const vk::CommandBuffer& cmd,
                const vk::Framebuffer& framebuffer,

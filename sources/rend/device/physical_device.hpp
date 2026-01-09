@@ -17,7 +17,6 @@ struct QueueFamilyIndices
 struct SwapChainSupportDetails
 {
     vk::SurfaceCapabilitiesKHR capabilities;
-    std::vector<vk::SurfaceFormatKHR> formats;
     std::vector<vk::PresentModeKHR> present_modes;
 };
 
@@ -36,6 +35,11 @@ public:
         const vk::SurfaceKHR& surface) const;
 
     const vk::PhysicalDevice& get() const;
+
+    vk::Format calculateSwapchainDepthFormat() const;
+
+    std::vector<vk::SurfaceFormatKHR> calculateSurfaceFormats(
+        const vk::SurfaceKHR& surface) const;
 
 private:
     void choosePhysicalDevice(const Instance& instance,

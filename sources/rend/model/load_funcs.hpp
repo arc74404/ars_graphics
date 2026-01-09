@@ -184,7 +184,9 @@ convertGltfTopologyToVulkan(int gltf_topology);
 
 template <typename PrimitiveType>
 bool
-loadPrimitive(const tinygltf::Model& gltf_model,
+loadPrimitive(PipelineManager& pipeline_manager,
+              const vk::RenderPass& render_pass,
+              const tinygltf::Model& gltf_model,
               const tinygltf::Primitive& gltf_primitive,
               Mesh& mesh,
               const std::vector<Material>& materials)
@@ -216,16 +218,18 @@ loadPrimitive(const tinygltf::Model& gltf_model,
 
     // -------------- //
 
-    mesh.addPrimitive(
-        Primitive{std::move(indices), std::move(vertices),
-                  convertGltfTopologyToVulkan(gltf_primitive.mode),
-                  &(materials[gltf_primitive.material])});
+    mesh.addPrimitive(Primitive{
+        pipeline_manager, render_pass, std::move(indices), std::move(vertices),
+        convertGltfTopologyToVulkan(gltf_primitive.mode),
+        &(materials[gltf_primitive.material])});
     return true;
 }
 
 template <typename... PrimitiveTypes>
 bool
-loadMesh(tinygltf::Model& gltf_model,
+loadMesh(PipelineManager& pipeline_manager,
+         const vk::RenderPass& render_pass,
+         tinygltf::Model& gltf_model,
          tinygltf::Mesh& gltf_mesh,
          Model& my_model,
          const std::vector<Material>& materials)
@@ -233,8 +237,9 @@ loadMesh(tinygltf::Model& gltf_model,
     Mesh mesh;
     for (auto&& primitive : gltf_mesh.primitives)
     {
-        bool check_val = (loadPrimitive<PrimitiveTypes>(gltf_model, primitive,
-                                                        mesh, materials) ||
+        bool check_val = (loadPrimitive<PrimitiveTypes>(
+                              pipeline_manager, render_pass, gltf_model,
+                              primitive, mesh, materials) ||
                           ...);
 
         CHECK(check_val)

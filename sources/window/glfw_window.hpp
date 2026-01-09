@@ -16,9 +16,7 @@ struct GlfwWindowDeleter
 
 struct GlfwWindowConfigInfo final
 {
-    std::string m_title = "Vulkan Application";
-    int m_width         = 800;
-    int m_height        = 600;
+    WindowConfigInfo base_config_info;
 };
 
 class GlfwWindow final : public IWindow
@@ -27,13 +25,11 @@ public:
     GlfwWindow() = default;
     GlfwWindow(const GlfwWindowConfigInfo& config_info);
 
-    vk::UniqueSurfaceKHR createSurface(const vk::Instance& instance) override;
+    vk::SurfaceKHR createSurface(const vk::Instance& instance) override;
 
     ~GlfwWindow();
 
 private:
     std::unique_ptr<GLFWwindow, GlfwWindowDeleter> m_window;
-
-    GlfwWindowConfigInfo m_config;
 };
 } // namespace ars_graphics

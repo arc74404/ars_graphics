@@ -16,6 +16,12 @@ public:
     using ContType =
         typename std::tuple_element<0,
                                     std::tuple<Attributes...>>::type::ContType;
+
+    vk::VertexInputBindingDescription getVertexBindingDescription() const;
+
+    std::vector<vk::VertexInputAttributeDescription>
+        getVertexAttributeDescription() const;
+
     void pushBytes(ContType& cont)
     {
         (Attributes::pushBytes(cont), ...);

@@ -4,7 +4,9 @@
 
 namespace ars_graphics
 {
-ModelManager::ModelManager(const LogicalDevice& logical_device,
+ModelManager::ModelManager(PipelineManager& pipeline_manager,
+                           const vk::RenderPass& render_pass,
+                           const LogicalDevice& logical_device,
                            const PhysicalDevice& physical_device,
                            const DescriptorManager& descriptor_manager,
                            vk::PipelineLayout pipelayout,
@@ -15,7 +17,20 @@ ModelManager::ModelManager(const LogicalDevice& logical_device,
     MaterialCreater material_creater(logical_device, descriptor_manager,
                                      pipelayout);
 
-    m_loader.load(m_texture_data_storage, m_texture_storage, texture_creater,
-                  m_material_storage, material_creater, paths, m_models);
+    m_loader.load(pipeline_manager, render_pass, m_texture_data_storage,
+                  m_texture_storage, texture_creater, m_material_storage,
+                  material_creater, paths, m_models);
 }
+
+const Model*
+ModelManager::operator[](const std::string& key)
+{
+    auto&& it = m_models.find(key);
+    if (it == m_models.end())
+    {
+        throw std::runtime_error(std::format("{}{}", "No such model: ", key));
+    }
+    return &(it->second);
+}
+
 } // namespace ars_graphics

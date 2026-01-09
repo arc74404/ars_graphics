@@ -40,13 +40,12 @@ public:
 
     // Resourcers
 
-    //
     void waitForFence();
 
     void submitCommandBuffer();
 
 private:
-    void setupDepth(const vk::Extent2D& extent);
+    void setupView();
 
     SynchronizationControl m_sync_control;
     CommandBuffer m_command_buffer;

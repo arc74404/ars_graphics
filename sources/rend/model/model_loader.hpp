@@ -24,7 +24,9 @@ namespace ars_graphics
 class ModelLoader
 {
 public:
-    void load(TextureDataStorage& texture_data_storage,
+    void load(PipelineManager& pipeline_manager,
+              const vk::RenderPass& render_pass,
+              TextureDataStorage& texture_data_storage,
               TextureStorage& texture_storage,
               const TextureCreater& texture_creater,
               MaterialStorage& material_storage,
@@ -35,7 +37,9 @@ public:
 private:
     bool fileOpenSuccess(const std::string& path) const;
 
-    bool loadImpl(tinygltf::Model& gltf_model,
+    bool loadImpl(PipelineManager& pipeline_manager,
+                  const vk::RenderPass& render_pass,
+                  tinygltf::Model& gltf_model,
                   std::unordered_map<std::string, Model>& model_storage,
                   TextureDataStorage& texture_data_storage,
                   TextureStorage& texture_storage,

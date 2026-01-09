@@ -17,11 +17,15 @@ namespace ars_graphics
 class ModelManager
 {
 public:
-    ModelManager(const LogicalDevice& logical_device,
+    ModelManager(PipelineManager& pipeline_manager,
+                 const vk::RenderPass& render_pass,
+                 const LogicalDevice& logical_device,
                  const PhysicalDevice& physical_device,
                  const DescriptorManager& descriptor_manager,
                  vk::PipelineLayout pipelayout,
                  const std::vector<std::string>& paths);
+
+    const Model* operator[](const std::string& key);
 
 private:
     TextureDataStorage m_texture_data_storage;

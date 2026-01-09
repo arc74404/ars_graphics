@@ -32,7 +32,6 @@ Instance::getAvailablePhysicalDevices() const
 Instance::Instance(std::string_view name)
 {
     createInstance(name);
-
     auto vkGetInstanceProcAddr =
         dl.getProcAddress<PFN_vkGetInstanceProcAddr>("vkGetInstanceProcAddr");
     dldi.init(m_instance.get(), vkGetInstanceProcAddr);
@@ -119,4 +118,5 @@ Instance::createDebugMessenger()
     }
     m_debug_messenger = res.value;
 }
+
 } // namespace ars_graphics
