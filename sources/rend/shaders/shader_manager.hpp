@@ -1,8 +1,8 @@
-#ifndef SHADER_HPP
-#define SHADER_HPP
+#pragma once
 
 #include <vulkan/vulkan.hpp>
 
+#include <map>
 #include <string_view>
 #include <unordered_map>
 
@@ -12,16 +12,22 @@ namespace ars_graphics
 {
 enum class ShaderType
 {
-    DEFAULT_2D_VERTEX,
-    DEFAULT_3D_VERTEX,
-    DEFAULT_FRAGMENT
+    DEFAULT_SIMPLE_2D_VERTEX,
+    DEFAULT_POSITIONAL_ONLY_3D_VERTEX,
+    DEFAULT_SIMPLE_3D_VERTEX,
+    DEFAULT_STANDART_3D_VERTEX,
+    DEFAULT_COLORED_3D_VERTEX,
+    DEFAULT_PARTICLE_MESH_VERTEX,
+    DEFAULT_FRAGMENT,
+    TOTAL_COUNT
 };
 
 class ShaderManager final
 {
 public:
-    ShaderManager(const LogicalDevice& device,
-                  const std::string& shader_folder_path);
+    ShaderManager(
+        const LogicalDevice& device,
+        const std::unordered_map<ShaderType, std::string>& shader_paths);
 
     const ShaderModule& operator[](ShaderType st) const;
 
@@ -30,5 +36,3 @@ private:
 };
 
 }; // namespace ars_graphics
-
-#endif // SHADER_HPP

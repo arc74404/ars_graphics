@@ -1,4 +1,5 @@
 #pragma once
+
 #define VULKAN_HPP_NO_EXCEPTIONS
 #include <vulkan/vulkan.hpp>
 
@@ -12,10 +13,9 @@ namespace ars_graphics
 class DescriptorManager;
 class PipelineCreater;
 
-class Pipeline
+class Pipeline final
 {
 public:
-    virtual ~Pipeline() = default;
 
     Pipeline(PipelineCreater& creater,
              const vk::RenderPass& render_pass,

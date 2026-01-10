@@ -9,19 +9,18 @@
 namespace ars_graphics
 {
 
-ShaderManager::ShaderManager(const LogicalDevice& device,
-                             const std::string& shader_folder_path)
+ShaderManager::ShaderManager(
+    const LogicalDevice& device,
+    const std::unordered_map<ShaderType, std::string>& shader_paths)
 {
-    const std::unordered_map<ShaderType, std::string> name_type_connections = {
-        {ShaderType::DEFAULT_2D_VERTEX, "default_2d_vertex_shader.vert.spv"},
-        {ShaderType::DEFAULT_3D_VERTEX, "default_3d_vertex_shader.vert.spv"},
-        {ShaderType::DEFAULT_FRAGMENT,  "default_fragment_shader.frag.spv" }
-    };
-
-    for (auto&& con : name_type_connections)
+    if (shader_paths.size() != int(ShaderType::TOTAL_COUNT))
     {
-        std::string filepath = shader_folder_path + '/' + con.second;
-        std::fstream file{filepath, std::ios_base::binary, std::ios_base::app};
+        throw std::logic_error("ShaderPaths is not full");
+    }
+    for (auto&& con : shader_paths)
+    {
+        std::string filepath = con.second;
+        std::ifstream file{filepath, std::ios_base::binary};
 
         if (false == file.is_open())
         {

@@ -13,10 +13,15 @@ public:
     SwapChain(const LogicalDevice& logical_device,
               const PhysicalDevice& physical_device,
               const vk::SurfaceKHR& surface,
+              const RenderPassManager& renderpass_manager,
+              const vk::Format& depth_format,
+              const vk::SurfaceFormatKHR& surface_format,
               uint32_t width,
               uint32_t height);
 
     size_t countFrames() const;
+
+    const vk::Extent2D getExtent() const;
 
     void destroy();
 
@@ -24,16 +29,13 @@ private:
     void setupSwapchain(const LogicalDevice& logical_device,
                         const PhysicalDevice& physical_device,
                         const vk::SurfaceKHR& surface,
+                        const vk::SurfaceFormatKHR& surface_format,
                         uint32_t width,
                         uint32_t height);
-    vk::Format m_depth_format;
-    vk::SurfaceFormatKHR m_surface_format;
 
     vk::UniqueSwapchainKHR m_swapchain;
 
     vk::Extent2D m_extent;
-
-    RenderPassManager m_renderpass_manager;
 
     std::vector<SwapChainFrame> m_frames;
 };

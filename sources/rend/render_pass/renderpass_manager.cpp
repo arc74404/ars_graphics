@@ -64,4 +64,10 @@ RenderPassManager::RenderPassManager(const LogicalDevice& device,
                                             .clear_depth  = true});
 }
 
+const vk::RenderPass&
+RenderPassManager::getRenderPass(RenderPassType type) const
+{
+    return m_render_passes[getRenderPassIndex(type)]->get();
+}
+
 } // namespace ars_graphics

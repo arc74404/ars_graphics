@@ -15,7 +15,7 @@ public:
     RenderPass(RenderPassCreater& creater,
                const RenderPassConfigInfo& config_info);
 
-    vk::RenderPass get() const;
+    const vk::RenderPass& get() const;
 
     void begin(const vk::CommandBuffer& cmd,
                const vk::Framebuffer& framebuffer,

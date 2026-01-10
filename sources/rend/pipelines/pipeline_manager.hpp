@@ -1,5 +1,6 @@
 #pragma once
 #include <map>
+#include <string>
 
 #include "pipeline.hpp"
 #include "pipeline_creater.hpp"
@@ -31,7 +32,7 @@ public:
         const vk::RenderPass& render_pass,
         const MainPipelineConfigInfo& main_pipeline_config_info)
     {
-        PipelineStorage& storage = m_storages.find(pipeline_storage_type);
+        PipelineStorage& storage = m_storages.at(pipeline_storage_type);
 
         std::string key = VertexType::getStrRepersentation();
 
@@ -42,10 +43,15 @@ public:
             PipelineConfigInfo config_info = {.main_config_info =
                                                   main_pipeline_config_info,
                                               .extent = m_extent};
-            storage.emplace(key,
-                            m_creater.createPipeline(render_pass, config_info));
+            Pipeline pipeline{m_creater, render_pass, config_info};
+
+            auto&& result = storage.emplace(key, std::move(pipeline));
+            return &(result.first->second);
         }
-        return storage.at(key);
+        else
+        {
+            return &(it->second);
+        }
     }
 
 private:

@@ -9,7 +9,7 @@ namespace ars_graphics
 class ShaderModule final
 {
 public:
-    ShaderModule(const LogicalDevice& device, std::fstream& file);
+    ShaderModule(const LogicalDevice& device, std::ifstream& file);
 
     const vk::ShaderModule& get() const;
 

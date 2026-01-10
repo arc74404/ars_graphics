@@ -42,7 +42,7 @@ private:
     // ---- //
 
     void createShaderStages(
-        std::vector<vk::PipelineShaderStageCreateInfo> shader_stages,
+        std::vector<vk::PipelineShaderStageCreateInfo>& shader_stages,
         const PipelineConfigInfo& config_info,
         vk::ShaderModule& vertex_shader_module,
         vk::ShaderModule& fragment_shader_module);

@@ -29,6 +29,8 @@ public:
         const vk::ImageView& view,
         const vk::ImageView& depth_view) const;
 
+    const vk::RenderPass& getRenderPass(RenderPassType type) const;
+
 private:
     RenderPassCreater m_creater;
 

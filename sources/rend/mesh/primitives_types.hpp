@@ -3,7 +3,7 @@
 
 #include "../vertex/all_attributes.hpp"
 
-#include "mesh.hpp"
+#include "primitive.hpp"
 
 namespace ars_graphics::primitive_types
 {

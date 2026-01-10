@@ -2,6 +2,9 @@
 
 #include <vector>
 
+#define VULKAN_HPP_NO_EXCEPTIONS
+#include <vulkan/vulkan.hpp>
+
 #include "glm/vec2.hpp"
 #include "glm/vec3.hpp"
 #include "glm/vec4.hpp"
@@ -13,6 +16,24 @@ namespace ars_graphics::attributes
     const char* dataImpl() const                       \
     {                                                  \
         return reinterpret_cast<const char*>(&m_data); \
+    }
+
+#define GET_STRIDE             \
+    static uint32_t getSize()  \
+    {                          \
+        return sizeof(m_data); \
+    }
+
+#define GET_FORMAT(format)        \
+    static vk::Format getFormat() \
+    {                             \
+        return format;            \
+    }
+
+#define SHIFT_NUM(index)                \
+    static void shiftNum(uint32_t& num) \
+    {                                   \
+        num |= 1 << index;              \
     }
 
 template <typename Derived, typename Cont = std::vector<char>>
@@ -45,6 +66,9 @@ public:
     }
 
     DATA_IMPL
+    GET_STRIDE
+    GET_FORMAT(vk::Format::eR32G32Sfloat)
+    SHIFT_NUM(0)
 
 protected:
     glm::vec2 m_data;
@@ -65,6 +89,9 @@ public:
     }
 
     DATA_IMPL
+    GET_STRIDE
+    GET_FORMAT(vk::Format::eR32G32B32Sfloat)
+    SHIFT_NUM(1)
 
 protected:
     glm::vec3 m_data;
@@ -77,6 +104,10 @@ public:
     {
         m_data = d;
     }
+    DATA_IMPL
+    GET_STRIDE
+    GET_FORMAT(vk::Format::eR32Sfloat)
+    SHIFT_NUM(2)
 
 protected:
     float m_data;
@@ -97,7 +128,9 @@ public:
     }
 
     DATA_IMPL
-
+    GET_STRIDE
+    GET_FORMAT(vk::Format::eR32G32B32Sfloat)
+    SHIFT_NUM(3)
 protected:
     glm::vec3 m_data;
 };
@@ -116,7 +149,9 @@ public:
     }
 
     DATA_IMPL
-
+    GET_STRIDE
+    GET_FORMAT(vk::Format::eR32G32Sfloat)
+    SHIFT_NUM(4)
 protected:
     glm::vec2 m_data;
 };
@@ -136,7 +171,9 @@ public:
     }
 
     DATA_IMPL
-
+    GET_STRIDE
+    GET_FORMAT(vk::Format::eR32G32B32Sfloat)
+    SHIFT_NUM(5)
 protected:
     glm::vec3 m_data;
 };
@@ -157,9 +194,104 @@ public:
     }
 
     DATA_IMPL
-
+    GET_STRIDE
+    GET_FORMAT(vk::Format::eR32G32B32A32Sfloat)
+    SHIFT_NUM(6)
 protected:
     glm::vec4 m_data;
 };
+
+struct Tangent : AttributeBase<Tangent>
+{
+public:
+    constexpr void setTangent(float x, float y, float z)
+    {
+        m_data.x = x;
+        m_data.y = y;
+        m_data.z = z;
+    }
+    constexpr void setTangent(const glm::vec3& tangent)
+    {
+        m_data = tangent;
+    }
+
+    DATA_IMPL
+    GET_STRIDE
+    GET_FORMAT(vk::Format::eR32G32B32Sfloat)
+    SHIFT_NUM(7)
+protected:
+    glm::vec3 m_data;
+};
+
+// struct Bitangent : AttributeBase<Bitangent>
+// {
+// public:
+//     constexpr void setBitangent(float x, float y, float z)
+//     {
+//         m_data.x = x;
+//         m_data.y = y;
+//         m_data.z = z;
+//     }
+//     constexpr void setBitangent(const glm::vec3& bitangent)
+//     {
+//         m_data = bitangent;
+//     }
+
+//     DATA_IMPL
+//     GET_STRIDE
+//     GET_FORMAT(vk::Format::eR32G32B32Sfloat)
+//     SHIFT_NUM(8)
+// protected:
+//     glm::vec3 m_data;
+// };
+
+// struct BoneWeights : AttributeBase<BoneWeights>
+// {
+// public:
+//     constexpr void setBoneWeights(float w0, float w1, float w2, float w3)
+//     {
+//         m_data.x = w0;
+//         m_data.y = w1;
+//         m_data.z = w2;
+//         m_data.w = w3;
+//     }
+//     constexpr void setBoneWeights(const glm::vec4& weights)
+//     {
+//         m_data = weights;
+//     }
+
+//     DATA_IMPL
+//     GET_STRIDE
+//     GET_FORMAT(vk::Format::eR32G32B32A32Sfloat)
+//     SHIFT_NUM(9)
+// protected:
+//     glm::vec4 m_data;
+// };
+
+// struct BoneIndices : AttributeBase<BoneIndices>
+// {
+// public:
+//     constexpr void setBoneIndices(uint32_t i0,
+//                                   uint32_t i1,
+//                                   uint32_t i2,
+//                                   uint32_t i3)
+//     {
+//         m_data.x = static_cast<float>(i0);
+//         m_data.y = static_cast<float>(i1);
+//         m_data.z = static_cast<float>(i2);
+//         m_data.w = static_cast<float>(i3);
+//     }
+//     constexpr void setBoneIndices(const glm::uvec4& indices)
+//     {
+//         m_data = glm::vec4(indices);
+//     }
+
+//     DATA_IMPL
+//     GET_STRIDE
+//     GET_FORMAT(vk::Format::eR32G32B32A32Sfloat)
+//     SHIFT_NUM(10)
+// protected:
+//     glm::vec4 m_data;
+// };
 
 } // namespace ars_graphics::attributes

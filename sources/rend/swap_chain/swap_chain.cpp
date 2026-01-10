@@ -7,20 +7,6 @@ namespace ars_graphics
 
 namespace
 {
-vk::SurfaceFormatKHR
-chooseSurfaceFormat(const std::vector<vk::SurfaceFormatKHR>& available_formats)
-{
-    for (vk::SurfaceFormatKHR format : available_formats)
-    {
-        if (format.format == vk::Format::eB8G8R8A8Unorm &&
-            format.colorSpace == vk::ColorSpaceKHR::eSrgbNonlinear)
-        {
-            return format;
-        }
-    }
-
-    return available_formats[0];
-}
 
 vk::PresentModeKHR
 choosePresentMode(
@@ -83,16 +69,14 @@ chooseImageCount(const vk::PresentModeKHR& present_mode,
 SwapChain::SwapChain(const LogicalDevice& logical_device,
                      const PhysicalDevice& physical_device,
                      const vk::SurfaceKHR& surface,
+                     const RenderPassManager& renderpass_manager,
+                     const vk::Format& depth_format,
+                     const vk::SurfaceFormatKHR& surface_format,
                      uint32_t width,
                      uint32_t height)
-    : m_depth_format(physical_device.calculateSwapchainDepthFormat()),
-      m_surface_format(chooseSurfaceFormat(
-          physical_device.calculateSurfaceFormats(surface))),
-      m_renderpass_manager(logical_device,
-                           m_surface_format.format,
-                           m_depth_format)
 {
-    setupSwapchain(logical_device, physical_device, surface, width, height);
+    setupSwapchain(logical_device, physical_device, surface, surface_format,
+                   width, height);
 
     auto&& images =
         logical_device.get().getSwapchainImagesKHR(m_swapchain.get());
@@ -105,8 +89,8 @@ SwapChain::SwapChain(const LogicalDevice& logical_device,
     for (size_t i = 0; i < images.value.size(); ++i)
     {
         m_frames.emplace_back(logical_device, physical_device, images.value[i],
-                              m_surface_format.format, m_depth_format, m_extent,
-                              m_renderpass_manager);
+                              surface_format.format, depth_format, m_extent,
+                              renderpass_manager);
     }
 }
 
@@ -114,6 +98,7 @@ void
 SwapChain::setupSwapchain(const LogicalDevice& logical_device,
                           const PhysicalDevice& physical_device,
                           const vk::SurfaceKHR& surface,
+                          const vk::SurfaceFormatKHR& surface_format,
                           uint32_t width,
                           uint32_t height)
 {
@@ -127,7 +112,7 @@ SwapChain::setupSwapchain(const LogicalDevice& logical_device,
 
     vk::SwapchainCreateInfoKHR create_info = vk::SwapchainCreateInfoKHR(
         vk::SwapchainCreateFlagsKHR(), surface, image_count,
-        m_surface_format.format, m_surface_format.colorSpace, m_extent, 1,
+        surface_format.format, surface_format.colorSpace, m_extent, 1,
         vk::ImageUsageFlagBits::eColorAttachment);
 
     QueueFamilyIndices indices = physical_device.getQueueFamilyIndices();
@@ -160,6 +145,12 @@ SwapChain::setupSwapchain(const LogicalDevice& logical_device,
         throw std::runtime_error("Failed create swapchain");
     }
     m_swapchain = std::move(res.value);
+}
+
+const vk::Extent2D
+SwapChain::getExtent() const
+{
+    return m_extent;
 }
 
 size_t

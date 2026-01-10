@@ -4,9 +4,10 @@
 namespace
 {
 std::vector<char>
-readFile(std::fstream& file)
+readFile(std::ifstream& file)
 {
-    size_t filesize{static_cast<size_t>(file.tellg())};
+    file.seekg(0, std::ios::end);
+    size_t filesize = file.tellg();
 
     std::vector<char> buffer(filesize);
     file.seekg(0);
@@ -27,7 +28,7 @@ ShaderModule::get() const
     return m_shader_module.get();
 }
 
-ShaderModule::ShaderModule(const LogicalDevice& device, std::fstream& file)
+ShaderModule::ShaderModule(const LogicalDevice& device, std::ifstream& file)
 {
     std::vector<char>&& source_code = readFile(file);
 

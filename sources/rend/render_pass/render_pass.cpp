@@ -11,7 +11,7 @@ RenderPass::RenderPass(RenderPassCreater& creater,
     m_render_pass = creater.createRenderPass(config_info);
 }
 
-vk::RenderPass
+const vk::RenderPass&
 RenderPass::get() const
 {
     return m_render_pass.get();
