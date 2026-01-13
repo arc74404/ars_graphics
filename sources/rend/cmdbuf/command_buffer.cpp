@@ -31,4 +31,17 @@ CommandBuffer::get() const noexcept
 {
     return m_command_buffer.get();
 }
+
+void
+CommandBuffer::destroyCommandPool()
+{
+    m_shared_command_pool->destroy();
+}
+
+void
+CommandBuffer::destroy()
+{
+    m_command_buffer.reset();
+}
+
 } // namespace ars_graphics

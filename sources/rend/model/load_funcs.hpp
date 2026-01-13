@@ -6,7 +6,7 @@
 #include <vector>
 
 #include "../material/material.hpp"
-#include "../mesh/primitives_types.hpp"
+#include "../vertex/vertex_types.hpp"
 
 #include "model.hpp"
 
@@ -182,7 +182,7 @@ hasIndices(const tinygltf::Primitive& primitive);
 vk::PrimitiveTopology
 convertGltfTopologyToVulkan(int gltf_topology);
 
-template <typename PrimitiveType>
+template <typename VertexType>
 bool
 loadPrimitive(PipelineManager& pipeline_manager,
               const vk::RenderPass& render_pass,
@@ -196,7 +196,7 @@ loadPrimitive(PipelineManager& pipeline_manager,
     {
         CHECK(loadIndices(gltf_model, gltf_primitive, indices))
     }
-    typename PrimitiveType::VertexType::TupleOfVectorAttributes attrs;
+    typename VertexType::TupleOfVectorAttributes attrs;
 
     CHECK(loadAllAttributes(gltf_model, gltf_primitive, attrs))
 
@@ -204,12 +204,12 @@ loadPrimitive(PipelineManager& pipeline_manager,
 
     size_t vertex_count = std::get<0>(attrs).size();
     CHECK(vertex_count)
-    std::vector<typename PrimitiveType::VertexType> vertices;
+    std::vector<VertexType> vertices;
     vertices.reserve(vertex_count);
 
     for (size_t i = 0; i < vertex_count; ++i)
     {
-        typename PrimitiveType::VertexType vertex;
+        VertexType vertex;
 
         calculateAllVertexAttribute(vertex, attrs, i);
 
@@ -218,14 +218,14 @@ loadPrimitive(PipelineManager& pipeline_manager,
 
     // -------------- //
 
-    mesh.addPrimitive(Primitive{
-        pipeline_manager, render_pass, std::move(indices), std::move(vertices),
-        convertGltfTopologyToVulkan(gltf_primitive.mode),
-        &(materials[gltf_primitive.material])});
+    mesh.addPrimitive(
+        Primitive{pipeline_manager, render_pass, std::move(indices), vertices,
+                  convertGltfTopologyToVulkan(gltf_primitive.mode),
+                  &(materials[gltf_primitive.material])});
     return true;
 }
 
-template <typename... PrimitiveTypes>
+template <typename... VertexTypes>
 bool
 loadMesh(PipelineManager& pipeline_manager,
          const vk::RenderPass& render_pass,
@@ -237,7 +237,7 @@ loadMesh(PipelineManager& pipeline_manager,
     Mesh mesh;
     for (auto&& primitive : gltf_mesh.primitives)
     {
-        bool check_val = (loadPrimitive<PrimitiveTypes>(
+        bool check_val = (loadPrimitive<VertexTypes>(
                               pipeline_manager, render_pass, gltf_model,
                               primitive, mesh, materials) ||
                           ...);

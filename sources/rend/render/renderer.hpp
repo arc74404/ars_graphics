@@ -2,16 +2,16 @@
 #include <iostream>
 #include <vector>
 
-#include "../window/interface_window.hpp"
-#include "device/logical_device.hpp"
-#include "device/physical_device.hpp"
-#include "instance/instance.hpp"
-#include "model/model_manager.hpp"
-#include "pipelines/pipeline_layout_storage.hpp"
-#include "pipelines/pipeline_manager.hpp"
-#include "swap_chain/swap_chain.hpp"
+#include "../../window/interface_window.hpp"
+#include "../device/logical_device.hpp"
+#include "../device/physical_device.hpp"
+#include "../instance/instance.hpp"
+#include "../model/model_manager.hpp"
+#include "../pipelines/pipeline_layout_storage.hpp"
+#include "../pipelines/pipeline_manager.hpp"
+#include "../swap_chain/swap_chain.hpp"
 
-#include "scene.hpp"
+#include "render_info.hpp"
 
 namespace ars_graphics
 {
@@ -20,7 +20,6 @@ struct RendererConfigInfo final
     IWindow* interface_window;
     std::string render_name;
     std::unordered_map<ShaderType, std::string> shader_paths;
-    std::vector<std::string> models_paths;
 };
 
 struct Formats
@@ -33,6 +32,20 @@ struct Formats
     vk::SurfaceFormatKHR m_surface_format;
 };
 
+struct CommandPoolConstructControler
+{
+    CommandPoolConstructControler(const LogicalDevice& logical_device,
+                                  const PhysicalDevice& physical_device)
+    {
+        CommandBuffer::createCommandPool(logical_device, physical_device);
+    }
+
+    void destroy()
+    {
+        CommandBuffer::destroyCommandPool();
+    }
+};
+
 class RendererImpl final
 {
 public:
@@ -43,9 +56,25 @@ public:
         std::cout << "Destructor\n";
     }
 
+    template <typename T>
+    void bind(const T& obj)
+    {
+        m_render_info_data =
+            obj.calculateRenderInfo(m_logical_device, m_physical_device);
+    }
+
+    void render();
+
     void clear();
 
+    ModelManager generateModelManager(
+        const std::vector<std::string>& models_paths);
+
 private:
+    void startRenderPass(RenderPassType renderpass_type);
+
+    void setupScope();
+
     Instance m_instance;
 
     vk::SurfaceKHR m_surface;
@@ -53,6 +82,8 @@ private:
     PhysicalDevice m_physical_device;
 
     LogicalDevice m_logical_device;
+
+    CommandPoolConstructControler m_command_pool_controler;
 
     DescriptorManager m_descriptor_manager;
 
@@ -65,8 +96,11 @@ private:
     ShaderManager m_shader_manager;
 
     PipelineManager m_pipeline_manager;
+    ///
 
-    ModelManager m_model_manager;
+    RenderInfo m_render_info_data;
+
+    RenderCtx m_render_ctx;
 };
 
 class Renderer final
@@ -89,13 +123,27 @@ public:
             m_is_valid = false;
         }
     }
-    // void bind(const Scene& scene)
-    // {
-    //     m_scene = &scene;
-    // }
+
+    template <typename T>
+    void bind(const T& obj)
+    {
+        m_renderer_impl->bind(obj);
+    }
+
+    void render()
+    {
+        m_renderer_impl->render();
+    }
+
     bool IsValid() const
     {
         return m_is_valid;
+    }
+
+    ModelManager generateModelManager(
+        const std::vector<std::string>& models_paths)
+    {
+        return m_renderer_impl->generateModelManager(models_paths);
     }
 
     ~Renderer()
@@ -109,8 +157,6 @@ public:
     }
 
 private:
-    // const Scene* m_scene;
-
     bool m_is_valid = true;
 
     RendererImpl* m_renderer_impl = nullptr;

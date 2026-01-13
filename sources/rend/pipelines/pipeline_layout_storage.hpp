@@ -18,7 +18,7 @@ public:
     PipelineLayoutStorage(const LogicalDevice& device,
                           const DescriptorManager& descriptor_manager);
 
-    const vk::PipelineLayout getLayout(PipelineLayoutType type) const;
+    const vk::PipelineLayout& getLayout(PipelineLayoutType type) const;
 
 private:
     std::map<PipelineLayoutType, vk::UniquePipelineLayout> m_storage;

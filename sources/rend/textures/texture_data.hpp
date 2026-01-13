@@ -23,6 +23,10 @@ public:
     int getWidth() const;
     int getHeight() const;
 
+    size_t dataSize() const;
+
+    const void* data() const;
+
     TextureData() = default;
 
     TextureData& operator=(TextureData&&) noexcept;

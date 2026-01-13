@@ -1,5 +1,11 @@
 cmake_minimum_required(VERSION 3.21.3)
 
+if(MSVC)
+    add_compile_options(/FS /MP)  # /MP для многопроцессорной компиляции
+    add_compile_definitions(_CRT_SECURE_NO_WARNINGS)
+    set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+endif()
+
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 

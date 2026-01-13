@@ -12,7 +12,7 @@ public:
     TextureCreater(const LogicalDevice& logical_device,
                    const PhysicalDevice& physical_device);
 
-    std::optional<Texture> createPBRTexture(const TextureData* data,
+    std::optional<Texture> createPBRTexture(const TextureData& data,
                                             Texture::TextureType type) const;
 
 private:

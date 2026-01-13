@@ -10,7 +10,7 @@ TextureCreater::TextureCreater(const LogicalDevice& logical_device,
 }
 
 std::optional<Texture>
-TextureCreater::createPBRTexture(const TextureData* data,
+TextureCreater::createPBRTexture(const TextureData& data,
                                  Texture::TextureType type) const
 {
     TextureConfigInfo config_info;

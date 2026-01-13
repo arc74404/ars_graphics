@@ -23,6 +23,10 @@ public:
 
     const vk::Extent2D getExtent() const;
 
+    const SwapChainFrame& currentFrame();
+
+    const vk::SwapchainKHR& get() const;
+
     void destroy();
 
 private:
@@ -33,9 +37,13 @@ private:
                         uint32_t width,
                         uint32_t height);
 
+    uint32_t m_current_frame_index = 0;
+
     vk::UniqueSwapchainKHR m_swapchain;
 
     vk::Extent2D m_extent;
+
+    uint32_t m_count_frames;
 
     std::vector<SwapChainFrame> m_frames;
 };

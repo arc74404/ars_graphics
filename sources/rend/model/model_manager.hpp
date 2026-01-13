@@ -22,7 +22,7 @@ public:
                  const LogicalDevice& logical_device,
                  const PhysicalDevice& physical_device,
                  const DescriptorManager& descriptor_manager,
-                 vk::PipelineLayout pipelayout,
+                 const vk::PipelineLayout& pipelayout,
                  const std::vector<std::string>& paths);
 
     const Model* operator[](const std::string& key);

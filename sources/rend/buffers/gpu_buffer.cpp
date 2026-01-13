@@ -20,10 +20,21 @@ GpuVertexBuffer::bind(const vk::CommandBuffer& command_buffer) const
     command_buffer.bindVertexBuffers(0, 1, &(buffer()), &offsets);
 }
 
+void
+GpuVertexBuffer::draw(const vk::CommandBuffer& command_buffer,
+                      uint32_t vertex_count,
+                      uint32_t instance_count,
+                      uint32_t first_vertex,
+                      uint32_t first_instance) const
+{
+    command_buffer.draw(vertex_count, instance_count, first_vertex,
+                        first_instance);
+}
+
 bool
 GpuVertexBuffer::setData(const LogicalDevice& logical_device,
                          const PhysicalDevice& physical_device,
-                         void* data,
+                         const void* data,
                          const vk::DeviceSize& byte_size)
 {
     CommandBuffer command_buffer{logical_device};

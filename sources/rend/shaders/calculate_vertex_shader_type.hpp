@@ -2,13 +2,13 @@
 #define VULKAN_HPP_NO_EXCEPTIONS
 #include <vulkan/vulkan.hpp>
 
-#include "../mesh/primitives_types.hpp"
 #include "../shaders/shader_manager.hpp"
+#include "../vertex/vertex_types.hpp"
 
 namespace ars_graphics
 {
 
-template <typename PrimitiveType>
+template <typename VertexType>
 ShaderType
 calculateVertexShaderType()
 {
@@ -20,31 +20,31 @@ calculateVertexShaderType()
 
 template <>
 inline ShaderType
-calculateVertexShaderType<primitive_types::PositionOnly3D>()
+calculateVertexShaderType<vertex_types::PositionOnly3D>()
 {
     return ShaderType::DEFAULT_POSITIONAL_ONLY_3D_VERTEX;
 }
 template <>
 inline ShaderType
-calculateVertexShaderType<primitive_types::Simple3D>()
+calculateVertexShaderType<vertex_types::Simple3D>()
 {
     return ShaderType::DEFAULT_SIMPLE_3D_VERTEX;
 }
 template <>
 inline ShaderType
-calculateVertexShaderType<primitive_types::Standart3D>()
+calculateVertexShaderType<vertex_types::Standart3D>()
 {
     return ShaderType::DEFAULT_STANDART_3D_VERTEX;
 }
 template <>
 inline ShaderType
-calculateVertexShaderType<primitive_types::Colored3D>()
+calculateVertexShaderType<vertex_types::Colored3D>()
 {
     return ShaderType::DEFAULT_COLORED_3D_VERTEX;
 }
 template <>
 inline ShaderType
-calculateVertexShaderType<primitive_types::ParticleMesh>()
+calculateVertexShaderType<vertex_types::ParticleMesh>()
 {
     return ShaderType::DEFAULT_PARTICLE_MESH_VERTEX;
 }

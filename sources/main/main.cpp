@@ -1,7 +1,12 @@
-#include "../sources/rend/renderer.hpp"
+#include "../sources/rend/render/renderer.hpp"
 #include "../sources/window/glfw_window.hpp"
 
 using namespace ars_graphics;
+
+#include <iostream>
+#include <vector>
+
+#include "../sources/rend/scene.hpp"
 
 int
 main()
@@ -36,23 +41,28 @@ main()
 
     RendererConfigInfo config_info = {.interface_window = &window,
                                       .render_name      = "checker",
-                                      .shader_paths     = shader_paths,
-                                      .models_paths     = models_paths};
+                                      .shader_paths     = shader_paths};
 
     Renderer renderer(config_info);
+
+    ModelManager model_manager = renderer.generateModelManager(models_paths);
 
     if (false == renderer.IsValid())
     {
         return 1;
     }
 
-    // Scene scene;
+    Scene scene;
+    scene.addModel(
+        model_manager["C:/Users/User/source/repos/arsrender_lib/models/"
+                      "AntiqueCamera.glb"]);
 
-    // renderer.bind(scene);
+    renderer.bind(scene);
 
-    // while (true)
-    // {
-    // }
+    while (true)
+    {
+        renderer.render();
+    }
 
     return 0;
 }

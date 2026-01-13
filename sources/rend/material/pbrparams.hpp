@@ -37,16 +37,16 @@ struct PBRParameters
 
     float m_ao_strength = 1.0;
 
-    const Texture* m_albedo_map;
+    const Texture* m_albedo_map{};
 
-    const Texture* m_normal_map;
+    const Texture* m_normal_map{};
 
-    const Texture* m_ao_map;
+    const Texture* m_ao_map{};
 
-    const Texture* m_emissive_map;
+    const Texture* m_emissive_map{};
 
-    const Texture* m_height_map;
+    const Texture* m_height_map{};
 
-    const Texture* m_metallic_roughness_map;
+    const Texture* m_metallic_roughness_map{};
 };
 } // namespace ars_graphics

@@ -159,7 +159,7 @@ Buffer::copyBufferToImage(const LogicalDevice& logical_device,
 bool
 Buffer::setData(const LogicalDevice& logical_device,
                 const PhysicalDevice& physical_device,
-                void* data,
+                const void* data,
                 const vk::DeviceSize& byte_size)
 {
     checkBufferSize(logical_device, physical_device, byte_size);

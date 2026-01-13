@@ -92,6 +92,8 @@ SwapChain::SwapChain(const LogicalDevice& logical_device,
                               surface_format.format, depth_format, m_extent,
                               renderpass_manager);
     }
+
+    m_count_frames = m_frames.size();
 }
 
 void
@@ -156,13 +158,29 @@ SwapChain::getExtent() const
 size_t
 SwapChain::countFrames() const
 {
-    return m_frames.size();
+    return m_count_frames;
 }
 
 void
 SwapChain::destroy()
 {
     m_swapchain.reset();
+    for (auto&& frame : m_frames)
+    {
+        frame.destroy();
+    }
+}
+
+const SwapChainFrame&
+SwapChain::currentFrame()
+{
+    return m_frames[(m_current_frame_index++) % m_count_frames];
+}
+
+const vk::SwapchainKHR&
+SwapChain::get() const
+{
+    return m_swapchain.get();
 }
 
 } // namespace ars_graphics

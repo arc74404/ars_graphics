@@ -65,7 +65,7 @@ PipelineLayoutStorage::PipelineLayoutStorage(
         createStandartPipelineLayout(device, descriptor_manager);
 }
 
-const vk::PipelineLayout
+const vk::PipelineLayout&
 PipelineLayoutStorage::getLayout(PipelineLayoutType type) const
 {
     return m_storage.at(type).get();

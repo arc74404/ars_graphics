@@ -44,7 +44,7 @@ public:
 
     virtual bool setData(const LogicalDevice& logical_device,
                          const PhysicalDevice& physical_device,
-                         void* data,
+                         const void* data,
                          const vk::DeviceSize& byte_size);
 
     const vk::Buffer& buffer() const noexcept;

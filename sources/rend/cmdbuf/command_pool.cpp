@@ -42,4 +42,11 @@ CommandPool::allocateCommandBuffer(const LogicalDevice& logical_device) const
     }
     return std::move(res.value[0]);
 }
+
+void
+CommandPool::destroy()
+{
+    m_command_pool.reset();
+}
+
 } // namespace ars_graphics

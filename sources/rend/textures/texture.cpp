@@ -17,42 +17,47 @@ TextureSetCompare::operator()(const Texture& a, const Texture& b) const
 void
 Texture::initImage(const LogicalDevice& logical_device,
                    const PhysicalDevice& physical_device,
-                   const TextureData* data,
+                   const TextureData& data,
                    const TextureConfigInfo& config_info)
 {
-    vk::Format format = vk::Format::eR8G8B8A8Unorm;
-    if (data->getChannels() == 1)
+    
+    if (data.getChannels() != 4)
     {
-        format = vk::Format::eR8Unorm;
-    }
-    else if (data->getChannels() == 2)
-    {
-        format = vk::Format::eR8G8Unorm;
-    }
-    else if (data->getChannels() == 3)
-    {
-        format = vk::Format::eR8G8B8Unorm;
-    }
-    else if (data->getChannels() == 4)
-    {
-        format = config_info.m_srgb ? vk::Format::eR8G8B8A8Srgb
-                                    : vk::Format::eR8G8B8A8Unorm;
     }
 
-    m_image = Image(logical_device, physical_device,
-                    {.format      = vk::Format::eR8G8B8A8Unorm,
-                     .width       = static_cast<uint32_t>(data->getWidth()),
-                     .height      = static_cast<uint32_t>(data->getHeight()),
-                     .usage_flags = vk::ImageUsageFlagBits::eSampled |
-                                    vk::ImageUsageFlagBits::eTransferDst |
-                                    vk::ImageUsageFlagBits::eColorAttachment,
-                     .aspect_mask = vk::ImageAspectFlagBits::eColor});
+    vk::DeviceSize imageSize = data.dataSize();
+
+    StagingBuffer staging_buffer;
+    staging_buffer.setData(logical_device, physical_device, data.data(),
+                           imageSize);
+
+    m_image =
+        Image(logical_device, physical_device,
+              ImageConfigInfo{.format = vk::Format::eR8G8B8A8Unorm,
+                              .width  = static_cast<uint32_t>(data.getWidth()),
+                              .height = static_cast<uint32_t>(data.getHeight()),
+                              .usage_flags =
+                                  vk::ImageUsageFlagBits::eSampled |
+                                  vk::ImageUsageFlagBits::eTransferDst |
+                                  vk::ImageUsageFlagBits::eColorAttachment});
+
+    CommandBuffer command_buffer{logical_device};
+
+    auto queue = logical_device.getQueue("graphics");
+
+    Buffer::copyBufferToImage(logical_device, physical_device, &staging_buffer,
+                              m_image, queue, command_buffer.get(),
+                              data.getWidth(), data.getHeight());
+
+    vk::SubmitInfo submitInfo(0, nullptr, nullptr, 1, &(command_buffer.get()));
+
+    queue.submit(1, &submitInfo, nullptr);
+    queue.waitIdle();
 }
 
 void
 Texture::initSampler(const LogicalDevice& logical_device,
                      const PhysicalDevice& physical_device,
-                     const TextureData* data,
                      const TextureConfigInfo& config_info)
 {
     vk::SamplerCreateInfo sampler_info{};
@@ -94,12 +99,24 @@ Texture::initSampler(const LogicalDevice& logical_device,
 
 Texture::Texture(const LogicalDevice& logical_device,
                  const PhysicalDevice& physical_device,
-                 const TextureData* data,
+                 const TextureData& data,
                  const TextureConfigInfo& config_info)
 {
     initImage(logical_device, physical_device, data, config_info);
 
-    initSampler(logical_device, physical_device, data, config_info);
+    initSampler(logical_device, physical_device, config_info);
+}
+
+const vk::ImageView&
+Texture::getImageView() const
+{
+    return m_image.view();
+}
+
+const vk::Sampler&
+Texture::getSampler() const
+{
+    return m_sampler.get();
 }
 
 // void

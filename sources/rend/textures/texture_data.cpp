@@ -60,6 +60,18 @@ TextureData::setData(void* data,
 }
 
 size_t
+TextureData::dataSize() const
+{
+    return m_data_size;
+}
+
+const void*
+TextureData::data() const
+{
+    return m_data;
+}
+
+size_t
 TextureData::getChannels() const
 {
     return m_channels;

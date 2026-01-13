@@ -28,7 +28,8 @@ SwapChainFrame::SwapChainFrame(const LogicalDevice& logical_device,
                                vk::Format depth_format,
                                const vk::Extent2D& extent,
                                const RenderPassManager& renderpasses_manager)
-    : m_view(logical_device, image, format, vk::ImageAspectFlagBits::eColor),
+    : m_synchronization(logical_device),
+      m_view(logical_device, image, format, vk::ImageAspectFlagBits::eColor),
       m_depth_image(logical_device,
                     physical_device,
                     getDepthCongifInfo(extent, depth_format)),
@@ -36,8 +37,15 @@ SwapChainFrame::SwapChainFrame(const LogicalDevice& logical_device,
           renderpasses_manager.generateFramebuffers(logical_device,
                                                     extent,
                                                     m_view.get(),
-                                                    m_depth_image.view()))
+                                                    m_depth_image.view())),
+      m_command_buffer(logical_device)
 {
+}
+
+const SynchronizationData&
+SwapChainFrame::getSynchronization() const
+{
+    return m_synchronization;
 }
 
 bool
@@ -62,6 +70,21 @@ SwapChainFrame::recreate(const LogicalDevice& logical_device,
         std::cout << error.what() << '\n';
         return false;
     }
+}
+
+void
+SwapChainFrame::shareContext(RenderCtx& context,
+                             RenderPassType renderpass_type) const
+{
+    context.cmd = &m_command_buffer.get();
+    context.framebuffer =
+        &(m_framebuffers[getRenderPassIndex(renderpass_type)].get());
+}
+
+void
+SwapChainFrame::destroy()
+{
+    m_command_buffer.destroy();
 }
 
 }; // namespace ars_graphics

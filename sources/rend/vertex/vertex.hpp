@@ -22,7 +22,7 @@ public:
     static std::string getStrRepersentation()
     {
         uint32_t num = 0;
-        (Attributes::shiftNum(num), ...);  
+        (Attributes::shiftNum(num), ...);
 
         return std::to_string(num);
     }
@@ -70,7 +70,7 @@ public:
         return (Attributes::getSize() + ...);
     }
 
-    void pushBytes(ContType& cont)
+    void pushBytes(ContType& cont) const
     {
         (Attributes::pushBytes(cont), ...);
     }

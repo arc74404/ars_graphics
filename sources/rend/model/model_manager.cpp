@@ -9,7 +9,7 @@ ModelManager::ModelManager(PipelineManager& pipeline_manager,
                            const LogicalDevice& logical_device,
                            const PhysicalDevice& physical_device,
                            const DescriptorManager& descriptor_manager,
-                           vk::PipelineLayout pipelayout,
+                           const vk::PipelineLayout& pipelayout,
                            const std::vector<std::string>& paths)
 {
     TextureCreater texture_creater{logical_device, physical_device};

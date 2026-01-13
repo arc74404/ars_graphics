@@ -17,12 +17,9 @@ class Mesh final
 public:
     Mesh() = default;
 
-    template <typename... VertexAttributes>
-    void addPrimitive(Primitive<VertexAttributes...>&& primitive)
-    {
-        m_primitives.emplace_back(
-            std::make_unique<IPrimitive>(std::move(primitive)));
-    }
+    void addPrimitive(Primitive&& primitive);
+
+    const std::vector<Primitive>& getPrimitives() const;
 
     // template <typename Buf>
     // void push(Buf& buf)
@@ -32,6 +29,6 @@ public:
     // }
 
 private:
-    std::vector<std::unique_ptr<IPrimitive>> m_primitives;
+    std::vector<Primitive> m_primitives;
 };
 } // namespace ars_graphics

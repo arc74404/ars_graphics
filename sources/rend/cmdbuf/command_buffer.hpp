@@ -14,6 +14,9 @@ public:
 
     static void createCommandPool(const LogicalDevice& ls,
                                   const PhysicalDevice& phd);
+    static void destroyCommandPool();
+
+    void destroy();
 
     const vk::CommandBuffer& get() const noexcept;
 

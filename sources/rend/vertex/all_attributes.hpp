@@ -40,11 +40,12 @@ template <typename Derived, typename Cont = std::vector<char>>
 struct AttributeBase
 {
     using ContType = Cont;
-    void PushBytes(Cont& cont)
+    void pushBytes(Cont& cont) const
     {
-        cont.resize(cont.size() + sizeof(Derived));
-        void* begin = static_cast<void*>(&cont[cont.size() - sizeof(Derived)]);
-        memcpy(begin, reinterpret_cast<const void*>(this), sizeof(Derived));
+        cont.resize(cont.size() + Derived::getSize());
+        void* begin =
+            static_cast<void*>(&cont[cont.size() - Derived::getSize()]);
+        memcpy(begin, reinterpret_cast<const void*>(this), Derived::getSize());
     }
     const char* data() const
     {

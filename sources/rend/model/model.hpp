@@ -10,10 +10,9 @@ namespace ars_graphics
 class Model final
 {
 public:
-    void addMesh(Mesh&& mesh)
-    {
-        m_meshes.emplace_back(std::move(mesh));
-    }
+    void addMesh(Mesh&& mesh);
+
+    const std::vector<Mesh>& getMeshes() const;
 
 private:
     std::vector<Mesh> m_meshes;

@@ -4,26 +4,39 @@
 namespace ars_graphics
 {
 
-template <typename CT, typename T, typename Ret>
+// template <typename CT, typename T, typename Ret>
+// void
+// fillBoxesByPipelineImpl(CT* ct, std::pair<T*, Ret (CT::*)()>&& pair)
+// {
+//     *pair.first = (ct->*pair.second)();
+// }
+
+// template <typename CT, typename T, typename Ret>
+// void
+// fillBoxesByPipelineImpl(CT* ct, std::pair<T*, Ret (CT::*)() const>&& pair)
+// {
+//     *pair.first = (ct->*pair.second)();
+// }
+
+// template <typename CT, typename... TPack, typename... UPack>
+// void
+// fillBoxesByPipeline(CT* ct, std::pair<TPack*, UPack>&&... box_and_func_pack)
+// {
+//     (fillBoxesByPipelineImpl(
+//          ct, std::forward<std::pair<TPack*, UPack>>(box_and_func_pack)),
+//      ...);
+// }
+
+template <bool need_alloc, typename T>
 void
-fillBoxesByPipelineImpl(CT* ct, std::pair<T*, Ret (CT::*)()>&& pair)
+pushDataToTheEnd(std::vector<T>& dest, const std::vector<T>& src)
 {
-    *pair.first = (ct->*pair.second)();
+    size_t dest_old_size = dest.size();
+    if constexpr (need_alloc)
+    {
+        dest.resize(dest.size() + src.size());
+    }
+    std::memcpy(dest.data() + dest_old_size, src.data(), src.size());
 }
 
-template <typename CT, typename T, typename Ret>
-void
-fillBoxesByPipelineImpl(CT* ct, std::pair<T*, Ret (CT::*)() const>&& pair)
-{
-    *pair.first = (ct->*pair.second)();
-}
-
-template <typename CT, typename... TPack, typename... UPack>
-void
-fillBoxesByPipeline(CT* ct, std::pair<TPack*, UPack>&&... box_and_func_pack)
-{
-    (fillBoxesByPipelineImpl(
-         ct, std::forward<std::pair<TPack*, UPack>>(box_and_func_pack)),
-     ...);
-}
 } // namespace ars_graphics

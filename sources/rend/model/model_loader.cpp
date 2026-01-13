@@ -95,7 +95,7 @@ ModelLoader::loadImpl(PipelineManager& pipeline_manager,
 
     for (auto&& gltf_mesh : gltf_model.meshes)
     {
-        bool checker = loadMesh<PrimitivesPriorityListPack>(
+        bool checker = loadMesh<VerticesPriorityListPack>(
             pipeline_manager, render_pass, gltf_model, gltf_mesh, res_model,
             realoc_materials);
 
@@ -233,7 +233,7 @@ ModelLoader::loadMaterials(
             if (hasTexture(index))
             {
                 auto&& res = texture_creater.createPBRTexture(
-                    &textures_data[index], texture_type);
+                    textures_data[index], texture_type);
                 if (false == res.has_value())
                 {
                     return;

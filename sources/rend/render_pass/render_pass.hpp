@@ -17,11 +17,11 @@ public:
 
     const vk::RenderPass& get() const;
 
-    void begin(const vk::CommandBuffer& cmd,
-               const vk::Framebuffer& framebuffer,
-               const vk::Extent2D& extent);
+    // void begin(const vk::CommandBuffer& cmd,
+    //            const vk::Framebuffer& framebuffer,
+    //            const vk::Extent2D& extent);
 
-    void end(const vk::CommandBuffer& cmd);
+    // void end(const vk::CommandBuffer& cmd);
 
 private:
     vk::UniqueRenderPass m_render_pass;

@@ -7,12 +7,12 @@
 #include "../material/material.hpp"
 #include "../material/material_creater.hpp"
 #include "../material/material_storage.hpp"
-#include "../mesh/primitives_types.hpp"
 #include "../textures/texture_creater.hpp"
 #include "../textures/texture_data.hpp"
 #include "../textures/texture_data_storage.hpp"
 #include "../textures/texture_storage.hpp"
 #include "../vertex/all_attributes.hpp"
+#include "../vertex/vertex_types.hpp"
 
 #include "load_funcs.hpp"
 #include "model_path.hpp"

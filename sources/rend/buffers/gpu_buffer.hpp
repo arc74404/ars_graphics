@@ -15,9 +15,15 @@ public:
 
     void bind(const vk::CommandBuffer& command_buffer) const;
 
+    void draw(const vk::CommandBuffer& command_buffer,
+              uint32_t vertex_count,
+              uint32_t instance_count,
+              uint32_t first_vertex,
+              uint32_t first_instance) const;
+
     bool setData(const LogicalDevice& logical_device,
                  const PhysicalDevice& physical_device,
-                 void* data,
+                 const void* data,
                  const vk::DeviceSize& byte_size) override;
 
 private:

@@ -1,27 +1,29 @@
 #pragma once
 
-#include "model/model_manager.hpp"
+#include <map>
 
-#include "renderer.hpp"
+#include "buffers/gpu_buffer.hpp"
+#include "buffers/index_buffer.hpp"
+#include "model/model_manager.hpp"
+#include "render/renderable.hpp"
 
 namespace ars_graphics
 {
-// struct Scene
-// {
-// public:
-//     Scene(const Renderer& renderer);
 
-//     void addModel(const ModelManager& model_manager,
-//                   const std::string& model_key);
+class Renderer;
 
-//     void updateBuffer();
+class Scene final : public Renderable
+{
+public:
+    Scene();
 
-// private:
-//     std::vector<Model*> m_models;
+    void addModel(const Model* new_model);
 
-//     PipelineLayoutType m_pipeline_layout_type;
+    RenderInfo calculateRenderInfo(
+        const LogicalDevice& logical_device,
+        const PhysicalDevice& physical_device) const override;
 
-//     GpuVertexBuffer m_vertex_buffer;
-//     IndexBuffer m_index_buffer;
-// };
+private:
+    std::map<const Model*, size_t> m_models;
+};
 } // namespace ars_graphics

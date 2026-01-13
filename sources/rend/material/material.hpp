@@ -39,12 +39,21 @@ public:
 
     static Material createDefaultMaterial();
 
+    void updateDescriptorSets(const LogicalDevice& device);
+
     void bind(const vk::CommandBuffer& cmd) const;
 
 private:
+    void setupDescriptorSets();
+
+    void addMap(const Texture* texture, uint32_t shift);
+
     MaterialData m_data;
 
     vk::UniqueDescriptorSet m_descriptor_set;
+
+    std::vector<vk::DescriptorImageInfo> m_image_infos;
+    std::vector<vk::WriteDescriptorSet> m_descriptor_writes;
 
     const vk::PipelineLayout& m_pipeline_layout;
 };

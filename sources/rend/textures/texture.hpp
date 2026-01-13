@@ -56,18 +56,21 @@ public:
 
     Texture(const LogicalDevice& logical_device,
             const PhysicalDevice& physical_device,
-            const TextureData* data,
+            const TextureData& data,
             const TextureConfigInfo& config_info);
+
+    const vk::ImageView& getImageView() const;
+
+    const vk::Sampler& getSampler() const;
 
 private:
     void initImage(const LogicalDevice& logical_device,
                    const PhysicalDevice& physical_device,
-                   const TextureData* data,
+                   const TextureData& data,
                    const TextureConfigInfo& config_info);
 
     void initSampler(const LogicalDevice& logical_device,
                      const PhysicalDevice& physical_device,
-                     const TextureData* data,
                      const TextureConfigInfo& config_info);
     Image m_image;
     vk::UniqueSampler m_sampler;

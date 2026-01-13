@@ -18,6 +18,8 @@ public:
     vk::UniqueCommandBuffer allocateCommandBuffer(
         const LogicalDevice& logical_device) const;
 
+    void destroy();
+
 private:
     vk::UniqueCommandPool m_command_pool;
 };

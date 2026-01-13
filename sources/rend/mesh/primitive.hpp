@@ -2,44 +2,29 @@
 
 #include "../pipelines/pipeline.hpp"
 #include "../pipelines/pipeline_manager.hpp"
+#include "../vertex/vertex_data.hpp"
 
 namespace ars_graphics
 {
-
-class IPrimitive
+struct Primitive final
 {
-public:
-    virtual ~IPrimitive() = default;
-
-    IPrimitive(const Pipeline* pipeline) : m_pipeline(pipeline)
-    {
-    }
-
-private:
-    const Pipeline* m_pipeline;
-};
-
-template <typename... VertexAttributes>
-struct Primitive : public IPrimitive
-{
-    using VertexType = Vertex<VertexAttributes...>;
-
+    template <typename... VertexAttributes>
     Primitive(PipelineManager& manager,
               const vk::RenderPass& render_pass,
               std::vector<uint32_t>&& indices,
-              std::vector<VertexType>&& vertices,
+              const std::vector<Vertex<VertexAttributes...>>& vertices,
               vk::PrimitiveTopology primitive_topology,
               const Material* material)
-        : IPrimitive(manager.getPipeline<VertexType>(
+        : m_pipeline(manager.getPipeline<Vertex<VertexAttributes...>>(
               PipelineStorageType::STANDART_MODEL,
               render_pass,
               MainPipelineConfigInfo{
-                  .vertex_binding_description =
-                      VertexType::getVertexBindingDescription(),
-                  .vertex_attribute_descriptions =
-                      VertexType::getVertexAttributeDescription(),
-                  .vertex_shader_type = calculateVertexShaderType<
-                      Primitive<VertexAttributes...>>(),
+                  .vertex_binding_description = Vertex<
+                      VertexAttributes...>::getVertexBindingDescription(),
+                  .vertex_attribute_descriptions = Vertex<
+                      VertexAttributes...>::getVertexAttributeDescription(),
+                  .vertex_shader_type =
+                      calculateVertexShaderType<Vertex<VertexAttributes...>>(),
                   .fragment_shader_type = ShaderType::DEFAULT_FRAGMENT,
                   .depth_test_enable    = vk::True,
                   .pipeline_layout =
@@ -50,10 +35,11 @@ struct Primitive : public IPrimitive
           m_material(material)
     {
     }
+    const Pipeline* m_pipeline;
 
     std::vector<uint32_t> m_indices;
 
-    std::vector<VertexType> m_vertices;
+    VertexData m_vertices;
 
     vk::PrimitiveTopology m_primitive_topology;
 
