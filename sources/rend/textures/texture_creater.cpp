@@ -77,6 +77,18 @@ TextureCreater::createPBRTexture(const TextureData& data,
             config_info.m_enable_anisotropy = true;
             break;
         }
+        case Texture::TextureType::HEIGHT:
+        {
+            config_info.m_srgb           = false;
+            config_info.m_address_mode_u = vk::SamplerAddressMode::eClampToEdge;
+            config_info.m_address_mode_v = vk::SamplerAddressMode::eClampToEdge;
+            config_info.m_mag_filter     = vk::Filter::eLinear;
+            config_info.m_min_filter     = vk::Filter::eLinear;
+            config_info.m_mipmap_mode    = vk::SamplerMipmapMode::eLinear;
+            config_info.m_enable_anisotropy = true;
+            config_info.m_compare_enable    = false;
+            break;
+        }
 
         default:
             return std::nullopt;

@@ -1,5 +1,5 @@
+#include "../sources/gui/window/glfw_window.hpp"
 #include "../sources/rend/render/renderer.hpp"
-#include "../sources/window/glfw_window.hpp"
 
 using namespace ars_graphics;
 
@@ -13,9 +13,7 @@ main()
 {
     std::vector<std::string> models_paths = {
         "C:/Users/User/source/repos/arsrender_lib/models/"
-        "AntiqueCamera.glb",
-        "C:/Users/User/source/repos/arsrender_lib/models/"
-        "BrainStem.glb"};
+        "Box.glb"};
 
     std::string folder =
         "C:/Users/User/source/repos/arsrender_lib/shaders/compiled/";
@@ -55,13 +53,17 @@ main()
     Scene scene;
     scene.addModel(
         model_manager["C:/Users/User/source/repos/arsrender_lib/models/"
-                      "AntiqueCamera.glb"]);
+                      "Box.glb"]);
 
     renderer.bind(scene);
 
     while (true)
     {
         renderer.render();
+        if (EventType::CLOSE == window.pollEvents())
+        {
+            return 1;
+        }
     }
 
     return 0;

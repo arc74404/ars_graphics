@@ -2,6 +2,8 @@
 
 #include <iostream>
 
+#include "../textures/texture_storage.hpp"
+
 namespace ars_graphics
 {
 
@@ -18,23 +20,26 @@ Material::Material(const LogicalDevice& device,
 }
 
 void
-Material::addMap(const Texture* texture, uint32_t shift)
+Material::addMap(const Texture* texture,
+                 uint32_t shift,
+                 Texture::TextureType type)
 {
-    if (texture)
+    if (nullptr == texture)
     {
-        vk::DescriptorImageInfo text_info{};
-        text_info.imageLayout = vk::ImageLayout::eShaderReadOnlyOptimal;
-        text_info.imageView   = texture->getImageView();
-        text_info.sampler     = texture->getSampler();
-
-        m_image_infos.push_back(text_info);
-
-        m_descriptor_writes.push_back(vk::WriteDescriptorSet(
-            m_descriptor_set.get(),
-            settings::bindings::material_shader_binding + shift, 0, 1,
-            vk::DescriptorType::eCombinedImageSampler, &m_image_infos.back(),
-            nullptr, nullptr));
+        texture = TextureStorage::getDummy(type);
     }
+    vk::DescriptorImageInfo text_info{};
+    text_info.imageLayout = vk::ImageLayout::eShaderReadOnlyOptimal;
+    text_info.imageView   = texture->getImageView();
+    text_info.sampler     = texture->getSampler();
+
+    m_image_infos.push_back(text_info);
+
+    m_descriptor_writes.push_back(vk::WriteDescriptorSet(
+        m_descriptor_set.get(),
+        settings::bindings::material_shader_binding + shift, 0, 1,
+        vk::DescriptorType::eCombinedImageSampler, &m_image_infos.back(),
+        nullptr, nullptr));
 }
 
 void
@@ -43,12 +48,17 @@ Material::setupDescriptorSets()
     m_image_infos.clear();
     m_descriptor_writes.clear();
 
-    addMap(m_data.m_pbrparams.m_albedo_map, 0);
-    addMap(m_data.m_pbrparams.m_normal_map, 1);
-    addMap(m_data.m_pbrparams.m_metallic_roughness_map, 2);
-    addMap(m_data.m_pbrparams.m_ao_map, 3);
-    addMap(m_data.m_pbrparams.m_emissive_map, 4);
-    addMap(m_data.m_pbrparams.m_height_map, 5);
+    m_image_infos.reserve(6);
+    m_descriptor_writes.reserve(6);
+
+    addMap(m_data.m_pbrparams.m_albedo_map, 0, Texture::TextureType::ALBEDO);
+    addMap(m_data.m_pbrparams.m_normal_map, 1, Texture::TextureType::NORMAL);
+    addMap(m_data.m_pbrparams.m_metallic_roughness_map, 2,
+           Texture::TextureType::METALLIC_ROUGHNESS);
+    addMap(m_data.m_pbrparams.m_ao_map, 3, Texture::TextureType::OCCLUSION);
+    addMap(m_data.m_pbrparams.m_emissive_map, 4,
+           Texture::TextureType::EMISSIVE);
+    addMap(m_data.m_pbrparams.m_height_map, 5, Texture::TextureType::HEIGHT);
 }
 
 void

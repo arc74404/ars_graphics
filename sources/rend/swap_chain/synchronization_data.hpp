@@ -20,6 +20,8 @@ public:
     void submit(const LogicalDevice& device,
                 const vk::CommandBuffer& cmd) const;
 
+    const vk::Semaphore& getRenderFinished() const;
+
 private:
     vk::UniqueFence in_flight_fence;
     vk::UniqueSemaphore image_available;

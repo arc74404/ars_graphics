@@ -87,7 +87,7 @@ RenderPassCreater::depthAttachment(
                                   ? vk::AttachmentLoadOp::eClear
                                   : vk::AttachmentLoadOp::eDontCare;
 
-    depth_attachment.storeOp        = vk::AttachmentStoreOp::eDontCare;
+    depth_attachment.storeOp        = vk::AttachmentStoreOp::eStore;
     depth_attachment.stencilLoadOp  = vk::AttachmentLoadOp::eDontCare;
     depth_attachment.stencilStoreOp = vk::AttachmentStoreOp::eDontCare;
     depth_attachment.initialLayout  = vk::ImageLayout::eUndefined;

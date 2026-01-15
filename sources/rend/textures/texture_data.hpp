@@ -16,7 +16,7 @@ public:
                  int width,
                  int height,
                  int channels,
-                 std::function<void(void*)> deleter);
+                 std::function<void(void*)> deleter = nullptr);
 
     size_t getChannels() const;
 

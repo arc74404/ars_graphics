@@ -28,8 +28,6 @@ public:
     const Model* operator[](const std::string& key);
 
 private:
-    TextureDataStorage m_texture_data_storage;
-
     TextureStorage m_texture_storage;
 
     MaterialStorage m_material_storage;

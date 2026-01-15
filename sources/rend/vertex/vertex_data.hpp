@@ -25,8 +25,8 @@ struct VertexData
         return m_vertex_offset;
     }
 
-    template <bool need_alloc>
-    void pushData(std::vector<char>& dest) const
+    template <bool need_alloc, typename T>
+    void pushData(std::vector<T>& dest) const
     {
         pushDataToTheEnd<need_alloc>(dest, m_data);
     }

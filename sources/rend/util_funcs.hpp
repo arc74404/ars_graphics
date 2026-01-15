@@ -27,16 +27,17 @@ namespace ars_graphics
 //      ...);
 // }
 
-template <bool need_alloc, typename T>
+template <bool need_alloc, typename T, typename U>
 void
-pushDataToTheEnd(std::vector<T>& dest, const std::vector<T>& src)
+pushDataToTheEnd(std::vector<T>& dest, const std::vector<U>& src)
 {
-    size_t dest_old_size = dest.size();
+    size_t dest_old_size = dest.size() * sizeof(T);
     if constexpr (need_alloc)
     {
-        dest.resize(dest.size() + src.size());
+        dest.resize(dest.size() + src.size() * sizeof(U) / sizeof(T));
     }
-    std::memcpy(dest.data() + dest_old_size, src.data(), src.size());
+    memcpy(reinterpret_cast<char*>(dest.data()) + dest_old_size, src.data(),
+           src.size() * sizeof(U));
 }
 
 } // namespace ars_graphics

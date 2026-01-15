@@ -27,9 +27,13 @@ public:
 
     vk::SurfaceKHR createSurface(const vk::Instance& instance) override;
 
+    EventType pollEvents() override;
+
     ~GlfwWindow();
 
 private:
+    bool should_clode = false;
+
     std::unique_ptr<GLFWwindow, GlfwWindowDeleter> m_window;
 };
 } // namespace ars_graphics

@@ -27,7 +27,7 @@ defaultVertexShaderBindings()
 std::vector<DescriptorBindingData>
 defaultMaterialShaderBindings()
 {
-    std::vector<DescriptorBindingData> result(7);
+    std::vector<DescriptorBindingData> result(6);
 
     // Binding 0: Albedo map
     result[0].count         = 1;
@@ -64,13 +64,6 @@ defaultMaterialShaderBindings()
     result[5].binding_index = settings::bindings::material_shader_binding + 5;
     result[5].stage         = vk::ShaderStageFlagBits::eFragment;
     result[5].type          = vk::DescriptorType::eCombinedImageSampler;
-
-    // Binding 6: exist flags
-    result[6].count         = 1;
-    result[6].binding_index = settings::bindings::material_shader_binding + 6;
-    result[6].stage         = vk::ShaderStageFlagBits::eFragment;
-    result[6].type          = vk::DescriptorType::eUniformBuffer;
-
     return result;
 }
 } // namespace

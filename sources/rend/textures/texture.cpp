@@ -2,6 +2,7 @@
 
 #include "../buffers/staging_buffer.hpp"
 #include "../cmdbuf/command_buffer.hpp"
+#include "../global_settings.hpp"
 
 #include "stb_image.h"
 
@@ -14,22 +15,53 @@ TextureSetCompare::operator()(const Texture& a, const Texture& b) const
     return &a < &b;
 }
 
+namespace
+{
+std::vector<unsigned char>
+convertDataTo4BytePerPixelFormat(const TextureData& data)
+{
+    uint8_t channels = data.getChannels();
+    std::vector<unsigned char> res(data.dataSize() / channels *
+                                       settings::bytes_per_pixel,
+                                   std::numeric_limits<unsigned char>::max());
+
+    for (size_t i = 0, count_iter = data.dataSize() / channels; i < count_iter;
+         ++i)
+    {
+        std::memcpy(res.data() + settings::bytes_per_pixel * i,
+                    static_cast<const char*>(data.data()) + channels * i,
+                    data.getChannels());
+    }
+    return res;
+}
+} // namespace
+
 void
 Texture::initImage(const LogicalDevice& logical_device,
                    const PhysicalDevice& physical_device,
                    const TextureData& data,
                    const TextureConfigInfo& config_info)
 {
-    
-    if (data.getChannels() != 4)
+    std::vector<unsigned char> result_texture_data;
+    if (data.getChannels() != settings::bytes_per_pixel)
     {
+        result_texture_data = convertDataTo4BytePerPixelFormat(data);
     }
 
-    vk::DeviceSize imageSize = data.dataSize();
-
     StagingBuffer staging_buffer;
-    staging_buffer.setData(logical_device, physical_device, data.data(),
-                           imageSize);
+
+    if (result_texture_data.empty())
+    {
+        vk::DeviceSize image_size = data.dataSize();
+        staging_buffer.setData(logical_device, physical_device, data.data(),
+                               image_size);
+    }
+    else
+    {
+        staging_buffer.setData(logical_device, physical_device,
+                               result_texture_data.data(),
+                               result_texture_data.size());
+    }
 
     m_image =
         Image(logical_device, physical_device,

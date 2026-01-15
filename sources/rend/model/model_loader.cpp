@@ -11,7 +11,6 @@ namespace ars_graphics
 void
 ModelLoader::load(PipelineManager& pipeline_manager,
                   const vk::RenderPass& render_pass,
-                  TextureDataStorage& texture_data_storage,
                   TextureStorage& texture_storage,
                   const TextureCreater& texture_creater,
                   MaterialStorage& material_storage,
@@ -19,6 +18,8 @@ ModelLoader::load(PipelineManager& pipeline_manager,
                   const std::vector<std::string>& paths,
                   std::unordered_map<std::string, Model>& model_storage) const
 {
+    TextureDataStorage texture_data_storage;
+
     for (auto&& path : paths)
     {
         if (false == fileOpenSuccess(path))
@@ -204,7 +205,7 @@ ModelLoader::loadMaterials(
     const std::vector<tinygltf::Material>& gltf_materials,
     const std::vector<TextureData>& textures_data,
     const TextureCreater& texture_creater,
-    TextureStorage& texturue_storage,
+    TextureStorage& texture_storage,
     std::vector<MaterialData>& materials_data) const
 {
     materials_data.reserve(gltf_materials.size());
@@ -225,13 +226,15 @@ ModelLoader::loadMaterials(
             gltf_material.pbrMetallicRoughness.roughnessFactor;
 
         std::list<Texture> textures;
+        std::vector<uint16_t> texture_inds;
 
-        auto createTexture = [&textures, &texture_creater, &textures_data](
-                                 size_t index, const Texture*& dest,
-                                 Texture::TextureType texture_type)
+        auto createTexture =
+            [&textures, &texture_creater, &textures_data,
+             &texture_inds](size_t index, Texture::TextureType texture_type)
         {
             if (hasTexture(index))
             {
+                texture_inds.emplace_back(index);
                 auto&& res = texture_creater.createPBRTexture(
                     textures_data[index], texture_type);
                 if (false == res.has_value())
@@ -239,28 +242,52 @@ ModelLoader::loadMaterials(
                     return;
                 }
                 textures.push_back(std::move(res.value()));
-                dest = &textures.back();
             }
         };
         createTexture(gltf_material.pbrMetallicRoughness.baseColorTexture.index,
-                      pbr_params.m_albedo_map, Texture::TextureType::ALBEDO);
+                      Texture::TextureType::ALBEDO);
 
         createTexture(
             gltf_material.pbrMetallicRoughness.metallicRoughnessTexture.index,
-            pbr_params.m_metallic_roughness_map,
             Texture::TextureType::METALLIC_ROUGHNESS);
 
         createTexture(gltf_material.normalTexture.index,
-                      pbr_params.m_normal_map, Texture::TextureType::NORMAL);
+                      Texture::TextureType::NORMAL);
 
         createTexture(gltf_material.emissiveTexture.index,
-                      pbr_params.m_emissive_map,
                       Texture::TextureType::EMISSIVE);
 
-        createTexture(gltf_material.occlusionTexture.index, pbr_params.m_ao_map,
+        createTexture(gltf_material.occlusionTexture.index,
                       Texture::TextureType::OCCLUSION);
 
-        texturue_storage.pushTextures(std::move(textures));
+        auto& realloc_textures =
+            texture_storage.pushTextures(std::move(textures));
+
+        for (size_t i = 0; i < texture_inds.size(); ++i)
+        {
+            if (gltf_material.pbrMetallicRoughness.baseColorTexture.index ==
+                texture_inds[i])
+            {
+                pbr_params.m_albedo_map = &realloc_textures[i];
+            }
+            else if (gltf_material.pbrMetallicRoughness.metallicRoughnessTexture
+                         .index == texture_inds[i])
+            {
+                pbr_params.m_metallic_roughness_map = &realloc_textures[i];
+            }
+            else if (gltf_material.normalTexture.index == texture_inds[i])
+            {
+                pbr_params.m_normal_map = &realloc_textures[i];
+            }
+            else if (gltf_material.emissiveTexture.index == texture_inds[i])
+            {
+                pbr_params.m_emissive_map = &realloc_textures[i];
+            }
+            else if (gltf_material.occlusionTexture.index == texture_inds[i])
+            {
+                pbr_params.m_ao_map = &realloc_textures[i];
+            }
+        }
 
         material_data.m_pbrparams = std::move(pbr_params);
 

@@ -254,7 +254,7 @@ PipelineCreater::depthStencil(const PipelineConfigInfo& config_info)
         config_info.main_config_info.depth_test_enable;
     depth_stencil_info.depthWriteEnable  = vk::True;
     depth_stencil_info.depthCompareOp    = vk::CompareOp::eLess;
-    depth_stencil_info.stencilTestEnable = vk::True;
+    depth_stencil_info.stencilTestEnable = vk::False;
 
     return depth_stencil_info;
 }

@@ -16,7 +16,10 @@ layout(location = 1) out vec2 vTexCoord;
 layout(location = 2) out vec3 vNormal;
 
 void main() {
-    gl_Position = vec4(aPosition, 1.0);
+    // Отодвигаем кубик от камеры по оси Z
+    vec3 position = aPosition;
+    position.z += 2.0;  // Смещение назад (кубик размером 1x1x1, отодвигаем на 2 единицы)
+    gl_Position = vec4(position, 1.0);
     vColor = vec4(0.0, 0.0, 0.0, 0.0);   // Дефолтное значение (не используется)
     vTexCoord = aTexCoord;
     vNormal = vec3(0.0, 0.0, 0.0);       // Дефолтное значение (не используется)

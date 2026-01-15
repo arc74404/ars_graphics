@@ -1,7 +1,10 @@
 #pragma once
 
+#include <memory>
 #include <vector>
 
+#include "../device/logical_device.hpp"
+#include "../device/physical_device.hpp"
 #include "glm/vec2.hpp"
 
 #include "texture.hpp"
@@ -12,8 +15,11 @@ namespace ars_graphics
 class TextureStorage
 {
 public:
+    TextureStorage(const LogicalDevice& logical_device,
+                   const PhysicalDevice& physical_device);
+
     template <typename Cont>
-    void pushTextures(Cont&& cont)
+    std::vector<Texture>& pushTextures(Cont&& cont)
     {
         auto& dest = m_texture_storage.emplace_back();
         dest.reserve(cont.size());
@@ -22,10 +28,19 @@ public:
         {
             dest.emplace_back(std::move(el));
         }
+        return dest;
     }
+
+    static const Texture* getDummy(Texture::TextureType type);
 
 private:
     std::vector<std::vector<Texture>> m_texture_storage;
+
+    static std::unique_ptr<Texture> m_dummy_white;
+    static std::unique_ptr<Texture> m_dummy_black;
+    static std::unique_ptr<Texture> m_dummy_normal;
+    static std::unique_ptr<Texture> m_dummy_default_albedo;
+    static std::unique_ptr<Texture> m_dummy_default_mr;
 };
 
 }; // namespace ars_graphics

@@ -2,7 +2,7 @@
 #include <iostream>
 #include <vector>
 
-#include "../../window/interface_window.hpp"
+#include "../../gui/window/interface_window.hpp"
 #include "../device/logical_device.hpp"
 #include "../device/physical_device.hpp"
 #include "../instance/instance.hpp"
@@ -74,6 +74,8 @@ private:
     void startRenderPass(RenderPassType renderpass_type);
 
     void setupScope();
+
+    void present(const SynchronizationData& sync, uint32_t image_index);
 
     Instance m_instance;
 

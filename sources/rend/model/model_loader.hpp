@@ -26,7 +26,6 @@ class ModelLoader
 public:
     void load(PipelineManager& pipeline_manager,
               const vk::RenderPass& render_pass,
-              TextureDataStorage& texture_data_storage,
               TextureStorage& texture_storage,
               const TextureCreater& texture_creater,
               MaterialStorage& material_storage,

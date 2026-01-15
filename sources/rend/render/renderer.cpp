@@ -114,6 +114,19 @@ RendererImpl::setupScope()
 }
 
 void
+RendererImpl::present(const SynchronizationData& sync, uint32_t image_index)
+{
+    vk::PresentInfoKHR presentInfo{};
+    presentInfo.waitSemaphoreCount = 1;
+    presentInfo.pWaitSemaphores    = &(sync.getRenderFinished());
+    presentInfo.swapchainCount     = 1;
+    presentInfo.pSwapchains        = &m_swapchain.get();
+    presentInfo.pImageIndices      = &image_index;
+
+    m_logical_device.getQueue("present").presentKHR(presentInfo);
+}
+
+void
 RendererImpl::render()
 {
     RenderPassType renderpass_type = RenderPassType::STANDART;
@@ -178,6 +191,8 @@ RendererImpl::render()
     m_render_ctx.cmd->end();
 
     synchronization.submit(m_logical_device, *m_render_ctx.cmd);
+
+    present(synchronization, image_index);
 }
 
 } // namespace ars_graphics

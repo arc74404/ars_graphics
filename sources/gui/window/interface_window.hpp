@@ -13,6 +13,12 @@ struct WindowConfigInfo final
     int m_height        = 600;
 };
 
+enum class EventType
+{
+    NONE,
+    CLOSE
+};
+
 class IWindow
 {
 public:
@@ -33,6 +39,8 @@ public:
     }
 
     virtual vk::SurfaceKHR createSurface(const vk::Instance& instance) = 0;
+
+    virtual EventType pollEvents() = 0;
 
 private:
     WindowConfigInfo m_config_info;

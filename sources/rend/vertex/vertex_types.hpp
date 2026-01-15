@@ -27,7 +27,7 @@ using ParticleMesh = Vertex<attributes::Position3D,
                             attributes::ColorRGBA,
                             attributes::TextureCoord>;
 
-#define VerticesPriorityListPack                  \
+#define VerticesPriorityListPack               \
     ars_graphics::vertex_types::Standart3D,    \
         ars_graphics::vertex_types::Colored3D, \
         ars_graphics::vertex_types::Simple3D,  \

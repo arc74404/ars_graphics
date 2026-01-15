@@ -76,12 +76,4 @@ public:
     }
 };
 
-using Default2DVertex = Vertex<attributes::Position2D,
-                               attributes::OnlyAChannel,
-                               attributes::TextureCoord>;
-
-using Default3DVertex = Vertex<attributes::Position3D,
-                               attributes::OnlyAChannel,
-                               attributes::TextureCoord>;
-
 }; // namespace ars_graphics

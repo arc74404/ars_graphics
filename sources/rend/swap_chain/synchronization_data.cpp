@@ -18,6 +18,12 @@ SynchronizationData::SynchronizationData(const LogicalDevice& device)
     render_finished = device.get().createSemaphoreUnique(semaphoreInfo).value;
 }
 
+const vk::Semaphore&
+SynchronizationData::getRenderFinished() const
+{
+    return render_finished.get();
+}
+
 void
 SynchronizationData::waitForFence(const LogicalDevice& device) const
 {

@@ -73,7 +73,7 @@ Scene::calculateRenderInfo(const LogicalDevice& logical_device,
     uint32_t vertex_offset     = 0; // not bytes, count vertex
     uint32_t instance_count    = 0;
 
-    std::vector<char> vertices_data;
+    std::vector<float> vertices_data;
     std::vector<uint32_t> indices_data;
 
     for (auto&& model : m_models)
@@ -95,8 +95,6 @@ Scene::calculateRenderInfo(const LogicalDevice& logical_device,
                 per_primitive.pipeline = primitive.m_pipeline;
 
                 primitive.m_vertices.pushData<true>(vertices_data);
-
-                primitive.m_vertices.pushData<true>(vertices_data);
                 pushDataToTheEnd<true>(indices_data, primitive.m_indices);
 
                 render_info.per_primitive_data.emplace_back(
@@ -104,13 +102,27 @@ Scene::calculateRenderInfo(const LogicalDevice& logical_device,
             }
         }
     }
+    // for (auto&& d : vertices_data)
+    // {
+    //     std::cout << d << '\n';
+    // }
+    std::cout << "Scene::calculateRenderInfo: "
+              << "primitives=" << render_info.per_primitive_data.size()
+              << ", vertices=" << vertices_data.size()
+              << ", indices=" << indices_data.size() << std::endl;
+
+    if (indices_data.empty() && vertices_data.empty())
+    {
+        std::cout << "WARNING: No geometry data to render!" << std::endl;
+    }
+
     render_info.index_buffer.setData(logical_device, physical_device,
                                      indices_data.data(),
                                      indices_data.size() * sizeof(uint32_t));
 
     render_info.vertex_buffer.setData(logical_device, physical_device,
                                       vertices_data.data(),
-                                      vertices_data.size());
+                                      vertices_data.size() * sizeof(float));
 
     return render_info;
 }
