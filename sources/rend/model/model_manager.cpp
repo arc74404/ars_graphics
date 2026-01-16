@@ -15,8 +15,8 @@ ModelManager::ModelManager(PipelineManager& pipeline_manager,
 {
     TextureCreater texture_creater{logical_device, physical_device};
 
-    MaterialCreater material_creater(logical_device, descriptor_manager,
-                                     pipelayout);
+    MaterialCreater material_creater(logical_device, physical_device,
+                                     descriptor_manager, pipelayout);
 
     m_loader.load(pipeline_manager, render_pass, m_texture_storage,
                   texture_creater, m_material_storage, material_creater, paths,

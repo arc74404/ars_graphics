@@ -3,8 +3,9 @@
 #define VULKAN_HPP_NO_EXCEPTIONS
 #include <vulkan/vulkan.hpp>
 
-#include "../device/logical_device.hpp"
+#include <iostream>
 
+#include "../device/logical_device.hpp"
 namespace ars_graphics
 {
 
@@ -31,6 +32,7 @@ public:
                                   float h);
 
     // ---------- //
+
     Buffer(vk::BufferUsageFlags buffer_usage_flags,
            vk::MemoryPropertyFlags requested_properties);
 
@@ -50,6 +52,14 @@ public:
     const vk::Buffer& buffer() const noexcept;
 
     vk::DeviceSize byteSize() const noexcept;
+
+    // Buffer& operator=(Buffer&& other) noexcept = default;
+    // Buffer(Buffer&& other) noexcept            = default;
+
+    // ~Buffer() noexcept
+    // {
+    //     std::cout << "Buffer destr\n";
+    // }
 
 private:
     void allocateBufferMemory(const LogicalDevice& logical_device,

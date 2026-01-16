@@ -6,6 +6,7 @@
 
 namespace ars_graphics
 {
+
 struct PBRParameters
 {
     int countTextures() const;

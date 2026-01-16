@@ -1,5 +1,6 @@
 #pragma once
 
+#include <iostream>
 #include <vector>
 
 #include "../material/material.hpp"
@@ -9,15 +10,16 @@ namespace ars_graphics
 class MaterialStorage
 {
 public:
-    template <typename Cont>
-    std::vector<Material>& pushMaterials(Cont&& cont)
+    template <template <typename, typename...> typename Cont, typename... Args>
+    std::vector<Material>& pushMaterials(Cont<Material, Args...>&& cont)
     {
         auto& dest = m_storage.emplace_back();
-        dest.reserve(cont.size());
-        for (auto&& el : cont)
+
+        for (size_t i = 0; i < cont.size(); ++i)
         {
-            dest.emplace_back(std::move(el));
+            dest.emplace_back(std::move(cont[i]));
         }
+
         return dest;
     }
 

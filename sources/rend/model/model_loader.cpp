@@ -91,8 +91,11 @@ ModelLoader::loadImpl(PipelineManager& pipeline_manager,
         return false;
     }
 
-    std::vector<Material>& realoc_materials = material_storage.pushMaterials(
-        material_creater.convertToMaterials(std::move(materials_data)));
+    std::vector<ars_graphics::Material> convert_data =
+        material_creater.convertToMaterials(materials_data);
+
+    std::vector<Material>& realoc_materials =
+        material_storage.pushMaterials(std::move(convert_data));
 
     for (auto&& gltf_mesh : gltf_model.meshes)
     {
@@ -103,6 +106,7 @@ ModelLoader::loadImpl(PipelineManager& pipeline_manager,
         CHECK(checker)
     }
     model_storage.emplace(path, std::move(res_model));
+
     return true;
 }
 

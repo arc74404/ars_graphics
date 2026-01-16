@@ -1,22 +1,37 @@
 #include "material.hpp"
 
-#include <iostream>
-
+#include "../shaders/shaders_data_structs/material_params.hpp"
 #include "../textures/texture_storage.hpp"
 
 namespace ars_graphics
 {
 
-Material::Material(const LogicalDevice& device,
+Material::Material(const LogicalDevice& logical_device,
+                   const PhysicalDevice& physical_device,
                    const DescriptorManager& desc_manager,
                    const vk::PipelineLayout& pipelayout,
                    const MaterialData& material_data)
-    : m_pipeline_layout(pipelayout), m_data(material_data)
+    : m_pipeline_layout(pipelayout),
+      m_material_data(material_data),
+      m_shader_params_buffer_info(std::make_shared<vk::DescriptorBufferInfo>()),
+      m_shader_params_buffer(std::make_shared<UniformBuffer>())
 {
+    setupParamsBuffer(logical_device, physical_device);
     desc_manager.getAllocator(DescriptorSetLayoutType::MATERIAL)
-        .allocate(device, m_descriptor_set);
+        .allocate(logical_device, m_descriptor_set);
     setupDescriptorSets();
-    updateDescriptorSets(device);
+    updateDescriptorSets(logical_device);
+}
+
+void
+Material::setupParamsBuffer(const LogicalDevice& logical_device,
+                            const PhysicalDevice& physical_device)
+{
+    shaders_params::MaterialParams params = {
+        m_material_data.m_pbrparams.m_albedo_color};
+
+    m_shader_params_buffer->setData(logical_device, physical_device, &params,
+                                    sizeof(shaders_params::MaterialParams));
 }
 
 void
@@ -43,6 +58,28 @@ Material::addMap(const Texture* texture,
 }
 
 void
+Material::addParams(uint32_t shift)
+{
+    m_shader_params_buffer_info->buffer = m_shader_params_buffer->buffer();
+    m_shader_params_buffer_info->offset = 0;
+    m_shader_params_buffer_info->range  = m_shader_params_buffer->byteSize();
+
+    vk::WriteDescriptorSet buffer_write{};
+
+    buffer_write.dstSet = m_descriptor_set.get();
+    buffer_write.dstBinding =
+        settings::bindings::material_shader_binding + shift;
+    buffer_write.dstArrayElement  = 0;
+    buffer_write.descriptorCount  = 1;
+    buffer_write.descriptorType   = vk::DescriptorType::eUniformBuffer;
+    buffer_write.pImageInfo       = nullptr;
+    buffer_write.pBufferInfo      = m_shader_params_buffer_info.get();
+    buffer_write.pTexelBufferView = nullptr;
+
+    m_descriptor_writes.push_back(buffer_write);
+}
+
+void
 Material::setupDescriptorSets()
 {
     m_image_infos.clear();
@@ -51,14 +88,20 @@ Material::setupDescriptorSets()
     m_image_infos.reserve(6);
     m_descriptor_writes.reserve(6);
 
-    addMap(m_data.m_pbrparams.m_albedo_map, 0, Texture::TextureType::ALBEDO);
-    addMap(m_data.m_pbrparams.m_normal_map, 1, Texture::TextureType::NORMAL);
-    addMap(m_data.m_pbrparams.m_metallic_roughness_map, 2,
+    addMap(m_material_data.m_pbrparams.m_albedo_map, 0,
+           Texture::TextureType::ALBEDO);
+    addMap(m_material_data.m_pbrparams.m_normal_map, 1,
+           Texture::TextureType::NORMAL);
+    addMap(m_material_data.m_pbrparams.m_metallic_roughness_map, 2,
            Texture::TextureType::METALLIC_ROUGHNESS);
-    addMap(m_data.m_pbrparams.m_ao_map, 3, Texture::TextureType::OCCLUSION);
-    addMap(m_data.m_pbrparams.m_emissive_map, 4,
+    addMap(m_material_data.m_pbrparams.m_ao_map, 3,
+           Texture::TextureType::OCCLUSION);
+    addMap(m_material_data.m_pbrparams.m_emissive_map, 4,
            Texture::TextureType::EMISSIVE);
-    addMap(m_data.m_pbrparams.m_height_map, 5, Texture::TextureType::HEIGHT);
+    addMap(m_material_data.m_pbrparams.m_height_map, 5,
+           Texture::TextureType::HEIGHT);
+
+    addParams(6);
 }
 
 void
