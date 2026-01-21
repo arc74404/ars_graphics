@@ -18,16 +18,16 @@ GlfwWindowDeleter::operator()(GLFWwindow* window) const
     }
 }
 
-EventType
+void
+GlfwWindow::close()
+{
+    glfwSetWindowShouldClose(m_window.get(), GLFW_TRUE);
+}
+
+const std::vector<EventPtr>&
 GlfwWindow::pollEvents()
 {
-    glfwPollEvents();
-
-    if (should_clode)
-    {
-        return EventType::CLOSE;
-    }
-    return EventType::NONE;
+    return m_event_manager.pollEvents(m_window.get());
 }
 
 GlfwWindow::GlfwWindow(const GlfwWindowConfigInfo& config_info)
@@ -50,17 +50,13 @@ GlfwWindow::GlfwWindow(const GlfwWindowConfigInfo& config_info)
         glfwTerminate();
     }
 
-    glfwSetWindowUserPointer(m_window.get(), this);
-    glfwSetWindowCloseCallback(m_window.get(),
-                               [](GLFWwindow* w)
-                               {
-                                   GlfwWindow* d = static_cast<GlfwWindow*>(
-                                       glfwGetWindowUserPointer(w));
-                                   if (d)
-                                   {
-                                       d->should_clode = true;
-                                   }
-                               });
+    m_event_manager.setupCallBacks(m_window.get());
+}
+
+bool
+GlfwWindow::IsOpen() const
+{
+    return false == glfwWindowShouldClose(m_window.get());
 }
 
 vk::SurfaceKHR

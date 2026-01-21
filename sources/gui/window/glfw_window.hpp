@@ -6,6 +6,8 @@
 #define GLFW_INCLUDE_VULKAN
 #include <GLFW/glfw3.h>
 
+#include "../events/glfw_event_manager.hpp"
+
 namespace ars_graphics
 {
 
@@ -27,12 +29,16 @@ public:
 
     vk::SurfaceKHR createSurface(const vk::Instance& instance) override;
 
-    EventType pollEvents() override;
+    const std::vector<EventPtr>& pollEvents() override;
+
+    void close() override;
+
+    bool IsOpen() const override;
 
     ~GlfwWindow();
 
 private:
-    bool should_clode = false;
+    GlfwEventManager m_event_manager;
 
     std::unique_ptr<GLFWwindow, GlfwWindowDeleter> m_window;
 };

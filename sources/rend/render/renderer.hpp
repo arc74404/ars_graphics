@@ -3,6 +3,7 @@
 #include <vector>
 
 #include "../../gui/window/interface_window.hpp"
+#include "../camera/interface_camera.hpp"
 #include "../device/logical_device.hpp"
 #include "../device/physical_device.hpp"
 #include "../instance/instance.hpp"
@@ -10,7 +11,7 @@
 #include "../pipelines/pipeline_layout_storage.hpp"
 #include "../pipelines/pipeline_manager.hpp"
 #include "../swap_chain/swap_chain.hpp"
-
+#include "ubo_data.hpp"
 #include "render_info.hpp"
 
 namespace ars_graphics
@@ -46,6 +47,11 @@ struct CommandPoolConstructControler
     }
 };
 
+struct RenderingInfo
+{
+    ICamera& camera;
+};
+
 class RendererImpl final
 {
 public:
@@ -63,7 +69,7 @@ public:
             obj.calculateRenderInfo(m_logical_device, m_physical_device);
     }
 
-    void render();
+    void render(const RenderingInfo& extra_rendering_info);
 
     void clear();
 
@@ -71,6 +77,9 @@ public:
         const std::vector<std::string>& models_paths);
 
 private:
+    void updateUniformBuffer(const SwapChainFrame& frame,
+                             const RenderingInfo& rendering_info);
+
     void startRenderPass(RenderPassType renderpass_type);
 
     void setupScope();
@@ -103,6 +112,10 @@ private:
     RenderInfo m_render_info_data;
 
     RenderCtx m_render_ctx;
+
+    ///
+
+    VertexShaderUbo m_vertex_shader_ubo;
 };
 
 class Renderer final
@@ -132,9 +145,9 @@ public:
         m_renderer_impl->bind(obj);
     }
 
-    void render()
+    void render(const RenderingInfo& extra_rendering_info)
     {
-        m_renderer_impl->render();
+        m_renderer_impl->render(extra_rendering_info);
     }
 
     bool IsValid() const

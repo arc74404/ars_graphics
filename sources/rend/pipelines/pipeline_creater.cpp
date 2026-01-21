@@ -164,7 +164,7 @@ PipelineCreater::rasterizerState(const PipelineConfigInfo& config_info)
     rasterizer.rasterizerDiscardEnable = VK_FALSE;
     rasterizer.polygonMode             = vk::PolygonMode::eFill;
     rasterizer.lineWidth               = 1.0f;
-    rasterizer.cullMode                = vk::CullModeFlagBits::eBack;
+    rasterizer.cullMode                = vk::CullModeFlagBits::eFront;
     rasterizer.frontFace               = vk::FrontFace::eClockwise;
     rasterizer.depthBiasEnable         = VK_FALSE;
 

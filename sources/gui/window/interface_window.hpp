@@ -3,6 +3,8 @@
 #define VULKAN_HPP_NO_EXCEPTIONS
 #include <vulkan/vulkan.hpp>
 
+#include "../events/event.hpp"
+
 namespace ars_graphics
 {
 
@@ -37,12 +39,15 @@ public:
     {
         return m_config_info.m_height;
     }
+    virtual void close() = 0;
 
     virtual vk::SurfaceKHR createSurface(const vk::Instance& instance) = 0;
 
-    virtual EventType pollEvents() = 0;
+    virtual const std::vector<EventPtr>& pollEvents() = 0;
 
+    virtual bool IsOpen() const = 0;
 private:
+
     WindowConfigInfo m_config_info;
 };
 } // namespace ars_graphics

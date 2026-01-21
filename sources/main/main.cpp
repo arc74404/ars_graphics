@@ -1,3 +1,4 @@
+#include "../gui/events/event_handler.hpp"
 #include "../sources/gui/window/glfw_window.hpp"
 #include "../sources/rend/render/renderer.hpp"
 
@@ -6,14 +7,20 @@ using namespace ars_graphics;
 #include <iostream>
 #include <vector>
 
+#include "../rend/camera/fly_camera.hpp"
 #include "../sources/rend/scene.hpp"
+#include "../sources/time/time_manager.hpp"
 
 int
 main()
 {
     std::vector<std::string> models_paths = {
         "C:/Users/User/source/repos/arsrender_lib/models/"
-        "Box.glb"};
+        "AntiqueCamera.glb",
+        "C:/Users/User/source/repos/arsrender_lib/models/"
+        "Box.glb",
+        "C:/Users/User/source/repos/arsrender_lib/models/"
+        "BrainStem.glb"};
 
     std::string folder =
         "C:/Users/User/source/repos/arsrender_lib/shaders/compiled/";
@@ -51,19 +58,33 @@ main()
     }
 
     Scene scene;
+    // scene.addModel(
+    //     model_manager["C:/Users/User/source/repos/arsrender_lib/models/"
+    //                   "BrainStem.glb"]);
     scene.addModel(
         model_manager["C:/Users/User/source/repos/arsrender_lib/models/"
-                      "Box.glb"]);
+                      "AntiqueCamera.glb"]);
 
     renderer.bind(scene);
 
-    while (true)
+    FlyCamera fly_camera(window.getWidth(), window.getHeight());
+
+    EventHandler event_handler;
+
+    TimeManager time_manager;
+
+    while (window.IsOpen())
     {
-        renderer.render();
-        if (EventType::CLOSE == window.pollEvents())
-        {
-            return 1;
-        }
+        double delta_time = time_manager.restartTimer();
+        auto&& events     = window.pollEvents();
+
+        event_handler.handle(
+            {.window = window, .camera = fly_camera, .delta_time = delta_time},
+            events);
+
+        renderer.render({.camera = fly_camera});
+
+        // std::cout << delta_time << '\n';
     }
 
     return 0;

@@ -102,10 +102,7 @@ Scene::calculateRenderInfo(const LogicalDevice& logical_device,
             }
         }
     }
-    // for (auto&& d : vertices_data)
-    // {
-    //     std::cout << d << '\n';
-    // }
+
     std::cout << "Scene::calculateRenderInfo: "
               << "primitives=" << render_info.per_primitive_data.size()
               << ", vertices=" << vertices_data.size()

@@ -135,8 +135,10 @@ struct CalculateVertexAttributeSutterTrick<VertexType, attributes::Position3D>
         VertexType& vertex,
         const attributes::Position3D& attribute_data)
     {
-        vertex.setPosition3D(
-            *(reinterpret_cast<const glm::vec3*>(attribute_data.data())));
+        glm::vec3 pos =
+            *(reinterpret_cast<const glm::vec3*>(attribute_data.data()));
+        pos.y *= -1;
+        vertex.setPosition3D(pos);
     }
 };
 template <typename VertexType>
@@ -157,8 +159,9 @@ struct CalculateVertexAttributeSutterTrick<VertexType, attributes::TextureCoord>
         VertexType& vertex,
         const attributes::TextureCoord& attribute_data)
     {
-        vertex.setCoord(
-            *(reinterpret_cast<const glm::vec3*>(attribute_data.data())));
+        glm::vec2 pos =
+            *(reinterpret_cast<const glm::vec2*>(attribute_data.data()));
+        vertex.setCoord(pos);
     }
 };
 

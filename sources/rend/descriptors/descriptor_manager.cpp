@@ -10,16 +10,11 @@ namespace
 std::vector<DescriptorBindingData>
 defaultVertexShaderBindings()
 {
-    std::vector<DescriptorBindingData> result(2);
+    std::vector<DescriptorBindingData> result(1);
     result[0].count         = 1;
     result[0].binding_index = settings::bindings::uniform_buffer_binding;
     result[0].stage         = vk::ShaderStageFlagBits::eVertex;
     result[0].type          = vk::DescriptorType::eUniformBuffer;
-
-    result[1].count         = 1;
-    result[1].binding_index = settings::bindings::uniform_buffer_binding + 1;
-    result[1].stage         = vk::ShaderStageFlagBits::eVertex;
-    result[1].type          = vk::DescriptorType::eStorageBuffer;
 
     return result;
 }

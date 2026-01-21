@@ -23,7 +23,7 @@ public:
 
     const vk::Extent2D getExtent() const;
 
-    const SwapChainFrame& currentFrame();
+    std::pair<const SwapChainFrame&, uint32_t> currentFrame();
 
     const vk::SwapchainKHR& get() const;
 

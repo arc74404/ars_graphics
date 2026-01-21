@@ -21,5 +21,5 @@ layout(location = 0) out vec4 FragColor;
 
 void main() {
     vec4 albedo = texture(uAlbedoTexture, vTexCoord);
-    FragColor = albedo * vColor;
+    FragColor = albedo * material.albedo_factor;
 }

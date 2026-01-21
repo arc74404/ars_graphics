@@ -47,7 +47,12 @@ RendererImpl::RendererImpl(const RendererConfigInfo& config_info)
       m_pipeline_manager(m_logical_device,
                          m_shader_manager,
                          m_descriptor_manager,
-                         m_swapchain.getExtent())
+                         m_swapchain.getExtent()),
+      m_vertex_shader_ubo(m_logical_device,
+                          m_physical_device,
+                          m_swapchain.countFrames(),
+                          m_descriptor_manager.getAllocator(
+                              DescriptorSetLayoutType::UBO_AND_STORAGE))
 
 {
     std::cout << "All RIght!\n";
@@ -127,26 +132,33 @@ RendererImpl::present(const SynchronizationData& sync, uint32_t image_index)
 }
 
 void
-RendererImpl::render()
+RendererImpl::render(const RenderingInfo& rendering_info)
 {
     RenderPassType renderpass_type = RenderPassType::STANDART;
 
-    auto& cur_frame = m_swapchain.currentFrame();
+    std::pair<const ars_graphics::SwapChainFrame&, uint32_t> frame_and_index =
+        m_swapchain.currentFrame();
 
-    auto&& synchronization = cur_frame.getSynchronization();
+    auto&& synchronization = frame_and_index.first.getSynchronization();
 
     synchronization.waitForFence(m_logical_device);
 
     // update buffers //
 
-    // ...
+    if (rendering_info.camera.needRecalculation())
+    {
+        m_vertex_shader_ubo.updateCamera(rendering_info.camera.recalculate());
+    }
+
+    m_vertex_shader_ubo.updatePerFrameUboBuffer(
+        m_logical_device, m_physical_device, frame_and_index.second);
 
     // -------------- //
 
     uint32_t image_index =
         synchronization.acquireNextImage(m_logical_device, m_swapchain);
 
-    cur_frame.shareContext(m_render_ctx, renderpass_type);
+    frame_and_index.first.shareContext(m_render_ctx, renderpass_type);
 
     vk::CommandBufferBeginInfo begin_info{};
     begin_info.pInheritanceInfo = nullptr;
@@ -159,6 +171,10 @@ RendererImpl::render()
 
     m_render_info_data.vertex_buffer.bind(*m_render_ctx.cmd);
     m_render_info_data.index_buffer.bind(*(m_render_ctx.cmd));
+    m_vertex_shader_ubo.bind(
+        *(m_render_ctx.cmd),
+        m_pipeline_manager.getLayout(PipelineLayoutType ::STANDART),
+        image_index);
 
     for (auto&& per_primitive : m_render_info_data.per_primitive_data)
     {

@@ -171,10 +171,14 @@ SwapChain::destroy()
     }
 }
 
-const SwapChainFrame&
+std::pair<const SwapChainFrame&, uint32_t>
 SwapChain::currentFrame()
 {
-    return m_frames[(m_current_frame_index++) % m_count_frames];
+    uint32_t index = m_current_frame_index++;
+
+    m_current_frame_index %= m_count_frames;
+
+    return {m_frames[index], m_current_frame_index};
 }
 
 const vk::SwapchainKHR&
