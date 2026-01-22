@@ -67,6 +67,11 @@ GlfwEventManager::pollEvents(GLFWwindow* window)
     m_events.clear();
     glfwPollEvents();
 
+    if (glfwWindowShouldClose(window))
+    {
+        std::cout << "After callback\n";
+    }
+
     keyEvents(window);
     mouseEvents(window);
 
@@ -79,6 +84,8 @@ GlfwEventManager::closeWindowCallBack(GLFWwindow* w)
     GlfwEventManager* d =
         static_cast<GlfwEventManager*>(glfwGetWindowUserPointer(w));
     d->m_events.emplace_back(std::make_unique<CloseWindowEvent>());
+
+    std::cout << "CALLLBACK\n";
 }
 
 void

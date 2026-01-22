@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../../rend/camera/interface_camera.hpp"
+#include "../../rend/render/renderer.hpp"
 #include "../window/interface_window.hpp"
 
 namespace ars_graphics
@@ -10,6 +11,7 @@ struct EventHandlerContext
 {
     IWindow& window;
     ICamera& camera;
+    Renderer& renderer;
 
     double delta_time;
 };

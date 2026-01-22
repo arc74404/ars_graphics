@@ -103,24 +103,21 @@ Scene::calculateRenderInfo(const LogicalDevice& logical_device,
         }
     }
 
-    std::cout << "Scene::calculateRenderInfo: "
-              << "primitives=" << render_info.per_primitive_data.size()
-              << ", vertices=" << vertices_data.size()
-              << ", indices=" << indices_data.size() << std::endl;
-
     if (indices_data.empty() && vertices_data.empty())
     {
+        render_info.m_is_valid = false;
         std::cout << "WARNING: No geometry data to render!" << std::endl;
     }
+    else
+    {
+        render_info.index_buffer.setData(
+            logical_device, physical_device, indices_data.data(),
+            indices_data.size() * sizeof(uint32_t));
 
-    render_info.index_buffer.setData(logical_device, physical_device,
-                                     indices_data.data(),
-                                     indices_data.size() * sizeof(uint32_t));
-
-    render_info.vertex_buffer.setData(logical_device, physical_device,
-                                      vertices_data.data(),
-                                      vertices_data.size() * sizeof(float));
-
+        render_info.vertex_buffer.setData(logical_device, physical_device,
+                                          vertices_data.data(),
+                                          vertices_data.size() * sizeof(float));
+    }
     return render_info;
 }
 

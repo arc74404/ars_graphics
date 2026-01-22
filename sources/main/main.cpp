@@ -16,11 +16,7 @@ main()
 {
     std::vector<std::string> models_paths = {
         "C:/Users/User/source/repos/arsrender_lib/models/"
-        "AntiqueCamera.glb",
-        "C:/Users/User/source/repos/arsrender_lib/models/"
-        "Box.glb",
-        "C:/Users/User/source/repos/arsrender_lib/models/"
-        "BrainStem.glb"};
+        "AntiqueCamera.glb"};
 
     std::string folder =
         "C:/Users/User/source/repos/arsrender_lib/shaders/compiled/";
@@ -46,11 +42,10 @@ main()
 
     RendererConfigInfo config_info = {.interface_window = &window,
                                       .render_name      = "checker",
-                                      .shader_paths     = shader_paths};
+                                      .shader_paths     = shader_paths,
+                                      .models_paths     = models_paths};
 
     Renderer renderer(config_info);
-
-    ModelManager model_manager = renderer.generateModelManager(models_paths);
 
     if (false == renderer.IsValid())
     {
@@ -58,12 +53,10 @@ main()
     }
 
     Scene scene;
-    // scene.addModel(
-    //     model_manager["C:/Users/User/source/repos/arsrender_lib/models/"
-    //                   "BrainStem.glb"]);
+
     scene.addModel(
-        model_manager["C:/Users/User/source/repos/arsrender_lib/models/"
-                      "AntiqueCamera.glb"]);
+        renderer.getModel("C:/Users/User/source/repos/arsrender_lib/models/"
+                          "AntiqueCamera.glb"));
 
     renderer.bind(scene);
 
@@ -76,13 +69,16 @@ main()
     while (window.IsOpen())
     {
         double delta_time = time_manager.restartTimer();
-        auto&& events     = window.pollEvents();
-
-        event_handler.handle(
-            {.window = window, .camera = fly_camera, .delta_time = delta_time},
-            events);
 
         renderer.render({.camera = fly_camera});
+
+        auto&& events = window.pollEvents();
+
+        event_handler.handle({.window     = window,
+                              .camera     = fly_camera,
+                              .renderer   = renderer,
+                              .delta_time = delta_time},
+                             events);
 
         // std::cout << delta_time << '\n';
     }

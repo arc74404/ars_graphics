@@ -35,14 +35,8 @@ Material::setupParamsBuffer(const LogicalDevice& logical_device,
 }
 
 void
-Material::addMap(const Texture* texture,
-                 uint32_t shift,
-                 Texture::TextureType type)
+Material::addMap(const Texture* texture, uint32_t shift)
 {
-    if (nullptr == texture)
-    {
-        texture = TextureStorage::getDummy(type);
-    }
     vk::DescriptorImageInfo text_info{};
     text_info.imageLayout = vk::ImageLayout::eShaderReadOnlyOptimal;
     text_info.imageView   = texture->getImageView();
@@ -88,20 +82,12 @@ Material::setupDescriptorSets()
     m_image_infos.reserve(6);
     m_descriptor_writes.reserve(6);
 
-    addMap(m_material_data.m_pbrparams.m_albedo_map, 0,
-           Texture::TextureType::ALBEDO);
-    addMap(m_material_data.m_pbrparams.m_normal_map, 1,
-           Texture::TextureType::NORMAL);
-    addMap(m_material_data.m_pbrparams.m_metallic_roughness_map, 2,
-           Texture::TextureType::METALLIC_ROUGHNESS);
-    addMap(m_material_data.m_pbrparams.m_ao_map, 3,
-           Texture::TextureType::OCCLUSION);
-    addMap(m_material_data.m_pbrparams.m_emissive_map, 4,
-           Texture::TextureType::EMISSIVE);
-    addMap(m_material_data.m_pbrparams.m_height_map, 5,
-           Texture::TextureType::HEIGHT);
-
-    addParams(6);
+    addMap(m_material_data.m_pbrparams.m_albedo_map, 0);
+    addMap(m_material_data.m_pbrparams.m_normal_map, 1);
+    addMap(m_material_data.m_pbrparams.m_metallic_roughness_map, 2);
+    addMap(m_material_data.m_pbrparams.m_ao_map, 3);
+    addMap(m_material_data.m_pbrparams.m_emissive_map, 4);
+    addParams(5);
 }
 
 void

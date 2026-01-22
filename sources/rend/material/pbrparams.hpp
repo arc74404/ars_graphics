@@ -46,8 +46,6 @@ struct PBRParameters
 
     const Texture* m_emissive_map{};
 
-    const Texture* m_height_map{};
-
     const Texture* m_metallic_roughness_map{};
 };
 } // namespace ars_graphics

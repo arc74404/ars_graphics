@@ -85,6 +85,7 @@ void
 SwapChainFrame::destroy()
 {
     m_command_buffer.destroy();
+    m_synchronization.destroy();
 }
 
 }; // namespace ars_graphics

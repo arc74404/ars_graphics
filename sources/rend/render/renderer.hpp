@@ -2,7 +2,6 @@
 #include <iostream>
 #include <vector>
 
-#include "../../gui/window/interface_window.hpp"
 #include "../camera/interface_camera.hpp"
 #include "../device/logical_device.hpp"
 #include "../device/physical_device.hpp"
@@ -11,16 +10,21 @@
 #include "../pipelines/pipeline_layout_storage.hpp"
 #include "../pipelines/pipeline_manager.hpp"
 #include "../swap_chain/swap_chain.hpp"
-#include "ubo_data.hpp"
+
 #include "render_info.hpp"
+#include "ubo_data.hpp"
 
 namespace ars_graphics
 {
+
+struct IWindow;
+
 struct RendererConfigInfo final
 {
     IWindow* interface_window;
     std::string render_name;
     std::unordered_map<ShaderType, std::string> shader_paths;
+    std::vector<std::string> models_paths;
 };
 
 struct Formats
@@ -59,6 +63,7 @@ public:
 
     ~RendererImpl()
     {
+        clear();
         std::cout << "Destructor\n";
     }
 
@@ -73,8 +78,7 @@ public:
 
     void clear();
 
-    ModelManager generateModelManager(
-        const std::vector<std::string>& models_paths);
+    const Model* getModel(const std::string& name);
 
 private:
     void updateUniformBuffer(const SwapChainFrame& frame,
@@ -107,6 +111,8 @@ private:
     ShaderManager m_shader_manager;
 
     PipelineManager m_pipeline_manager;
+
+    ModelManager m_model_manager;
     ///
 
     RenderInfo m_render_info_data;
@@ -123,26 +129,46 @@ class Renderer final
 public:
     Renderer(const RendererConfigInfo& config_info)
     {
+        m_renderer_impl =
+            static_cast<RendererImpl*>(std::malloc(sizeof(RendererImpl)));
         try
         {
-            m_renderer_impl = new RendererImpl(config_info);
+            m_renderer_impl = new (m_renderer_impl) RendererImpl(config_info);
         }
         catch (std::logic_error& error)
         {
             std::cout << error.what();
-            m_is_valid = false;
+
+            std::free(m_renderer_impl);
+            m_renderer_impl = nullptr;
+            m_is_valid      = false;
         }
         catch (std::runtime_error& error)
         {
             std::cout << error.what();
-            m_is_valid = false;
+
+            std::free(m_renderer_impl);
+            m_renderer_impl = nullptr;
+            m_is_valid      = false;
         }
+    }
+
+    const Model* getModel(const std::string& name)
+    {
+        return m_renderer_impl->getModel(name);
     }
 
     template <typename T>
     void bind(const T& obj)
     {
         m_renderer_impl->bind(obj);
+    }
+
+    void clear()
+    {
+        m_is_valid = false;
+        m_renderer_impl->~RendererImpl();
+        std::free(m_renderer_impl);
     }
 
     void render(const RenderingInfo& extra_rendering_info)
@@ -153,12 +179,6 @@ public:
     bool IsValid() const
     {
         return m_is_valid;
-    }
-
-    ModelManager generateModelManager(
-        const std::vector<std::string>& models_paths)
-    {
-        return m_renderer_impl->generateModelManager(models_paths);
     }
 
     ~Renderer()

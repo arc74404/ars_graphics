@@ -8,6 +8,8 @@
 namespace ars_graphics
 {
 
+class Renderer;
+
 struct WindowConfigInfo final
 {
     std::string m_title = "Vulkan Application";
@@ -46,8 +48,8 @@ public:
     virtual const std::vector<EventPtr>& pollEvents() = 0;
 
     virtual bool IsOpen() const = 0;
-private:
 
+private:
     WindowConfigInfo m_config_info;
 };
 } // namespace ars_graphics

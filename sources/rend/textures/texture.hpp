@@ -49,8 +49,7 @@ public:
         METALLIC_ROUGHNESS,
         NORMAL,
         OCCLUSION,
-        EMISSIVE,
-        HEIGHT
+        EMISSIVE
     };
 
     Texture() = default;

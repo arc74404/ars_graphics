@@ -11,6 +11,7 @@ public:
 
     void processKeyboard(Key key, KeyStatus status, double delta_time) override;
     void processMouseMovement(const glm::vec2& shift,
+                              double delta_time,
                               bool constrain_pitch = true) override;
     void processMouseScroll(float yoffset) override;
 
@@ -28,7 +29,7 @@ private:
     float m_pitch;
 
     // settings
-    float m_view_shift_speed = 0.5;
+    float m_view_shift_speed = 12;
     float m_movement_speed   = 0.5f;
     float m_zoom             = 45.0f;
     float m_near_plane       = 0.1f;

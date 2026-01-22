@@ -13,24 +13,24 @@ SynchronizationData::SynchronizationData(const LogicalDevice& device)
 
     vk::SemaphoreCreateInfo semaphoreInfo{};
 
-    in_flight_fence = device.get().createFenceUnique(fenceInfo).value;
-    image_available = device.get().createSemaphoreUnique(semaphoreInfo).value;
-    render_finished = device.get().createSemaphoreUnique(semaphoreInfo).value;
+    m_in_flight_fence = device.get().createFenceUnique(fenceInfo).value;
+    m_image_available = device.get().createSemaphoreUnique(semaphoreInfo).value;
+    m_render_finished = device.get().createSemaphoreUnique(semaphoreInfo).value;
 }
 
 const vk::Semaphore&
 SynchronizationData::getRenderFinished() const
 {
-    return render_finished.get();
+    return m_render_finished.get();
 }
 
 void
 SynchronizationData::waitForFence(const LogicalDevice& device) const
 {
-    device.get().waitForFences(1, &(in_flight_fence.get()), VK_TRUE,
+    device.get().waitForFences(1, &(m_in_flight_fence.get()), VK_TRUE,
                                UINT64_MAX);
 
-    device.get().resetFences(1, &(in_flight_fence.get()));
+    device.get().resetFences(1, &(m_in_flight_fence.get()));
 }
 
 uint32_t
@@ -38,7 +38,7 @@ SynchronizationData::acquireNextImage(const LogicalDevice& device,
                                       const SwapChain& swapchain) const
 {
     auto acquire_res = device.get().acquireNextImageKHR(
-        swapchain.get(), UINT64_MAX, image_available.get(), nullptr);
+        swapchain.get(), UINT64_MAX, m_image_available.get(), nullptr);
 
     return acquire_res.value;
 }
@@ -53,15 +53,26 @@ SynchronizationData::submit(const LogicalDevice& device,
         vk::PipelineStageFlagBits::eColorAttachmentOutput};
 
     submitInfo.waitSemaphoreCount = 1;
-    submitInfo.pWaitSemaphores    = &image_available.get();
+    submitInfo.pWaitSemaphores    = &m_image_available.get();
     submitInfo.pWaitDstStageMask  = waitStages;
 
     submitInfo.commandBufferCount = 1;
     submitInfo.pCommandBuffers    = &(cmd);
 
     submitInfo.signalSemaphoreCount = 1;
-    submitInfo.pSignalSemaphores    = &render_finished.get();
+    submitInfo.pSignalSemaphores    = &m_render_finished.get();
 
-    device.getQueue("graphics").submit(submitInfo, in_flight_fence.get());
+    device.getQueue("graphics").submit(submitInfo, m_in_flight_fence.get());
 }
+
+void
+SynchronizationData::destroy()
+{
+    m_image_available.reset();
+
+    m_render_finished.reset();
+
+    m_in_flight_fence.reset();
+}
+
 } // namespace ars_graphics

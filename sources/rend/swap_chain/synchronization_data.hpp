@@ -22,10 +22,12 @@ public:
 
     const vk::Semaphore& getRenderFinished() const;
 
+    void destroy();
+
 private:
-    vk::UniqueFence in_flight_fence;
-    vk::UniqueSemaphore image_available;
-    vk::UniqueSemaphore render_finished;
+    vk::UniqueFence m_in_flight_fence;
+    vk::UniqueSemaphore m_image_available;
+    vk::UniqueSemaphore m_render_finished;
 };
 
 } // namespace ars_graphics

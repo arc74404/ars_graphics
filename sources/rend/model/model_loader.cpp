@@ -233,8 +233,10 @@ ModelLoader::loadMaterials(
         std::vector<uint16_t> texture_inds;
 
         auto createTexture =
-            [&textures, &texture_creater, &textures_data,
-             &texture_inds](size_t index, Texture::TextureType texture_type)
+            [&textures, &texture_creater, &textures_data, &texture_inds,
+             &texture_storage](size_t index,
+                               const Texture*& texture_for_dummy_init,
+                               Texture::TextureType texture_type)
         {
             if (hasTexture(index))
             {
@@ -243,25 +245,33 @@ ModelLoader::loadMaterials(
                     textures_data[index], texture_type);
                 if (false == res.has_value())
                 {
+                    texture_for_dummy_init =
+                        texture_storage.getDummy(texture_type);
                     return;
                 }
                 textures.push_back(std::move(res.value()));
             }
+            else
+            {
+                texture_for_dummy_init = texture_storage.getDummy(texture_type);
+            }
         };
         createTexture(gltf_material.pbrMetallicRoughness.baseColorTexture.index,
-                      Texture::TextureType::ALBEDO);
+                      pbr_params.m_albedo_map, Texture::TextureType::ALBEDO);
 
         createTexture(
             gltf_material.pbrMetallicRoughness.metallicRoughnessTexture.index,
+            pbr_params.m_metallic_roughness_map,
             Texture::TextureType::METALLIC_ROUGHNESS);
 
         createTexture(gltf_material.normalTexture.index,
-                      Texture::TextureType::NORMAL);
+                      pbr_params.m_normal_map, Texture::TextureType::NORMAL);
 
         createTexture(gltf_material.emissiveTexture.index,
+                      pbr_params.m_emissive_map,
                       Texture::TextureType::EMISSIVE);
 
-        createTexture(gltf_material.occlusionTexture.index,
+        createTexture(gltf_material.occlusionTexture.index, pbr_params.m_ao_map,
                       Texture::TextureType::OCCLUSION);
 
         auto& realloc_textures =

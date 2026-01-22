@@ -31,16 +31,16 @@ public:
         return dest;
     }
 
-    static const Texture* getDummy(Texture::TextureType type);
+    const Texture* getDummy(Texture::TextureType type);
 
 private:
     std::vector<std::vector<Texture>> m_texture_storage;
 
-    static std::unique_ptr<Texture> m_dummy_white;
-    static std::unique_ptr<Texture> m_dummy_black;
-    static std::unique_ptr<Texture> m_dummy_normal;
-    static std::unique_ptr<Texture> m_dummy_default_albedo;
-    static std::unique_ptr<Texture> m_dummy_default_mr;
+    std::unique_ptr<Texture> m_dummy_white;
+    std::unique_ptr<Texture> m_dummy_black;
+    std::unique_ptr<Texture> m_dummy_normal;
+    std::unique_ptr<Texture> m_dummy_default_albedo;
+    std::unique_ptr<Texture> m_dummy_default_mr;
 };
 
 }; // namespace ars_graphics

@@ -13,10 +13,15 @@ ModelManager::ModelManager(PipelineManager& pipeline_manager,
                            const std::vector<std::string>& paths)
     : m_texture_storage(logical_device, physical_device)
 {
+    std::cout << "texture creater\n";
     TextureCreater texture_creater{logical_device, physical_device};
+
+    std::cout << "model creater\n";
 
     MaterialCreater material_creater(logical_device, physical_device,
                                      descriptor_manager, pipelayout);
+
+    std::cout << "load\n";
 
     m_loader.load(pipeline_manager, render_pass, m_texture_storage,
                   texture_creater, m_material_storage, material_creater, paths,

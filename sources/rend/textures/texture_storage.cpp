@@ -5,12 +5,6 @@
 namespace ars_graphics
 {
 
-std::unique_ptr<Texture> TextureStorage::m_dummy_white{};
-std::unique_ptr<Texture> TextureStorage::m_dummy_black{};
-std::unique_ptr<Texture> TextureStorage::m_dummy_normal{};
-std::unique_ptr<Texture> TextureStorage::m_dummy_default_albedo{};
-std::unique_ptr<Texture> TextureStorage::m_dummy_default_mr{};
-
 TextureStorage::TextureStorage(const LogicalDevice& logical_device,
                                const PhysicalDevice& physical_device)
 {
@@ -49,9 +43,6 @@ TextureStorage::getDummy(Texture::TextureType type)
             return m_dummy_normal.get();
 
         case Texture::TextureType::OCCLUSION:
-            return m_dummy_white.get();
-
-        case Texture::TextureType::HEIGHT:
             return m_dummy_white.get();
 
         default:

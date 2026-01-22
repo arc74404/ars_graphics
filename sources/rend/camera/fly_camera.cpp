@@ -70,11 +70,13 @@ FlyCamera::processKeyboard(Key key, KeyStatus status, double delta_time)
 }
 
 void
-FlyCamera::processMouseMovement(const glm::vec2& shift, bool constrain_pitch)
+FlyCamera::processMouseMovement(const glm::vec2& shift,
+                                double delta_time,
+                                bool constrain_pitch)
 {
     m_need_recalculation = true;
-    m_yaw += shift.x * m_view_shift_speed;
-    m_pitch += shift.y * m_view_shift_speed;
+    m_yaw += shift.x * m_view_shift_speed * delta_time;
+    m_pitch += shift.y * m_view_shift_speed * delta_time;
 
     if (constrain_pitch && m_pitch > 89.0f) m_pitch = 89.0f;
     if (constrain_pitch && m_pitch < -89.0f) m_pitch = -89.0f;

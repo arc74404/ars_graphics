@@ -1,5 +1,7 @@
 #include "renderer.hpp"
 
+#include "../../gui/window/interface_window.hpp"
+
 namespace ars_graphics
 {
 
@@ -52,28 +54,34 @@ RendererImpl::RendererImpl(const RendererConfigInfo& config_info)
                           m_physical_device,
                           m_swapchain.countFrames(),
                           m_descriptor_manager.getAllocator(
-                              DescriptorSetLayoutType::UBO_AND_STORAGE))
+                              DescriptorSetLayoutType::UBO_AND_STORAGE)),
+      m_model_manager(
+          m_pipeline_manager,
+          m_renderpass_manager.getRenderPass(RenderPassType::STANDART),
+          m_logical_device,
+          m_physical_device,
+          m_descriptor_manager,
+          m_pipeline_manager.getLayout(PipelineLayoutType::STANDART),
+          config_info.models_paths)
 
 {
     std::cout << "All RIght!\n";
 }
 
-ModelManager
-RendererImpl::generateModelManager(const std::vector<std::string>& models_paths)
+const Model*
+RendererImpl::getModel(const std::string& name)
 {
-    return ModelManager{
-        m_pipeline_manager,
-        m_renderpass_manager.getRenderPass(RenderPassType::STANDART),
-        m_logical_device,
-        m_physical_device,
-        m_descriptor_manager,
-        m_pipeline_manager.getLayout(PipelineLayoutType::STANDART),
-        models_paths};
+    return m_model_manager[name];
 }
 
 void
 RendererImpl::clear()
 {
+    if (m_logical_device.get().waitIdle() != vk::Result::eSuccess)
+    {
+        std::cout << "Failed wait idle\n";
+    }
+
     m_swapchain.destroy();
     m_command_pool_controler.destroy();
     m_instance.get().destroySurfaceKHR(m_surface);
@@ -169,36 +177,39 @@ RendererImpl::render(const RenderingInfo& rendering_info)
 
     setupScope();
 
-    m_render_info_data.vertex_buffer.bind(*m_render_ctx.cmd);
-    m_render_info_data.index_buffer.bind(*(m_render_ctx.cmd));
-    m_vertex_shader_ubo.bind(
-        *(m_render_ctx.cmd),
-        m_pipeline_manager.getLayout(PipelineLayoutType ::STANDART),
-        image_index);
-
-    for (auto&& per_primitive : m_render_info_data.per_primitive_data)
+    if (m_render_info_data.m_is_valid)
     {
-        per_primitive.pipeline->bind(*m_render_ctx.cmd);
-        per_primitive.material->bind(*m_render_ctx.cmd);
+        m_render_info_data.vertex_buffer.bind(*m_render_ctx.cmd);
+        m_render_info_data.index_buffer.bind(*(m_render_ctx.cmd));
+        m_vertex_shader_ubo.bind(
+            *(m_render_ctx.cmd),
+            m_pipeline_manager.getLayout(PipelineLayoutType ::STANDART),
+            image_index);
 
-        if (per_primitive.has_indices)
+        for (auto&& per_primitive : m_render_info_data.per_primitive_data)
         {
-            m_render_info_data.index_buffer.draw(
-                *(m_render_ctx.cmd),
-                per_primitive.index_buffer_data_info.index_count,
-                per_primitive.index_buffer_data_info.instance_count,
-                per_primitive.index_buffer_data_info.first_index,
-                per_primitive.index_buffer_data_info.vertex_offset,
-                per_primitive.index_buffer_data_info.first_instance);
-        }
-        else
-        {
-            m_render_info_data.vertex_buffer.draw(
-                *(m_render_ctx.cmd),
-                per_primitive.vertex_buffer_data_info.vertex_count,
-                per_primitive.vertex_buffer_data_info.instance_count,
-                per_primitive.vertex_buffer_data_info.first_vertex,
-                per_primitive.vertex_buffer_data_info.first_instance);
+            per_primitive.pipeline->bind(*m_render_ctx.cmd);
+            per_primitive.material->bind(*m_render_ctx.cmd);
+
+            if (per_primitive.has_indices)
+            {
+                m_render_info_data.index_buffer.draw(
+                    *(m_render_ctx.cmd),
+                    per_primitive.index_buffer_data_info.index_count,
+                    per_primitive.index_buffer_data_info.instance_count,
+                    per_primitive.index_buffer_data_info.first_index,
+                    per_primitive.index_buffer_data_info.vertex_offset,
+                    per_primitive.index_buffer_data_info.first_instance);
+            }
+            else
+            {
+                m_render_info_data.vertex_buffer.draw(
+                    *(m_render_ctx.cmd),
+                    per_primitive.vertex_buffer_data_info.vertex_count,
+                    per_primitive.vertex_buffer_data_info.instance_count,
+                    per_primitive.vertex_buffer_data_info.first_vertex,
+                    per_primitive.vertex_buffer_data_info.first_instance);
+            }
         }
     }
 

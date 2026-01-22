@@ -52,9 +52,7 @@ private:
 
     void setupDescriptorSets();
 
-    void addMap(const Texture* texture,
-                uint32_t shift,
-                Texture::TextureType type);
+    void addMap(const Texture* texture, uint32_t shift);
 
     void addParams(uint32_t shift);
 

@@ -34,6 +34,7 @@ struct PerPrimitiveData
 
 struct RenderInfo
 {
+    bool m_is_valid = true;
     std::vector<PerPrimitiveData> per_primitive_data;
 
     GpuVertexBuffer vertex_buffer;

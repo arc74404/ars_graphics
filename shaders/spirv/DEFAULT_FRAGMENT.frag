@@ -11,9 +11,8 @@ layout(set = 1, binding = 1) uniform sampler2D uNormalTexture;
 layout(set = 1, binding = 2) uniform sampler2D uMetallicRoughnessTexture;
 layout(set = 1, binding = 3) uniform sampler2D uAOTexture;
 layout(set = 1, binding = 4) uniform sampler2D uEmissiveTexture;
-layout(set = 1, binding = 5) uniform sampler2D uHeightTexture;
 
-layout(set = 1, binding = 6) uniform MaterialParams {
+layout(set = 1, binding = 5) uniform MaterialParams {
     vec4 albedo_factor;
 } material;
 

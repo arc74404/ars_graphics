@@ -53,13 +53,10 @@ public:
 
     vk::DeviceSize byteSize() const noexcept;
 
-    // Buffer& operator=(Buffer&& other) noexcept = default;
-    // Buffer(Buffer&& other) noexcept            = default;
+    Buffer(Buffer&& other) noexcept            = default;
+    Buffer& operator=(Buffer&& other) noexcept = default;
 
-    // ~Buffer() noexcept
-    // {
-    //     std::cout << "Buffer destr\n";
-    // }
+    virtual ~Buffer() noexcept = default;
 
 private:
     void allocateBufferMemory(const LogicalDevice& logical_device,

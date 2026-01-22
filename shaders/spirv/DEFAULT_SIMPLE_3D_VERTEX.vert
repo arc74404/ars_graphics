@@ -8,8 +8,8 @@ layout(location = 1) out vec2 vTexCoord;
 layout(location = 2) out vec3 vNormal;
 
 void main() {
-    gl_Position = vec4(position, 1.0);
-    vColor = vec4(0.0, 0.0, 0.0, 0.0);   // Дефолтное значение (не используется)
+    gl_Position = vec4(aPosition, 1.0);
+    vColor = vec4(0.0, 0.0, 0.0, 0.0);   
     vTexCoord = aTexCoord;
-    vNormal = vec3(0.0, 0.0, 0.0);       // Дефолтное значение (не используется)
+    vNormal = vec3(0.0, 0.0, 0.0);       
 }

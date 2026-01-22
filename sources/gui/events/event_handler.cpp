@@ -13,6 +13,7 @@ EventHandler::handle(const EventHandlerContext& ctx,
         switch (event->m_type)
         {
             case Event::Type::CLOSE_WINDOW:
+                ctx.renderer.clear();
                 ctx.window.close();
                 break;
 
@@ -26,7 +27,7 @@ EventHandler::handle(const EventHandlerContext& ctx,
             case Event::Type::MOVE_MOUSE:
                 ctx.camera.processMouseMovement(
                     static_cast<const MoveMouseEvent*>(event.get())->m_shift,
-                    true);
+                    ctx.delta_time, true);
                 break;
             default:
                 break;
