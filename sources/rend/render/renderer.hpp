@@ -54,6 +54,8 @@ struct CommandPoolConstructControler
 struct RenderingInfo
 {
     ICamera& camera;
+
+    vk::Extent2D window_size;
 };
 
 class RendererImpl final
@@ -81,14 +83,20 @@ public:
     const Model* getModel(const std::string& name);
 
 private:
+    void draw(uint8_t index);
+
+    void recreate(const vk::Extent2D& window_size);
+
     void updateUniformBuffer(const SwapChainFrame& frame,
                              const RenderingInfo& rendering_info);
 
-    void startRenderPass(RenderPassType renderpass_type);
+    void startRenderPass(RenderPassType renderpass_type, uint32_t image_index);
 
     void setupScope();
 
-    void present(const SynchronizationData& sync, uint32_t image_index);
+    vk::Result submit(uint32_t image_index);
+
+    vk::Result present(uint32_t image_index);
 
     Instance m_instance;
 
@@ -122,6 +130,28 @@ private:
     ///
 
     VertexShaderUbo m_vertex_shader_ubo;
+
+    // synchronization
+
+    void waitFence(uint8_t index);
+
+    vk::ResultValue<uint32_t> acquireNextImage(uint8_t index);
+
+    uint32_t frame_number = 0;
+
+    struct Sync
+    {
+        Sync(const LogicalDevice& device, size_t count)
+        {
+            for (int i = 0; i < count; ++i)
+            {
+                m_data.emplace_back(device);
+            }
+        }
+        std::vector<SynchronizationData> m_data;
+    };
+
+    Sync m_sync;
 };
 
 class Renderer final

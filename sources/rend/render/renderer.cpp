@@ -62,10 +62,9 @@ RendererImpl::RendererImpl(const RendererConfigInfo& config_info)
           m_physical_device,
           m_descriptor_manager,
           m_pipeline_manager.getLayout(PipelineLayoutType::STANDART),
-          config_info.models_paths)
-
+          config_info.models_paths),
+      m_sync(m_logical_device, m_swapchain.countFrames())
 {
-    std::cout << "All RIght!\n";
 }
 
 const Model*
@@ -88,12 +87,14 @@ RendererImpl::clear()
 }
 
 void
-RendererImpl::startRenderPass(RenderPassType renderpass_type)
+RendererImpl::startRenderPass(RenderPassType renderpass_type,
+                              uint32_t image_index)
 {
     vk::RenderPassBeginInfo renderPassInfo{};
     renderPassInfo.renderPass =
         m_renderpass_manager.getRenderPass(renderpass_type);
-    renderPassInfo.framebuffer       = *(m_render_ctx.framebuffer);
+    renderPassInfo.framebuffer =
+        m_swapchain[image_index].getFramebuffer(renderpass_type);
     renderPassInfo.renderArea.offset = vk::Offset2D{0, 0};
     renderPassInfo.renderArea.extent = m_swapchain.getExtent();
 
@@ -126,17 +127,117 @@ RendererImpl::setupScope()
     m_render_ctx.cmd->setScissor(0, 1, &scissor);
 }
 
-void
-RendererImpl::present(const SynchronizationData& sync, uint32_t image_index)
+vk::Result
+RendererImpl::submit(uint32_t image_index)
+{
+    vk::SubmitInfo submit_info = {};
+
+    vk::PipelineStageFlags wait_stages[] = {
+        vk::PipelineStageFlagBits::eColorAttachmentOutput};
+
+    vk::Semaphore signal_semaphores[] = {
+        m_sync.m_data[image_index].m_render_finished.get()};
+
+    submit_info.waitSemaphoreCount = 1;
+    submit_info.pWaitSemaphores =
+        &m_sync.m_data[frame_number].m_image_available.get();
+    submit_info.pWaitDstStageMask    = wait_stages;
+    submit_info.commandBufferCount   = 1;
+    submit_info.pCommandBuffers      = m_render_ctx.cmd;
+    submit_info.signalSemaphoreCount = 1;
+    submit_info.pSignalSemaphores    = signal_semaphores;
+
+    return m_logical_device.getQueue("graphics")
+        .submit(submit_info,
+                m_sync.m_data[frame_number].m_in_flight_fence.get());
+}
+
+vk::Result
+RendererImpl::present(uint32_t image_index)
 {
     vk::PresentInfoKHR presentInfo{};
     presentInfo.waitSemaphoreCount = 1;
-    presentInfo.pWaitSemaphores    = &(sync.getRenderFinished());
-    presentInfo.swapchainCount     = 1;
-    presentInfo.pSwapchains        = &m_swapchain.get();
-    presentInfo.pImageIndices      = &image_index;
+    presentInfo.pWaitSemaphores =
+        &(m_sync.m_data[image_index].m_render_finished.get());
+    presentInfo.swapchainCount = 1;
+    presentInfo.pSwapchains    = &m_swapchain.get();
+    presentInfo.pImageIndices  = &image_index;
 
-    m_logical_device.getQueue("present").presentKHR(presentInfo);
+    vk::ResultValue<uint64_t> present_result = {vk::Result::eSuccess, 0};
+
+    VkPresentInfoKHR vkPresentInfo = presentInfo;
+    VkResult rawResult             = vkQueuePresentKHR(
+        static_cast<VkQueue>(m_logical_device.getQueue("present")),
+        &vkPresentInfo);
+
+    return static_cast<vk::Result>(rawResult);
+}
+
+void
+RendererImpl::recreate(const vk::Extent2D& window_size)
+{
+    std::cout << "RECREATE\n";
+    m_logical_device.get().waitIdle();
+
+    m_swapchain.destroy();
+    m_swapchain = SwapChain(m_logical_device, m_physical_device, m_surface,
+                            m_renderpass_manager, m_formats.m_depth_format,
+                            m_formats.m_surface_format, window_size.width,
+                            window_size.height);
+}
+
+void
+RendererImpl::waitFence(uint8_t index)
+{
+    m_logical_device.get().waitForFences(
+        1, &(m_sync.m_data[frame_number].m_in_flight_fence.get()), VK_TRUE,
+        UINT64_MAX);
+    m_logical_device.get().resetFences(
+        1, &(m_sync.m_data[frame_number].m_in_flight_fence.get()));
+}
+
+vk::ResultValue<uint32_t>
+RendererImpl::acquireNextImage(uint8_t index)
+{
+    return m_logical_device.get().acquireNextImageKHR(
+        m_swapchain.get(), UINT64_MAX,
+        m_sync.m_data[frame_number].m_image_available.get(), nullptr);
+}
+
+void
+RendererImpl::draw(uint8_t index)
+{
+    m_render_info_data.vertex_buffer.bind(*m_render_ctx.cmd);
+    m_render_info_data.index_buffer.bind(*(m_render_ctx.cmd));
+    m_vertex_shader_ubo.bind(
+        *(m_render_ctx.cmd),
+        m_pipeline_manager.getLayout(PipelineLayoutType ::STANDART), index);
+
+    for (auto&& per_primitive : m_render_info_data.per_primitive_data)
+    {
+        per_primitive.pipeline->bind(*m_render_ctx.cmd);
+        per_primitive.material->bind(*m_render_ctx.cmd);
+
+        if (per_primitive.has_indices)
+        {
+            m_render_info_data.index_buffer.draw(
+                *(m_render_ctx.cmd),
+                per_primitive.index_buffer_data_info.index_count,
+                per_primitive.index_buffer_data_info.instance_count,
+                per_primitive.index_buffer_data_info.first_index,
+                per_primitive.index_buffer_data_info.vertex_offset,
+                per_primitive.index_buffer_data_info.first_instance);
+        }
+        else
+        {
+            m_render_info_data.vertex_buffer.draw(
+                *(m_render_ctx.cmd),
+                per_primitive.vertex_buffer_data_info.vertex_count,
+                per_primitive.vertex_buffer_data_info.instance_count,
+                per_primitive.vertex_buffer_data_info.first_vertex,
+                per_primitive.vertex_buffer_data_info.first_instance);
+        }
+    }
 }
 
 void
@@ -144,12 +245,9 @@ RendererImpl::render(const RenderingInfo& rendering_info)
 {
     RenderPassType renderpass_type = RenderPassType::STANDART;
 
-    std::pair<const ars_graphics::SwapChainFrame&, uint32_t> frame_and_index =
-        m_swapchain.currentFrame();
+    waitFence(frame_number);
 
-    auto&& synchronization = frame_and_index.first.getSynchronization();
-
-    synchronization.waitForFence(m_logical_device);
+    vk::ResultValue<uint32_t> acquire = acquireNextImage(frame_number);
 
     // update buffers //
 
@@ -159,67 +257,44 @@ RendererImpl::render(const RenderingInfo& rendering_info)
     }
 
     m_vertex_shader_ubo.updatePerFrameUboBuffer(
-        m_logical_device, m_physical_device, frame_and_index.second);
+        m_logical_device, m_physical_device, frame_number);
 
     // -------------- //
 
-    uint32_t image_index =
-        synchronization.acquireNextImage(m_logical_device, m_swapchain);
+    m_swapchain[frame_number].shareContext(m_render_ctx, renderpass_type);
 
-    frame_and_index.first.shareContext(m_render_ctx, renderpass_type);
+    m_render_ctx.cmd->reset();
 
     vk::CommandBufferBeginInfo begin_info{};
     begin_info.pInheritanceInfo = nullptr;
 
     m_render_ctx.cmd->begin(&begin_info);
 
-    startRenderPass(renderpass_type);
+    startRenderPass(renderpass_type, acquire.value);
 
     setupScope();
 
     if (m_render_info_data.m_is_valid)
     {
-        m_render_info_data.vertex_buffer.bind(*m_render_ctx.cmd);
-        m_render_info_data.index_buffer.bind(*(m_render_ctx.cmd));
-        m_vertex_shader_ubo.bind(
-            *(m_render_ctx.cmd),
-            m_pipeline_manager.getLayout(PipelineLayoutType ::STANDART),
-            image_index);
-
-        for (auto&& per_primitive : m_render_info_data.per_primitive_data)
-        {
-            per_primitive.pipeline->bind(*m_render_ctx.cmd);
-            per_primitive.material->bind(*m_render_ctx.cmd);
-
-            if (per_primitive.has_indices)
-            {
-                m_render_info_data.index_buffer.draw(
-                    *(m_render_ctx.cmd),
-                    per_primitive.index_buffer_data_info.index_count,
-                    per_primitive.index_buffer_data_info.instance_count,
-                    per_primitive.index_buffer_data_info.first_index,
-                    per_primitive.index_buffer_data_info.vertex_offset,
-                    per_primitive.index_buffer_data_info.first_instance);
-            }
-            else
-            {
-                m_render_info_data.vertex_buffer.draw(
-                    *(m_render_ctx.cmd),
-                    per_primitive.vertex_buffer_data_info.vertex_count,
-                    per_primitive.vertex_buffer_data_info.instance_count,
-                    per_primitive.vertex_buffer_data_info.first_vertex,
-                    per_primitive.vertex_buffer_data_info.first_instance);
-            }
-        }
+        draw(acquire.value);
     }
 
     m_render_ctx.cmd->endRenderPass();
 
     m_render_ctx.cmd->end();
 
-    synchronization.submit(m_logical_device, *m_render_ctx.cmd);
+    auto&& submit_res = submit(acquire.value);
 
-    present(synchronization, image_index);
+    auto&& present_res = present(acquire.value);
+
+    if (present_res == vk::Result::eErrorOutOfDateKHR ||
+        present_res == vk::Result::eSuboptimalKHR)
+    {
+        recreate(rendering_info.window_size);
+        return;
+    }
+
+    frame_number = (frame_number + 1) % m_swapchain.countFrames();
 }
 
 } // namespace ars_graphics

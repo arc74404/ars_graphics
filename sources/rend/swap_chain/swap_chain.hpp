@@ -23,11 +23,15 @@ public:
 
     const vk::Extent2D getExtent() const;
 
-    std::pair<const SwapChainFrame&, uint32_t> currentFrame();
+    // std::pair<const SwapChainFrame&, uint32_t> currentFrame();
 
     const vk::SwapchainKHR& get() const;
 
+    void recreate(const LogicalDevice& logical_device);
+
     void destroy();
+
+    const SwapChainFrame& operator[](uint32_t index) const;
 
 private:
     void setupSwapchain(const LogicalDevice& logical_device,
@@ -37,13 +41,9 @@ private:
                         uint32_t width,
                         uint32_t height);
 
-    uint32_t m_current_frame_index = 0;
-
     vk::UniqueSwapchainKHR m_swapchain;
 
     vk::Extent2D m_extent;
-
-    uint32_t m_count_frames;
 
     std::vector<SwapChainFrame> m_frames;
 };

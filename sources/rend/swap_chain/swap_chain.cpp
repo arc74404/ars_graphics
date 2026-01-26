@@ -92,8 +92,6 @@ SwapChain::SwapChain(const LogicalDevice& logical_device,
                               surface_format.format, depth_format, m_extent,
                               renderpass_manager);
     }
-
-    m_count_frames = m_frames.size();
 }
 
 void
@@ -158,7 +156,7 @@ SwapChain::getExtent() const
 size_t
 SwapChain::countFrames() const
 {
-    return m_count_frames;
+    return m_frames.size();
 }
 
 void
@@ -171,14 +169,17 @@ SwapChain::destroy()
     }
 }
 
-std::pair<const SwapChainFrame&, uint32_t>
-SwapChain::currentFrame()
+const SwapChainFrame&
+SwapChain::operator[](uint32_t index) const
 {
-    uint32_t index = m_current_frame_index++;
+    return m_frames[index];
+}
 
-    m_current_frame_index %= m_count_frames;
-
-    return {m_frames[index], m_current_frame_index};
+void
+SwapChain::recreate(const LogicalDevice& logical_device)
+{
+    logical_device.get().waitIdle();
+    destroy();
 }
 
 const vk::SwapchainKHR&

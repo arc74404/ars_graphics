@@ -8,6 +8,5 @@ namespace ars_graphics
 struct RenderCtx
 {
     const vk::CommandBuffer* cmd;
-    const vk::Framebuffer* framebuffer;
 };
 }

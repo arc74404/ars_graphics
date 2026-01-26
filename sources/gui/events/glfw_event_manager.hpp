@@ -36,6 +36,19 @@ private:
     void keyEvents(GLFWwindow* window);
     void mouseEvents(GLFWwindow* window);
 
+    static void framebufferResizeCallback(GLFWwindow* window,
+                                          int width,
+                                          int height)
+    {
+        auto self =
+            static_cast<GlfwEventManager*>(glfwGetWindowUserPointer(window));
+        if (self)
+        {
+            self->m_window_resized = true;
+        }
+    }
+    bool m_window_resized = false;
+
     MouseInfo m_mouse_info;
 
     std::vector<EventPtr> m_events;

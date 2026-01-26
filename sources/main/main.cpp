@@ -70,9 +70,13 @@ main()
     {
         double delta_time = time_manager.restartTimer();
 
+        // std::cout << "render\n";
         renderer.render({.camera = fly_camera});
 
+        // std::cout << "pollEvents\n";
         auto&& events = window.pollEvents();
+
+        // std::cout << "handle\n";
 
         event_handler.handle({.window     = window,
                               .camera     = fly_camera,

@@ -67,6 +67,12 @@ GlfwEventManager::pollEvents(GLFWwindow* window)
     m_events.clear();
     glfwPollEvents();
 
+    if (m_window_resized == true)
+    {
+        int p = 0;
+        ++p;
+    }
+
     if (glfwWindowShouldClose(window))
     {
         std::cout << "After callback\n";
@@ -93,6 +99,7 @@ GlfwEventManager::setupCallBacks(GLFWwindow* window)
 {
     glfwSetWindowUserPointer(window, this);
     glfwSetWindowCloseCallback(window, closeWindowCallBack);
+    glfwSetFramebufferSizeCallback(window, framebufferResizeCallback);
     // glfwSetKeyCallback(window, keyCallback);
 }
 } // namespace ars_graphics

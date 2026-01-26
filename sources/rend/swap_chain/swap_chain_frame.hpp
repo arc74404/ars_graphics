@@ -5,10 +5,9 @@
 #include "../cmdbuf/command_buffer.hpp"
 #include "../images/image_view.hpp"
 #include "../render/render_context.hpp"
+#include "../render/synchronization_data.hpp"
 #include "../render_pass/renderpass_manager.hpp"
 #include "../textures/image.hpp"
-
-#include "synchronization_data.hpp"
 
 namespace ars_graphics
 {
@@ -36,13 +35,13 @@ public:
 
     void shareContext(RenderCtx& context, RenderPassType renderpass_type) const;
 
-    const SynchronizationData& getSynchronization() const;
+    const vk::Framebuffer& getFramebuffer(RenderPassType renderpass_type) const;
 
     void destroy();
 
-private:
-    SynchronizationData m_synchronization;
+    // SynchronizationData m_sync;
 
+private:
     ImageView m_view;
 
     // depth
