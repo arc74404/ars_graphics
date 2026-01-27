@@ -57,6 +57,7 @@ events:
         - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Preview\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64"
         - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
         - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files\\Go\\bin"
         - "C:\\WINDOWS\\system32"
         - "C:\\WINDOWS"
         - "C:\\WINDOWS\\System32\\Wbem"
@@ -95,6 +96,7 @@ events:
         - "C:\\Users\\User\\AppData\\Roaming\\npm"
         - "C:\\Users\\User\\AppData\\Local\\Python\\bin"
         - "C:\\mtools"
+        - "C:\\Users\\User\\go\\bin"
       CMAKE_FIND_ROOT_PATH: "C:/vcpkg/installed/x64-windows/debug;C:/vcpkg/installed/x64-windows"
   -
     kind: "message-v1"
@@ -112,7 +114,7 @@ events:
       The output was:
       0
       Версия MSBuild 17.14.23+b0019275e для .NET Framework
-      Сборка начата 26.01.2026 2:57:02.
+      Сборка начата 27.01.2026 19:19:52.
       
       Проект "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\4.1.0-rc1\\CompilerIdC\\CompilerIdC.vcxproj" в узле 1 (целевые объекты по умолчанию).
       PrepareForBuild:
@@ -150,7 +152,7 @@ events:
           Предупреждений: 0
           Ошибок: 0
       
-      Прошло времени 00:00:00.54
+      Прошло времени 00:00:00.67
       
       
       Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
@@ -202,6 +204,7 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/nodejs/"
+      - "C:/vcpkg/installed/x64-windows/debug/Program Files/Go/bin/"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Microsoft/WindowsApps/"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/"
@@ -210,6 +213,7 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Roaming/npm/"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Python/bin/"
       - "C:/vcpkg/installed/x64-windows/debug/mtools/"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/go/bin/"
       - "C:/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/"
@@ -230,6 +234,7 @@ events:
       - "C:/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
       - "C:/vcpkg/installed/x64-windows/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/vcpkg/installed/x64-windows/Program Files/nodejs/"
+      - "C:/vcpkg/installed/x64-windows/Program Files/Go/bin/"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Microsoft/WindowsApps/"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/vcpkg/installed/x64-windows/vcpkg/"
@@ -238,6 +243,7 @@ events:
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Roaming/npm/"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Python/bin/"
       - "C:/vcpkg/installed/x64-windows/mtools/"
+      - "C:/vcpkg/installed/x64-windows/Users/User/go/bin/"
       - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
       - "C:/Users/User/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/"
       - "C:/Users/User/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/"
@@ -258,6 +264,7 @@ events:
       - "C:/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
       - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/Program Files/nodejs/"
+      - "C:/Program Files/Go/bin/"
       - "C:/Users/User/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/User/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/vcpkg/"
@@ -266,6 +273,7 @@ events:
       - "C:/Users/User/AppData/Roaming/npm/"
       - "C:/Users/User/AppData/Local/Python/bin/"
       - "C:/mtools/"
+      - "C:/Users/User/go/bin/"
     searched_directories:
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/link.com"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/link.exe"
@@ -327,6 +335,9 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/nodejs/link.com"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/nodejs/link.exe"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/nodejs/link"
+      - "C:/vcpkg/installed/x64-windows/debug/Program Files/Go/bin/link.com"
+      - "C:/vcpkg/installed/x64-windows/debug/Program Files/Go/bin/link.exe"
+      - "C:/vcpkg/installed/x64-windows/debug/Program Files/Go/bin/link"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Microsoft/WindowsApps/link.com"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Microsoft/WindowsApps/link.exe"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Microsoft/WindowsApps/link"
@@ -351,6 +362,9 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/mtools/link.com"
       - "C:/vcpkg/installed/x64-windows/debug/mtools/link.exe"
       - "C:/vcpkg/installed/x64-windows/debug/mtools/link"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/go/bin/link.com"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/go/bin/link.exe"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/go/bin/link"
       - "C:/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/link.com"
       - "C:/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/link.exe"
       - "C:/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/link"
@@ -411,6 +425,9 @@ events:
       - "C:/vcpkg/installed/x64-windows/Program Files/nodejs/link.com"
       - "C:/vcpkg/installed/x64-windows/Program Files/nodejs/link.exe"
       - "C:/vcpkg/installed/x64-windows/Program Files/nodejs/link"
+      - "C:/vcpkg/installed/x64-windows/Program Files/Go/bin/link.com"
+      - "C:/vcpkg/installed/x64-windows/Program Files/Go/bin/link.exe"
+      - "C:/vcpkg/installed/x64-windows/Program Files/Go/bin/link"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Microsoft/WindowsApps/link.com"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Microsoft/WindowsApps/link.exe"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Microsoft/WindowsApps/link"
@@ -435,6 +452,9 @@ events:
       - "C:/vcpkg/installed/x64-windows/mtools/link.com"
       - "C:/vcpkg/installed/x64-windows/mtools/link.exe"
       - "C:/vcpkg/installed/x64-windows/mtools/link"
+      - "C:/vcpkg/installed/x64-windows/Users/User/go/bin/link.com"
+      - "C:/vcpkg/installed/x64-windows/Users/User/go/bin/link.exe"
+      - "C:/vcpkg/installed/x64-windows/Users/User/go/bin/link"
       - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/link.com"
     found: "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/link.exe"
     search_context:
@@ -465,6 +485,7 @@ events:
         - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Preview\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64"
         - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
         - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files\\Go\\bin"
         - "C:\\WINDOWS\\system32"
         - "C:\\WINDOWS"
         - "C:\\WINDOWS\\System32\\Wbem"
@@ -503,6 +524,7 @@ events:
         - "C:\\Users\\User\\AppData\\Roaming\\npm"
         - "C:\\Users\\User\\AppData\\Local\\Python\\bin"
         - "C:\\mtools"
+        - "C:\\Users\\User\\go\\bin"
       CMAKE_FIND_ROOT_PATH: "C:/vcpkg/installed/x64-windows/debug;C:/vcpkg/installed/x64-windows"
   -
     kind: "find-v1"
@@ -546,6 +568,7 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/nodejs/"
+      - "C:/vcpkg/installed/x64-windows/debug/Program Files/Go/bin/"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Microsoft/WindowsApps/"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/"
@@ -554,6 +577,7 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Roaming/npm/"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Python/bin/"
       - "C:/vcpkg/installed/x64-windows/debug/mtools/"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/go/bin/"
       - "C:/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/"
@@ -574,6 +598,7 @@ events:
       - "C:/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
       - "C:/vcpkg/installed/x64-windows/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/vcpkg/installed/x64-windows/Program Files/nodejs/"
+      - "C:/vcpkg/installed/x64-windows/Program Files/Go/bin/"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Microsoft/WindowsApps/"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/vcpkg/installed/x64-windows/vcpkg/"
@@ -582,6 +607,7 @@ events:
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Roaming/npm/"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Python/bin/"
       - "C:/vcpkg/installed/x64-windows/mtools/"
+      - "C:/vcpkg/installed/x64-windows/Users/User/go/bin/"
       - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
       - "C:/Users/User/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/"
       - "C:/Users/User/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/"
@@ -602,6 +628,7 @@ events:
       - "C:/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
       - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/Program Files/nodejs/"
+      - "C:/Program Files/Go/bin/"
       - "C:/Users/User/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/User/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/vcpkg/"
@@ -610,6 +637,7 @@ events:
       - "C:/Users/User/AppData/Roaming/npm/"
       - "C:/Users/User/AppData/Local/Python/bin/"
       - "C:/mtools/"
+      - "C:/Users/User/go/bin/"
     searched_directories:
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/lld-link.com"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/lld-link.exe"
@@ -671,6 +699,9 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/nodejs/lld-link.com"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/nodejs/lld-link.exe"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/nodejs/lld-link"
+      - "C:/vcpkg/installed/x64-windows/debug/Program Files/Go/bin/lld-link.com"
+      - "C:/vcpkg/installed/x64-windows/debug/Program Files/Go/bin/lld-link.exe"
+      - "C:/vcpkg/installed/x64-windows/debug/Program Files/Go/bin/lld-link"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Microsoft/WindowsApps/lld-link.com"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Microsoft/WindowsApps/lld-link.exe"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Microsoft/WindowsApps/lld-link"
@@ -695,6 +726,9 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/mtools/lld-link.com"
       - "C:/vcpkg/installed/x64-windows/debug/mtools/lld-link.exe"
       - "C:/vcpkg/installed/x64-windows/debug/mtools/lld-link"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/go/bin/lld-link.com"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/go/bin/lld-link.exe"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/go/bin/lld-link"
       - "C:/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/lld-link.com"
       - "C:/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/lld-link.exe"
       - "C:/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/lld-link"
@@ -755,6 +789,9 @@ events:
       - "C:/vcpkg/installed/x64-windows/Program Files/nodejs/lld-link.com"
       - "C:/vcpkg/installed/x64-windows/Program Files/nodejs/lld-link.exe"
       - "C:/vcpkg/installed/x64-windows/Program Files/nodejs/lld-link"
+      - "C:/vcpkg/installed/x64-windows/Program Files/Go/bin/lld-link.com"
+      - "C:/vcpkg/installed/x64-windows/Program Files/Go/bin/lld-link.exe"
+      - "C:/vcpkg/installed/x64-windows/Program Files/Go/bin/lld-link"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Microsoft/WindowsApps/lld-link.com"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Microsoft/WindowsApps/lld-link.exe"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Microsoft/WindowsApps/lld-link"
@@ -779,6 +816,9 @@ events:
       - "C:/vcpkg/installed/x64-windows/mtools/lld-link.com"
       - "C:/vcpkg/installed/x64-windows/mtools/lld-link.exe"
       - "C:/vcpkg/installed/x64-windows/mtools/lld-link"
+      - "C:/vcpkg/installed/x64-windows/Users/User/go/bin/lld-link.com"
+      - "C:/vcpkg/installed/x64-windows/Users/User/go/bin/lld-link.exe"
+      - "C:/vcpkg/installed/x64-windows/Users/User/go/bin/lld-link"
       - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/lld-link.com"
       - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/lld-link.exe"
       - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/lld-link"
@@ -839,6 +879,9 @@ events:
       - "C:/Program Files/nodejs/lld-link.com"
       - "C:/Program Files/nodejs/lld-link.exe"
       - "C:/Program Files/nodejs/lld-link"
+      - "C:/Program Files/Go/bin/lld-link.com"
+      - "C:/Program Files/Go/bin/lld-link.exe"
+      - "C:/Program Files/Go/bin/lld-link"
       - "C:/Users/User/AppData/Local/Microsoft/WindowsApps/lld-link.com"
       - "C:/Users/User/AppData/Local/Microsoft/WindowsApps/lld-link.exe"
       - "C:/Users/User/AppData/Local/Microsoft/WindowsApps/lld-link"
@@ -863,6 +906,9 @@ events:
       - "C:/mtools/lld-link.com"
       - "C:/mtools/lld-link.exe"
       - "C:/mtools/lld-link"
+      - "C:/Users/User/go/bin/lld-link.com"
+      - "C:/Users/User/go/bin/lld-link.exe"
+      - "C:/Users/User/go/bin/lld-link"
     found: false
     search_context:
       CMAKE_PROGRAM_PATH:
@@ -892,6 +938,7 @@ events:
         - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Preview\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64"
         - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
         - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files\\Go\\bin"
         - "C:\\WINDOWS\\system32"
         - "C:\\WINDOWS"
         - "C:\\WINDOWS\\System32\\Wbem"
@@ -930,6 +977,7 @@ events:
         - "C:\\Users\\User\\AppData\\Roaming\\npm"
         - "C:\\Users\\User\\AppData\\Local\\Python\\bin"
         - "C:\\mtools"
+        - "C:\\Users\\User\\go\\bin"
       CMAKE_FIND_ROOT_PATH: "C:/vcpkg/installed/x64-windows/debug;C:/vcpkg/installed/x64-windows"
   -
     kind: "find-v1"
@@ -971,6 +1019,7 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/nodejs/"
+      - "C:/vcpkg/installed/x64-windows/debug/Program Files/Go/bin/"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Microsoft/WindowsApps/"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/"
@@ -979,6 +1028,7 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Roaming/npm/"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Python/bin/"
       - "C:/vcpkg/installed/x64-windows/debug/mtools/"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/go/bin/"
       - "C:/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/"
@@ -999,6 +1049,7 @@ events:
       - "C:/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
       - "C:/vcpkg/installed/x64-windows/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/vcpkg/installed/x64-windows/Program Files/nodejs/"
+      - "C:/vcpkg/installed/x64-windows/Program Files/Go/bin/"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Microsoft/WindowsApps/"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/vcpkg/installed/x64-windows/vcpkg/"
@@ -1007,6 +1058,7 @@ events:
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Roaming/npm/"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Python/bin/"
       - "C:/vcpkg/installed/x64-windows/mtools/"
+      - "C:/vcpkg/installed/x64-windows/Users/User/go/bin/"
       - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
       - "C:/Users/User/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/"
       - "C:/Users/User/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/"
@@ -1027,6 +1079,7 @@ events:
       - "C:/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
       - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/Program Files/nodejs/"
+      - "C:/Program Files/Go/bin/"
       - "C:/Users/User/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/User/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/vcpkg/"
@@ -1035,6 +1088,7 @@ events:
       - "C:/Users/User/AppData/Roaming/npm/"
       - "C:/Users/User/AppData/Local/Python/bin/"
       - "C:/mtools/"
+      - "C:/Users/User/go/bin/"
     searched_directories:
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/link.com"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/link.exe"
@@ -1096,6 +1150,9 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/nodejs/link.com"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/nodejs/link.exe"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/nodejs/link"
+      - "C:/vcpkg/installed/x64-windows/debug/Program Files/Go/bin/link.com"
+      - "C:/vcpkg/installed/x64-windows/debug/Program Files/Go/bin/link.exe"
+      - "C:/vcpkg/installed/x64-windows/debug/Program Files/Go/bin/link"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Microsoft/WindowsApps/link.com"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Microsoft/WindowsApps/link.exe"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Microsoft/WindowsApps/link"
@@ -1120,6 +1177,9 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/mtools/link.com"
       - "C:/vcpkg/installed/x64-windows/debug/mtools/link.exe"
       - "C:/vcpkg/installed/x64-windows/debug/mtools/link"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/go/bin/link.com"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/go/bin/link.exe"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/go/bin/link"
       - "C:/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/link.com"
       - "C:/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/link.exe"
       - "C:/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/link"
@@ -1180,6 +1240,9 @@ events:
       - "C:/vcpkg/installed/x64-windows/Program Files/nodejs/link.com"
       - "C:/vcpkg/installed/x64-windows/Program Files/nodejs/link.exe"
       - "C:/vcpkg/installed/x64-windows/Program Files/nodejs/link"
+      - "C:/vcpkg/installed/x64-windows/Program Files/Go/bin/link.com"
+      - "C:/vcpkg/installed/x64-windows/Program Files/Go/bin/link.exe"
+      - "C:/vcpkg/installed/x64-windows/Program Files/Go/bin/link"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Microsoft/WindowsApps/link.com"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Microsoft/WindowsApps/link.exe"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Microsoft/WindowsApps/link"
@@ -1204,6 +1267,9 @@ events:
       - "C:/vcpkg/installed/x64-windows/mtools/link.com"
       - "C:/vcpkg/installed/x64-windows/mtools/link.exe"
       - "C:/vcpkg/installed/x64-windows/mtools/link"
+      - "C:/vcpkg/installed/x64-windows/Users/User/go/bin/link.com"
+      - "C:/vcpkg/installed/x64-windows/Users/User/go/bin/link.exe"
+      - "C:/vcpkg/installed/x64-windows/Users/User/go/bin/link"
       - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/link.com"
     found: "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/link.exe"
     search_context:
@@ -1234,6 +1300,7 @@ events:
         - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Preview\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64"
         - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
         - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files\\Go\\bin"
         - "C:\\WINDOWS\\system32"
         - "C:\\WINDOWS"
         - "C:\\WINDOWS\\System32\\Wbem"
@@ -1272,6 +1339,7 @@ events:
         - "C:\\Users\\User\\AppData\\Roaming\\npm"
         - "C:\\Users\\User\\AppData\\Local\\Python\\bin"
         - "C:\\mtools"
+        - "C:\\Users\\User\\go\\bin"
       CMAKE_FIND_ROOT_PATH: "C:/vcpkg/installed/x64-windows/debug;C:/vcpkg/installed/x64-windows"
   -
     kind: "find-v1"
@@ -1313,6 +1381,7 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/nodejs/"
+      - "C:/vcpkg/installed/x64-windows/debug/Program Files/Go/bin/"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Microsoft/WindowsApps/"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/"
@@ -1321,6 +1390,7 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Roaming/npm/"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Python/bin/"
       - "C:/vcpkg/installed/x64-windows/debug/mtools/"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/go/bin/"
       - "C:/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/"
@@ -1341,6 +1411,7 @@ events:
       - "C:/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
       - "C:/vcpkg/installed/x64-windows/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/vcpkg/installed/x64-windows/Program Files/nodejs/"
+      - "C:/vcpkg/installed/x64-windows/Program Files/Go/bin/"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Microsoft/WindowsApps/"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/vcpkg/installed/x64-windows/vcpkg/"
@@ -1349,6 +1420,7 @@ events:
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Roaming/npm/"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Python/bin/"
       - "C:/vcpkg/installed/x64-windows/mtools/"
+      - "C:/vcpkg/installed/x64-windows/Users/User/go/bin/"
       - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
       - "C:/Users/User/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/"
       - "C:/Users/User/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/"
@@ -1369,6 +1441,7 @@ events:
       - "C:/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
       - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/Program Files/nodejs/"
+      - "C:/Program Files/Go/bin/"
       - "C:/Users/User/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/User/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/vcpkg/"
@@ -1377,6 +1450,7 @@ events:
       - "C:/Users/User/AppData/Roaming/npm/"
       - "C:/Users/User/AppData/Local/Python/bin/"
       - "C:/mtools/"
+      - "C:/Users/User/go/bin/"
     searched_directories:
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/mt.com"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/mt.exe"
@@ -1438,6 +1512,9 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/nodejs/mt.com"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/nodejs/mt.exe"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/nodejs/mt"
+      - "C:/vcpkg/installed/x64-windows/debug/Program Files/Go/bin/mt.com"
+      - "C:/vcpkg/installed/x64-windows/debug/Program Files/Go/bin/mt.exe"
+      - "C:/vcpkg/installed/x64-windows/debug/Program Files/Go/bin/mt"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Microsoft/WindowsApps/mt.com"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Microsoft/WindowsApps/mt.exe"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Microsoft/WindowsApps/mt"
@@ -1462,6 +1539,9 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/mtools/mt.com"
       - "C:/vcpkg/installed/x64-windows/debug/mtools/mt.exe"
       - "C:/vcpkg/installed/x64-windows/debug/mtools/mt"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/go/bin/mt.com"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/go/bin/mt.exe"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/go/bin/mt"
       - "C:/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/mt.com"
       - "C:/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/mt.exe"
       - "C:/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/mt"
@@ -1522,6 +1602,9 @@ events:
       - "C:/vcpkg/installed/x64-windows/Program Files/nodejs/mt.com"
       - "C:/vcpkg/installed/x64-windows/Program Files/nodejs/mt.exe"
       - "C:/vcpkg/installed/x64-windows/Program Files/nodejs/mt"
+      - "C:/vcpkg/installed/x64-windows/Program Files/Go/bin/mt.com"
+      - "C:/vcpkg/installed/x64-windows/Program Files/Go/bin/mt.exe"
+      - "C:/vcpkg/installed/x64-windows/Program Files/Go/bin/mt"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Microsoft/WindowsApps/mt.com"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Microsoft/WindowsApps/mt.exe"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Microsoft/WindowsApps/mt"
@@ -1546,6 +1629,9 @@ events:
       - "C:/vcpkg/installed/x64-windows/mtools/mt.com"
       - "C:/vcpkg/installed/x64-windows/mtools/mt.exe"
       - "C:/vcpkg/installed/x64-windows/mtools/mt"
+      - "C:/vcpkg/installed/x64-windows/Users/User/go/bin/mt.com"
+      - "C:/vcpkg/installed/x64-windows/Users/User/go/bin/mt.exe"
+      - "C:/vcpkg/installed/x64-windows/Users/User/go/bin/mt"
       - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/mt.com"
       - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/mt.exe"
       - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/mt"
@@ -1606,6 +1692,9 @@ events:
       - "C:/Program Files/nodejs/mt.com"
       - "C:/Program Files/nodejs/mt.exe"
       - "C:/Program Files/nodejs/mt"
+      - "C:/Program Files/Go/bin/mt.com"
+      - "C:/Program Files/Go/bin/mt.exe"
+      - "C:/Program Files/Go/bin/mt"
       - "C:/Users/User/AppData/Local/Microsoft/WindowsApps/mt.com"
       - "C:/Users/User/AppData/Local/Microsoft/WindowsApps/mt.exe"
       - "C:/Users/User/AppData/Local/Microsoft/WindowsApps/mt"
@@ -1630,6 +1719,9 @@ events:
       - "C:/mtools/mt.com"
       - "C:/mtools/mt.exe"
       - "C:/mtools/mt"
+      - "C:/Users/User/go/bin/mt.com"
+      - "C:/Users/User/go/bin/mt.exe"
+      - "C:/Users/User/go/bin/mt"
     found: false
     search_context:
       CMAKE_PROGRAM_PATH:
@@ -1659,6 +1751,7 @@ events:
         - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Preview\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64"
         - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
         - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files\\Go\\bin"
         - "C:\\WINDOWS\\system32"
         - "C:\\WINDOWS"
         - "C:\\WINDOWS\\System32\\Wbem"
@@ -1697,6 +1790,7 @@ events:
         - "C:\\Users\\User\\AppData\\Roaming\\npm"
         - "C:\\Users\\User\\AppData\\Local\\Python\\bin"
         - "C:\\mtools"
+        - "C:\\Users\\User\\go\\bin"
       CMAKE_FIND_ROOT_PATH: "C:/vcpkg/installed/x64-windows/debug;C:/vcpkg/installed/x64-windows"
   -
     kind: "find-v1"
@@ -1738,6 +1832,7 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/nodejs/"
+      - "C:/vcpkg/installed/x64-windows/debug/Program Files/Go/bin/"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Microsoft/WindowsApps/"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/"
@@ -1746,6 +1841,7 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Roaming/npm/"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Python/bin/"
       - "C:/vcpkg/installed/x64-windows/debug/mtools/"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/go/bin/"
       - "C:/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/"
@@ -1766,6 +1862,7 @@ events:
       - "C:/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
       - "C:/vcpkg/installed/x64-windows/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/vcpkg/installed/x64-windows/Program Files/nodejs/"
+      - "C:/vcpkg/installed/x64-windows/Program Files/Go/bin/"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Microsoft/WindowsApps/"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/vcpkg/installed/x64-windows/vcpkg/"
@@ -1774,6 +1871,7 @@ events:
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Roaming/npm/"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Python/bin/"
       - "C:/vcpkg/installed/x64-windows/mtools/"
+      - "C:/vcpkg/installed/x64-windows/Users/User/go/bin/"
       - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
       - "C:/Users/User/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/"
       - "C:/Users/User/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/"
@@ -1794,6 +1892,7 @@ events:
       - "C:/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
       - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/Program Files/nodejs/"
+      - "C:/Program Files/Go/bin/"
       - "C:/Users/User/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/User/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/vcpkg/"
@@ -1802,6 +1901,7 @@ events:
       - "C:/Users/User/AppData/Roaming/npm/"
       - "C:/Users/User/AppData/Local/Python/bin/"
       - "C:/mtools/"
+      - "C:/Users/User/go/bin/"
     searched_directories:
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/lib.com"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/lib.exe"
@@ -1863,6 +1963,9 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/nodejs/lib.com"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/nodejs/lib.exe"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/nodejs/lib"
+      - "C:/vcpkg/installed/x64-windows/debug/Program Files/Go/bin/lib.com"
+      - "C:/vcpkg/installed/x64-windows/debug/Program Files/Go/bin/lib.exe"
+      - "C:/vcpkg/installed/x64-windows/debug/Program Files/Go/bin/lib"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Microsoft/WindowsApps/lib.com"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Microsoft/WindowsApps/lib.exe"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Microsoft/WindowsApps/lib"
@@ -1887,6 +1990,9 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/mtools/lib.com"
       - "C:/vcpkg/installed/x64-windows/debug/mtools/lib.exe"
       - "C:/vcpkg/installed/x64-windows/debug/mtools/lib"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/go/bin/lib.com"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/go/bin/lib.exe"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/go/bin/lib"
       - "C:/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/lib.com"
       - "C:/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/lib.exe"
       - "C:/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/lib"
@@ -1947,6 +2053,9 @@ events:
       - "C:/vcpkg/installed/x64-windows/Program Files/nodejs/lib.com"
       - "C:/vcpkg/installed/x64-windows/Program Files/nodejs/lib.exe"
       - "C:/vcpkg/installed/x64-windows/Program Files/nodejs/lib"
+      - "C:/vcpkg/installed/x64-windows/Program Files/Go/bin/lib.com"
+      - "C:/vcpkg/installed/x64-windows/Program Files/Go/bin/lib.exe"
+      - "C:/vcpkg/installed/x64-windows/Program Files/Go/bin/lib"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Microsoft/WindowsApps/lib.com"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Microsoft/WindowsApps/lib.exe"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Microsoft/WindowsApps/lib"
@@ -1971,6 +2080,9 @@ events:
       - "C:/vcpkg/installed/x64-windows/mtools/lib.com"
       - "C:/vcpkg/installed/x64-windows/mtools/lib.exe"
       - "C:/vcpkg/installed/x64-windows/mtools/lib"
+      - "C:/vcpkg/installed/x64-windows/Users/User/go/bin/lib.com"
+      - "C:/vcpkg/installed/x64-windows/Users/User/go/bin/lib.exe"
+      - "C:/vcpkg/installed/x64-windows/Users/User/go/bin/lib"
       - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/lib.com"
     found: "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/lib.exe"
     search_context:
@@ -2001,6 +2113,7 @@ events:
         - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Preview\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64"
         - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
         - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files\\Go\\bin"
         - "C:\\WINDOWS\\system32"
         - "C:\\WINDOWS"
         - "C:\\WINDOWS\\System32\\Wbem"
@@ -2039,6 +2152,7 @@ events:
         - "C:\\Users\\User\\AppData\\Roaming\\npm"
         - "C:\\Users\\User\\AppData\\Local\\Python\\bin"
         - "C:\\mtools"
+        - "C:\\Users\\User\\go\\bin"
       CMAKE_FIND_ROOT_PATH: "C:/vcpkg/installed/x64-windows/debug;C:/vcpkg/installed/x64-windows"
   -
     kind: "find-v1"
@@ -2089,6 +2203,7 @@ events:
         - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Preview\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64"
         - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
         - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files\\Go\\bin"
         - "C:\\WINDOWS\\system32"
         - "C:\\WINDOWS"
         - "C:\\WINDOWS\\System32\\Wbem"
@@ -2127,6 +2242,7 @@ events:
         - "C:\\Users\\User\\AppData\\Roaming\\npm"
         - "C:\\Users\\User\\AppData\\Local\\Python\\bin"
         - "C:\\mtools"
+        - "C:\\Users\\User\\go\\bin"
       CMAKE_FIND_ROOT_PATH: "C:/vcpkg/installed/x64-windows/debug;C:/vcpkg/installed/x64-windows"
   -
     kind: "message-v1"
@@ -2144,7 +2260,7 @@ events:
       The output was:
       0
       Версия MSBuild 17.14.23+b0019275e для .NET Framework
-      Сборка начата 26.01.2026 2:57:03.
+      Сборка начата 27.01.2026 19:19:52.
       
       Проект "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\4.1.0-rc1\\CompilerIdCXX\\CompilerIdCXX.vcxproj" в узле 1 (целевые объекты по умолчанию).
       PrepareForBuild:
@@ -2182,7 +2298,7 @@ events:
           Предупреждений: 0
           Ошибок: 0
       
-      Прошло времени 00:00:00.52
+      Прошло времени 00:00:00.54
       
       
       Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
@@ -2234,6 +2350,7 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/nodejs/"
+      - "C:/vcpkg/installed/x64-windows/debug/Program Files/Go/bin/"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Microsoft/WindowsApps/"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/"
@@ -2242,6 +2359,7 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Roaming/npm/"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Python/bin/"
       - "C:/vcpkg/installed/x64-windows/debug/mtools/"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/go/bin/"
       - "C:/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/"
@@ -2262,6 +2380,7 @@ events:
       - "C:/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
       - "C:/vcpkg/installed/x64-windows/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/vcpkg/installed/x64-windows/Program Files/nodejs/"
+      - "C:/vcpkg/installed/x64-windows/Program Files/Go/bin/"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Microsoft/WindowsApps/"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/vcpkg/installed/x64-windows/vcpkg/"
@@ -2270,6 +2389,7 @@ events:
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Roaming/npm/"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Python/bin/"
       - "C:/vcpkg/installed/x64-windows/mtools/"
+      - "C:/vcpkg/installed/x64-windows/Users/User/go/bin/"
       - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
       - "C:/Users/User/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/"
       - "C:/Users/User/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/"
@@ -2290,6 +2410,7 @@ events:
       - "C:/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
       - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/Program Files/nodejs/"
+      - "C:/Program Files/Go/bin/"
       - "C:/Users/User/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/User/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/vcpkg/"
@@ -2298,6 +2419,7 @@ events:
       - "C:/Users/User/AppData/Roaming/npm/"
       - "C:/Users/User/AppData/Local/Python/bin/"
       - "C:/mtools/"
+      - "C:/Users/User/go/bin/"
     searched_directories:
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/lld-link.com"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/lld-link.exe"
@@ -2359,6 +2481,9 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/nodejs/lld-link.com"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/nodejs/lld-link.exe"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/nodejs/lld-link"
+      - "C:/vcpkg/installed/x64-windows/debug/Program Files/Go/bin/lld-link.com"
+      - "C:/vcpkg/installed/x64-windows/debug/Program Files/Go/bin/lld-link.exe"
+      - "C:/vcpkg/installed/x64-windows/debug/Program Files/Go/bin/lld-link"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Microsoft/WindowsApps/lld-link.com"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Microsoft/WindowsApps/lld-link.exe"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Microsoft/WindowsApps/lld-link"
@@ -2383,6 +2508,9 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/mtools/lld-link.com"
       - "C:/vcpkg/installed/x64-windows/debug/mtools/lld-link.exe"
       - "C:/vcpkg/installed/x64-windows/debug/mtools/lld-link"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/go/bin/lld-link.com"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/go/bin/lld-link.exe"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/go/bin/lld-link"
       - "C:/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/lld-link.com"
       - "C:/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/lld-link.exe"
       - "C:/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/lld-link"
@@ -2443,6 +2571,9 @@ events:
       - "C:/vcpkg/installed/x64-windows/Program Files/nodejs/lld-link.com"
       - "C:/vcpkg/installed/x64-windows/Program Files/nodejs/lld-link.exe"
       - "C:/vcpkg/installed/x64-windows/Program Files/nodejs/lld-link"
+      - "C:/vcpkg/installed/x64-windows/Program Files/Go/bin/lld-link.com"
+      - "C:/vcpkg/installed/x64-windows/Program Files/Go/bin/lld-link.exe"
+      - "C:/vcpkg/installed/x64-windows/Program Files/Go/bin/lld-link"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Microsoft/WindowsApps/lld-link.com"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Microsoft/WindowsApps/lld-link.exe"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Microsoft/WindowsApps/lld-link"
@@ -2467,6 +2598,9 @@ events:
       - "C:/vcpkg/installed/x64-windows/mtools/lld-link.com"
       - "C:/vcpkg/installed/x64-windows/mtools/lld-link.exe"
       - "C:/vcpkg/installed/x64-windows/mtools/lld-link"
+      - "C:/vcpkg/installed/x64-windows/Users/User/go/bin/lld-link.com"
+      - "C:/vcpkg/installed/x64-windows/Users/User/go/bin/lld-link.exe"
+      - "C:/vcpkg/installed/x64-windows/Users/User/go/bin/lld-link"
       - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/lld-link.com"
       - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/lld-link.exe"
       - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/lld-link"
@@ -2527,6 +2661,9 @@ events:
       - "C:/Program Files/nodejs/lld-link.com"
       - "C:/Program Files/nodejs/lld-link.exe"
       - "C:/Program Files/nodejs/lld-link"
+      - "C:/Program Files/Go/bin/lld-link.com"
+      - "C:/Program Files/Go/bin/lld-link.exe"
+      - "C:/Program Files/Go/bin/lld-link"
       - "C:/Users/User/AppData/Local/Microsoft/WindowsApps/lld-link.com"
       - "C:/Users/User/AppData/Local/Microsoft/WindowsApps/lld-link.exe"
       - "C:/Users/User/AppData/Local/Microsoft/WindowsApps/lld-link"
@@ -2551,6 +2688,9 @@ events:
       - "C:/mtools/lld-link.com"
       - "C:/mtools/lld-link.exe"
       - "C:/mtools/lld-link"
+      - "C:/Users/User/go/bin/lld-link.com"
+      - "C:/Users/User/go/bin/lld-link.exe"
+      - "C:/Users/User/go/bin/lld-link"
     found: false
     search_context:
       CMAKE_PROGRAM_PATH:
@@ -2580,6 +2720,7 @@ events:
         - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Preview\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64"
         - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
         - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files\\Go\\bin"
         - "C:\\WINDOWS\\system32"
         - "C:\\WINDOWS"
         - "C:\\WINDOWS\\System32\\Wbem"
@@ -2618,6 +2759,7 @@ events:
         - "C:\\Users\\User\\AppData\\Roaming\\npm"
         - "C:\\Users\\User\\AppData\\Local\\Python\\bin"
         - "C:\\mtools"
+        - "C:\\Users\\User\\go\\bin"
       CMAKE_FIND_ROOT_PATH: "C:/vcpkg/installed/x64-windows/debug;C:/vcpkg/installed/x64-windows"
   -
     kind: "find-v1"
@@ -2670,6 +2812,7 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/nodejs/"
+      - "C:/vcpkg/installed/x64-windows/debug/Program Files/Go/bin/"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Microsoft/WindowsApps/"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/"
@@ -2678,6 +2821,7 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Roaming/npm/"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Python/bin/"
       - "C:/vcpkg/installed/x64-windows/debug/mtools/"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/go/bin/"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/bin/"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/sbin/"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/"
@@ -2718,6 +2862,7 @@ events:
       - "C:/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
       - "C:/vcpkg/installed/x64-windows/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/vcpkg/installed/x64-windows/Program Files/nodejs/"
+      - "C:/vcpkg/installed/x64-windows/Program Files/Go/bin/"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Microsoft/WindowsApps/"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/vcpkg/installed/x64-windows/vcpkg/"
@@ -2726,6 +2871,7 @@ events:
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Roaming/npm/"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Python/bin/"
       - "C:/vcpkg/installed/x64-windows/mtools/"
+      - "C:/vcpkg/installed/x64-windows/Users/User/go/bin/"
       - "C:/vcpkg/installed/x64-windows/Program Files/bin/"
       - "C:/vcpkg/installed/x64-windows/Program Files/sbin/"
       - "C:/vcpkg/installed/x64-windows/Program Files/"
@@ -2766,6 +2912,7 @@ events:
       - "C:/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
       - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/Program Files/nodejs/"
+      - "C:/Program Files/Go/bin/"
       - "C:/Users/User/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/User/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/vcpkg/"
@@ -2774,6 +2921,7 @@ events:
       - "C:/Users/User/AppData/Roaming/npm/"
       - "C:/Users/User/AppData/Local/Python/bin/"
       - "C:/mtools/"
+      - "C:/Users/User/go/bin/"
       - "C:/Program Files/bin/"
       - "C:/Program Files/sbin/"
       - "C:/Program Files/"
@@ -2871,6 +3019,9 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/nodejs/rc.com"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/nodejs/rc.exe"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/nodejs/rc"
+      - "C:/vcpkg/installed/x64-windows/debug/Program Files/Go/bin/rc.com"
+      - "C:/vcpkg/installed/x64-windows/debug/Program Files/Go/bin/rc.exe"
+      - "C:/vcpkg/installed/x64-windows/debug/Program Files/Go/bin/rc"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Microsoft/WindowsApps/rc.com"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Microsoft/WindowsApps/rc.exe"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Microsoft/WindowsApps/rc"
@@ -2895,6 +3046,9 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/mtools/rc.com"
       - "C:/vcpkg/installed/x64-windows/debug/mtools/rc.exe"
       - "C:/vcpkg/installed/x64-windows/debug/mtools/rc"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/go/bin/rc.com"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/go/bin/rc.exe"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/go/bin/rc"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/bin/rc.com"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/bin/rc.exe"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/bin/rc"
@@ -3015,6 +3169,9 @@ events:
       - "C:/vcpkg/installed/x64-windows/Program Files/nodejs/rc.com"
       - "C:/vcpkg/installed/x64-windows/Program Files/nodejs/rc.exe"
       - "C:/vcpkg/installed/x64-windows/Program Files/nodejs/rc"
+      - "C:/vcpkg/installed/x64-windows/Program Files/Go/bin/rc.com"
+      - "C:/vcpkg/installed/x64-windows/Program Files/Go/bin/rc.exe"
+      - "C:/vcpkg/installed/x64-windows/Program Files/Go/bin/rc"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Microsoft/WindowsApps/rc.com"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Microsoft/WindowsApps/rc.exe"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Microsoft/WindowsApps/rc"
@@ -3039,6 +3196,9 @@ events:
       - "C:/vcpkg/installed/x64-windows/mtools/rc.com"
       - "C:/vcpkg/installed/x64-windows/mtools/rc.exe"
       - "C:/vcpkg/installed/x64-windows/mtools/rc"
+      - "C:/vcpkg/installed/x64-windows/Users/User/go/bin/rc.com"
+      - "C:/vcpkg/installed/x64-windows/Users/User/go/bin/rc.exe"
+      - "C:/vcpkg/installed/x64-windows/Users/User/go/bin/rc"
       - "C:/vcpkg/installed/x64-windows/Program Files/bin/rc.com"
       - "C:/vcpkg/installed/x64-windows/Program Files/bin/rc.exe"
       - "C:/vcpkg/installed/x64-windows/Program Files/bin/rc"
@@ -3159,6 +3319,9 @@ events:
       - "C:/Program Files/nodejs/rc.com"
       - "C:/Program Files/nodejs/rc.exe"
       - "C:/Program Files/nodejs/rc"
+      - "C:/Program Files/Go/bin/rc.com"
+      - "C:/Program Files/Go/bin/rc.exe"
+      - "C:/Program Files/Go/bin/rc"
       - "C:/Users/User/AppData/Local/Microsoft/WindowsApps/rc.com"
       - "C:/Users/User/AppData/Local/Microsoft/WindowsApps/rc.exe"
       - "C:/Users/User/AppData/Local/Microsoft/WindowsApps/rc"
@@ -3183,6 +3346,9 @@ events:
       - "C:/mtools/rc.com"
       - "C:/mtools/rc.exe"
       - "C:/mtools/rc"
+      - "C:/Users/User/go/bin/rc.com"
+      - "C:/Users/User/go/bin/rc.exe"
+      - "C:/Users/User/go/bin/rc"
       - "C:/Program Files/bin/rc.com"
       - "C:/Program Files/bin/rc.exe"
       - "C:/Program Files/bin/rc"
@@ -3248,6 +3414,7 @@ events:
         - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Preview\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64"
         - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
         - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files\\Go\\bin"
         - "C:\\WINDOWS\\system32"
         - "C:\\WINDOWS"
         - "C:\\WINDOWS\\System32\\Wbem"
@@ -3286,6 +3453,7 @@ events:
         - "C:\\Users\\User\\AppData\\Roaming\\npm"
         - "C:\\Users\\User\\AppData\\Local\\Python\\bin"
         - "C:\\mtools"
+        - "C:\\Users\\User\\go\\bin"
       CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/vulkan_app"
       CMAKE_SYSTEM_PREFIX_PATH:
         - "C:/Program Files"
@@ -3302,8 +3470,8 @@ events:
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-e8lars"
-      binary: "C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-e8lars"
+      source: "C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-19h9h6"
+      binary: "C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-19h9h6"
     cmakeVariables:
       CMAKE_C_FLAGS: "/MP"
       CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
@@ -3316,40 +3484,40 @@ events:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-e8lars'
+        Change Dir: 'C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-19h9h6'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_1433d.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_613a2.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         Версия MSBuild 17.14.23+b0019275e для .NET Framework
-        Сборка начата 26.01.2026 2:57:03.
+        Сборка начата 27.01.2026 19:19:53.
         
-        Проект "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-e8lars\\cmTC_1433d.vcxproj" в узле 1 (целевые объекты по умолчанию).
+        Проект "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-19h9h6\\cmTC_613a2.vcxproj" в узле 1 (целевые объекты по умолчанию).
         PrepareForBuild:
-          Создание каталога "cmTC_1433d.dir\\Debug\\".
+          Создание каталога "cmTC_613a2.dir\\Debug\\".
           Структурированный вывод включен. Форматирование диагностики компилятора будет отражать иерархию ошибок. Подробнее см. https://aka.ms/cpp/structured-output.
-          Создание каталога "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-e8lars\\Debug\\".
-          Создание каталога "cmTC_1433d.dir\\Debug\\cmTC_1433d.tlog\\".
+          Создание каталога "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-19h9h6\\Debug\\".
+          Создание каталога "cmTC_613a2.dir\\Debug\\cmTC_613a2.tlog\\".
         InitializeBuildStatus:
-          Создание "cmTC_1433d.dir\\Debug\\cmTC_1433d.tlog\\unsuccessfulbuild", так как было задано "AlwaysCreate".
-          Обращение к "cmTC_1433d.dir\\Debug\\cmTC_1433d.tlog\\unsuccessfulbuild".
+          Создание "cmTC_613a2.dir\\Debug\\cmTC_613a2.tlog\\unsuccessfulbuild", так как было задано "AlwaysCreate".
+          Обращение к "cmTC_613a2.dir\\Debug\\cmTC_613a2.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /MP /Od /Ob0 /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Fo"cmTC_1433d.dir\\Debug\\\\" /Fd"cmTC_1433d.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.1\\Modules\\CMakeCCompilerABI.c"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /MP /Od /Ob0 /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Fo"cmTC_613a2.dir\\Debug\\\\" /Fd"cmTC_613a2.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.1\\Modules\\CMakeCCompilerABI.c"
           Оптимизирующий компилятор Microsoft (R) C/C++ версии 19.44.35219 для x64
           (C) Корпорация Майкрософт (Microsoft Corporation).  Все права защищены.
-          cl /c /Zi /W1 /WX- /diagnostics:column /MP /Od /Ob0 /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Fo"cmTC_1433d.dir\\Debug\\\\" /Fd"cmTC_1433d.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.1\\Modules\\CMakeCCompilerABI.c"
+          cl /c /Zi /W1 /WX- /diagnostics:column /MP /Od /Ob0 /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Fo"cmTC_613a2.dir\\Debug\\\\" /Fd"cmTC_613a2.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.1\\Modules\\CMakeCCompilerABI.c"
           CMakeCCompilerABI.c
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-e8lars\\Debug\\cmTC_1433d.exe" /INCREMENTAL /ILK:"cmTC_1433d.dir\\Debug\\cmTC_1433d.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-e8lars/Debug/cmTC_1433d.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-e8lars/Debug/cmTC_1433d.lib" /MACHINE:X64  /machine:x64 cmTC_1433d.dir\\Debug\\CMakeCCompilerABI.obj
-          cmTC_1433d.vcxproj -> C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-e8lars\\Debug\\cmTC_1433d.exe
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-19h9h6\\Debug\\cmTC_613a2.exe" /INCREMENTAL /ILK:"cmTC_613a2.dir\\Debug\\cmTC_613a2.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-19h9h6/Debug/cmTC_613a2.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-19h9h6/Debug/cmTC_613a2.lib" /MACHINE:X64  /machine:x64 cmTC_613a2.dir\\Debug\\CMakeCCompilerABI.obj
+          cmTC_613a2.vcxproj -> C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-19h9h6\\Debug\\cmTC_613a2.exe
         FinalizeBuildStatus:
-          Файл "cmTC_1433d.dir\\Debug\\cmTC_1433d.tlog\\unsuccessfulbuild" удаляется.
-          Обращение к "cmTC_1433d.dir\\Debug\\cmTC_1433d.tlog\\cmTC_1433d.lastbuildstate".
-        Сборка проекта "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-e8lars\\cmTC_1433d.vcxproj" завершена (целевые объекты по умолчанию).
+          Файл "cmTC_613a2.dir\\Debug\\cmTC_613a2.tlog\\unsuccessfulbuild" удаляется.
+          Обращение к "cmTC_613a2.dir\\Debug\\cmTC_613a2.tlog\\cmTC_613a2.lastbuildstate".
+        Сборка проекта "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-19h9h6\\cmTC_613a2.vcxproj" завершена (целевые объекты по умолчанию).
         
         Сборка успешно завершена.
             Предупреждений: 0
             Ошибок: 0
         
-        Прошло времени 00:00:00.27
+        Прошло времени 00:00:00.29
         
       exitCode: 0
   -
@@ -3389,8 +3557,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-k24ns3"
-      binary: "C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-k24ns3"
+      source: "C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-azsn0d"
+      binary: "C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-azsn0d"
     cmakeVariables:
       CMAKE_CXX_FLAGS: "/MP"
       CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
@@ -3404,40 +3572,40 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-k24ns3'
+        Change Dir: 'C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-azsn0d'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_7f3a1.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_c83ab.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         Версия MSBuild 17.14.23+b0019275e для .NET Framework
-        Сборка начата 26.01.2026 2:57:04.
+        Сборка начата 27.01.2026 19:19:54.
         
-        Проект "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-k24ns3\\cmTC_7f3a1.vcxproj" в узле 1 (целевые объекты по умолчанию).
+        Проект "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-azsn0d\\cmTC_c83ab.vcxproj" в узле 1 (целевые объекты по умолчанию).
         PrepareForBuild:
-          Создание каталога "cmTC_7f3a1.dir\\Debug\\".
+          Создание каталога "cmTC_c83ab.dir\\Debug\\".
           Структурированный вывод включен. Форматирование диагностики компилятора будет отражать иерархию ошибок. Подробнее см. https://aka.ms/cpp/structured-output.
-          Создание каталога "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-k24ns3\\Debug\\".
-          Создание каталога "cmTC_7f3a1.dir\\Debug\\cmTC_7f3a1.tlog\\".
+          Создание каталога "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-azsn0d\\Debug\\".
+          Создание каталога "cmTC_c83ab.dir\\Debug\\cmTC_c83ab.tlog\\".
         InitializeBuildStatus:
-          Создание "cmTC_7f3a1.dir\\Debug\\cmTC_7f3a1.tlog\\unsuccessfulbuild", так как было задано "AlwaysCreate".
-          Обращение к "cmTC_7f3a1.dir\\Debug\\cmTC_7f3a1.tlog\\unsuccessfulbuild".
+          Создание "cmTC_c83ab.dir\\Debug\\cmTC_c83ab.tlog\\unsuccessfulbuild", так как было задано "AlwaysCreate".
+          Обращение к "cmTC_c83ab.dir\\Debug\\cmTC_c83ab.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /MP /Od /Ob0 /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /std:c++20 /Fo"cmTC_7f3a1.dir\\Debug\\\\" /Fd"cmTC_7f3a1.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.1\\Modules\\CMakeCXXCompilerABI.cpp"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /MP /Od /Ob0 /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /std:c++20 /Fo"cmTC_c83ab.dir\\Debug\\\\" /Fd"cmTC_c83ab.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.1\\Modules\\CMakeCXXCompilerABI.cpp"
           Оптимизирующий компилятор Microsoft (R) C/C++ версии 19.44.35219 для x64
           (C) Корпорация Майкрософт (Microsoft Corporation).  Все права защищены.
-          cl /c /Zi /W1 /WX- /diagnostics:column /MP /Od /Ob0 /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /std:c++20 /Fo"cmTC_7f3a1.dir\\Debug\\\\" /Fd"cmTC_7f3a1.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.1\\Modules\\CMakeCXXCompilerABI.cpp"
+          cl /c /Zi /W1 /WX- /diagnostics:column /MP /Od /Ob0 /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /std:c++20 /Fo"cmTC_c83ab.dir\\Debug\\\\" /Fd"cmTC_c83ab.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.1\\Modules\\CMakeCXXCompilerABI.cpp"
           CMakeCXXCompilerABI.cpp
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-k24ns3\\Debug\\cmTC_7f3a1.exe" /INCREMENTAL /ILK:"cmTC_7f3a1.dir\\Debug\\cmTC_7f3a1.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-k24ns3/Debug/cmTC_7f3a1.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-k24ns3/Debug/cmTC_7f3a1.lib" /MACHINE:X64  /machine:x64 cmTC_7f3a1.dir\\Debug\\CMakeCXXCompilerABI.obj
-          cmTC_7f3a1.vcxproj -> C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-k24ns3\\Debug\\cmTC_7f3a1.exe
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-azsn0d\\Debug\\cmTC_c83ab.exe" /INCREMENTAL /ILK:"cmTC_c83ab.dir\\Debug\\cmTC_c83ab.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-azsn0d/Debug/cmTC_c83ab.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-azsn0d/Debug/cmTC_c83ab.lib" /MACHINE:X64  /machine:x64 cmTC_c83ab.dir\\Debug\\CMakeCXXCompilerABI.obj
+          cmTC_c83ab.vcxproj -> C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-azsn0d\\Debug\\cmTC_c83ab.exe
         FinalizeBuildStatus:
-          Файл "cmTC_7f3a1.dir\\Debug\\cmTC_7f3a1.tlog\\unsuccessfulbuild" удаляется.
-          Обращение к "cmTC_7f3a1.dir\\Debug\\cmTC_7f3a1.tlog\\cmTC_7f3a1.lastbuildstate".
-        Сборка проекта "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-k24ns3\\cmTC_7f3a1.vcxproj" завершена (целевые объекты по умолчанию).
+          Файл "cmTC_c83ab.dir\\Debug\\cmTC_c83ab.tlog\\unsuccessfulbuild" удаляется.
+          Обращение к "cmTC_c83ab.dir\\Debug\\cmTC_c83ab.tlog\\cmTC_c83ab.lastbuildstate".
+        Сборка проекта "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-azsn0d\\cmTC_c83ab.vcxproj" завершена (целевые объекты по умолчанию).
         
         Сборка успешно завершена.
             Предупреждений: 0
             Ошибок: 0
         
-        Прошло времени 00:00:00.28
+        Прошло времени 00:00:00.29
         
       exitCode: 0
   -
@@ -3483,8 +3651,8 @@ events:
     checks:
       - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
     directories:
-      source: "C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-xp3808"
-      binary: "C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-xp3808"
+      source: "C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-t7pltd"
+      binary: "C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-t7pltd"
     cmakeVariables:
       CMAKE_C_FLAGS: "/MP"
       CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
@@ -3497,35 +3665,35 @@ events:
       variable: "CMAKE_HAVE_LIBC_PTHREAD"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-xp3808'
+        Change Dir: 'C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-t7pltd'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_613cc.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_a2d73.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         Версия MSBuild 17.14.23+b0019275e для .NET Framework
-        Сборка начата 26.01.2026 2:57:04.
+        Сборка начата 27.01.2026 19:19:54.
         
-        Проект "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-xp3808\\cmTC_613cc.vcxproj" в узле 1 (целевые объекты по умолчанию).
+        Проект "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-t7pltd\\cmTC_a2d73.vcxproj" в узле 1 (целевые объекты по умолчанию).
         PrepareForBuild:
-          Создание каталога "cmTC_613cc.dir\\Debug\\".
+          Создание каталога "cmTC_a2d73.dir\\Debug\\".
           Структурированный вывод включен. Форматирование диагностики компилятора будет отражать иерархию ошибок. Подробнее см. https://aka.ms/cpp/structured-output.
-          Создание каталога "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-xp3808\\Debug\\".
-          Создание каталога "cmTC_613cc.dir\\Debug\\cmTC_613cc.tlog\\".
+          Создание каталога "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-t7pltd\\Debug\\".
+          Создание каталога "cmTC_a2d73.dir\\Debug\\cmTC_a2d73.tlog\\".
         InitializeBuildStatus:
-          Создание "cmTC_613cc.dir\\Debug\\cmTC_613cc.tlog\\unsuccessfulbuild", так как было задано "AlwaysCreate".
-          Обращение к "cmTC_613cc.dir\\Debug\\cmTC_613cc.tlog\\unsuccessfulbuild".
+          Создание "cmTC_a2d73.dir\\Debug\\cmTC_a2d73.tlog\\unsuccessfulbuild", так как было задано "AlwaysCreate".
+          Обращение к "cmTC_a2d73.dir\\Debug\\cmTC_a2d73.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /MP /Od /Ob0 /D _MBCS /D CMAKE_HAVE_LIBC_PTHREAD /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Fo"cmTC_613cc.dir\\Debug\\\\" /Fd"cmTC_613cc.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-xp3808\\src.c"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /MP /Od /Ob0 /D _MBCS /D CMAKE_HAVE_LIBC_PTHREAD /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Fo"cmTC_a2d73.dir\\Debug\\\\" /Fd"cmTC_a2d73.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-t7pltd\\src.c"
           Оптимизирующий компилятор Microsoft (R) C/C++ версии 19.44.35219 для x64
           (C) Корпорация Майкрософт (Microsoft Corporation).  Все права защищены.
-          cl /c /Zi /W1 /WX- /diagnostics:column /MP /Od /Ob0 /D _MBCS /D CMAKE_HAVE_LIBC_PTHREAD /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Fo"cmTC_613cc.dir\\Debug\\\\" /Fd"cmTC_613cc.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-xp3808\\src.c"
+          cl /c /Zi /W1 /WX- /diagnostics:column /MP /Od /Ob0 /D _MBCS /D CMAKE_HAVE_LIBC_PTHREAD /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Fo"cmTC_a2d73.dir\\Debug\\\\" /Fd"cmTC_a2d73.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-t7pltd\\src.c"
           src.c
-        C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-xp3808\\src.c(1,10): error C1083: Не удается открыть файл включение: pthread.h: No such file or directory, [C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-xp3808\\cmTC_613cc.vcxproj]
-        Сборка проекта "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-xp3808\\cmTC_613cc.vcxproj" завершена (целевые объекты по умолчанию) с ошибкой.
+        C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-t7pltd\\src.c(1,10): error C1083: Не удается открыть файл включение: pthread.h: No such file or directory, [C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-t7pltd\\cmTC_a2d73.vcxproj]
+        Сборка проекта "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-t7pltd\\cmTC_a2d73.vcxproj" завершена (целевые объекты по умолчанию) с ошибкой.
         
         Ошибка сборки.
         
-        "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-xp3808\\cmTC_613cc.vcxproj" (целевой объект по умолчанию) (1) ->
+        "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-t7pltd\\cmTC_a2d73.vcxproj" (целевой объект по умолчанию) (1) ->
         (Целевой объект ClCompile) -> 
-          C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-xp3808\\src.c(1,10): error C1083: Не удается открыть файл включение: pthread.h: No such file or directory, [C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-xp3808\\cmTC_613cc.vcxproj]
+          C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-t7pltd\\src.c(1,10): error C1083: Не удается открыть файл включение: pthread.h: No such file or directory, [C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-t7pltd\\cmTC_a2d73.vcxproj]
         
             Предупреждений: 0
             Ошибок: 1
@@ -3547,8 +3715,8 @@ events:
     checks:
       - "Looking for pthread_create in pthreads"
     directories:
-      source: "C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-i7gtz4"
-      binary: "C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-i7gtz4"
+      source: "C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-f770a0"
+      binary: "C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-f770a0"
     cmakeVariables:
       CMAKE_C_FLAGS: "/MP"
       CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
@@ -3561,42 +3729,42 @@ events:
       variable: "CMAKE_HAVE_PTHREADS_CREATE"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-i7gtz4'
+        Change Dir: 'C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-f770a0'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_11713.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_7e626.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         Версия MSBuild 17.14.23+b0019275e для .NET Framework
-        Сборка начата 26.01.2026 2:57:05.
+        Сборка начата 27.01.2026 19:19:55.
         
-        Проект "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-i7gtz4\\cmTC_11713.vcxproj" в узле 1 (целевые объекты по умолчанию).
+        Проект "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-f770a0\\cmTC_7e626.vcxproj" в узле 1 (целевые объекты по умолчанию).
         PrepareForBuild:
-          Создание каталога "cmTC_11713.dir\\Debug\\".
+          Создание каталога "cmTC_7e626.dir\\Debug\\".
           Структурированный вывод включен. Форматирование диагностики компилятора будет отражать иерархию ошибок. Подробнее см. https://aka.ms/cpp/structured-output.
-          Создание каталога "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-i7gtz4\\Debug\\".
-          Создание каталога "cmTC_11713.dir\\Debug\\cmTC_11713.tlog\\".
+          Создание каталога "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-f770a0\\Debug\\".
+          Создание каталога "cmTC_7e626.dir\\Debug\\cmTC_7e626.tlog\\".
         InitializeBuildStatus:
-          Создание "cmTC_11713.dir\\Debug\\cmTC_11713.tlog\\unsuccessfulbuild", так как было задано "AlwaysCreate".
-          Обращение к "cmTC_11713.dir\\Debug\\cmTC_11713.tlog\\unsuccessfulbuild".
+          Создание "cmTC_7e626.dir\\Debug\\cmTC_7e626.tlog\\unsuccessfulbuild", так как было задано "AlwaysCreate".
+          Обращение к "cmTC_7e626.dir\\Debug\\cmTC_7e626.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /MP /Od /Ob0 /D _MBCS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Fo"cmTC_11713.dir\\Debug\\\\" /Fd"cmTC_11713.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-i7gtz4\\CheckFunctionExists.c"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /MP /Od /Ob0 /D _MBCS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Fo"cmTC_7e626.dir\\Debug\\\\" /Fd"cmTC_7e626.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-f770a0\\CheckFunctionExists.c"
           Оптимизирующий компилятор Microsoft (R) C/C++ версии 19.44.35219 для x64
           (C) Корпорация Майкрософт (Microsoft Corporation).  Все права защищены.
-          cl /c /Zi /W1 /WX- /diagnostics:column /MP /Od /Ob0 /D _MBCS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Fo"cmTC_11713.dir\\Debug\\\\" /Fd"cmTC_11713.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-i7gtz4\\CheckFunctionExists.c"
+          cl /c /Zi /W1 /WX- /diagnostics:column /MP /Od /Ob0 /D _MBCS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Fo"cmTC_7e626.dir\\Debug\\\\" /Fd"cmTC_7e626.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-f770a0\\CheckFunctionExists.c"
           CheckFunctionExists.c
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-i7gtz4\\Debug\\cmTC_11713.exe" /INCREMENTAL /ILK:"cmTC_11713.dir\\Debug\\cmTC_11713.ilk" /NOLOGO pthreads.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-i7gtz4/Debug/cmTC_11713.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-i7gtz4/Debug/cmTC_11713.lib" /MACHINE:X64  /machine:x64 cmTC_11713.dir\\Debug\\CheckFunctionExists.obj
-        LINK : fatal error LNK1104: не удается открыть файл "pthreads.lib" [C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-i7gtz4\\cmTC_11713.vcxproj]
-        Сборка проекта "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-i7gtz4\\cmTC_11713.vcxproj" завершена (целевые объекты по умолчанию) с ошибкой.
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-f770a0\\Debug\\cmTC_7e626.exe" /INCREMENTAL /ILK:"cmTC_7e626.dir\\Debug\\cmTC_7e626.ilk" /NOLOGO pthreads.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-f770a0/Debug/cmTC_7e626.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-f770a0/Debug/cmTC_7e626.lib" /MACHINE:X64  /machine:x64 cmTC_7e626.dir\\Debug\\CheckFunctionExists.obj
+        LINK : fatal error LNK1104: не удается открыть файл "pthreads.lib" [C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-f770a0\\cmTC_7e626.vcxproj]
+        Сборка проекта "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-f770a0\\cmTC_7e626.vcxproj" завершена (целевые объекты по умолчанию) с ошибкой.
         
         Ошибка сборки.
         
-        "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-i7gtz4\\cmTC_11713.vcxproj" (целевой объект по умолчанию) (1) ->
+        "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-f770a0\\cmTC_7e626.vcxproj" (целевой объект по умолчанию) (1) ->
         (Целевой объект Link) -> 
-          LINK : fatal error LNK1104: не удается открыть файл "pthreads.lib" [C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-i7gtz4\\cmTC_11713.vcxproj]
+          LINK : fatal error LNK1104: не удается открыть файл "pthreads.lib" [C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-f770a0\\cmTC_7e626.vcxproj]
         
             Предупреждений: 0
             Ошибок: 1
         
-        Прошло времени 00:00:00.22
+        Прошло времени 00:00:00.23
         
       exitCode: 1
   -
@@ -3613,8 +3781,8 @@ events:
     checks:
       - "Looking for pthread_create in pthread"
     directories:
-      source: "C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-7rujee"
-      binary: "C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-7rujee"
+      source: "C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-0p9nb3"
+      binary: "C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-0p9nb3"
     cmakeVariables:
       CMAKE_C_FLAGS: "/MP"
       CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
@@ -3627,42 +3795,42 @@ events:
       variable: "CMAKE_HAVE_PTHREAD_CREATE"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-7rujee'
+        Change Dir: 'C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-0p9nb3'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_4c35b.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_fdde1.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         Версия MSBuild 17.14.23+b0019275e для .NET Framework
-        Сборка начата 26.01.2026 2:57:05.
+        Сборка начата 27.01.2026 19:19:55.
         
-        Проект "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-7rujee\\cmTC_4c35b.vcxproj" в узле 1 (целевые объекты по умолчанию).
+        Проект "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0p9nb3\\cmTC_fdde1.vcxproj" в узле 1 (целевые объекты по умолчанию).
         PrepareForBuild:
-          Создание каталога "cmTC_4c35b.dir\\Debug\\".
+          Создание каталога "cmTC_fdde1.dir\\Debug\\".
           Структурированный вывод включен. Форматирование диагностики компилятора будет отражать иерархию ошибок. Подробнее см. https://aka.ms/cpp/structured-output.
-          Создание каталога "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-7rujee\\Debug\\".
-          Создание каталога "cmTC_4c35b.dir\\Debug\\cmTC_4c35b.tlog\\".
+          Создание каталога "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0p9nb3\\Debug\\".
+          Создание каталога "cmTC_fdde1.dir\\Debug\\cmTC_fdde1.tlog\\".
         InitializeBuildStatus:
-          Создание "cmTC_4c35b.dir\\Debug\\cmTC_4c35b.tlog\\unsuccessfulbuild", так как было задано "AlwaysCreate".
-          Обращение к "cmTC_4c35b.dir\\Debug\\cmTC_4c35b.tlog\\unsuccessfulbuild".
+          Создание "cmTC_fdde1.dir\\Debug\\cmTC_fdde1.tlog\\unsuccessfulbuild", так как было задано "AlwaysCreate".
+          Обращение к "cmTC_fdde1.dir\\Debug\\cmTC_fdde1.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /MP /Od /Ob0 /D _MBCS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Fo"cmTC_4c35b.dir\\Debug\\\\" /Fd"cmTC_4c35b.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-7rujee\\CheckFunctionExists.c"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /MP /Od /Ob0 /D _MBCS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Fo"cmTC_fdde1.dir\\Debug\\\\" /Fd"cmTC_fdde1.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0p9nb3\\CheckFunctionExists.c"
           Оптимизирующий компилятор Microsoft (R) C/C++ версии 19.44.35219 для x64
           (C) Корпорация Майкрософт (Microsoft Corporation).  Все права защищены.
-          cl /c /Zi /W1 /WX- /diagnostics:column /MP /Od /Ob0 /D _MBCS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Fo"cmTC_4c35b.dir\\Debug\\\\" /Fd"cmTC_4c35b.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-7rujee\\CheckFunctionExists.c"
+          cl /c /Zi /W1 /WX- /diagnostics:column /MP /Od /Ob0 /D _MBCS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Fo"cmTC_fdde1.dir\\Debug\\\\" /Fd"cmTC_fdde1.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0p9nb3\\CheckFunctionExists.c"
           CheckFunctionExists.c
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-7rujee\\Debug\\cmTC_4c35b.exe" /INCREMENTAL /ILK:"cmTC_4c35b.dir\\Debug\\cmTC_4c35b.ilk" /NOLOGO pthread.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-7rujee/Debug/cmTC_4c35b.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-7rujee/Debug/cmTC_4c35b.lib" /MACHINE:X64  /machine:x64 cmTC_4c35b.dir\\Debug\\CheckFunctionExists.obj
-        LINK : fatal error LNK1104: не удается открыть файл "pthread.lib" [C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-7rujee\\cmTC_4c35b.vcxproj]
-        Сборка проекта "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-7rujee\\cmTC_4c35b.vcxproj" завершена (целевые объекты по умолчанию) с ошибкой.
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0p9nb3\\Debug\\cmTC_fdde1.exe" /INCREMENTAL /ILK:"cmTC_fdde1.dir\\Debug\\cmTC_fdde1.ilk" /NOLOGO pthread.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-0p9nb3/Debug/cmTC_fdde1.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-0p9nb3/Debug/cmTC_fdde1.lib" /MACHINE:X64  /machine:x64 cmTC_fdde1.dir\\Debug\\CheckFunctionExists.obj
+        LINK : fatal error LNK1104: не удается открыть файл "pthread.lib" [C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0p9nb3\\cmTC_fdde1.vcxproj]
+        Сборка проекта "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0p9nb3\\cmTC_fdde1.vcxproj" завершена (целевые объекты по умолчанию) с ошибкой.
         
         Ошибка сборки.
         
-        "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-7rujee\\cmTC_4c35b.vcxproj" (целевой объект по умолчанию) (1) ->
+        "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0p9nb3\\cmTC_fdde1.vcxproj" (целевой объект по умолчанию) (1) ->
         (Целевой объект Link) -> 
-          LINK : fatal error LNK1104: не удается открыть файл "pthread.lib" [C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-7rujee\\cmTC_4c35b.vcxproj]
+          LINK : fatal error LNK1104: не удается открыть файл "pthread.lib" [C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0p9nb3\\cmTC_fdde1.vcxproj]
         
             Предупреждений: 0
             Ошибок: 1
         
-        Прошло времени 00:00:00.23
+        Прошло времени 00:00:00.24
         
       exitCode: 1
   -
@@ -3753,6 +3921,7 @@ events:
         - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Preview\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64"
         - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
         - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files\\Go\\bin"
         - "C:\\WINDOWS\\system32"
         - "C:\\WINDOWS"
         - "C:\\WINDOWS\\System32\\Wbem"
@@ -3791,6 +3960,7 @@ events:
         - "C:\\Users\\User\\AppData\\Roaming\\npm"
         - "C:\\Users\\User\\AppData\\Local\\Python\\bin"
         - "C:\\mtools"
+        - "C:\\Users\\User\\go\\bin"
       CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/vulkan_app"
       CMAKE_SYSTEM_PREFIX_PATH:
         - "C:/Program Files"
@@ -3839,6 +4009,7 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/nodejs/"
+      - "C:/vcpkg/installed/x64-windows/debug/Program Files/Go/bin/"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Microsoft/WindowsApps/"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/"
@@ -3847,6 +4018,7 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Roaming/npm/"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Python/bin/"
       - "C:/vcpkg/installed/x64-windows/debug/mtools/"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/go/bin/"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/include/"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files (x86)/include/"
@@ -3878,6 +4050,7 @@ events:
       - "C:/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
       - "C:/vcpkg/installed/x64-windows/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/vcpkg/installed/x64-windows/Program Files/nodejs/"
+      - "C:/vcpkg/installed/x64-windows/Program Files/Go/bin/"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Microsoft/WindowsApps/"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/vcpkg/installed/x64-windows/vcpkg/"
@@ -3886,6 +4059,7 @@ events:
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Roaming/npm/"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Python/bin/"
       - "C:/vcpkg/installed/x64-windows/mtools/"
+      - "C:/vcpkg/installed/x64-windows/Users/User/go/bin/"
       - "C:/vcpkg/installed/x64-windows/Program Files/include/"
       - "C:/vcpkg/installed/x64-windows/Program Files/"
       - "C:/vcpkg/installed/x64-windows/Program Files (x86)/include/"
@@ -3917,6 +4091,7 @@ events:
       - "C:/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
       - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/Program Files/nodejs/"
+      - "C:/Program Files/Go/bin/"
       - "C:/Users/User/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/User/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/vcpkg/"
@@ -3925,6 +4100,7 @@ events:
       - "C:/Users/User/AppData/Roaming/npm/"
       - "C:/Users/User/AppData/Local/Python/bin/"
       - "C:/mtools/"
+      - "C:/Users/User/go/bin/"
       - "C:/Program Files/include/"
       - "C:/Program Files/"
       - "C:/Program Files (x86)/include/"
@@ -3957,6 +4133,7 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/tiny_gltf.h"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/tiny_gltf.h"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/nodejs/tiny_gltf.h"
+      - "C:/vcpkg/installed/x64-windows/debug/Program Files/Go/bin/tiny_gltf.h"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Microsoft/WindowsApps/tiny_gltf.h"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Programs/Microsoft VS Code/bin/tiny_gltf.h"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/tiny_gltf.h"
@@ -3965,6 +4142,7 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Roaming/npm/tiny_gltf.h"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Python/bin/tiny_gltf.h"
       - "C:/vcpkg/installed/x64-windows/debug/mtools/tiny_gltf.h"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/go/bin/tiny_gltf.h"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/include/tiny_gltf.h"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/tiny_gltf.h"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files (x86)/include/tiny_gltf.h"
@@ -4000,6 +4178,7 @@ events:
         - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Preview\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64"
         - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
         - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files\\Go\\bin"
         - "C:\\WINDOWS\\system32"
         - "C:\\WINDOWS"
         - "C:\\WINDOWS\\System32\\Wbem"
@@ -4038,6 +4217,7 @@ events:
         - "C:\\Users\\User\\AppData\\Roaming\\npm"
         - "C:\\Users\\User\\AppData\\Local\\Python\\bin"
         - "C:\\mtools"
+        - "C:\\Users\\User\\go\\bin"
       CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/vulkan_app"
       CMAKE_SYSTEM_PREFIX_PATH:
         - "C:/Program Files"
@@ -4089,6 +4269,7 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/nodejs/"
+      - "C:/vcpkg/installed/x64-windows/debug/Program Files/Go/bin/"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Microsoft/WindowsApps/"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/"
@@ -4097,6 +4278,7 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Roaming/npm/"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Python/bin/"
       - "C:/vcpkg/installed/x64-windows/debug/mtools/"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/go/bin/"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/include/"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files (x86)/include/"
@@ -4129,6 +4311,7 @@ events:
       - "C:/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
       - "C:/vcpkg/installed/x64-windows/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/vcpkg/installed/x64-windows/Program Files/nodejs/"
+      - "C:/vcpkg/installed/x64-windows/Program Files/Go/bin/"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Microsoft/WindowsApps/"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/vcpkg/installed/x64-windows/vcpkg/"
@@ -4137,6 +4320,7 @@ events:
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Roaming/npm/"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Python/bin/"
       - "C:/vcpkg/installed/x64-windows/mtools/"
+      - "C:/vcpkg/installed/x64-windows/Users/User/go/bin/"
       - "C:/vcpkg/installed/x64-windows/Program Files/include/"
       - "C:/vcpkg/installed/x64-windows/Program Files/"
       - "C:/vcpkg/installed/x64-windows/Program Files (x86)/include/"
@@ -4169,6 +4353,7 @@ events:
       - "C:/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
       - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/Program Files/nodejs/"
+      - "C:/Program Files/Go/bin/"
       - "C:/Users/User/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/User/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/vcpkg/"
@@ -4177,6 +4362,7 @@ events:
       - "C:/Users/User/AppData/Roaming/npm/"
       - "C:/Users/User/AppData/Local/Python/bin/"
       - "C:/mtools/"
+      - "C:/Users/User/go/bin/"
       - "C:/Program Files/include/"
       - "C:/Program Files/"
       - "C:/Program Files (x86)/include/"
@@ -4210,6 +4396,7 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/vulkan/vulkan.h"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/vulkan/vulkan.h"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/nodejs/vulkan/vulkan.h"
+      - "C:/vcpkg/installed/x64-windows/debug/Program Files/Go/bin/vulkan/vulkan.h"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Microsoft/WindowsApps/vulkan/vulkan.h"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Programs/Microsoft VS Code/bin/vulkan/vulkan.h"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/vulkan/vulkan.h"
@@ -4218,6 +4405,7 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Roaming/npm/vulkan/vulkan.h"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Python/bin/vulkan/vulkan.h"
       - "C:/vcpkg/installed/x64-windows/debug/mtools/vulkan/vulkan.h"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/go/bin/vulkan/vulkan.h"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/include/vulkan/vulkan.h"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/vulkan/vulkan.h"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files (x86)/include/vulkan/vulkan.h"
@@ -4253,6 +4441,7 @@ events:
         - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Preview\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64"
         - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
         - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files\\Go\\bin"
         - "C:\\WINDOWS\\system32"
         - "C:\\WINDOWS"
         - "C:\\WINDOWS\\System32\\Wbem"
@@ -4291,6 +4480,7 @@ events:
         - "C:\\Users\\User\\AppData\\Roaming\\npm"
         - "C:\\Users\\User\\AppData\\Local\\Python\\bin"
         - "C:\\mtools"
+        - "C:\\Users\\User\\go\\bin"
       CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/vulkan_app"
       CMAKE_SYSTEM_PREFIX_PATH:
         - "C:/Program Files"
@@ -4345,6 +4535,7 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/nodejs/"
+      - "C:/vcpkg/installed/x64-windows/debug/Program Files/Go/bin/"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Microsoft/WindowsApps/"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/"
@@ -4353,6 +4544,7 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Roaming/npm/"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Python/bin/"
       - "C:/vcpkg/installed/x64-windows/debug/mtools/"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/go/bin/"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/lib/"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files (x86)/lib/"
@@ -4390,6 +4582,7 @@ events:
       - "C:/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
       - "C:/vcpkg/installed/x64-windows/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/vcpkg/installed/x64-windows/Program Files/nodejs/"
+      - "C:/vcpkg/installed/x64-windows/Program Files/Go/bin/"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Microsoft/WindowsApps/"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/vcpkg/installed/x64-windows/vcpkg/"
@@ -4398,6 +4591,7 @@ events:
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Roaming/npm/"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Python/bin/"
       - "C:/vcpkg/installed/x64-windows/mtools/"
+      - "C:/vcpkg/installed/x64-windows/Users/User/go/bin/"
       - "C:/vcpkg/installed/x64-windows/Program Files/lib/"
       - "C:/vcpkg/installed/x64-windows/Program Files/"
       - "C:/vcpkg/installed/x64-windows/Program Files (x86)/lib/"
@@ -4435,6 +4629,7 @@ events:
       - "C:/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
       - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/Program Files/nodejs/"
+      - "C:/Program Files/Go/bin/"
       - "C:/Users/User/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/User/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/vcpkg/"
@@ -4443,6 +4638,7 @@ events:
       - "C:/Users/User/AppData/Roaming/npm/"
       - "C:/Users/User/AppData/Local/Python/bin/"
       - "C:/mtools/"
+      - "C:/Users/User/go/bin/"
       - "C:/Program Files/lib/"
       - "C:/Program Files/"
       - "C:/Program Files (x86)/lib/"
@@ -4481,6 +4677,7 @@ events:
         - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Preview\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64"
         - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
         - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files\\Go\\bin"
         - "C:\\WINDOWS\\system32"
         - "C:\\WINDOWS"
         - "C:\\WINDOWS\\System32\\Wbem"
@@ -4519,6 +4716,7 @@ events:
         - "C:\\Users\\User\\AppData\\Roaming\\npm"
         - "C:\\Users\\User\\AppData\\Local\\Python\\bin"
         - "C:\\mtools"
+        - "C:\\Users\\User\\go\\bin"
       CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/vulkan_app"
       CMAKE_SYSTEM_PREFIX_PATH:
         - "C:/Program Files"
@@ -4579,6 +4777,7 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/nodejs/"
+      - "C:/vcpkg/installed/x64-windows/debug/Program Files/Go/bin/"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Microsoft/WindowsApps/"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/"
@@ -4587,6 +4786,7 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Roaming/npm/"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Python/bin/"
       - "C:/vcpkg/installed/x64-windows/debug/mtools/"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/go/bin/"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/bin/"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/sbin/"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/"
@@ -4628,6 +4828,7 @@ events:
       - "C:/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
       - "C:/vcpkg/installed/x64-windows/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/vcpkg/installed/x64-windows/Program Files/nodejs/"
+      - "C:/vcpkg/installed/x64-windows/Program Files/Go/bin/"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Microsoft/WindowsApps/"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/vcpkg/installed/x64-windows/vcpkg/"
@@ -4636,6 +4837,7 @@ events:
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Roaming/npm/"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Python/bin/"
       - "C:/vcpkg/installed/x64-windows/mtools/"
+      - "C:/vcpkg/installed/x64-windows/Users/User/go/bin/"
       - "C:/vcpkg/installed/x64-windows/Program Files/bin/"
       - "C:/vcpkg/installed/x64-windows/Program Files/sbin/"
       - "C:/vcpkg/installed/x64-windows/Program Files/"
@@ -4677,6 +4879,7 @@ events:
       - "C:/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
       - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/Program Files/nodejs/"
+      - "C:/Program Files/Go/bin/"
       - "C:/Users/User/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/User/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/vcpkg/"
@@ -4685,6 +4888,7 @@ events:
       - "C:/Users/User/AppData/Roaming/npm/"
       - "C:/Users/User/AppData/Local/Python/bin/"
       - "C:/mtools/"
+      - "C:/Users/User/go/bin/"
       - "C:/Program Files/bin/"
       - "C:/Program Files/sbin/"
       - "C:/Program Files/"
@@ -4785,6 +4989,9 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/nodejs/glslc.com"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/nodejs/glslc.exe"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/nodejs/glslc"
+      - "C:/vcpkg/installed/x64-windows/debug/Program Files/Go/bin/glslc.com"
+      - "C:/vcpkg/installed/x64-windows/debug/Program Files/Go/bin/glslc.exe"
+      - "C:/vcpkg/installed/x64-windows/debug/Program Files/Go/bin/glslc"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Microsoft/WindowsApps/glslc.com"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Microsoft/WindowsApps/glslc.exe"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Microsoft/WindowsApps/glslc"
@@ -4809,6 +5016,9 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/mtools/glslc.com"
       - "C:/vcpkg/installed/x64-windows/debug/mtools/glslc.exe"
       - "C:/vcpkg/installed/x64-windows/debug/mtools/glslc"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/go/bin/glslc.com"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/go/bin/glslc.exe"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/go/bin/glslc"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/bin/glslc.com"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/bin/glslc.exe"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/bin/glslc"
@@ -4932,6 +5142,9 @@ events:
       - "C:/vcpkg/installed/x64-windows/Program Files/nodejs/glslc.com"
       - "C:/vcpkg/installed/x64-windows/Program Files/nodejs/glslc.exe"
       - "C:/vcpkg/installed/x64-windows/Program Files/nodejs/glslc"
+      - "C:/vcpkg/installed/x64-windows/Program Files/Go/bin/glslc.com"
+      - "C:/vcpkg/installed/x64-windows/Program Files/Go/bin/glslc.exe"
+      - "C:/vcpkg/installed/x64-windows/Program Files/Go/bin/glslc"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Microsoft/WindowsApps/glslc.com"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Microsoft/WindowsApps/glslc.exe"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Microsoft/WindowsApps/glslc"
@@ -4956,6 +5169,9 @@ events:
       - "C:/vcpkg/installed/x64-windows/mtools/glslc.com"
       - "C:/vcpkg/installed/x64-windows/mtools/glslc.exe"
       - "C:/vcpkg/installed/x64-windows/mtools/glslc"
+      - "C:/vcpkg/installed/x64-windows/Users/User/go/bin/glslc.com"
+      - "C:/vcpkg/installed/x64-windows/Users/User/go/bin/glslc.exe"
+      - "C:/vcpkg/installed/x64-windows/Users/User/go/bin/glslc"
       - "C:/vcpkg/installed/x64-windows/Program Files/bin/glslc.com"
       - "C:/vcpkg/installed/x64-windows/Program Files/bin/glslc.exe"
       - "C:/vcpkg/installed/x64-windows/Program Files/bin/glslc"
@@ -5049,6 +5265,7 @@ events:
         - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Preview\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64"
         - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
         - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files\\Go\\bin"
         - "C:\\WINDOWS\\system32"
         - "C:\\WINDOWS"
         - "C:\\WINDOWS\\System32\\Wbem"
@@ -5087,6 +5304,7 @@ events:
         - "C:\\Users\\User\\AppData\\Roaming\\npm"
         - "C:\\Users\\User\\AppData\\Local\\Python\\bin"
         - "C:\\mtools"
+        - "C:\\Users\\User\\go\\bin"
       CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/vulkan_app"
       CMAKE_SYSTEM_PREFIX_PATH:
         - "C:/Program Files"
@@ -5143,6 +5361,7 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/nodejs/"
+      - "C:/vcpkg/installed/x64-windows/debug/Program Files/Go/bin/"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Microsoft/WindowsApps/"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/"
@@ -5151,6 +5370,7 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Roaming/npm/"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Python/bin/"
       - "C:/vcpkg/installed/x64-windows/debug/mtools/"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/go/bin/"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/bin/"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/sbin/"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/"
@@ -5192,6 +5412,7 @@ events:
       - "C:/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
       - "C:/vcpkg/installed/x64-windows/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/vcpkg/installed/x64-windows/Program Files/nodejs/"
+      - "C:/vcpkg/installed/x64-windows/Program Files/Go/bin/"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Microsoft/WindowsApps/"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/vcpkg/installed/x64-windows/vcpkg/"
@@ -5200,6 +5421,7 @@ events:
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Roaming/npm/"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Python/bin/"
       - "C:/vcpkg/installed/x64-windows/mtools/"
+      - "C:/vcpkg/installed/x64-windows/Users/User/go/bin/"
       - "C:/vcpkg/installed/x64-windows/Program Files/bin/"
       - "C:/vcpkg/installed/x64-windows/Program Files/sbin/"
       - "C:/vcpkg/installed/x64-windows/Program Files/"
@@ -5241,6 +5463,7 @@ events:
       - "C:/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
       - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/Program Files/nodejs/"
+      - "C:/Program Files/Go/bin/"
       - "C:/Users/User/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/User/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/vcpkg/"
@@ -5249,6 +5472,7 @@ events:
       - "C:/Users/User/AppData/Roaming/npm/"
       - "C:/Users/User/AppData/Local/Python/bin/"
       - "C:/mtools/"
+      - "C:/Users/User/go/bin/"
       - "C:/Program Files/bin/"
       - "C:/Program Files/sbin/"
       - "C:/Program Files/"
@@ -5349,6 +5573,9 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/nodejs/glslangValidator.com"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/nodejs/glslangValidator.exe"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/nodejs/glslangValidator"
+      - "C:/vcpkg/installed/x64-windows/debug/Program Files/Go/bin/glslangValidator.com"
+      - "C:/vcpkg/installed/x64-windows/debug/Program Files/Go/bin/glslangValidator.exe"
+      - "C:/vcpkg/installed/x64-windows/debug/Program Files/Go/bin/glslangValidator"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Microsoft/WindowsApps/glslangValidator.com"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Microsoft/WindowsApps/glslangValidator.exe"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Microsoft/WindowsApps/glslangValidator"
@@ -5373,6 +5600,9 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/mtools/glslangValidator.com"
       - "C:/vcpkg/installed/x64-windows/debug/mtools/glslangValidator.exe"
       - "C:/vcpkg/installed/x64-windows/debug/mtools/glslangValidator"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/go/bin/glslangValidator.com"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/go/bin/glslangValidator.exe"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/go/bin/glslangValidator"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/bin/glslangValidator.com"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/bin/glslangValidator.exe"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/bin/glslangValidator"
@@ -5496,6 +5726,9 @@ events:
       - "C:/vcpkg/installed/x64-windows/Program Files/nodejs/glslangValidator.com"
       - "C:/vcpkg/installed/x64-windows/Program Files/nodejs/glslangValidator.exe"
       - "C:/vcpkg/installed/x64-windows/Program Files/nodejs/glslangValidator"
+      - "C:/vcpkg/installed/x64-windows/Program Files/Go/bin/glslangValidator.com"
+      - "C:/vcpkg/installed/x64-windows/Program Files/Go/bin/glslangValidator.exe"
+      - "C:/vcpkg/installed/x64-windows/Program Files/Go/bin/glslangValidator"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Microsoft/WindowsApps/glslangValidator.com"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Microsoft/WindowsApps/glslangValidator.exe"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Microsoft/WindowsApps/glslangValidator"
@@ -5520,6 +5753,9 @@ events:
       - "C:/vcpkg/installed/x64-windows/mtools/glslangValidator.com"
       - "C:/vcpkg/installed/x64-windows/mtools/glslangValidator.exe"
       - "C:/vcpkg/installed/x64-windows/mtools/glslangValidator"
+      - "C:/vcpkg/installed/x64-windows/Users/User/go/bin/glslangValidator.com"
+      - "C:/vcpkg/installed/x64-windows/Users/User/go/bin/glslangValidator.exe"
+      - "C:/vcpkg/installed/x64-windows/Users/User/go/bin/glslangValidator"
       - "C:/vcpkg/installed/x64-windows/Program Files/bin/glslangValidator.com"
       - "C:/vcpkg/installed/x64-windows/Program Files/bin/glslangValidator.exe"
       - "C:/vcpkg/installed/x64-windows/Program Files/bin/glslangValidator"
@@ -5613,6 +5849,7 @@ events:
         - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Preview\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64"
         - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
         - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files\\Go\\bin"
         - "C:\\WINDOWS\\system32"
         - "C:\\WINDOWS"
         - "C:\\WINDOWS\\System32\\Wbem"
@@ -5651,6 +5888,7 @@ events:
         - "C:\\Users\\User\\AppData\\Roaming\\npm"
         - "C:\\Users\\User\\AppData\\Local\\Python\\bin"
         - "C:\\mtools"
+        - "C:\\Users\\User\\go\\bin"
       CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/vulkan_app"
       CMAKE_SYSTEM_PREFIX_PATH:
         - "C:/Program Files"
@@ -5706,6 +5944,7 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/nodejs/"
+      - "C:/vcpkg/installed/x64-windows/debug/Program Files/Go/bin/"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Microsoft/WindowsApps/"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/"
@@ -5714,6 +5953,7 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Roaming/npm/"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Python/bin/"
       - "C:/vcpkg/installed/x64-windows/debug/mtools/"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/go/bin/"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/bin/"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/sbin/"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/"
@@ -5754,6 +5994,7 @@ events:
       - "C:/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
       - "C:/vcpkg/installed/x64-windows/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/vcpkg/installed/x64-windows/Program Files/nodejs/"
+      - "C:/vcpkg/installed/x64-windows/Program Files/Go/bin/"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Microsoft/WindowsApps/"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/vcpkg/installed/x64-windows/vcpkg/"
@@ -5762,6 +6003,7 @@ events:
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Roaming/npm/"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Python/bin/"
       - "C:/vcpkg/installed/x64-windows/mtools/"
+      - "C:/vcpkg/installed/x64-windows/Users/User/go/bin/"
       - "C:/vcpkg/installed/x64-windows/Program Files/bin/"
       - "C:/vcpkg/installed/x64-windows/Program Files/sbin/"
       - "C:/vcpkg/installed/x64-windows/Program Files/"
@@ -5802,6 +6044,7 @@ events:
       - "C:/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
       - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/Program Files/nodejs/"
+      - "C:/Program Files/Go/bin/"
       - "C:/Users/User/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/User/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/vcpkg/"
@@ -5810,6 +6053,7 @@ events:
       - "C:/Users/User/AppData/Roaming/npm/"
       - "C:/Users/User/AppData/Local/Python/bin/"
       - "C:/mtools/"
+      - "C:/Users/User/go/bin/"
       - "C:/Program Files/bin/"
       - "C:/Program Files/sbin/"
       - "C:/Program Files/"
@@ -5907,6 +6151,9 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/nodejs/pwsh.com"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/nodejs/pwsh.exe"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/nodejs/pwsh"
+      - "C:/vcpkg/installed/x64-windows/debug/Program Files/Go/bin/pwsh.com"
+      - "C:/vcpkg/installed/x64-windows/debug/Program Files/Go/bin/pwsh.exe"
+      - "C:/vcpkg/installed/x64-windows/debug/Program Files/Go/bin/pwsh"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Microsoft/WindowsApps/pwsh.com"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Microsoft/WindowsApps/pwsh.exe"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Microsoft/WindowsApps/pwsh"
@@ -5931,6 +6178,9 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/mtools/pwsh.com"
       - "C:/vcpkg/installed/x64-windows/debug/mtools/pwsh.exe"
       - "C:/vcpkg/installed/x64-windows/debug/mtools/pwsh"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/go/bin/pwsh.com"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/go/bin/pwsh.exe"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/go/bin/pwsh"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/bin/pwsh.com"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/bin/pwsh.exe"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/bin/pwsh"
@@ -6051,6 +6301,9 @@ events:
       - "C:/vcpkg/installed/x64-windows/Program Files/nodejs/pwsh.com"
       - "C:/vcpkg/installed/x64-windows/Program Files/nodejs/pwsh.exe"
       - "C:/vcpkg/installed/x64-windows/Program Files/nodejs/pwsh"
+      - "C:/vcpkg/installed/x64-windows/Program Files/Go/bin/pwsh.com"
+      - "C:/vcpkg/installed/x64-windows/Program Files/Go/bin/pwsh.exe"
+      - "C:/vcpkg/installed/x64-windows/Program Files/Go/bin/pwsh"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Microsoft/WindowsApps/pwsh.com"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Microsoft/WindowsApps/pwsh.exe"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Microsoft/WindowsApps/pwsh"
@@ -6075,6 +6328,9 @@ events:
       - "C:/vcpkg/installed/x64-windows/mtools/pwsh.com"
       - "C:/vcpkg/installed/x64-windows/mtools/pwsh.exe"
       - "C:/vcpkg/installed/x64-windows/mtools/pwsh"
+      - "C:/vcpkg/installed/x64-windows/Users/User/go/bin/pwsh.com"
+      - "C:/vcpkg/installed/x64-windows/Users/User/go/bin/pwsh.exe"
+      - "C:/vcpkg/installed/x64-windows/Users/User/go/bin/pwsh"
       - "C:/vcpkg/installed/x64-windows/Program Files/bin/pwsh.com"
       - "C:/vcpkg/installed/x64-windows/Program Files/bin/pwsh.exe"
       - "C:/vcpkg/installed/x64-windows/Program Files/bin/pwsh"
@@ -6195,6 +6451,9 @@ events:
       - "C:/Program Files/nodejs/pwsh.com"
       - "C:/Program Files/nodejs/pwsh.exe"
       - "C:/Program Files/nodejs/pwsh"
+      - "C:/Program Files/Go/bin/pwsh.com"
+      - "C:/Program Files/Go/bin/pwsh.exe"
+      - "C:/Program Files/Go/bin/pwsh"
       - "C:/Users/User/AppData/Local/Microsoft/WindowsApps/pwsh.com"
       - "C:/Users/User/AppData/Local/Microsoft/WindowsApps/pwsh.exe"
       - "C:/Users/User/AppData/Local/Microsoft/WindowsApps/pwsh"
@@ -6219,6 +6478,9 @@ events:
       - "C:/mtools/pwsh.com"
       - "C:/mtools/pwsh.exe"
       - "C:/mtools/pwsh"
+      - "C:/Users/User/go/bin/pwsh.com"
+      - "C:/Users/User/go/bin/pwsh.exe"
+      - "C:/Users/User/go/bin/pwsh"
       - "C:/Program Files/bin/pwsh.com"
       - "C:/Program Files/bin/pwsh.exe"
       - "C:/Program Files/bin/pwsh"
@@ -6284,6 +6546,7 @@ events:
         - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Preview\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64"
         - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
         - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files\\Go\\bin"
         - "C:\\WINDOWS\\system32"
         - "C:\\WINDOWS"
         - "C:\\WINDOWS\\System32\\Wbem"
@@ -6322,6 +6585,7 @@ events:
         - "C:\\Users\\User\\AppData\\Roaming\\npm"
         - "C:\\Users\\User\\AppData\\Local\\Python\\bin"
         - "C:\\mtools"
+        - "C:\\Users\\User\\go\\bin"
       CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/vulkan_app"
       CMAKE_SYSTEM_PREFIX_PATH:
         - "C:/Program Files"
@@ -6377,6 +6641,7 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/nodejs/"
+      - "C:/vcpkg/installed/x64-windows/debug/Program Files/Go/bin/"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Microsoft/WindowsApps/"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/"
@@ -6385,6 +6650,7 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Roaming/npm/"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Python/bin/"
       - "C:/vcpkg/installed/x64-windows/debug/mtools/"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/go/bin/"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/bin/"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/sbin/"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/"
@@ -6425,6 +6691,7 @@ events:
       - "C:/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
       - "C:/vcpkg/installed/x64-windows/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/vcpkg/installed/x64-windows/Program Files/nodejs/"
+      - "C:/vcpkg/installed/x64-windows/Program Files/Go/bin/"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Microsoft/WindowsApps/"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/vcpkg/installed/x64-windows/vcpkg/"
@@ -6433,6 +6700,7 @@ events:
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Roaming/npm/"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Python/bin/"
       - "C:/vcpkg/installed/x64-windows/mtools/"
+      - "C:/vcpkg/installed/x64-windows/Users/User/go/bin/"
       - "C:/vcpkg/installed/x64-windows/Program Files/bin/"
       - "C:/vcpkg/installed/x64-windows/Program Files/sbin/"
       - "C:/vcpkg/installed/x64-windows/Program Files/"
@@ -6473,6 +6741,7 @@ events:
       - "C:/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
       - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/Program Files/nodejs/"
+      - "C:/Program Files/Go/bin/"
       - "C:/Users/User/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/User/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/vcpkg/"
@@ -6481,6 +6750,7 @@ events:
       - "C:/Users/User/AppData/Roaming/npm/"
       - "C:/Users/User/AppData/Local/Python/bin/"
       - "C:/mtools/"
+      - "C:/Users/User/go/bin/"
       - "C:/Program Files/bin/"
       - "C:/Program Files/sbin/"
       - "C:/Program Files/"
@@ -6578,6 +6848,9 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/nodejs/powershell.com"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/nodejs/powershell.exe"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/nodejs/powershell"
+      - "C:/vcpkg/installed/x64-windows/debug/Program Files/Go/bin/powershell.com"
+      - "C:/vcpkg/installed/x64-windows/debug/Program Files/Go/bin/powershell.exe"
+      - "C:/vcpkg/installed/x64-windows/debug/Program Files/Go/bin/powershell"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Microsoft/WindowsApps/powershell.com"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Microsoft/WindowsApps/powershell.exe"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Local/Microsoft/WindowsApps/powershell"
@@ -6602,6 +6875,9 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/mtools/powershell.com"
       - "C:/vcpkg/installed/x64-windows/debug/mtools/powershell.exe"
       - "C:/vcpkg/installed/x64-windows/debug/mtools/powershell"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/go/bin/powershell.com"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/go/bin/powershell.exe"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/go/bin/powershell"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/bin/powershell.com"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/bin/powershell.exe"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/bin/powershell"
@@ -6722,6 +6998,9 @@ events:
       - "C:/vcpkg/installed/x64-windows/Program Files/nodejs/powershell.com"
       - "C:/vcpkg/installed/x64-windows/Program Files/nodejs/powershell.exe"
       - "C:/vcpkg/installed/x64-windows/Program Files/nodejs/powershell"
+      - "C:/vcpkg/installed/x64-windows/Program Files/Go/bin/powershell.com"
+      - "C:/vcpkg/installed/x64-windows/Program Files/Go/bin/powershell.exe"
+      - "C:/vcpkg/installed/x64-windows/Program Files/Go/bin/powershell"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Microsoft/WindowsApps/powershell.com"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Microsoft/WindowsApps/powershell.exe"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Local/Microsoft/WindowsApps/powershell"
@@ -6746,6 +7025,9 @@ events:
       - "C:/vcpkg/installed/x64-windows/mtools/powershell.com"
       - "C:/vcpkg/installed/x64-windows/mtools/powershell.exe"
       - "C:/vcpkg/installed/x64-windows/mtools/powershell"
+      - "C:/vcpkg/installed/x64-windows/Users/User/go/bin/powershell.com"
+      - "C:/vcpkg/installed/x64-windows/Users/User/go/bin/powershell.exe"
+      - "C:/vcpkg/installed/x64-windows/Users/User/go/bin/powershell"
       - "C:/vcpkg/installed/x64-windows/Program Files/bin/powershell.com"
       - "C:/vcpkg/installed/x64-windows/Program Files/bin/powershell.exe"
       - "C:/vcpkg/installed/x64-windows/Program Files/bin/powershell"
@@ -6860,6 +7142,7 @@ events:
         - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Preview\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64"
         - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
         - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files\\Go\\bin"
         - "C:\\WINDOWS\\system32"
         - "C:\\WINDOWS"
         - "C:\\WINDOWS\\System32\\Wbem"
@@ -6898,6 +7181,7 @@ events:
         - "C:\\Users\\User\\AppData\\Roaming\\npm"
         - "C:\\Users\\User\\AppData\\Local\\Python\\bin"
         - "C:\\mtools"
+        - "C:\\Users\\User\\go\\bin"
       CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/vulkan_app"
       CMAKE_SYSTEM_PREFIX_PATH:
         - "C:/Program Files"

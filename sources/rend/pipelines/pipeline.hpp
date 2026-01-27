@@ -16,7 +16,6 @@ class PipelineCreater;
 class Pipeline final
 {
 public:
-
     Pipeline(PipelineCreater& creater,
              const vk::RenderPass& render_pass,
              const PipelineConfigInfo& pipeline_config_info);

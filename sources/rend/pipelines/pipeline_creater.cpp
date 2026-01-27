@@ -17,13 +17,14 @@ vk::GraphicsPipelineCreateInfo
 PipelineCreater::convertToVulkanConfigInfo(
     const PipelineConfigInfo& config_info,
     const std::vector<vk::PipelineShaderStageCreateInfo>& shader_stages,
-    const vk::PipelineVertexInputStateCreateInfo& m_vertex_input_state,
-    const vk::PipelineInputAssemblyStateCreateInfo& m_input_assembly,
-    const vk::PipelineViewportStateCreateInfo& m_viewport_state,
-    const vk::PipelineRasterizationStateCreateInfo& m_rasterizer,
-    const vk::PipelineMultisampleStateCreateInfo& m_multisampling,
-    const vk::PipelineColorBlendStateCreateInfo& m_color_blending,
-    const vk::PipelineDepthStencilStateCreateInfo& m_depth_stencil,
+    const vk::PipelineVertexInputStateCreateInfo& vertex_input_state,
+    const vk::PipelineInputAssemblyStateCreateInfo& input_assembly,
+    const vk::PipelineViewportStateCreateInfo& viewport_state,
+    const vk::PipelineRasterizationStateCreateInfo& rasterizer,
+    const vk::PipelineMultisampleStateCreateInfo& multisampling,
+    const vk::PipelineColorBlendStateCreateInfo& color_blending,
+    const vk::PipelineDepthStencilStateCreateInfo& depth_stencil,
+    const vk::PipelineDynamicStateCreateInfo& dynamic_states,
     const vk::RenderPass& render_pass)
 {
     vk::GraphicsPipelineCreateInfo create_pipeline_info{};
@@ -31,12 +32,13 @@ PipelineCreater::convertToVulkanConfigInfo(
     // must be init:
     create_pipeline_info.stageCount          = shader_stages.size();
     create_pipeline_info.pStages             = shader_stages.data();
-    create_pipeline_info.pVertexInputState   = &m_vertex_input_state;
-    create_pipeline_info.pInputAssemblyState = &m_input_assembly;
-    create_pipeline_info.pViewportState      = &m_viewport_state;
-    create_pipeline_info.pRasterizationState = &m_rasterizer;
-    create_pipeline_info.pMultisampleState   = &m_multisampling;
-    create_pipeline_info.pColorBlendState    = &m_color_blending;
+    create_pipeline_info.pVertexInputState   = &vertex_input_state;
+    create_pipeline_info.pInputAssemblyState = &input_assembly;
+    create_pipeline_info.pViewportState      = &viewport_state;
+    create_pipeline_info.pRasterizationState = &rasterizer;
+    create_pipeline_info.pMultisampleState   = &multisampling;
+    create_pipeline_info.pColorBlendState    = &color_blending;
+    create_pipeline_info.pDynamicState       = &dynamic_states;
     create_pipeline_info.layout = config_info.main_config_info.pipeline_layout;
     create_pipeline_info.renderPass = render_pass;
     create_pipeline_info.subpass    = 0;
@@ -45,7 +47,7 @@ PipelineCreater::convertToVulkanConfigInfo(
     create_pipeline_info.flags = vk::PipelineCreateFlags();
     create_pipeline_info.pTessellationState;
     create_pipeline_info.pDynamicState;
-    create_pipeline_info.pDepthStencilState = &m_depth_stencil;
+    create_pipeline_info.pDepthStencilState = &depth_stencil;
     create_pipeline_info.basePipelineHandle;
     create_pipeline_info.basePipelineIndex = -1;
 
@@ -104,13 +106,15 @@ PipelineCreater::createPipeline(const vk::RenderPass& render_pass,
         colorBlendState(config_info, color_blend_attachment);
     vk::PipelineDepthStencilStateCreateInfo m_depth_stencil =
         depthStencil(config_info);
+    vk::PipelineDynamicStateCreateInfo m_dynamic_states =
+        dynamicStates(config_info);
 
     auto&& res = m_device.get().createGraphicsPipelineUnique(
         nullptr,
         convertToVulkanConfigInfo(
             config_info, shader_stages, m_vertex_input_state, m_input_assembly,
             m_viewport_state, m_rasterizer, m_multisampling, m_color_blending,
-            m_depth_stencil, render_pass));
+            m_depth_stencil, m_dynamic_states, render_pass));
 
     if (res.result != vk::Result::eSuccess)
     {
@@ -152,6 +156,12 @@ PipelineCreater::viewportState(const PipelineConfigInfo& config_info,
     viewport_state.pScissors     = &scissors;
 
     return viewport_state;
+}
+
+vk::PipelineDynamicStateCreateInfo
+PipelineCreater::dynamicStates(const PipelineConfigInfo& config_info)
+{
+    return vk::PipelineDynamicStateCreateInfo{};
 }
 
 vk::PipelineRasterizationStateCreateInfo

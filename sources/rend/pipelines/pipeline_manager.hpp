@@ -2,6 +2,7 @@
 #include <map>
 #include <string>
 
+#include "dynamic_vieport_pipeline_creater.hpp"
 #include "pipeline.hpp"
 #include "pipeline_creater.hpp"
 #include "pipeline_layout_storage.hpp"
@@ -55,7 +56,7 @@ public:
     }
 
 private:
-    PipelineCreater m_creater;
+    DynamicViewportPipelineCreater m_creater;
 
     vk::Extent2D m_extent;
 

@@ -4,6 +4,7 @@
 
 #include <optional>
 #include <utility>
+#include <vector>
 
 #include "../device/logical_device.hpp"
 #include "../shaders/shader_manager.hpp"
@@ -12,6 +13,8 @@
 
 namespace ars_graphics
 {
+
+struct PipelineBindInfo;
 
 class PipelineCreater
 {
@@ -37,6 +40,7 @@ private:
         const vk::PipelineMultisampleStateCreateInfo&,
         const vk::PipelineColorBlendStateCreateInfo&,
         const vk::PipelineDepthStencilStateCreateInfo&,
+        const vk::PipelineDynamicStateCreateInfo&,
         const vk::RenderPass& render_pass);
 
     // ---- //
@@ -67,6 +71,9 @@ private:
     virtual vk::PipelineShaderStageCreateInfo shaderinfo(
         vk::ShaderStageFlagBits flag,
         const vk::ShaderModule& shader_module);
+
+    virtual vk::PipelineDynamicStateCreateInfo dynamicStates(
+        const PipelineConfigInfo& config_info);
 
 private:
     const LogicalDevice& m_device;

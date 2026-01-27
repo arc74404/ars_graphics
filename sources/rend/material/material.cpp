@@ -28,7 +28,12 @@ Material::setupParamsBuffer(const LogicalDevice& logical_device,
                             const PhysicalDevice& physical_device)
 {
     shaders_params::MaterialParams params = {
-        m_material_data.m_pbrparams.m_albedo_color};
+        .albedo_factor = m_material_data.m_pbrparams.m_albedo_color,
+        .emissive_factor =
+            glm::vec4(m_material_data.m_pbrparams.m_emissive_factor, 1),
+        .metallic    = m_material_data.m_pbrparams.m_metallic,
+        .roughness   = m_material_data.m_pbrparams.m_roughness,
+        .ao_strength = m_material_data.m_pbrparams.m_ao_strength};
 
     m_shader_params_buffer->setData(logical_device, physical_device, &params,
                                     sizeof(shaders_params::MaterialParams));
