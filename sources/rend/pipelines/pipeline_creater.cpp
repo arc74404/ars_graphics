@@ -161,7 +161,12 @@ PipelineCreater::viewportState(const PipelineConfigInfo& config_info,
 vk::PipelineDynamicStateCreateInfo
 PipelineCreater::dynamicStates(const PipelineConfigInfo& config_info)
 {
-    return vk::PipelineDynamicStateCreateInfo{};
+    vk::PipelineDynamicStateCreateInfo res;
+
+    res.dynamicStateCount = m_dynamic_states.size();
+    res.pDynamicStates    = m_dynamic_states.data();
+
+    return res;
 }
 
 vk::PipelineRasterizationStateCreateInfo

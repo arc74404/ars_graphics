@@ -13,7 +13,7 @@ layout(location = 2) out vec2 vTexCoord;
 
 void main() {
     vec3 position = aPosition;
-    gl_Position = vec4(position, 1.0);
+    gl_Position = ubo_buffer.camera * vec4(aPosition, 1.0);
     vColor = aColor;
     vTexCoord = vec2(0.0, 0.0);          
     vNormal = vec3(0.0, 0.0, 0.0);       

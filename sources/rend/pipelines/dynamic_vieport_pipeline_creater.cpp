@@ -9,6 +9,8 @@ DynamicViewportPipelineCreater::DynamicViewportPipelineCreater(
     const ShaderManager& shader_manager)
     : PipelineCreater(device, shader_manager)
 {
+    m_dynamic_states = {vk::DynamicState::eScissor,
+                        vk::DynamicState::eViewport};
 }
 
 vk::PipelineViewportStateCreateInfo
@@ -29,6 +31,7 @@ vk::PipelineDynamicStateCreateInfo
 DynamicViewportPipelineCreater::dynamicStates(
     const PipelineConfigInfo& config_info)
 {
+
     vk::PipelineDynamicStateCreateInfo res;
 
     res.dynamicStateCount = m_dynamic_states.size();

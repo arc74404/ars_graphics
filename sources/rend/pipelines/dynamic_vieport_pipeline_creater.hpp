@@ -21,7 +21,6 @@ private:
     vk::PipelineDynamicStateCreateInfo dynamicStates(
         const PipelineConfigInfo& config_info) override;
 
-    std::vector<vk::DynamicState> m_dynamic_states = {vk::DynamicState::eViewport,
-                                          vk::DynamicState::eScissor};
+
 };
 } // namespace ars_graphics

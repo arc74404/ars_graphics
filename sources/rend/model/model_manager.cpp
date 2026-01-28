@@ -23,9 +23,36 @@ ModelManager::ModelManager(PipelineManager& pipeline_manager,
 
     std::cout << "load\n";
 
-    m_loader.load(pipeline_manager, render_pass, m_texture_storage,
-                  texture_creater, m_material_storage, material_creater, paths,
-                  m_models);
+    load(paths);
+}
+
+void
+ModelManager::load(const std::vector<std::string>& paths) const
+{
+    TextureDataStorage texture_data_storage;
+
+    for (auto&& path : paths)
+    {
+        if (false == fileOpenSuccess(path))
+        {
+            std::cout << "Failed open file: " << path << '\n';
+            continue;
+        }
+        tinygltf::Model gltf_model;
+        if (false == loadGLTFModel(path, isBinary(path), gltf_model))
+        {
+            std::cout << "Failed loadGLTFModel: " << path << '\n';
+            continue;
+        }
+
+        if (false == loadImpl(pipeline_manager, render_pass, gltf_model,
+                              model_storage, texture_data_storage,
+                              texture_storage, texture_creater,
+                              material_storage, material_creater, path))
+        {
+            std::cout << "Failed load model: " << path << '\n';
+        }
+    }
 }
 
 const Model*

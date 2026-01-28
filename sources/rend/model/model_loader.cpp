@@ -97,14 +97,23 @@ ModelLoader::loadImpl(PipelineManager& pipeline_manager,
     std::vector<Material>& realoc_materials =
         material_storage.pushMaterials(std::move(convert_data));
 
+    int index = 0;
     for (auto&& gltf_mesh : gltf_model.meshes)
     {
+        if (!(index == 2 || index == 3))
+        {
+            index++;
+            continue;
+        }
+        index++;
         bool checker = loadMesh<VerticesPriorityListPack>(
             pipeline_manager, render_pass, gltf_model, gltf_mesh, res_model,
             realoc_materials);
 
         CHECK(checker)
     }
+
+    std::cout << index << '\n';
     model_storage.emplace(path, std::move(res_model));
 
     return true;

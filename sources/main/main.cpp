@@ -16,7 +16,7 @@ main()
 {
     std::vector<std::string> models_paths = {
         "C:/Users/User/source/repos/arsrender_lib/models/"
-        "AntiqueCamera.glb"};
+        "go_gopher.glb"};
 
     std::string folder =
         "C:/Users/User/source/repos/arsrender_lib/shaders/compiled/";
@@ -56,7 +56,7 @@ main()
 
     scene.addModel(
         renderer.getModel("C:/Users/User/source/repos/arsrender_lib/models/"
-                          "AntiqueCamera.glb"));
+                          "go_gopher.glb"));
 
     renderer.bind(scene);
 

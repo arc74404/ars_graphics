@@ -75,7 +75,9 @@ private:
     virtual vk::PipelineDynamicStateCreateInfo dynamicStates(
         const PipelineConfigInfo& config_info);
 
-private:
+protected:
+    std::vector<vk::DynamicState> m_dynamic_states = {};
+
     const LogicalDevice& m_device;
     const ShaderManager& m_shader_manager;
 };

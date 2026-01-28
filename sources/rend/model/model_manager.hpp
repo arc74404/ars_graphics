@@ -28,6 +28,10 @@ public:
     const Model* operator[](const std::string& key);
 
 private:
+    bool fileOpenSuccess(const std::string& path) const;
+
+    void load(const std::vector<std::string>& paths);
+
     TextureStorage m_texture_storage;
 
     MaterialStorage m_material_storage;
