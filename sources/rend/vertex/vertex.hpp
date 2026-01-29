@@ -8,40 +8,23 @@
 
 namespace ars_graphics
 {
-
 template <typename... Attributes>
-class Vertex : public Attributes...
+struct VertexBindingDescription
 {
-public:
-    using TupleOfVectorAttributes = std::tuple<std::vector<Attributes>...>;
-
-    using ContType =
-        typename std::tuple_element<0,
-                                    std::tuple<Attributes...>>::type::ContType;
-
-    static std::string getStrRepersentation()
+    VertexBindingDescription()
     {
-        uint32_t num = 0;
-        (Attributes::shiftNum(num), ...);
-
-        return std::to_string(num);
-    }
-
-    static vk::VertexInputBindingDescription getVertexBindingDescription()
-    {
-        vk::VertexInputBindingDescription description{};
-
         description.binding   = settings::bindings::vertex_attributes_binding;
         description.stride    = getStride();
         description.inputRate = vk::VertexInputRate::eVertex;
-
-        return description;
     }
+    vk::VertexInputBindingDescription description;
+};
 
-    static std::vector<vk::VertexInputAttributeDescription>
-    getVertexAttributeDescription()
+template <typename... Attributes>
+struct VertexAttributeDescription
+{
+    VertexAttributeDescription()
     {
-        std::vector<vk::VertexInputAttributeDescription> attributes;
         attributes.reserve(sizeof...(Attributes));
 
         uint32_t location = 0;
@@ -61,8 +44,40 @@ public:
                 offset += Attributes::getSize();
             }(),
             ...);
+    }
+    std::vector<vk::VertexInputAttributeDescription> attributes;
+};
 
-        return attributes;
+template <typename... Attributes>
+class Vertex : public Attributes...
+{
+public:
+    using TupleOfVectorAttributes = std::tuple<std::vector<Attributes>...>;
+
+    using ContType =
+        typename std::tuple_element<0,
+                                    std::tuple<Attributes...>>::type::ContType;
+
+    static std::string getStrRepersentation()
+    {
+        uint32_t num = 0;
+        (Attributes::shiftNum(num), ...);
+
+        return std::to_string(num);
+    }
+
+    static const vk::VertexInputBindingDescription&
+    getVertexBindingDescription()
+    {
+        VertexBindingDescription<Attributes...> d;
+        return d;
+    }
+
+    static const std::vector<vk::VertexInputAttributeDescription>&
+    getVertexAttributeDescription()
+    {
+        static VertexAttributeDescription<Attributes...> d;
+        return d.attributes;
     }
 
     static uint32_t getStride()

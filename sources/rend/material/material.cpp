@@ -9,10 +9,8 @@ namespace ars_graphics
 Material::Material(const LogicalDevice& logical_device,
                    const PhysicalDevice& physical_device,
                    const DescriptorManager& desc_manager,
-                   const vk::PipelineLayout& pipelayout,
                    const MaterialData& material_data)
-    : m_pipeline_layout(pipelayout),
-      m_material_data(material_data),
+    : m_material_data(material_data),
       m_shader_params_buffer_info(std::make_shared<vk::DescriptorBufferInfo>()),
       m_shader_params_buffer(std::make_shared<UniformBuffer>())
 {
@@ -104,9 +102,10 @@ Material::updateDescriptorSets(const LogicalDevice& device)
 }
 
 void
-Material::bind(const vk::CommandBuffer& cmd) const
+Material::bind(const vk::CommandBuffer& cmd,
+               const vk::PipelineLayout& layout) const
 {
-    cmd.bindDescriptorSets(vk::PipelineBindPoint::eGraphics, m_pipeline_layout,
-                           1u, 1, &(m_descriptor_set.get()), 0, nullptr);
+    cmd.bindDescriptorSets(vk::PipelineBindPoint::eGraphics, layout, 1u, 1,
+                           &(m_descriptor_set.get()), 0, nullptr);
 }
 } // namespace ars_graphics

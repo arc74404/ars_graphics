@@ -37,14 +37,14 @@ public:
     Material(const LogicalDevice& logical_device,
              const PhysicalDevice& physical_device,
              const DescriptorManager& desc_manager,
-             const vk::PipelineLayout& pipelayout,
              const MaterialData& material_data);
 
     static Material createDefaultMaterial();
 
     void updateDescriptorSets(const LogicalDevice& device);
 
-    void bind(const vk::CommandBuffer& cmd) const;
+    void bind(const vk::CommandBuffer& cmd,
+              const vk::PipelineLayout& layout) const;
 
 private:
     void setupParamsBuffer(const LogicalDevice& logical_device,
@@ -66,7 +66,5 @@ private:
     std::vector<vk::DescriptorImageInfo> m_image_infos;
 
     std::vector<vk::WriteDescriptorSet> m_descriptor_writes;
-
-    const vk::PipelineLayout& m_pipeline_layout;
 };
 } // namespace ars_graphics

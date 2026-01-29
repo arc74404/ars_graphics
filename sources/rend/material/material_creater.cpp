@@ -5,12 +5,10 @@ namespace ars_graphics
 
 MaterialCreater::MaterialCreater(const LogicalDevice& logical_device,
                                  const PhysicalDevice& physical_device,
-                                 const DescriptorManager& descriptor_manager,
-                                 const vk::PipelineLayout& pipeline_layout)
+                                 const DescriptorManager& descriptor_manager)
     : m_logical_device{logical_device},
       m_physical_device{physical_device},
-      m_descriptor_manager{descriptor_manager},
-      m_pipeline_layout{pipeline_layout}
+      m_descriptor_manager{descriptor_manager}
 {
 }
 
@@ -23,7 +21,7 @@ MaterialCreater::convertToMaterials(
     for (auto&& data : mdata)
     {
         materials.emplace_back(m_logical_device, m_physical_device,
-                               m_descriptor_manager, m_pipeline_layout, data);
+                               m_descriptor_manager, data);
     }
 
     return materials;
