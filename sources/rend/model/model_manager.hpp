@@ -1,15 +1,26 @@
 #pragma once
 
+#include <fstream>
+#include <iostream>
+#include <optional>
 #include <string>
 #include <unordered_map>
 #include <unordered_set>
 
+#include "../material/material.hpp"
+#include "../material/material_creater.hpp"
 #include "../material/material_storage.hpp"
+#include "../textures/texture_creater.hpp"
+#include "../textures/texture_data.hpp"
 #include "../textures/texture_data_storage.hpp"
 #include "../textures/texture_storage.hpp"
+#include "../vertex/all_attributes.hpp"
+#include "../vertex/vertex_types.hpp"
 
+#include "load_funcs.hpp"
 #include "model.hpp"
-#include "model_loader.hpp"
+#include "model_path.hpp"
+#include "tiny_gltf.h"
 
 namespace ars_graphics
 {
@@ -31,17 +42,16 @@ private:
 
     bool loadTextures(const std::vector<tinygltf::Texture>& gltf_textures,
                       const tinygltf::Model& gltf_model,
-                      std::vector<TextureData>& textures_data) const;
+                      std::vector<TextureData>& textures_data);
 
-    std::optional<TextureData> loadTexture(
-        const tinygltf::Image& image,
-        const tinygltf::Model& gltf_model) const;
+    std::optional<TextureData> loadTexture(const tinygltf::Image& image,
+                                           const tinygltf::Model& gltf_model);
 
     bool loadMaterials(const std::vector<tinygltf::Material>& gltf_materials,
                        const std::vector<TextureData>& textures_data,
                        const TextureCreater& texture_creater,
                        TextureStorage& texturue_storage,
-                       std::vector<MaterialData>& materials_data) const;
+                       std::vector<MaterialData>& materials_data);
 
     TextureCreater m_texture_creater;
 

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
-Скрипт для компиляции GLSL шейдеров из директории spirv в compiled.
+Скрипт для компиляции GLSL шейдеров из иерархической директории spirv в compiled.
+Сохраняет структуру директорий.
 Компилирует все .vert и .frag файлы используя glslc.exe.
 """
 
@@ -13,7 +14,7 @@ from pathlib import Path
 SCRIPT_DIR = Path(__file__).parent
 SPIRV_DIR = SCRIPT_DIR / "spirv"
 COMPILED_DIR = SCRIPT_DIR / "compiled"
-GLSL_C = SPIRV_DIR / "glslc.exe"
+GLSL_C = SCRIPT_DIR / "glslc.exe"  # glslc.exe в корне shaders/
 
 
 def compile_shader(input_file: Path, output_file: Path) -> bool:
@@ -43,25 +44,78 @@ def compile_shader(input_file: Path, output_file: Path) -> bool:
             str(output_file)
         ]
         
+        # Определяем рабочую директорию - директория исходного файла
+        working_dir = input_file.parent
+        
         result = subprocess.run(
             cmd,
             capture_output=True,
             text=True,
-            cwd=SPIRV_DIR
+            cwd=working_dir
         )
         
         if result.returncode == 0:
-            print(f"✓ Скомпилирован: {input_file.name} -> {output_file.name}")
+            # Вычисляем относительный путь для красивого вывода
+            rel_input = input_file.relative_to(SPIRV_DIR)
+            rel_output = output_file.relative_to(COMPILED_DIR)
+            print(f"✓ Скомпилирован: {rel_input} -> {rel_output}")
             return True
         else:
-            print(f"✗ Ошибка компиляции {input_file.name}:")
+            rel_input = input_file.relative_to(SPIRV_DIR)
+            print(f"✗ Ошибка компиляции {rel_input}:")
             if result.stderr:
                 print(result.stderr)
             return False
             
     except Exception as e:
-        print(f"✗ Исключение при компиляции {input_file.name}: {e}")
+        rel_input = input_file.relative_to(SPIRV_DIR)
+        print(f"✗ Исключение при компиляции {rel_input}: {e}")
         return False
+
+
+def find_shader_files(root_dir: Path):
+    """
+    Рекурсивно находит все файлы шейдеров (.vert и .frag).
+    
+    Args:
+        root_dir: Корневая директория для поиска
+        
+    Returns:
+        Список путей к файлам шейдеров
+    """
+    shader_extensions = {'.vert', '.frag'}
+    shader_files = []
+    
+    # Рекурсивно обходим директории
+    for current_dir, dirs, files in os.walk(root_dir):
+        current_path = Path(current_dir)
+        
+        for file in files:
+            file_path = current_path / file
+            if file_path.suffix in shader_extensions:
+                shader_files.append(file_path)
+    
+    return shader_files
+
+
+def get_output_path(input_file: Path) -> Path:
+    """
+    Определяет путь для выходного файла на основе входного.
+    
+    Args:
+        input_file: Путь к исходному файлу шейдера
+        
+    Returns:
+        Путь для скомпилированного файла
+    """
+    # Вычисляем относительный путь относительно SPIRV_DIR
+    rel_path = input_file.relative_to(SPIRV_DIR)
+    
+    # Меняем расширение на .spv
+    output_name = rel_path.with_suffix(rel_path.suffix + '.spv')
+    
+    # Формируем полный путь в COMPILED_DIR
+    return COMPILED_DIR / output_name
 
 
 def main():
@@ -71,32 +125,40 @@ def main():
         print(f"Ошибка: директория {SPIRV_DIR} не найдена")
         sys.exit(1)
     
-    # Находим все файлы шейдеров (.vert и .frag)
-    shader_extensions = {'.vert', '.frag'}
-    shader_files = [
-        f for f in SPIRV_DIR.iterdir()
-        if f.is_file() and f.suffix in shader_extensions
-    ]
+    # Проверяем наличие компилятора
+    if not GLSL_C.exists():
+        print(f"Ошибка: не найден компилятор {GLSL_C}")
+        print(f"Ожидается по пути: {GLSL_C}")
+        sys.exit(1)
+    
+    # Находим все файлы шейдеров рекурсивно
+    shader_files = find_shader_files(SPIRV_DIR)
     
     if not shader_files:
-        print(f"Не найдено файлов шейдеров в {SPIRV_DIR}")
+        print(f"Не найдено файлов шейдеров в {SPIRV_DIR} и поддиректориях")
         sys.exit(0)
     
     print(f"Найдено файлов для компиляции: {len(shader_files)}")
+    print("Структура директорий будет сохранена.")
     print("-" * 50)
     
     # Компилируем каждый файл
     success_count = 0
     for shader_file in shader_files:
-        # Формируем имя выходного файла: имя исходного + .spv
-        output_name = shader_file.name + ".spv"
-        output_file = COMPILED_DIR / output_name
+        output_file = get_output_path(shader_file)
         
         if compile_shader(shader_file, output_file):
             success_count += 1
     
     print("-" * 50)
     print(f"Компиляция завершена: {success_count}/{len(shader_files)} успешно")
+    
+    # Выводим структуру скомпилированных файлов
+    if success_count > 0:
+        print("\nСтруктура скомпилированных файлов:")
+        for path in sorted(COMPILED_DIR.rglob("*.spv")):
+            rel_path = path.relative_to(COMPILED_DIR)
+            print(f"  {rel_path}")
     
     if success_count < len(shader_files):
         sys.exit(1)

@@ -1,31 +1,11 @@
 #pragma once
 #include <utility>
+#include <vector>
+
+#include "glm/mat4x4.hpp"
 
 namespace ars_graphics
 {
-
-// template <typename CT, typename T, typename Ret>
-// void
-// fillBoxesByPipelineImpl(CT* ct, std::pair<T*, Ret (CT::*)()>&& pair)
-// {
-//     *pair.first = (ct->*pair.second)();
-// }
-
-// template <typename CT, typename T, typename Ret>
-// void
-// fillBoxesByPipelineImpl(CT* ct, std::pair<T*, Ret (CT::*)() const>&& pair)
-// {
-//     *pair.first = (ct->*pair.second)();
-// }
-
-// template <typename CT, typename... TPack, typename... UPack>
-// void
-// fillBoxesByPipeline(CT* ct, std::pair<TPack*, UPack>&&... box_and_func_pack)
-// {
-//     (fillBoxesByPipelineImpl(
-//          ct, std::forward<std::pair<TPack*, UPack>>(box_and_func_pack)),
-//      ...);
-// }
 
 template <bool need_alloc, typename T, typename U>
 void
@@ -39,5 +19,14 @@ pushDataToTheEnd(std::vector<T>& dest, const std::vector<U>& src)
     memcpy(reinterpret_cast<char*>(dest.data()) + dest_old_size, src.data(),
            src.size() * sizeof(U));
 }
+
+glm::mat4
+getFinalMatrix(const std::vector<double>& rotation,
+               const std::vector<double>& translation,
+               const std::vector<double>& scale,
+               const std::vector<double>& matrix);
+
+glm::mat4
+convertVectorToMatrix(const std::vector<double>& data);
 
 } // namespace ars_graphics

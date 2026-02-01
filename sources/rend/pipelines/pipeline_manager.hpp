@@ -1,4 +1,5 @@
 #pragma once
+#include <cstdint>
 #include <map>
 #include <string>
 
@@ -15,7 +16,7 @@ enum class PipelineStorageType
     STANDART_MODEL
 };
 
-using PipelineStorage = std::unordered_map<std::string, Pipeline>;
+using PipelineStorage = std::unordered_map<uint64_t, Pipeline>;
 
 class PipelineManager
 {
@@ -27,17 +28,15 @@ public:
 
     const vk::PipelineLayout& getLayout(PipelineLayoutType type) const;
 
-    template <typename VertexType>
     const Pipeline* getPipeline(
+        uint64_t vertex_int_representation,
         PipelineStorageType pipeline_storage_type,
         const vk::RenderPass& render_pass,
         const MainPipelineConfigInfo& main_pipeline_config_info)
     {
         PipelineStorage& storage = m_storages.at(pipeline_storage_type);
 
-        std::string key = VertexType::getStrRepersentation();
-
-        auto&& it = storage.find(key);
+        auto&& it = storage.find(vertex_int_representation);
 
         if (it == storage.end())
         {
@@ -46,7 +45,8 @@ public:
                                               .extent = m_extent};
             Pipeline pipeline{m_creater, render_pass, config_info};
 
-            auto&& result = storage.emplace(key, std::move(pipeline));
+            auto&& result =
+                storage.emplace(vertex_int_representation, std::move(pipeline));
             return &(result.first->second);
         }
         else

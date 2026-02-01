@@ -11,10 +11,10 @@ namespace ars_graphics
 template <typename... Attributes>
 struct VertexBindingDescription
 {
-    VertexBindingDescription()
+    VertexBindingDescription(uint32_t stride)
     {
         description.binding   = settings::bindings::vertex_attributes_binding;
-        description.stride    = getStride();
+        description.stride    = stride;
         description.inputRate = vk::VertexInputRate::eVertex;
     }
     vk::VertexInputBindingDescription description;
@@ -58,19 +58,19 @@ public:
         typename std::tuple_element<0,
                                     std::tuple<Attributes...>>::type::ContType;
 
-    static std::string getStrRepersentation()
+    static uint64_t getIntRepersentation()
     {
-        uint32_t num = 0;
+        uint64_t num = 0;
         (Attributes::shiftNum(num), ...);
 
-        return std::to_string(num);
+        return num;
     }
 
     static const vk::VertexInputBindingDescription&
     getVertexBindingDescription()
     {
-        VertexBindingDescription<Attributes...> d;
-        return d;
+        static VertexBindingDescription<Attributes...> d{getStride()};
+        return d.description;
     }
 
     static const std::vector<vk::VertexInputAttributeDescription>&

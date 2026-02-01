@@ -31,7 +31,7 @@ namespace ars_graphics::attributes
     }
 
 #define SHIFT_NUM(index)                \
-    static void shiftNum(uint32_t& num) \
+    static void shiftNum(uint64_t& num) \
     {                                   \
         num |= 1 << index;              \
     }

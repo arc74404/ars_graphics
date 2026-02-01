@@ -23,19 +23,19 @@ main()
 
     std::unordered_map<ars_graphics::ShaderType, std::string> shader_paths = {
         {ars_graphics::ShaderType::DEFAULT_SIMPLE_2D_VERTEX,
-         folder + "DEFAULT_SIMPLE_2D_VERTEX.vert.spv"         },
+         folder + "vert/model2d/DEFAULT_SIMPLE_2D_VERTEX.vert.spv"         },
         {ars_graphics::ShaderType::DEFAULT_COLORED_3D_VERTEX,
-         folder + "DEFAULT_COLORED_3D_VERTEX.vert.spv"        },
+         folder + "vert/model3d/DEFAULT_COLORED_3D_VERTEX.vert.spv"        },
         {ars_graphics::ShaderType::DEFAULT_PARTICLE_MESH_VERTEX,
-         folder + "DEFAULT_PARTICLE_MESH_VERTEX.vert.spv"     },
+         folder + "vert/model3d/DEFAULT_PARTICLE_MESH_VERTEX.vert.spv"     },
         {ars_graphics::ShaderType::DEFAULT_POSITIONAL_ONLY_3D_VERTEX,
-         folder + "DEFAULT_POSITIONAL_ONLY_3D_VERTEX.vert.spv"},
+         folder + "vert/model3d/DEFAULT_POSITIONAL_ONLY_3D_VERTEX.vert.spv"},
         {ars_graphics::ShaderType::DEFAULT_SIMPLE_3D_VERTEX,
-         folder + "DEFAULT_SIMPLE_3D_VERTEX.vert.spv"         },
+         folder + "vert/model3d/DEFAULT_SIMPLE_3D_VERTEX.vert.spv"         },
         {ars_graphics::ShaderType::DEFAULT_STANDART_3D_VERTEX,
-         folder + "DEFAULT_STANDART_3D_VERTEX.vert.spv"       },
+         folder + "vert/model3d/DEFAULT_STANDART_3D_VERTEX.vert.spv"       },
         {ars_graphics::ShaderType::DEFAULT_FRAGMENT,
-         folder + "DEFAULT_FRAGMENT.frag.spv"                 },
+         folder + "frag/DEFAULT_FRAGMENT.frag.spv"                         },
     };
 
     GlfwWindow window({{.m_title = "titlew"}});

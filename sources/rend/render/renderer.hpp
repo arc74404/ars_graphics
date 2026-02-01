@@ -74,6 +74,29 @@ public:
     {
         m_render_info_data =
             obj.calculateRenderInfo(m_logical_device, m_physical_device);
+
+        for (auto& data : m_render_info_data.per_primitive_data)
+        {
+            const PipelineChooseInfo& pipeline_choose_info =
+                data.need_init_in_calc.pipeline_choose_info;
+
+            MainPipelineConfigInfo config_info = {
+                .vertex_binding_description =
+                    pipeline_choose_info.vertex_binding_description,
+                .vertex_attribute_descriptions =
+                    pipeline_choose_info.vertex_attribute_description,
+                .vertex_shader_type   = pipeline_choose_info.vertex_shader_type,
+                .fragment_shader_type = ShaderType::DEFAULT_FRAGMENT,
+                .depth_test_enable    = vk::True,
+                .pipeline_layout =
+                    m_pipeline_manager.getLayout(PipelineLayoutType::STANDART)};
+
+            data.pipeline = m_pipeline_manager.getPipeline(
+                data.need_init_in_calc.key_vertex,
+                PipelineStorageType::STANDART_MODEL,
+                m_renderpass_manager.getRenderPass(RenderPassType::STANDART),
+                config_info);
+        }
     }
 
     void render(const RenderingInfo& extra_rendering_info);

@@ -55,14 +55,10 @@ RendererImpl::RendererImpl(const RendererConfigInfo& config_info)
                           m_swapchain.countFrames(),
                           m_descriptor_manager.getAllocator(
                               DescriptorSetLayoutType::UBO_AND_STORAGE)),
-      m_model_manager(
-          m_pipeline_manager,
-          m_renderpass_manager.getRenderPass(RenderPassType::STANDART),
-          m_logical_device,
-          m_physical_device,
-          m_descriptor_manager,
-          m_pipeline_manager.getLayout(PipelineLayoutType::STANDART),
-          config_info.models_paths),
+      m_model_manager(m_logical_device,
+                      m_physical_device,
+                      m_descriptor_manager,
+                      config_info.models_paths),
       m_sync(m_logical_device, m_swapchain.countFrames())
 {
 }
@@ -216,26 +212,37 @@ RendererImpl::draw(uint8_t index)
     for (auto&& per_primitive : m_render_info_data.per_primitive_data)
     {
         per_primitive.pipeline->bind(*m_render_ctx.cmd);
-        per_primitive.material->bind(*m_render_ctx.cmd);
+        per_primitive.need_init_in_calc.material->bind(
+            *m_render_ctx.cmd,
+            m_pipeline_manager.getLayout(PipelineLayoutType::STANDART));
 
-        if (per_primitive.has_indices)
+        if (per_primitive.need_init_in_calc.has_indices)
         {
             m_render_info_data.index_buffer.draw(
                 *(m_render_ctx.cmd),
-                per_primitive.index_buffer_data_info.index_count,
-                per_primitive.index_buffer_data_info.instance_count,
-                per_primitive.index_buffer_data_info.first_index,
-                per_primitive.index_buffer_data_info.vertex_offset,
-                per_primitive.index_buffer_data_info.first_instance);
+                per_primitive.need_init_in_calc.index_buffer_data_info
+                    .index_count,
+                per_primitive.need_init_in_calc.index_buffer_data_info
+                    .instance_count,
+                per_primitive.need_init_in_calc.index_buffer_data_info
+                    .first_index,
+                per_primitive.need_init_in_calc.index_buffer_data_info
+                    .vertex_offset,
+                per_primitive.need_init_in_calc.index_buffer_data_info
+                    .first_instance);
         }
         else
         {
             m_render_info_data.vertex_buffer.draw(
                 *(m_render_ctx.cmd),
-                per_primitive.vertex_buffer_data_info.vertex_count,
-                per_primitive.vertex_buffer_data_info.instance_count,
-                per_primitive.vertex_buffer_data_info.first_vertex,
-                per_primitive.vertex_buffer_data_info.first_instance);
+                per_primitive.need_init_in_calc.vertex_buffer_data_info
+                    .vertex_count,
+                per_primitive.need_init_in_calc.vertex_buffer_data_info
+                    .instance_count,
+                per_primitive.need_init_in_calc.vertex_buffer_data_info
+                    .first_vertex,
+                per_primitive.need_init_in_calc.vertex_buffer_data_info
+                    .first_instance);
         }
     }
 }

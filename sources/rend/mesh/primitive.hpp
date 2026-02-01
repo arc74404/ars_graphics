@@ -14,22 +14,25 @@ struct Primitive final
               vk::PrimitiveTopology primitive_topology,
               const Material* material)
         : m_vertex_shader_type(
-              calculateVertexShaderType<Vertex<VertexAttributes...>>())
-              m_indices(std::move(indices)),
-          m_vertex_binding_description(),
-          m_vertex_attribute_description(),
+              calculateVertexShaderType<Vertex<VertexAttributes...>>()),
+          m_indices(std::move(indices)),
+          m_vertex_binding_description(
+              Vertex<VertexAttributes...>::getVertexBindingDescription()),
+          m_vertex_attribute_description(
+              Vertex<VertexAttributes...>::getVertexAttributeDescription()),
           m_vertices(std::move(vertices)),
           m_primitive_topology(primitive_topology),
-          m_material(material)
+          m_material(material),
+          m_key_vertex(Vertex<VertexAttributes...>::getIntRepersentation())
     {
     }
 
     ShaderType m_vertex_shader_type;
-
     const vk::VertexInputBindingDescription& m_vertex_binding_description;
-
     const std::vector<vk::VertexInputAttributeDescription>&
         m_vertex_attribute_description;
+
+    uint64_t m_key_vertex;
 
     std::vector<uint32_t> m_indices;
 
