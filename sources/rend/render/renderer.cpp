@@ -50,11 +50,11 @@ RendererImpl::RendererImpl(const RendererConfigInfo& config_info)
                          m_shader_manager,
                          m_descriptor_manager,
                          m_swapchain.getExtent()),
-      m_vertex_shader_ubo(m_logical_device,
-                          m_physical_device,
-                          m_swapchain.countFrames(),
-                          m_descriptor_manager.getAllocator(
-                              DescriptorSetLayoutType::UBO_AND_STORAGE)),
+      m_vertex_shader_data(m_logical_device,
+                           m_physical_device,
+                           m_swapchain.countFrames(),
+                           m_descriptor_manager.getAllocator(
+                               DescriptorSetLayoutType::MODEL_VERTEX)),
       m_model_manager(m_logical_device,
                       m_physical_device,
                       m_descriptor_manager,
@@ -205,7 +205,7 @@ RendererImpl::draw(uint8_t index)
 {
     m_render_info_data.vertex_buffer.bind(*m_render_ctx.cmd);
     m_render_info_data.index_buffer.bind(*(m_render_ctx.cmd));
-    m_vertex_shader_ubo.bind(
+    m_vertex_shader_data.bind(
         *(m_render_ctx.cmd),
         m_pipeline_manager.getLayout(PipelineLayoutType ::STANDART), index);
 
@@ -260,11 +260,13 @@ RendererImpl::render(const RenderingInfo& rendering_info)
 
     if (rendering_info.camera.needRecalculation())
     {
-        m_vertex_shader_ubo.updateCamera(rendering_info.camera.recalculate());
+        UboData ubo;
+        ubo.camera_matrix = rendering_info.camera.recalculate();
+        m_vertex_shader_data.updateUbo(ubo);
     }
 
-    m_vertex_shader_ubo.updatePerFrameUboBuffer(
-        m_logical_device, m_physical_device, frame_number);
+    m_vertex_shader_data.updatePerFrameData(m_logical_device, m_physical_device,
+                                            frame_number);
 
     // -------------- //
 

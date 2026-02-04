@@ -7,6 +7,8 @@
 #include "../pipelines/pipeline_layout_storage.hpp"
 #include "../shaders/shaders_data_structs/instance_data.hpp"
 
+#include "per_frame_links_on_data.hpp"
+
 namespace ars_graphics
 {
 struct IndexBufferDrawInfo
@@ -69,12 +71,6 @@ struct PerModelInstancingData
     std::vector<ModelInstancingData> m_data;
 };
 
-struct InstanceMapping
-{
-    uint32_t model_instance_idx;
-    uint32_t mesh_instance_idx;
-};
-
 struct RenderInfo
 {
     bool m_is_valid = true;
@@ -87,5 +83,7 @@ struct RenderInfo
 
     GpuVertexBuffer vertex_buffer;
     IndexBuffer index_buffer;
+
+    PerFrameLinksOnData links;
 };
 } // namespace ars_graphics

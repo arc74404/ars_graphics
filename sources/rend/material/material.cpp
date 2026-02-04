@@ -15,7 +15,7 @@ Material::Material(const LogicalDevice& logical_device,
       m_shader_params_buffer(std::make_shared<UniformBuffer>())
 {
     setupParamsBuffer(logical_device, physical_device);
-    desc_manager.getAllocator(DescriptorSetLayoutType::MATERIAL)
+    desc_manager.getAllocator(DescriptorSetLayoutType::MODEL_MATERIAL)
         .allocate(logical_device, m_descriptor_set);
     setupDescriptorSets();
     updateDescriptorSets(logical_device);

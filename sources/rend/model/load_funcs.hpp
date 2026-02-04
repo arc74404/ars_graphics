@@ -137,7 +137,6 @@ struct CalculateVertexAttributeSutterTrick<VertexType, attributes::Position3D>
     {
         glm::vec3 pos =
             *(reinterpret_cast<const glm::vec3*>(attribute_data.data()));
-        pos.y *= -1;
         vertex.setPosition3D(pos);
     }
 };

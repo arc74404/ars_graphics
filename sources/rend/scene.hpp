@@ -4,9 +4,11 @@
 
 #include "buffers/gpu_buffer.hpp"
 #include "buffers/index_buffer.hpp"
+#include "camera/fly_camera.hpp"
 #include "instancing/instancer.hpp"
 #include "instancing/mesh_node_instancing.hpp"
 #include "model/model_manager.hpp"
+#include "render/per_frame_links_on_data.hpp"
 #include "render/renderable.hpp"
 #include "shaders/shaders_data_structs/instance_data.hpp"
 
@@ -39,16 +41,18 @@ public:
 
     void addModel(const Model* new_model);
 
+    void bindCamera(const ICamera* cam);
+
     RenderInfo calculateRenderInfo(
         const LogicalDevice& logical_device,
-        const PhysicalDevice& physical_device) const override;
+        const PhysicalDevice& physical_device) override;
 
 private:
     void fillBuffers(
         const LogicalDevice& logical_device,
         const PhysicalDevice& physical_device,
         const std::vector<MeshNodeInstancing>& mesh_node_instancing_arr,
-        RenderInfo& render_info) const;
+        RenderInfo& render_info);
 
     std::vector<MeshNodeInstancing> calcPerMeshData() const;
 
@@ -71,6 +75,12 @@ private:
                      size_t count_models_copies,
                      size_t count_meshes_copies) const;
 
+    const ICamera* m_camera;
+
     std::map<const Model*, size_t> m_models;
+
+    std::vector<ModelInstancingData> m_models_inst;
+    std::vector<MeshInstancingData> m_meshes_inst;
+    std::vector<InstanceMapping> m_mapping_inst;
 };
 } // namespace ars_graphics

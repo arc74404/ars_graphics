@@ -42,10 +42,9 @@ createStandartPipelineLayout(const LogicalDevice& device,
                              const DescriptorManager& descriptor_manager)
 {
     std::vector<vk::DescriptorSetLayout> layouts = {
-        descriptor_manager
-            .getAllocator(DescriptorSetLayoutType::UBO_AND_STORAGE)
+        descriptor_manager.getAllocator(DescriptorSetLayoutType::MODEL_VERTEX)
             .layout(),
-        descriptor_manager.getAllocator(DescriptorSetLayoutType::MATERIAL)
+        descriptor_manager.getAllocator(DescriptorSetLayoutType::MODEL_MATERIAL)
             .layout()};
 
     auto&& res = createPipelineLayout(device, layouts);

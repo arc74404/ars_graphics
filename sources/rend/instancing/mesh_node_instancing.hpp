@@ -13,7 +13,9 @@ namespace ars_graphics
 class MeshNodeInstancing
 {
 public:
-    void initData(const std::vector<ModelNode>& nodes, uint32_t meshes_count);
+    void initData(const std::vector<int>& roots,
+                  const std::vector<ModelNode>& nodes,
+                  uint32_t meshes_count);
 
     bool noInstanceForThisMesh(size_t index) const
     {

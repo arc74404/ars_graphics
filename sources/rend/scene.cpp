@@ -146,7 +146,7 @@ Scene::fillBuffers(
     const LogicalDevice& logical_device,
     const PhysicalDevice& physical_device,
     const std::vector<MeshNodeInstancing>& mesh_node_instancing_arr,
-    RenderInfo& render_info) const
+    RenderInfo& render_info)
 {
     TemperaryInfoCollector info_collector;
 
@@ -166,6 +166,7 @@ Scene::fillBuffers(
 
             if (mesh_node_instancing.noInstanceForThisMesh(mesh_index))
             {
+
                 continue;
             }
             calcMapping(info_collector, model.second,
@@ -207,6 +208,10 @@ Scene::fillBuffers(
         render_info.vertex_buffer = info_collector.vertices_data.generateBuffer(
             logical_device, physical_device);
     }
+
+    m_models_inst  = std::move(info_collector.model_inst_data.get());
+    m_meshes_inst  = std::move(info_collector.mesh_inst_data.get());
+    m_mapping_inst = std::move(info_collector.mapping_data.get());
 }
 
 std::vector<MeshNodeInstancing>
@@ -216,21 +221,31 @@ Scene::calcPerMeshData() const
     for (auto&& model : m_models)
     {
         MeshNodeInstancing temp;
-        temp.initData(model.first->getNodes(), model.first->getMeshes().size());
+        temp.initData(model.first->getRoots(), model.first->getNodes(),
+                      model.first->getMeshes().size());
         res.emplace_back(std::move(temp));
     }
     return res;
 }
 
+void
+Scene::bindCamera(const ICamera* cam)
+{
+    m_camera = cam;
+}
+
 RenderInfo
 Scene::calculateRenderInfo(const LogicalDevice& logical_device,
-                           const PhysicalDevice& physical_device) const
+                           const PhysicalDevice& physical_device)
 {
     RenderInfo render_info;
 
     fillBuffers(logical_device, physical_device, calcPerMeshData(),
                 render_info);
 
+    render_info.links.m_model_instancing_data = &m_models_inst;
+    render_info.links.m_mesh_instancing_data  = &m_meshes_inst;
+    render_info.links.m_mapping               = &m_mapping_inst;
     return render_info;
 }
 

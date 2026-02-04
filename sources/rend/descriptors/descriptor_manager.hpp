@@ -13,8 +13,8 @@ namespace ars_graphics
 
 enum class DescriptorSetLayoutType
 {
-    UBO_AND_STORAGE,
-    MATERIAL
+    MODEL_VERTEX,
+    MODEL_MATERIAL
 };
 
 class DescriptorManager

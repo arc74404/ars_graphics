@@ -10,11 +10,26 @@ namespace
 std::vector<DescriptorBindingData>
 defaultVertexShaderBindings()
 {
-    std::vector<DescriptorBindingData> result(1);
+    std::vector<DescriptorBindingData> result(4);
     result[0].count         = 1;
     result[0].binding_index = settings::bindings::uniform_buffer_binding;
     result[0].stage         = vk::ShaderStageFlagBits::eVertex;
     result[0].type          = vk::DescriptorType::eUniformBuffer;
+
+    result[1].count         = 1;
+    result[1].binding_index = settings::bindings::instancing_binding;
+    result[1].stage         = vk::ShaderStageFlagBits::eVertex;
+    result[1].type          = vk::DescriptorType::eStorageBuffer;
+
+    result[2].count         = 1;
+    result[2].binding_index = settings::bindings::instancing_binding + 1;
+    result[2].stage         = vk::ShaderStageFlagBits::eVertex;
+    result[2].type          = vk::DescriptorType::eStorageBuffer;
+
+    result[3].count         = 1;
+    result[3].binding_index = settings::bindings::instancing_binding + 2;
+    result[3].stage         = vk::ShaderStageFlagBits::eVertex;
+    result[3].type          = vk::DescriptorType::eStorageBuffer;
 
     return result;
 }
@@ -65,10 +80,10 @@ defaultMaterialShaderBindings()
 
 DescriptorManager::DescriptorManager(const LogicalDevice& device)
 {
-    addAllocator(DescriptorSetLayoutType::UBO_AND_STORAGE, device,
+    addAllocator(DescriptorSetLayoutType::MODEL_VERTEX, device,
                  defaultVertexShaderBindings(), 100, 100);
 
-    addAllocator(DescriptorSetLayoutType::MATERIAL, device,
+    addAllocator(DescriptorSetLayoutType::MODEL_MATERIAL, device,
                  defaultMaterialShaderBindings(), 100, 100);
 }
 

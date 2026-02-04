@@ -73,6 +73,9 @@ CMAKE_EXE_LINKER_FLAGS_RELEASE:STRING=/INCREMENTAL:NO
 //Flags used by the linker during RELWITHDEBINFO builds.
 CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO:STRING=/debug /INCREMENTAL
 
+//No help, variable specified on the command line.
+CMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE
+
 //Value Computed by CMake.
 CMAKE_FIND_PACKAGE_REDIRECTS_DIR:STATIC=C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/pkgRedirects
 
@@ -269,6 +272,9 @@ Z_VCPKG_PWSH_PATH:FILEPATH=Z_VCPKG_PWSH_PATH-NOTFOUND
 //The directory which contains the installed libraries for each
 // triplet
 _VCPKG_INSTALLED_DIR:PATH=C:/vcpkg/installed
+
+//The directory containing a CMake configuration file for ars_utils.
+ars_utils_DIR:PATH=C:/Users/User/source/repos/utils_lib/install/lib/cmake/ars_utils
 
 //The directory containing a CMake configuration file for glfw3.
 glfw3_DIR:PATH=C:/vcpkg/installed/x64-windows/share/glfw3

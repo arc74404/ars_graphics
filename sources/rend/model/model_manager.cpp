@@ -300,6 +300,7 @@ ModelManager::load(const std::string& path)
     std::vector<std::vector<int>> node_childrens;
 
     node_childrens.reserve(gltf_model.nodes.size());
+
     for (auto&& gltf_node : gltf_model.nodes)
     {
         ParseModelNodeData node_data;
@@ -312,6 +313,8 @@ ModelManager::load(const std::string& path)
         node_childrens.emplace_back(gltf_node.children);
     }
     res_model.connectGraph(std::move(node_childrens));
+
+    res_model.setRoots(std::move(gltf_model.scenes[0].nodes));
 
     m_models.emplace(path, std::move(res_model));
 }

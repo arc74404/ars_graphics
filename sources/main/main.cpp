@@ -11,12 +11,17 @@ using namespace ars_graphics;
 #include "../sources/rend/scene.hpp"
 #include "../sources/time/time_manager.hpp"
 
+#define MODEL_GOPHER_NAME \
+    "C:/Users/User/source/repos/arsrender_lib/models/go_gopher.glb"
+#define CAMERA_NAME \
+    "C:/Users/User/source/repos/arsrender_lib/models/AntiqueCamera.glb"
+
+#define MODEL_NAME MODEL_GOPHER_NAME
+
 int
 main()
 {
-    std::vector<std::string> models_paths = {
-        "C:/Users/User/source/repos/arsrender_lib/models/"
-        "go_gopher.glb"};
+    std::vector<std::string> models_paths = {MODEL_NAME};
 
     std::string folder =
         "C:/Users/User/source/repos/arsrender_lib/shaders/compiled/";
@@ -54,9 +59,7 @@ main()
 
     Scene scene;
 
-    scene.addModel(
-        renderer.getModel("C:/Users/User/source/repos/arsrender_lib/models/"
-                          "go_gopher.glb"));
+    scene.addModel(renderer.getModel(MODEL_NAME));
 
     renderer.bind(scene);
 

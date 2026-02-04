@@ -12,7 +12,7 @@
 #include "../swap_chain/swap_chain.hpp"
 
 #include "render_info.hpp"
-#include "ubo_data.hpp"
+#include "vertex_shader_data.hpp"
 
 namespace ars_graphics
 {
@@ -70,7 +70,7 @@ public:
     }
 
     template <typename T>
-    void bind(const T& obj)
+    void bind(T& obj)
     {
         m_render_info_data =
             obj.calculateRenderInfo(m_logical_device, m_physical_device);
@@ -97,6 +97,7 @@ public:
                 m_renderpass_manager.getRenderPass(RenderPassType::STANDART),
                 config_info);
         }
+        m_vertex_shader_data.init(m_logical_device, m_physical_device, m_render_info_data.links);
     }
 
     void render(const RenderingInfo& extra_rendering_info);
@@ -152,7 +153,7 @@ private:
 
     ///
 
-    VertexShaderUbo m_vertex_shader_ubo;
+    VertexShaderData m_vertex_shader_data;
 
     // synchronization
 
@@ -212,7 +213,7 @@ public:
     }
 
     template <typename T>
-    void bind(const T& obj)
+    void bind(T& obj)
     {
         m_renderer_impl->bind(obj);
     }

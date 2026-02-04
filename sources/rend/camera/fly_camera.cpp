@@ -22,7 +22,7 @@ FlyCamera::processMouseScroll(float yoffset)
 
 FlyCamera::FlyCamera(uint32_t width, uint32_t height)
     : m_front(glm::vec3(0.0f, 0.0f, -1.0f)),
-      m_movement_speed(2.5f),
+      m_movement_speed(3.5f),
       m_zoom(45.0f),
       m_position{0.f, 0.f, 3.f},
       m_yaw{-90.f},
@@ -57,11 +57,11 @@ FlyCamera::processKeyboard(Key key, KeyStatus status, double delta_time)
             m_need_recalculation = true;
             break;
         case Key::SPACE:
-            m_position.y -= velocity * 3;
+            m_position.y += velocity * 3;
             m_need_recalculation = true;
             break;
         case Key::LEFT_CONTROL:
-            m_position.y += velocity * 3;
+            m_position.y -= velocity * 3;
             m_need_recalculation = true;
             break;
         default:
@@ -76,7 +76,7 @@ FlyCamera::processMouseMovement(const glm::vec2& shift,
 {
     m_need_recalculation = true;
     m_yaw += shift.x * m_view_shift_speed * delta_time;
-    m_pitch += shift.y * m_view_shift_speed * delta_time;
+    m_pitch -= shift.y * m_view_shift_speed * delta_time;
 
     if (constrain_pitch && m_pitch > 89.0f) m_pitch = 89.0f;
     if (constrain_pitch && m_pitch < -89.0f) m_pitch = -89.0f;
@@ -95,8 +95,11 @@ FlyCamera::recalculate()
     m_right = glm::normalize(glm::cross(m_front, m_world_up));
     m_up    = glm::normalize(glm::cross(m_right, m_front));
 
-    return glm::perspective(glm::radians(m_zoom), m_aspect_ratio, m_near_plane,
-                            m_far_plane) *
-           glm::lookAt(m_position, m_position + m_front, m_up);
+    glm::mat4 projection = glm::perspective(
+        glm::radians(m_zoom), m_aspect_ratio, m_near_plane, m_far_plane);
+
+    projection[1][1] *= -1;
+
+    return projection * glm::lookAt(m_position, m_position + m_front, m_up);
 }
 } // namespace ars_graphics

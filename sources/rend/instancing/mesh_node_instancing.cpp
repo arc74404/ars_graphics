@@ -1,59 +1,68 @@
 #include "mesh_node_instancing.hpp"
 
+#include <glm/gtc/matrix_transform.hpp>
+
 namespace ars_graphics
 {
 void
 fillByChildren(std::vector<PerMeshInstancingData>& res,
                const std::vector<ModelNode>& nodes,
                const glm::mat4& parent_matrix,
-               const ModelNode& node)
+               size_t node_index,
+               std::vector<bool>& has_marked)
 {
-    glm::mat4 world_transform = parent_matrix * node.m_local_transform;
+    has_marked[node_index] = true;
 
-    if (node.m_mesh_index != -1)
+    for (auto&& child_index : nodes[node_index].m_children_indices)
     {
-        res[node.m_mesh_index].m_data.emplace_back(world_transform);
-    };
+        if (has_marked[child_index])
+        {
+            continue;
+        }
+        glm::mat4 world_transform =
+            parent_matrix * nodes[child_index].m_local_transform;
 
-    for (auto&& child_index : node.m_children_indices)
-    {
-        fillByChildren(res, nodes, world_transform, nodes[child_index]);
+        if (nodes[child_index].m_mesh_index != -1)
+        {
+            res[nodes[child_index].m_mesh_index].m_data.emplace_back(
+                world_transform);
+        };
+
+        fillByChildren(res, nodes, world_transform, child_index, has_marked);
     }
 }
 
 namespace
 {
 std::vector<PerMeshInstancingData>
-sortNodesByMeshIndexAndTakeCore(const std::vector<ModelNode>& nodes,
-                                size_t count_meshes)
+takeCore(const std::vector<int>& roots,
+         const std::vector<ModelNode>& nodes,
+         size_t count_meshes)
 {
     std::vector<PerMeshInstancingData> res(count_meshes);
 
-    for (auto&& node : nodes)
-    {
-        if (false == node.isRoot())
-        {
-            continue;
-        }
-        if (node.m_mesh_index != -1)
-        {
-            res[node.m_mesh_index].m_data.emplace_back(node.m_local_transform);
-        }
-        else
-        {
-            fillByChildren(res, nodes, node.m_local_transform, node);
-        }
-    }
+    std::vector<bool> has_marked(nodes.size(), 0);
 
+    for (auto root : roots)
+    {
+        if (nodes[root].m_mesh_index != -1)
+        {
+            res[nodes[root].m_mesh_index].m_data.emplace_back(
+                nodes[root].m_local_transform);
+        };
+        fillByChildren(res, nodes, nodes[root].m_local_transform, root,
+                       has_marked);
+    }
     return res;
 }
 
 } // namespace
 
 void
-MeshNodeInstancing::initData(const std::vector<ModelNode>& nodes,
+MeshNodeInstancing::initData(const std::vector<int>& roots,
+                             const std::vector<ModelNode>& nodes,
                              uint32_t meshes_count)
 {
-    m_meshes_data = sortNodesByMeshIndexAndTakeCore(nodes, meshes_count);
+    m_meshes_data = takeCore(roots, nodes, meshes_count);
 }
 } // namespace ars_graphics
