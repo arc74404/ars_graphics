@@ -12,21 +12,6 @@ GlfwEventManager::GlfwEventManager()
     m_events.reserve(10);
 }
 
-// void
-// GlfwEventManager::keyCallback(GLFWwindow* window,
-//                               int key,
-//                               int scancode,
-//                               int action,
-//                               int mods)
-// {
-//     GlfwEventManager* d =
-//         static_cast<GlfwEventManager*>(glfwGetWindowUserPointer(window));
-//     d->m_events.emplace_back(std::make_unique<KeyEvent>(
-//         convertGlfwKey(key), convertGlfwStatus(action)));
-
-//     std::cout << "Callback\n";
-// }
-
 void
 GlfwEventManager::keyEvents(GLFWwindow* window)
 {

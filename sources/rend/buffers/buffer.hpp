@@ -6,15 +6,17 @@
 #include <iostream>
 
 #include "../device/logical_device.hpp"
+
 namespace ars_graphics
 {
-
 class Image;
 
 class Buffer
 {
 public:
+    virtual ~Buffer() noexcept = default;
     // ---------- //
+
     static void copyBuffer(const LogicalDevice& logical_device,
                            const PhysicalDevice& physical_device,
                            const Buffer* const src_buffer,
@@ -55,8 +57,6 @@ public:
 
     Buffer(Buffer&& other) noexcept            = default;
     Buffer& operator=(Buffer&& other) noexcept = default;
-
-    virtual ~Buffer() noexcept = default;
 
 private:
     void allocateBufferMemory(const LogicalDevice& logical_device,

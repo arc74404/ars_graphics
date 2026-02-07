@@ -166,7 +166,6 @@ Scene::fillBuffers(
 
             if (mesh_node_instancing.noInstanceForThisMesh(mesh_index))
             {
-
                 continue;
             }
             calcMapping(info_collector, model.second,
