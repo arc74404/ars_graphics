@@ -1,10 +1,8 @@
 #pragma once
 
-#define VULKAN_HPP_NO_EXCEPTIONS
-#include <vulkan/vulkan.hpp>
-
 #include <iostream>
 
+#include "../../libs_includes/vulkan.hpp"
 #include "../device/logical_device.hpp"
 
 namespace ars_graphics
@@ -14,53 +12,53 @@ class Image;
 class Buffer
 {
 public:
-    virtual ~Buffer() noexcept = default;
+    Buffer(Buffer&& other) noexcept            = default;
+    Buffer& operator=(Buffer&& other) noexcept = default;
+    virtual ~Buffer() noexcept                 = default;
     // ---------- //
 
-    static void copyBuffer(const LogicalDevice& logical_device,
-                           const PhysicalDevice& physical_device,
-                           const Buffer* const src_buffer,
-                           Buffer* const dst_buffer,
-                           vk::Queue queue,
-                           const vk::CommandBuffer& command_buffer);
+    static vk::Result copyBuffer(const LogicalDevice& logical_device,
+                                 const PhysicalDevice& physical_device,
+                                 const Buffer& src_buffer,
+                                 Buffer& dst_buffer,
+                                 vk::Queue queue,
+                                 vk::CommandBuffer command_buffer);
 
-    static void copyBufferToImage(const LogicalDevice& logical_device,
-                                  const PhysicalDevice& physical_device,
-                                  const Buffer* src_buffer,
-                                  Image& dst_image,
-                                  vk::Queue queue,
-                                  const vk::CommandBuffer& command_buffer,
-                                  float w,
-                                  float h);
+    static vk::Result copyBufferToImage(const LogicalDevice& logical_device,
+                                        const PhysicalDevice& physical_device,
+                                        const Buffer& src_buffer,
+                                        Image& dst_image,
+                                        vk::Queue queue,
+                                        vk::CommandBuffer command_buffer,
+                                        uint32_t w,
+                                        uint32_t h);
+    // const //
+
+    vk::Buffer get() const noexcept;
+
+    vk::DeviceSize getByteSize() const noexcept;
 
     // ---------- //
 
     Buffer(vk::BufferUsageFlags buffer_usage_flags,
            vk::MemoryPropertyFlags requested_properties);
 
-    void recreate(const LogicalDevice& logical_device,
-                  const PhysicalDevice& physical_device,
-                  const vk::DeviceSize& size);
-
-    void checkBufferSize(const LogicalDevice& logical_device,
-                         const PhysicalDevice& physical_device,
-                         const vk::DeviceSize& required_size);
-
-    virtual bool setData(const LogicalDevice& logical_device,
-                         const PhysicalDevice& physical_device,
-                         const void* data,
-                         const vk::DeviceSize& byte_size);
-
-    const vk::Buffer& buffer() const noexcept;
-
-    vk::DeviceSize byteSize() const noexcept;
-
-    Buffer(Buffer&& other) noexcept            = default;
-    Buffer& operator=(Buffer&& other) noexcept = default;
+    virtual vk::Result setData(const LogicalDevice& logical_device,
+                               const PhysicalDevice& physical_device,
+                               const void* data,
+                               vk::DeviceSize byte_size);
 
 private:
-    void allocateBufferMemory(const LogicalDevice& logical_device,
-                              const PhysicalDevice& physical_device);
+    vk::Result recreate(const LogicalDevice& logical_device,
+                        const PhysicalDevice& physical_device,
+                        vk::DeviceSize size);
+    vk::Result allocateBufferMemory(const LogicalDevice& logical_device,
+                                    const PhysicalDevice& physical_device);
+    vk::Result checkBufferSize(const LogicalDevice& logical_device,
+                               const PhysicalDevice& physical_device,
+                               vk::DeviceSize required_size);
+
+    void unmap(const LogicalDevice& logical_device) noexcept;
 
     vk::UniqueBuffer m_buffer;
 
@@ -69,6 +67,9 @@ private:
     vk::BufferUsageFlags m_buffer_usage_flags;
     vk::MemoryPropertyFlags m_requested_properties;
 
+    bool m_is_mapped = false;
     vk::UniqueDeviceMemory m_memory;
+
+    void* m_mapped_memory = nullptr;
 };
 } // namespace ars_graphics

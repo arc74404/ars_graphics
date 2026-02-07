@@ -10,13 +10,13 @@ IndexBuffer::IndexBuffer()
 }
 
 void
-IndexBuffer::bind(const vk::CommandBuffer& command_buffer) const
+IndexBuffer::bind(vk::CommandBuffer command_buffer) const
 {
-    command_buffer.bindIndexBuffer(buffer(), 0, vk::IndexType::eUint32);
+    command_buffer.bindIndexBuffer(get(), 0, vk::IndexType::eUint32);
 }
 
 void
-IndexBuffer::draw(const vk::CommandBuffer& command_buffer,
+IndexBuffer::draw(vk::CommandBuffer command_buffer,
                   uint32_t index_count,
                   uint32_t instance_count,
                   uint32_t first_index,

@@ -13,18 +13,18 @@ class GpuVertexBuffer final : public Buffer
 public:
     GpuVertexBuffer();
 
-    void bind(const vk::CommandBuffer& command_buffer) const;
+    void bind(vk::CommandBuffer command_buffer) const noexcept;
 
-    void draw(const vk::CommandBuffer& command_buffer,
+    void draw(vk::CommandBuffer command_buffer,
               uint32_t vertex_count,
               uint32_t instance_count,
               uint32_t first_vertex,
-              uint32_t first_instance) const;
+              uint32_t first_instance) const noexcept;
 
-    bool setData(const LogicalDevice& logical_device,
-                 const PhysicalDevice& physical_device,
-                 const void* data,
-                 const vk::DeviceSize& byte_size) override;
+    vk::Result setData(const LogicalDevice& logical_device,
+                       const PhysicalDevice& physical_device,
+                       const void* data,
+                       vk::DeviceSize byte_size) override;
 
 private:
 };

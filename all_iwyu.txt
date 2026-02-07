@@ -1,0 +1,348 @@
+In file included from ./main/main.cpp:1:
+In file included from ./main/../gui/events/event_handler.hpp:3:
+./main/../gui/events/../../rend/camera/interface_camera.hpp:4:10: fatal error: 'glm/glm.hpp' file not found
+    4 | #include "glm/glm.hpp"
+      |          ^~~~~~~~~~~~~
+./time/time_manager.cpp:14:13: error: no viable overloaded '='
+   14 |     m_start = std::chrono::high_resolution_clock::now();
+      |     ~~~~~~~ ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/chrono.h:922:13: note: candidate function (the implicit copy assignment operator) not viable: no known conversion from 'time_point<system_clock, [...]>' to 'const time_point<std::chrono::steady_clock, [...]>' for 1st argument
+  922 |       class time_point
+      |             ^~~~~~~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/chrono.h:922:13: note: candidate function (the implicit move assignment operator) not viable: no known conversion from 'time_point<system_clock, [...]>' to 'time_point<std::chrono::steady_clock, [...]>' for 1st argument
+  922 |       class time_point
+      |             ^~~~~~~~~~
+./time/time_manager.cpp:22:54: error: invalid operands to binary expression ('time_point' (aka 'time_point<std::chrono::system_clock, duration<long, ratio<1, 1000000000>>>') and 'TimePoint' (aka 'time_point<std::chrono::steady_clock, duration<long, ratio<1, 1000000000>>>'))
+   22 |     std::chrono::duration<double> elapsed = end_time - m_start;
+      |                                             ~~~~~~~~ ^ ~~~~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/chrono.h:1141:7: note: candidate template ignored: deduced conflicting types for parameter '_Clock' ('std::chrono::system_clock' vs. 'std::chrono::steady_clock')
+ 1141 |       operator-(const time_point<_Clock, _Dur1>& __lhs,
+      |       ^
+/usr/bin/../lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/chrono.h:710:7: note: candidate template ignored: could not match 'duration' against 'time_point'
+  710 |       operator-(const duration<_Rep1, _Period1>& __lhs,
+      |       ^
+/usr/bin/../lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/chrono.h:1129:7: note: candidate template ignored: could not match 'duration' against 'time_point'
+ 1129 |       operator-(const time_point<_Clock, _Dur1>& __lhs,
+      |       ^
+./time/time_manager.cpp:26:13: error: no viable overloaded '='
+   26 |     m_start = end_time;
+      |     ~~~~~~~ ^ ~~~~~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/chrono.h:922:13: note: candidate function (the implicit copy assignment operator) not viable: no known conversion from 'time_point<system_clock, [...]>' to 'const time_point<std::chrono::steady_clock, [...]>' for 1st argument
+  922 |       class time_point
+      |             ^~~~~~~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/chrono.h:922:13: note: candidate function (the implicit move assignment operator) not viable: no known conversion from 'time_point<system_clock, [...]>' to 'time_point<std::chrono::steady_clock, [...]>' for 1st argument
+  922 |       class time_point
+      |             ^~~~~~~~~~
+In file included from ./rend/descriptors/descriptor_pool.cpp:1:
+./rend/descriptors/descriptor_pool.hpp:4:10: fatal error: 'vulkan/vulkan.hpp' file not found
+    4 | #include <vulkan/vulkan.hpp>
+      |          ^~~~~~~~~~~~~~~~~~~
+In file included from ./rend/descriptors/descriptor_allocator.cpp:1:
+In file included from ./rend/descriptors/descriptor_allocator.hpp:3:
+./rend/descriptors/descriptor_pool.hpp:4:10: fatal error: 'vulkan/vulkan.hpp' file not found
+    4 | #include <vulkan/vulkan.hpp>
+      |          ^~~~~~~~~~~~~~~~~~~
+In file included from ./rend/descriptors/descriptor_set_layout.cpp:1:
+./rend/descriptors/descriptor_set_layout.hpp:4:10: fatal error: 'vulkan/vulkan.hpp' file not found
+    4 | #include <vulkan/vulkan.hpp>
+      |          ^~~~~~~~~~~~~~~~~~~
+In file included from ./rend/descriptors/descriptor_manager.cpp:1:
+./rend/descriptors/descriptor_manager.hpp:4:10: fatal error: 'vulkan/vulkan.hpp' file not found
+    4 | #include <vulkan/vulkan.hpp>
+      |          ^~~~~~~~~~~~~~~~~~~
+In file included from ./rend/render_pass/renderpass_manager.cpp:1:
+In file included from ./rend/render_pass/renderpass_manager.hpp:4:
+In file included from ./rend/render_pass/render_pass.hpp:3:
+In file included from ./rend/render_pass/../device/logical_device.hpp:5:
+In file included from ./rend/render_pass/../device/physical_device.hpp:5:
+./rend/render_pass/../device/../instance/instance.hpp:3:10: fatal error: 'vulkan/vulkan.hpp' file not found
+    3 | #include <vulkan/vulkan.hpp>
+      |          ^~~~~~~~~~~~~~~~~~~
+In file included from ./rend/render_pass/render_pass_creater.cpp:1:
+In file included from ./rend/render_pass/render_pass_creater.hpp:4:
+In file included from ./rend/render_pass/../device/logical_device.hpp:5:
+In file included from ./rend/render_pass/../device/physical_device.hpp:5:
+./rend/render_pass/../device/../instance/instance.hpp:3:10: fatal error: 'vulkan/vulkan.hpp' file not found
+    3 | #include <vulkan/vulkan.hpp>
+      |          ^~~~~~~~~~~~~~~~~~~
+In file included from ./rend/render_pass/render_pass.cpp:1:
+In file included from ./rend/render_pass/render_pass.hpp:3:
+In file included from ./rend/render_pass/../device/logical_device.hpp:5:
+In file included from ./rend/render_pass/../device/physical_device.hpp:5:
+./rend/render_pass/../device/../instance/instance.hpp:3:10: fatal error: 'vulkan/vulkan.hpp' file not found
+    3 | #include <vulkan/vulkan.hpp>
+      |          ^~~~~~~~~~~~~~~~~~~
+In file included from ./rend/model/model.cpp:1:
+In file included from ./rend/model/model.hpp:6:
+In file included from ./rend/model/../mesh/mesh.hpp:4:
+./rend/model/../mesh/../material/material.hpp:4:10: fatal error: 'vulkan/vulkan.hpp' file not found
+    4 | #include <vulkan/vulkan.hpp>
+      |          ^~~~~~~~~~~~~~~~~~~
+In file included from ./rend/model/model_manager.cpp:1:
+In file included from ./rend/model/model_manager.hpp:10:
+./rend/model/../material/material.hpp:4:10: fatal error: 'vulkan/vulkan.hpp' file not found
+    4 | #include <vulkan/vulkan.hpp>
+      |          ^~~~~~~~~~~~~~~~~~~
+find: ‘iwyu’ terminated by signal 11
+In file included from ./rend/model/load_funcs.cpp:1:
+In file included from ./rend/model/load_funcs.hpp:8:
+./rend/model/../material/material.hpp:4:10: fatal error: 'vulkan/vulkan.hpp' file not found
+    4 | #include <vulkan/vulkan.hpp>
+      |          ^~~~~~~~~~~~~~~~~~~
+./rend/model/stb_image.cpp:2:10: fatal error: 'stb_image.h' file not found
+    2 | #include "stb_image.h"
+      |          ^~~~~~~~~~~~~
+In file included from ./rend/instance/instance.cpp:1:
+./rend/instance/instance.hpp:3:10: fatal error: 'vulkan/vulkan.hpp' file not found
+    3 | #include <vulkan/vulkan.hpp>
+      |          ^~~~~~~~~~~~~~~~~~~
+In file included from ./rend/instance/validation_layers.cpp:1:
+./rend/instance/validation_layers.hpp:3:10: fatal error: 'vulkan/vulkan.hpp' file not found
+    3 | #include <vulkan/vulkan.hpp>
+      |          ^~~~~~~~~~~~~~~~~~~
+In file included from ./rend/camera/fly_camera.cpp:1:
+In file included from ./rend/camera/fly_camera.hpp:3:
+./rend/camera/interface_camera.hpp:4:10: fatal error: 'glm/glm.hpp' file not found
+    4 | #include "glm/glm.hpp"
+      |          ^~~~~~~~~~~~~
+In file included from ./rend/images/image_view.cpp:1:
+In file included from ./rend/images/image_view.hpp:3:
+In file included from ./rend/images/../device/logical_device.hpp:5:
+In file included from ./rend/images/../device/physical_device.hpp:5:
+./rend/images/../device/../instance/instance.hpp:3:10: fatal error: 'vulkan/vulkan.hpp' file not found
+    3 | #include <vulkan/vulkan.hpp>
+      |          ^~~~~~~~~~~~~~~~~~~
+In file included from ./rend/instancing/mesh_node_instancing.cpp:1:
+In file included from ./rend/instancing/mesh_node_instancing.hpp:5:
+In file included from ./rend/instancing/../model/model.hpp:6:
+In file included from ./rend/instancing/../model/../mesh/mesh.hpp:4:
+./rend/instancing/../model/../mesh/../material/material.hpp:4:10: fatal error: 'vulkan/vulkan.hpp' file not found
+    4 | #include <vulkan/vulkan.hpp>
+      |          ^~~~~~~~~~~~~~~~~~~
+In file included from ./rend/util_funcs.cpp:1:
+./rend/util_funcs.hpp:5:10: fatal error: 'glm/mat4x4.hpp' file not found
+    5 | #include "glm/mat4x4.hpp"
+      |          ^~~~~~~~~~~~~~~~
+In file included from ./rend/vertex/vertex.cpp:1:
+In file included from ./rend/vertex/vertex.hpp:7:
+./rend/vertex/all_attributes.hpp:6:10: fatal error: 'vulkan/vulkan.hpp' file not found
+    6 | #include <vulkan/vulkan.hpp>
+      |          ^~~~~~~~~~~~~~~~~~~
+
+(rend/vertex/all_attributes.cpp has correct #includes/fwd-decls)
+In file included from ./rend/pipelines/pipeline_creater.cpp:1:
+./rend/pipelines/pipeline_creater.hpp:3:10: fatal error: 'vulkan/vulkan.hpp' file not found
+    3 | #include <vulkan/vulkan.hpp>
+      |          ^~~~~~~~~~~~~~~~~~~
+In file included from ./rend/pipelines/pipeline.cpp:1:
+./rend/pipelines/pipeline.hpp:4:10: fatal error: 'vulkan/vulkan.hpp' file not found
+    4 | #include <vulkan/vulkan.hpp>
+      |          ^~~~~~~~~~~~~~~~~~~
+In file included from ./rend/pipelines/pipeline_layout_storage.cpp:1:
+In file included from ./rend/pipelines/pipeline_layout_storage.hpp:5:
+./rend/pipelines/../descriptors/descriptor_manager.hpp:4:10: fatal error: 'vulkan/vulkan.hpp' file not found
+    4 | #include <vulkan/vulkan.hpp>
+      |          ^~~~~~~~~~~~~~~~~~~
+In file included from ./rend/pipelines/dynamic_vieport_pipeline_creater.cpp:1:
+In file included from ./rend/pipelines/dynamic_vieport_pipeline_creater.hpp:3:
+./rend/pipelines/pipeline_creater.hpp:3:10: fatal error: 'vulkan/vulkan.hpp' file not found
+    3 | #include <vulkan/vulkan.hpp>
+      |          ^~~~~~~~~~~~~~~~~~~
+In file included from ./rend/pipelines/pipeline_manager.cpp:1:
+In file included from ./rend/pipelines/pipeline_manager.hpp:6:
+In file included from ./rend/pipelines/dynamic_vieport_pipeline_creater.hpp:3:
+./rend/pipelines/pipeline_creater.hpp:3:10: fatal error: 'vulkan/vulkan.hpp' file not found
+    3 | #include <vulkan/vulkan.hpp>
+      |          ^~~~~~~~~~~~~~~~~~~
+In file included from ./rend/device/physical_device.cpp:1:
+In file included from ./rend/device/physical_device.hpp:5:
+./rend/device/../instance/instance.hpp:3:10: fatal error: 'vulkan/vulkan.hpp' file not found
+    3 | #include <vulkan/vulkan.hpp>
+      |          ^~~~~~~~~~~~~~~~~~~
+In file included from ./rend/device/logical_device.cpp:1:
+In file included from ./rend/device/logical_device.hpp:5:
+In file included from ./rend/device/physical_device.hpp:5:
+./rend/device/../instance/instance.hpp:3:10: fatal error: 'vulkan/vulkan.hpp' file not found
+    3 | #include <vulkan/vulkan.hpp>
+      |          ^~~~~~~~~~~~~~~~~~~
+In file included from ./rend/scene.cpp:1:
+In file included from ./rend/scene.hpp:5:
+In file included from ./rend/buffers/gpu_buffer.hpp:2:
+./rend/buffers/../cmdbuf/command_buffer.hpp:4:10: fatal error: 'vulkan/vulkan.hpp' file not found
+    4 | #include <vulkan/vulkan.hpp>
+      |          ^~~~~~~~~~~~~~~~~~~
+find: ‘iwyu’ terminated by signal 11
+In file included from ./rend/render/vertex_shader_data.cpp:1:
+In file included from ./rend/render/vertex_shader_data.hpp:5:
+In file included from ./rend/render/../buffers/storage_buffer.hpp:2:
+./rend/render/../buffers/buffer.hpp:4:10: fatal error: 'vulkan/vulkan.hpp' file not found
+    4 | #include <vulkan/vulkan.hpp>
+      |          ^~~~~~~~~~~~~~~~~~~
+In file included from ./rend/render/renderer.cpp:1:
+In file included from ./rend/render/renderer.hpp:5:
+./rend/render/../camera/interface_camera.hpp:4:10: fatal error: 'glm/glm.hpp' file not found
+    4 | #include "glm/glm.hpp"
+      |          ^~~~~~~~~~~~~
+./rend/render/synchronization_data.cpp:1:9: warning: #pragma once in main file [-Wpragma-once-outside-header]
+    1 | #pragma once
+      |         ^
+In file included from ./rend/render/synchronization_data.cpp:2:
+In file included from ./rend/render/synchronization_data.hpp:3:
+In file included from ./rend/render/../device/logical_device.hpp:5:
+In file included from ./rend/render/../device/physical_device.hpp:5:
+./rend/render/../device/../instance/instance.hpp:3:10: fatal error: 'vulkan/vulkan.hpp' file not found
+    3 | #include <vulkan/vulkan.hpp>
+      |          ^~~~~~~~~~~~~~~~~~~
+In file included from ./rend/render/descriptor_writer.cpp:1:
+In file included from ./rend/render/descriptor_writer.hpp:4:
+In file included from ./rend/render/../descriptors/descriptor_allocator.hpp:3:
+./rend/render/../descriptors/descriptor_pool.hpp:4:10: fatal error: 'vulkan/vulkan.hpp' file not found
+    4 | #include <vulkan/vulkan.hpp>
+      |          ^~~~~~~~~~~~~~~~~~~
+In file included from ./rend/swap_chain/swap_chain_frame.cpp:1:
+In file included from ./rend/swap_chain/swap_chain_frame.hpp:5:
+./rend/swap_chain/../cmdbuf/command_buffer.hpp:4:10: fatal error: 'vulkan/vulkan.hpp' file not found
+    4 | #include <vulkan/vulkan.hpp>
+      |          ^~~~~~~~~~~~~~~~~~~
+In file included from ./rend/swap_chain/swap_chain.cpp:1:
+In file included from ./rend/swap_chain/swap_chain.hpp:2:
+In file included from ./rend/swap_chain/../device/logical_device.hpp:5:
+In file included from ./rend/swap_chain/../device/physical_device.hpp:5:
+./rend/swap_chain/../device/../instance/instance.hpp:3:10: fatal error: 'vulkan/vulkan.hpp' file not found
+    3 | #include <vulkan/vulkan.hpp>
+      |          ^~~~~~~~~~~~~~~~~~~
+In file included from ./rend/cmdbuf/command_pool.cpp:1:
+./rend/cmdbuf/command_pool.hpp:3:10: fatal error: 'vulkan/vulkan.hpp' file not found
+    3 | #include <vulkan/vulkan.hpp>
+      |          ^~~~~~~~~~~~~~~~~~~
+In file included from ./rend/cmdbuf/command_buffer.cpp:1:
+./rend/cmdbuf/command_buffer.hpp:4:10: fatal error: 'vulkan/vulkan.hpp' file not found
+    4 | #include <vulkan/vulkan.hpp>
+      |          ^~~~~~~~~~~~~~~~~~~
+In file included from ./rend/mesh/mesh.cpp:1:
+In file included from ./rend/mesh/mesh.hpp:4:
+./rend/mesh/../material/material.hpp:4:10: fatal error: 'vulkan/vulkan.hpp' file not found
+    4 | #include <vulkan/vulkan.hpp>
+      |          ^~~~~~~~~~~~~~~~~~~
+In file included from ./rend/material/material.cpp:1:
+./rend/material/material.hpp:4:10: fatal error: 'vulkan/vulkan.hpp' file not found
+    4 | #include <vulkan/vulkan.hpp>
+      |          ^~~~~~~~~~~~~~~~~~~
+In file included from ./rend/material/material_creater.cpp:1:
+In file included from ./rend/material/material_creater.hpp:3:
+./rend/material/../descriptors/descriptor_manager.hpp:4:10: fatal error: 'vulkan/vulkan.hpp' file not found
+    4 | #include <vulkan/vulkan.hpp>
+      |          ^~~~~~~~~~~~~~~~~~~
+In file included from ./rend/material/pbrparams.cpp:1:
+In file included from ./rend/material/pbrparams.hpp:3:
+./rend/material/../textures/texture.hpp:4:10: fatal error: 'vulkan/vulkan.hpp' file not found
+    4 | #include <vulkan/vulkan.hpp>
+      |          ^~~~~~~~~~~~~~~~~~~
+In file included from ./rend/buffers/buffer.cpp:1:
+./rend/buffers/buffer.hpp:4:10: fatal error: 'vulkan/vulkan.hpp' file not found
+    4 | #include <vulkan/vulkan.hpp>
+      |          ^~~~~~~~~~~~~~~~~~~
+In file included from ./rend/buffers/uniform_buffer.cpp:1:
+In file included from ./rend/buffers/uniform_buffer.hpp:3:
+./rend/buffers/buffer.hpp:4:10: fatal error: 'vulkan/vulkan.hpp' file not found
+    4 | #include <vulkan/vulkan.hpp>
+      |          ^~~~~~~~~~~~~~~~~~~
+In file included from ./rend/buffers/gpu_buffer.cpp:1:
+In file included from ./rend/buffers/gpu_buffer.hpp:2:
+./rend/buffers/../cmdbuf/command_buffer.hpp:4:10: fatal error: 'vulkan/vulkan.hpp' file not found
+    4 | #include <vulkan/vulkan.hpp>
+      |          ^~~~~~~~~~~~~~~~~~~
+In file included from ./rend/buffers/staging_buffer.cpp:1:
+In file included from ./rend/buffers/staging_buffer.hpp:3:
+./rend/buffers/buffer.hpp:4:10: fatal error: 'vulkan/vulkan.hpp' file not found
+    4 | #include <vulkan/vulkan.hpp>
+      |          ^~~~~~~~~~~~~~~~~~~
+In file included from ./rend/buffers/index_buffer.cpp:1:
+In file included from ./rend/buffers/index_buffer.hpp:6:
+./rend/buffers/buffer.hpp:4:10: fatal error: 'vulkan/vulkan.hpp' file not found
+    4 | #include <vulkan/vulkan.hpp>
+      |          ^~~~~~~~~~~~~~~~~~~
+In file included from ./rend/buffers/storage_buffer.cpp:1:
+In file included from ./rend/buffers/storage_buffer.hpp:2:
+./rend/buffers/buffer.hpp:4:10: fatal error: 'vulkan/vulkan.hpp' file not found
+    4 | #include <vulkan/vulkan.hpp>
+      |          ^~~~~~~~~~~~~~~~~~~
+In file included from ./rend/shaders/shader_manager.cpp:1:
+./rend/shaders/shader_manager.hpp:3:10: fatal error: 'vulkan/vulkan.hpp' file not found
+    3 | #include <vulkan/vulkan.hpp>
+      |          ^~~~~~~~~~~~~~~~~~~
+In file included from ./rend/shaders/shader_module.cpp:1:
+In file included from ./rend/shaders/shader_module.hpp:5:
+In file included from ./rend/shaders/../device/logical_device.hpp:5:
+In file included from ./rend/shaders/../device/physical_device.hpp:5:
+./rend/shaders/../device/../instance/instance.hpp:3:10: fatal error: 'vulkan/vulkan.hpp' file not found
+    3 | #include <vulkan/vulkan.hpp>
+      |          ^~~~~~~~~~~~~~~~~~~
+In file included from ./rend/textures/texture.cpp:1:
+./rend/textures/texture.hpp:4:10: fatal error: 'vulkan/vulkan.hpp' file not found
+    4 | #include <vulkan/vulkan.hpp>
+      |          ^~~~~~~~~~~~~~~~~~~
+
+rend/textures/texture_data.hpp should add these lines:
+#include <stddef.h>    // for size_t
+
+rend/textures/texture_data.hpp should remove these lines:
+- #include <cstdint>  // lines 3-3
+
+The full include-list for rend/textures/texture_data.hpp:
+#include <stddef.h>    // for size_t
+#include <functional>  // for function
+---
+
+rend/textures/texture_data.cpp should add these lines:
+#include <utility>  // for move
+
+rend/textures/texture_data.cpp should remove these lines:
+
+The full include-list for rend/textures/texture_data.cpp:
+#include "texture_data.hpp"
+#include <utility>  // for move
+---
+In file included from ./rend/textures/image.cpp:1:
+./rend/textures/image.hpp:4:10: fatal error: 'vulkan/vulkan.hpp' file not found
+    4 | #include <vulkan/vulkan.hpp>
+      |          ^~~~~~~~~~~~~~~~~~~
+In file included from ./rend/textures/texture_data_storage.cpp:1:
+./rend/textures/texture_data_storage.hpp:4:10: fatal error: 'glm/vec2.hpp' file not found
+    4 | #include "glm/vec2.hpp"
+      |          ^~~~~~~~~~~~~~
+In file included from ./rend/textures/texture_storage.cpp:1:
+In file included from ./rend/textures/texture_storage.hpp:6:
+In file included from ./rend/textures/../device/logical_device.hpp:5:
+In file included from ./rend/textures/../device/physical_device.hpp:5:
+./rend/textures/../device/../instance/instance.hpp:3:10: fatal error: 'vulkan/vulkan.hpp' file not found
+    3 | #include <vulkan/vulkan.hpp>
+      |          ^~~~~~~~~~~~~~~~~~~
+find: ‘iwyu’ terminated by signal 11
+In file included from ./rend/textures/texture_creater.cpp:1:
+In file included from ./rend/textures/texture_creater.hpp:4:
+./rend/textures/texture.hpp:4:10: fatal error: 'vulkan/vulkan.hpp' file not found
+    4 | #include <vulkan/vulkan.hpp>
+      |          ^~~~~~~~~~~~~~~~~~~
+find: ‘iwyu’ terminated by signal 11
+./gui/events/key.cpp:3:10: fatal error: 'GLFW/glfw3.h' file not found
+    3 | #include <GLFW/glfw3.h>
+      |          ^~~~~~~~~~~~~~
+find: ‘iwyu’ terminated by signal 11
+In file included from ./gui/events/glfw_event_manager.cpp:1:
+In file included from ./gui/events/glfw_event_manager.hpp:6:
+./gui/events/event.hpp:6:10: fatal error: 'glm/vec2.hpp' file not found
+    6 | #include "glm/vec2.hpp"
+      |          ^~~~~~~~~~~~~~
+In file included from ./gui/events/event_handler.cpp:1:
+In file included from ./gui/events/event_handler.hpp:3:
+./gui/events/../../rend/camera/interface_camera.hpp:4:10: fatal error: 'glm/glm.hpp' file not found
+    4 | #include "glm/glm.hpp"
+      |          ^~~~~~~~~~~~~
+In file included from ./gui/window/glfw_window.cpp:1:
+In file included from ./gui/window/glfw_window.hpp:5:
+./gui/window/interface_window.hpp:4:10: fatal error: 'vulkan/vulkan.hpp' file not found
+    4 | #include <vulkan/vulkan.hpp>
+      |          ^~~~~~~~~~~~~~~~~~~
+
+(gui/mouse/mouse.cpp has correct #includes/fwd-decls)

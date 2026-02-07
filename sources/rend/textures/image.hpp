@@ -36,7 +36,7 @@ public:
 
     vk::ImageMemoryBarrier memoryBarrier() const;
 
-    void getDataFromBuffer(const vk::Buffer& buffer,
+    void copyBufferToImage(const vk::Buffer& buffer,
                            const vk::CommandBuffer& command_buffer,
                            const vk::BufferImageCopy& region);
 

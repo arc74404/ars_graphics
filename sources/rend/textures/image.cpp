@@ -95,7 +95,7 @@ Image::memoryBarrier() const
 }
 
 void
-Image::getDataFromBuffer(const vk::Buffer& buffer,
+Image::copyBufferToImage(const vk::Buffer& buffer,
                          const vk::CommandBuffer& command_buffer,
                          const vk::BufferImageCopy& region)
 {
