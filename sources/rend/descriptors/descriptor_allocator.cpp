@@ -16,25 +16,22 @@ DescriptorAllocator::DescriptorAllocator(
 const vk::DescriptorSetLayout&
 DescriptorAllocator::layout() const
 {
-    return m_layout.descriptorSetLayout();
+    return m_layout.get();
 }
 
-bool
+std::optional<vk::UniqueDescriptorSet>
 DescriptorAllocator::allocate(const LogicalDevice& device,
                               vk::UniqueDescriptorSet& set) const
 {
-    vk::DescriptorSetAllocateInfo alloc_info(m_pool.descriptorPool(), 1,
-                                             &m_layout.descriptorSetLayout());
+    vk::DescriptorSetAllocateInfo alloc_info(m_pool.get(), 1, &m_layout.get());
 
     auto&& res = device.get().allocateDescriptorSetsUnique(alloc_info);
 
     if (res.result != vk::Result::eSuccess)
     {
-        return false;
+        return std::nullopt;
     }
 
-    set = std::move(res.value[0]);
-
-    return true;
+    return std::move(res.value[0]);
 }
 } // namespace ars_graphics

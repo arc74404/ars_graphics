@@ -15,10 +15,9 @@ public:
 
     const vk::DescriptorSetLayout& layout() const;
 
-    bool allocate(const LogicalDevice& device,
-                  vk::UniqueDescriptorSet& set) const;
-
-    // bool allocate(const LogicalDevice& device, vk::DescriptorSet& set) const;
+    std::optional<vk::UniqueDescriptorSet> allocate(
+        const LogicalDevice& device,
+        vk::UniqueDescriptorSet& set) const;
 
 private:
     DescriptorSetLayout m_layout;

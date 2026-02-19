@@ -21,11 +21,10 @@ public:
               uint32_t first_vertex,
               uint32_t first_instance) const noexcept;
 
-    vk::Result setData(const LogicalDevice& logical_device,
-                       const PhysicalDevice& physical_device,
-                       const void* data,
-                       vk::DeviceSize byte_size) override;
-
 private:
+    vk::Result setDataImpl(const LogicalDevice& logical_device,
+                           const PhysicalDevice& physical_device,
+                           const void* data,
+                           vk::DeviceSize byte_size) override;
 };
 }; // namespace ars_graphics

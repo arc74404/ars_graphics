@@ -8,7 +8,7 @@ namespace ars_graphics
 
 // const //
 
-vk::Buffer
+const vk::Buffer&
 Buffer::get() const noexcept
 {
     return m_buffer.get();
@@ -41,7 +41,7 @@ Buffer::checkBufferSize(const LogicalDevice& logical_device,
 }
 
 void
-Buffer::unmap(const LogicalDevice& logical_device)
+Buffer::unmap(const LogicalDevice& logical_device) noexcept
 {
     if (m_is_mapped && m_memory)
     {
@@ -196,6 +196,15 @@ Buffer::setData(const LogicalDevice& logical_device,
                 const PhysicalDevice& physical_device,
                 const void* data,
                 vk::DeviceSize byte_size)
+{
+    return setDataImpl(logical_device, physical_device, data, byte_size);
+}
+
+vk::Result
+Buffer::setDataImpl(const LogicalDevice& logical_device,
+                    const PhysicalDevice& physical_device,
+                    const void* data,
+                    vk::DeviceSize byte_size)
 {
     FAILED_RESULT_RETURN(
         checkBufferSize(logical_device, physical_device, byte_size),

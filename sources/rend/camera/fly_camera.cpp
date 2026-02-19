@@ -10,33 +10,28 @@
 namespace ars_graphics
 {
 
-glm::vec3 FlyCamera::m_world_up = glm::vec3(0.f, 1.f, 0.f);
-
 void
-FlyCamera::processMouseScroll(float yoffset)
+FlyCamera::processMouseScrollImpl(float yoffset)
 {
     m_zoom -= yoffset;
 
     m_zoom = std::clamp(m_zoom, 0.f, 89.f);
 }
 
-FlyCamera::FlyCamera(uint32_t width, uint32_t height)
-    : m_front(glm::vec3(0.0f, 0.0f, -1.0f)),
-      m_movement_speed(3.5f),
-      m_zoom(45.0f),
-      m_position{0.f, 0.f, 3.f},
-      m_yaw{-90.f},
-      m_pitch{0.f},
+FlyCamera::FlyCamera(uint32_t width,
+                     uint32_t height,
+                     const FlyCameraSettings& setings)
+    : m_settings(setings),
       m_aspect_ratio(static_cast<float>(width) / static_cast<float>(height))
 {
 }
 
 void
-FlyCamera::processKeyboard(Key key, KeyStatus status, double delta_time)
+FlyCamera::processKeyboardImpl(Key key, KeyStatus status, double delta_time)
 {
     m_need_recalculation = true;
 
-    float velocity = m_movement_speed * delta_time;
+    float velocity = m_settings.m_movement_speed * delta_time;
 
     switch (key)
     {
@@ -57,11 +52,11 @@ FlyCamera::processKeyboard(Key key, KeyStatus status, double delta_time)
             m_need_recalculation = true;
             break;
         case Key::SPACE:
-            m_position.y += velocity * 3;
+            m_position.y += velocity * m_settings.m_up_down_speed;
             m_need_recalculation = true;
             break;
         case Key::LEFT_CONTROL:
-            m_position.y -= velocity * 3;
+            m_position.y -= velocity * m_settings.m_up_down_speed;
             m_need_recalculation = true;
             break;
         default:
@@ -70,20 +65,20 @@ FlyCamera::processKeyboard(Key key, KeyStatus status, double delta_time)
 }
 
 void
-FlyCamera::processMouseMovement(const glm::vec2& shift,
-                                double delta_time,
-                                bool constrain_pitch)
+FlyCamera::processMouseMovementImpl(const glm::vec2& shift,
+                                    double delta_time,
+                                    bool constrain_pitch)
 {
     m_need_recalculation = true;
-    m_yaw += shift.x * m_view_shift_speed * delta_time;
-    m_pitch -= shift.y * m_view_shift_speed * delta_time;
+    m_yaw += shift.x * m_settings.m_view_shift_speed * delta_time;
+    m_pitch -= shift.y * m_settings.m_view_shift_speed * delta_time;
 
     if (constrain_pitch && m_pitch > 89.0f) m_pitch = 89.0f;
     if (constrain_pitch && m_pitch < -89.0f) m_pitch = -89.0f;
 }
 
 glm::mat4
-FlyCamera::recalculate()
+FlyCamera::recalculateImpl()
 {
     m_need_recalculation = false;
     glm::vec3 front;
@@ -92,14 +87,15 @@ FlyCamera::recalculate()
     front.z = sin(glm::radians(m_yaw)) * cos(glm::radians(m_pitch));
     m_front = glm::normalize(front);
 
-    m_right = glm::normalize(glm::cross(m_front, m_world_up));
-    m_up    = glm::normalize(glm::cross(m_right, m_front));
+    m_right      = glm::normalize(glm::cross(m_front, m_settings.m_world_up));
+    glm::vec3 up = glm::normalize(glm::cross(m_right, m_front));
 
-    glm::mat4 projection = glm::perspective(
-        glm::radians(m_zoom), m_aspect_ratio, m_near_plane, m_far_plane);
+    glm::mat4 projection =
+        glm::perspective(glm::radians(m_zoom), m_aspect_ratio,
+                         m_settings.m_near_plane, m_settings.m_far_plane);
 
     projection[1][1] *= -1;
 
-    return projection * glm::lookAt(m_position, m_position + m_front, m_up);
+    return projection * glm::lookAt(m_position, m_position + m_front, up);
 }
 } // namespace ars_graphics

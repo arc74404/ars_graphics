@@ -12,12 +12,13 @@ CommandPool::CommandPool(const LogicalDevice& logical_device,
 {
     auto queue_family_indices = physical_device.getQueueFamilyIndices();
 
-    vk::CommandPoolCreateInfo poolInfo;
-    poolInfo.flags = vk::CommandPoolCreateFlags() |
-                     vk::CommandPoolCreateFlagBits::eResetCommandBuffer;
-    poolInfo.queueFamilyIndex = queue_family_indices.graphics_family.value();
+    vk::CommandPoolCreateInfo pool_info;
+    pool_info.flags = vk::CommandPoolCreateFlags() |
+                      vk::CommandPoolCreateFlagBits::eResetCommandBuffer;
 
-    auto&& res = logical_device.get().createCommandPoolUnique(poolInfo);
+    pool_info.queueFamilyIndex = queue_family_indices.graphics_family.value();
+
+    auto&& res = logical_device.get().createCommandPoolUnique(pool_info);
 
     if (res.result != vk::Result::eSuccess)
     {

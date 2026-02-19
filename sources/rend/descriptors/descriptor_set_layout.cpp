@@ -40,7 +40,7 @@ DescriptorSetLayout::DescriptorSetLayout(
 }
 
 const vk::DescriptorSetLayout&
-DescriptorSetLayout::descriptorSetLayout() const
+DescriptorSetLayout::get() const
 {
     return m_descriptor_set_layout.get();
 }

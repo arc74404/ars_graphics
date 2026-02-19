@@ -1,7 +1,6 @@
 #pragma once
-#define VULKAN_HPP_NO_EXCEPTIONS
-#include <vulkan/vulkan.hpp>
 
+#include "../../libs_includes/vulkan.hpp"
 #include "../device/logical_device.hpp"
 
 namespace ars_graphics
@@ -9,7 +8,7 @@ namespace ars_graphics
 
 class Device;
 
-class CommandPool
+class CommandPool final
 {
 public:
     CommandPool(const LogicalDevice& logical_device,

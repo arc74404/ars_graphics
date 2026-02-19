@@ -2,8 +2,8 @@
 
 #include <iostream>
 
-#include "../../defines.hpp"
 #include "../cmdbuf/command_buffer.hpp"
+#include "../defines.hpp"
 
 namespace ars_graphics
 {
@@ -33,10 +33,10 @@ GpuVertexBuffer::draw(vk::CommandBuffer command_buffer,
 }
 
 vk::Result
-setData(const LogicalDevice& logical_device,
-        const PhysicalDevice& physical_device,
-        const void* data,
-        vk::DeviceSize byte_size)
+GpuVertexBuffer::setDataImpl(const LogicalDevice& logical_device,
+                             const PhysicalDevice& physical_device,
+                             const void* data,
+                             vk::DeviceSize byte_size)
 {
     CommandBuffer command_buffer{logical_device};
 

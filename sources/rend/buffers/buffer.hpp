@@ -34,19 +34,28 @@ public:
                                         uint32_t h);
     // const //
 
-    vk::Buffer get() const noexcept;
+    // vk::Buffer get() const noexcept;
 
-    vk::DeviceSize getByteSize() const noexcept;
+    // vk::DeviceSize getByteSize() const noexcept;
 
     // ---------- //
 
     Buffer(vk::BufferUsageFlags buffer_usage_flags,
            vk::MemoryPropertyFlags requested_properties);
 
-    virtual vk::Result setData(const LogicalDevice& logical_device,
-                               const PhysicalDevice& physical_device,
-                               const void* data,
-                               vk::DeviceSize byte_size);
+    vk::Result setData(const LogicalDevice& logical_device,
+                       const PhysicalDevice& physical_device,
+                       const void* data,
+                       vk::DeviceSize byte_size);
+
+protected:
+    virtual vk::Result setDataImpl(const LogicalDevice& logical_device,
+                                   const PhysicalDevice& physical_device,
+                                   const void* data,
+                                   vk::DeviceSize byte_size);
+    const vk::Buffer& get() const noexcept;
+
+    vk::DeviceSize getByteSize() const noexcept;
 
 private:
     vk::Result recreate(const LogicalDevice& logical_device,

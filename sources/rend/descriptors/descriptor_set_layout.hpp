@@ -1,19 +1,17 @@
 #pragma once
 
-#define VULKAN_HPP_NO_EXCEPTIONS
-#include <vulkan/vulkan.hpp>
-
 #include <vector>
 
+#include "../../libs_includes/vulkan.hpp"
 #include "../device/logical_device.hpp"
 
 namespace ars_graphics
 {
 struct DescriptorBindingData
 {
-    int binding_index;
+    uint8_t binding_index;
     vk::DescriptorType type;
-    int count;
+    uint8_t count;
     vk::ShaderStageFlags stage;
 };
 
@@ -23,7 +21,7 @@ public:
     DescriptorSetLayout(const LogicalDevice& device,
                         const std::vector<DescriptorBindingData>& data);
 
-    const vk::DescriptorSetLayout& descriptorSetLayout() const;
+    const vk::DescriptorSetLayout& get() const;
 
 private:
     vk::UniqueDescriptorSetLayout m_descriptor_set_layout;
