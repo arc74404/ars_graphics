@@ -1,4 +1,4 @@
-#include "pbrparams.hpp"
+#include "material_data.hpp"
 
 namespace ars_graphics
 {

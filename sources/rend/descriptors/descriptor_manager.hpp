@@ -17,7 +17,7 @@ public:
     {
     }
 
-    bool addAllocator(const T& allocator_key,
+    bool addAllocator(const KeyT& allocator_key,
                       const LogicalDevice& device,
                       const std::vector<DescriptorBindingData>& bindings,
                       uint32_t max_sets,
@@ -28,7 +28,7 @@ public:
     }
 
     std::optional<const DescriptorAllocator&> getAllocator(
-        const T& allocator_key) const
+        const KeyT& allocator_key) const
     {
         auto&& find_it = m_descriptor_allocator_storage.find(allocator_key);
 

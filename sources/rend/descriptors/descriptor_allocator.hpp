@@ -8,19 +8,15 @@ namespace ars_graphics
 class DescriptorAllocator final
 {
 public:
-    DescriptorAllocator(const LogicalDevice& device,
+    DescriptorAllocator(vk::Device device,
                         const std::vector<DescriptorBindingData>& bindings,
                         uint32_t max_sets,
                         uint32_t desc_count);
 
-    const vk::DescriptorSetLayout& layout() const;
-
-    std::optional<vk::UniqueDescriptorSet> allocate(
-        const LogicalDevice& device,
-        vk::UniqueDescriptorSet& set) const;
+    std::optional<vk::UniqueDescriptorSet> allocate(vk::Device device) const;
 
 private:
-    DescriptorSetLayout m_layout;
-    DescriptorPool m_pool;
+    vk::UniqueDescriptorSetLayout m_layout;
+    vk::UniqueDescriptorPool m_pool;
 };
 } // namespace ars_graphics

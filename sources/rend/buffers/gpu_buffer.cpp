@@ -2,15 +2,15 @@
 
 #include <iostream>
 
-#include "../cmdbuf/command_buffer.hpp"
 #include "../defines.hpp"
 
 namespace ars_graphics
 {
-GpuVertexBuffer::GpuVertexBuffer()
+GpuVertexBuffer::GpuVertexBuffer(vk::CommandBuffer cmd)
     : Buffer(vk::BufferUsageFlagBits::eVertexBuffer |
                  vk::BufferUsageFlagBits::eTransferDst,
-             vk::MemoryPropertyFlagBits::eDeviceLocal)
+             vk::MemoryPropertyFlagBits::eDeviceLocal),
+      m_cmd(cmd)
 {
 }
 
@@ -38,7 +38,6 @@ GpuVertexBuffer::setDataImpl(const LogicalDevice& logical_device,
                              const void* data,
                              vk::DeviceSize byte_size)
 {
-    CommandBuffer command_buffer{logical_device};
 
     StagingBuffer staging_buffer;
     FAILED_RESULT_RETURN(staging_buffer.setData(logical_device, physical_device,
@@ -48,8 +47,7 @@ GpuVertexBuffer::setDataImpl(const LogicalDevice& logical_device,
     ars_graphics::Buffer& this_buffer = *this;
 
     Buffer::copyBuffer(logical_device, physical_device, staging_buffer,
-                       this_buffer, logical_device.getQueue("graphics"),
-                       command_buffer.get());
+                       this_buffer, logical_device.getQueue("graphics"), m_cmd);
 
     return vk::Result::eSuccess;
 }

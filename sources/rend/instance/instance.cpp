@@ -6,14 +6,14 @@
 
 namespace ars_graphics
 {
-Instance::~Instance()
+Instance::~Instance() noexcept
 {
     dldi.vkDestroyDebugUtilsMessengerEXT(m_instance.get(), m_debug_messenger,
                                          nullptr);
 }
 
-const vk::Instance&
-Instance::get() const
+Instance::
+operator vk::Instance() const noexcept
 {
     return m_instance.get();
 }
@@ -32,6 +32,7 @@ Instance::getAvailablePhysicalDevices() const
 Instance::Instance(std::string_view name)
 {
     createInstance(name);
+
     auto vkGetInstanceProcAddr =
         dl.getProcAddress<PFN_vkGetInstanceProcAddr>("vkGetInstanceProcAddr");
     dldi.init(m_instance.get(), vkGetInstanceProcAddr);

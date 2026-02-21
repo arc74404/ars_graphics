@@ -5,27 +5,28 @@
 namespace ars_graphics
 {
 DescriptorAllocator::DescriptorAllocator(
-    const LogicalDevice& device,
+    vk::Device device,
     const std::vector<DescriptorBindingData>& bindings,
     uint32_t max_sets,
     uint32_t desc_count)
-    : m_layout(device, bindings), m_pool(device, bindings, max_sets, desc_count)
 {
-}
+    auto&& layout = createDescriptorSetLayout(device, bindings);
+    auto&& pool = createDescriptorPool(device, bindings, max_sets, desc_count);
 
-const vk::DescriptorSetLayout&
-DescriptorAllocator::layout() const
-{
-    return m_layout.get();
+    if (false == (layout.has_value() && pool.has_value()))
+    {
+        throw std::runtime_error("failed to create DescriptorAllocator");
+    }
+    m_layout = std::move(layout.value());
+    m_pool   = std::move(pool.value());
 }
 
 std::optional<vk::UniqueDescriptorSet>
-DescriptorAllocator::allocate(const LogicalDevice& device,
-                              vk::UniqueDescriptorSet& set) const
+DescriptorAllocator::allocate(vk::Device device) const
 {
     vk::DescriptorSetAllocateInfo alloc_info(m_pool.get(), 1, &m_layout.get());
 
-    auto&& res = device.get().allocateDescriptorSetsUnique(alloc_info);
+    auto&& res = device.allocateDescriptorSetsUnique(alloc_info);
 
     if (res.result != vk::Result::eSuccess)
     {

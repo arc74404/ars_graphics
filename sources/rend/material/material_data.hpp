@@ -48,4 +48,20 @@ struct PBRParameters
 
     const Texture* m_metallic_roughness_map{};
 };
+
+enum class AlphaMode
+{
+    MASK,
+    BLEND,
+    TOTAL_OPAQUE
+};
+
+struct MaterialData
+{
+    PBRParameters m_pbrparams{};
+    AlphaMode m_alpha_mode{};
+    float m_alpha_cutoff{};
+    bool m_double_sided{};
+};
+
 } // namespace ars_graphics

@@ -17,14 +17,14 @@ public:
     virtual ~Buffer() noexcept                 = default;
     // ---------- //
 
-    static vk::Result copyBuffer(const LogicalDevice& logical_device,
+    static vk::Result copyBuffer(vk::Device logical_device,
                                  const PhysicalDevice& physical_device,
                                  const Buffer& src_buffer,
                                  Buffer& dst_buffer,
                                  vk::Queue queue,
                                  vk::CommandBuffer command_buffer);
 
-    static vk::Result copyBufferToImage(const LogicalDevice& logical_device,
+    static vk::Result copyBufferToImage(vk::Device logical_device,
                                         const PhysicalDevice& physical_device,
                                         const Buffer& src_buffer,
                                         Image& dst_image,
@@ -48,26 +48,27 @@ public:
                        const void* data,
                        vk::DeviceSize byte_size);
 
+    operator vk::Buffer() const noexcept;
+    
+    vk::DeviceSize getByteSize() const noexcept;
+
 protected:
     virtual vk::Result setDataImpl(const LogicalDevice& logical_device,
                                    const PhysicalDevice& physical_device,
                                    const void* data,
                                    vk::DeviceSize byte_size);
-    const vk::Buffer& get() const noexcept;
-
-    vk::DeviceSize getByteSize() const noexcept;
 
 private:
-    vk::Result recreate(const LogicalDevice& logical_device,
+    vk::Result recreate(vk::Device logical_device,
                         const PhysicalDevice& physical_device,
                         vk::DeviceSize size);
-    vk::Result allocateBufferMemory(const LogicalDevice& logical_device,
+    vk::Result allocateBufferMemory(vk::Device logical_device,
                                     const PhysicalDevice& physical_device);
-    vk::Result checkBufferSize(const LogicalDevice& logical_device,
+    vk::Result checkBufferSize(vk::Device logical_device,
                                const PhysicalDevice& physical_device,
                                vk::DeviceSize required_size);
 
-    void unmap(const LogicalDevice& logical_device) noexcept;
+    void unmap(vk::Device logical_device) noexcept;
 
     vk::UniqueBuffer m_buffer;
 

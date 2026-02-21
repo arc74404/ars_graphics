@@ -1,11 +1,10 @@
 #include "image_view.hpp"
 
-namespace ars_graphics
-{
-ImageView::ImageView(const LogicalDevice& logical_device,
-                     const vk::Image& image,
-                     const vk::Format& format,
-                     const vk::ImageAspectFlags& image_aspects_flags)
+std::optional<vk::UniqueImageView>
+ars_graphics::createImageView(vk::Device logical_device,
+                              const vk::Image& image,
+                              const vk::Format& format,
+                              const vk::ImageAspectFlags& image_aspects_flags)
 {
     vk::ImageViewCreateInfo create_image_view_info{};
     create_image_view_info.image        = image;
@@ -21,18 +20,10 @@ ImageView::ImageView(const LogicalDevice& logical_device,
     create_image_view_info.subresourceRange.baseArrayLayer = 0;
     create_image_view_info.subresourceRange.layerCount     = 1;
 
-    auto&& res =
-        logical_device.get().createImageViewUnique(create_image_view_info);
+    auto&& res = logical_device.createImageViewUnique(create_image_view_info);
     if (res.result != vk::Result::eSuccess)
     {
-        throw std::runtime_error("Failed create image view");
+        return std::nullopt;
     }
-    m_view = std::move(res.value);
+    return std::move(res.value);
 }
-vk::ImageView
-ImageView::get() const
-{
-    return m_view.get();
-}
-
-} // namespace ars_graphics

@@ -12,16 +12,16 @@ namespace ars_graphics
 struct ModelNode final
 {
 
-    bool isRoot() const
-    {
-        return (m_parent_index == -1);
-    }
+    // bool isRoot() const
+    // {
+    //     return (m_parent_index == -1);
+    // }
 
     int m_mesh_index = -1;
 
     glm::mat4 m_local_transform = glm::mat4(1.0f);
 
-    int m_parent_index = -1;
+    // int m_parent_index = -1;
 
     std::vector<int> m_children_indices;
 };

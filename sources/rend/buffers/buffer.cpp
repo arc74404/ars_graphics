@@ -7,9 +7,8 @@ namespace ars_graphics
 {
 
 // const //
-
-const vk::Buffer&
-Buffer::get() const noexcept
+Buffer::
+operator vk::Buffer() const noexcept
 {
     return m_buffer.get();
 }
@@ -27,8 +26,9 @@ Buffer::Buffer(vk::BufferUsageFlags buffer_usage_flags,
       m_requested_properties(requested_properties)
 {
 }
+
 vk::Result
-Buffer::checkBufferSize(const LogicalDevice& logical_device,
+Buffer::checkBufferSize(vk::Device logical_device,
                         const PhysicalDevice& physical_device,
                         vk::DeviceSize required_size)
 {
@@ -41,40 +41,40 @@ Buffer::checkBufferSize(const LogicalDevice& logical_device,
 }
 
 void
-Buffer::unmap(const LogicalDevice& logical_device) noexcept
+Buffer::unmap(vk::Device logical_device) noexcept
 {
     if (m_is_mapped && m_memory)
     {
         m_mapped_memory = nullptr;
         m_is_mapped     = false;
         m_byte_size     = 0;
-        logical_device.get().unmapMemory(m_memory.get());
+        logical_device.unmapMemory(m_memory.get());
     }
 }
 
 vk::Result
-Buffer::allocateBufferMemory(const LogicalDevice& logical_device,
+Buffer::allocateBufferMemory(vk::Device logical_device,
                              const PhysicalDevice& physical_device)
 {
     vk::MemoryRequirements memory_requirements =
-        logical_device.get().getBufferMemoryRequirements(m_buffer.get());
+        logical_device.getBufferMemoryRequirements(m_buffer.get());
 
     vk::MemoryAllocateInfo alloc_info;
     alloc_info.allocationSize  = memory_requirements.size;
     alloc_info.memoryTypeIndex = physical_device.findMemoryTypeIndex(
         memory_requirements.memoryTypeBits, m_requested_properties);
 
-    FAILED_RESULT_VALUE_RETURN(
-        alloc_mem_res, logical_device.get().allocateMemoryUnique(alloc_info),
-        vk::Result::eSuccess)
+    FAILED_RESULT_VALUE_RETURN(alloc_mem_res,
+                               logical_device.allocateMemoryUnique(alloc_info),
+                               vk::Result::eSuccess)
 
     m_memory = std::move(alloc_mem_res.value);
-    FAILED_RESULT_RETURN(logical_device.get().bindBufferMemory(
-                             m_buffer.get(), m_memory.get(), 0),
-                         vk::Result::eSuccess)
+    FAILED_RESULT_RETURN(
+        logical_device.bindBufferMemory(m_buffer.get(), m_memory.get(), 0),
+        vk::Result::eSuccess)
 
     FAILED_RESULT_VALUE_RETURN(
-        map_mem, logical_device.get().mapMemory(m_memory.get(), 0, m_byte_size),
+        map_mem, logical_device.mapMemory(m_memory.get(), 0, m_byte_size),
         vk::Result::eSuccess);
 
     m_mapped_memory = map_mem.value;
@@ -83,7 +83,7 @@ Buffer::allocateBufferMemory(const LogicalDevice& logical_device,
 }
 
 vk::Result
-Buffer::recreate(const LogicalDevice& logical_device,
+Buffer::recreate(vk::Device logical_device,
                  const PhysicalDevice& physical_device,
                  vk::DeviceSize size)
 {
@@ -95,9 +95,9 @@ Buffer::recreate(const LogicalDevice& logical_device,
     buffer_info.usage       = m_buffer_usage_flags;
     buffer_info.sharingMode = vk::SharingMode::eExclusive;
 
-    FAILED_RESULT_VALUE_RETURN(
-        res, logical_device.get().createBufferUnique(buffer_info),
-        vk::Result::eSuccess)
+    FAILED_RESULT_VALUE_RETURN(res,
+                               logical_device.createBufferUnique(buffer_info),
+                               vk::Result::eSuccess)
 
     m_buffer = std::move(res.value);
 
@@ -105,7 +105,7 @@ Buffer::recreate(const LogicalDevice& logical_device,
 }
 
 vk::Result
-Buffer::copyBuffer(const LogicalDevice& logical_device,
+Buffer::copyBuffer(vk::Device logical_device,
                    const PhysicalDevice& physical_device,
                    const Buffer& src_buffer,
                    Buffer& dst_buffer,
@@ -144,7 +144,7 @@ Buffer::copyBuffer(const LogicalDevice& logical_device,
 }
 
 vk::Result
-Buffer::copyBufferToImage(const LogicalDevice& logical_device,
+Buffer::copyBufferToImage(vk::Device logical_device,
                           const PhysicalDevice& physical_device,
                           const Buffer& src_buffer,
                           Image& dst_image,
@@ -169,7 +169,7 @@ Buffer::copyBufferToImage(const LogicalDevice& logical_device,
                                {vk::ImageAspectFlagBits::eColor, 0, 0, 1},
                                {0, 0, 0}, {width, height, 1});
 
-    dst_image.copyBufferToImage(src_buffer.get(), command_buffer, region);
+    dst_image.copyBufferToImage(src_buffer, command_buffer, region);
 
     barrier.srcAccessMask = vk::AccessFlagBits::eTransferWrite;
     barrier.dstAccessMask = vk::AccessFlagBits::eShaderRead;

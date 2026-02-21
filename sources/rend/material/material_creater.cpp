@@ -4,11 +4,8 @@ namespace ars_graphics
 {
 
 MaterialCreater::MaterialCreater(const LogicalDevice& logical_device,
-                                 const PhysicalDevice& physical_device,
-                                 const DescriptorManager& descriptor_manager)
-    : m_logical_device{logical_device},
-      m_physical_device{physical_device},
-      m_descriptor_manager{descriptor_manager}
+                                 const PhysicalDevice& physical_device)
+    : m_logical_device{logical_device}, m_physical_device{physical_device}
 {
 }
 

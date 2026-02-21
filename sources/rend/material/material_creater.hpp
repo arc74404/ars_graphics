@@ -11,8 +11,7 @@ class MaterialCreater final
 {
 public:
     MaterialCreater(const LogicalDevice& logical_device,
-                    const PhysicalDevice& physical_device,
-                    const DescriptorManager& descriptor_manager);
+                    const PhysicalDevice& physical_device);
 
     std::vector<Material> convertToMaterials(
         const std::vector<MaterialData>& mdata) const;
@@ -20,6 +19,5 @@ public:
 private:
     const LogicalDevice& m_logical_device;
     const PhysicalDevice& m_physical_device;
-    const DescriptorManager& m_descriptor_manager;
 };
 } // namespace ars_graphics

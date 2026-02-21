@@ -11,13 +11,13 @@ namespace ars_graphics
 class Instance final
 {
 public:
-    ~Instance();
+    ~Instance() noexcept;
 
     Instance(std::string_view name);
 
     std::vector<vk::PhysicalDevice> getAvailablePhysicalDevices() const;
 
-    const vk::Instance& get() const;
+    operator vk::Instance() const noexcept;
 
 private:
     std::vector<const char*> getExtensions();

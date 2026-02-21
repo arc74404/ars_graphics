@@ -4,18 +4,19 @@
 
 namespace ars_graphics
 {
+
+LogicalDevice::
+operator vk::Device() const
+{
+    return m_logical_device.get();
+}
+
 vk::PhysicalDeviceFeatures
 LogicalDevice::setupDeviceFeatures()
 {
     vk::PhysicalDeviceFeatures features;
     features.samplerAnisotropy = vk::True;
     return features;
-}
-
-const vk::Device&
-LogicalDevice::get() const
-{
-    return m_logical_device.get();
 }
 
 std::vector<vk::DeviceQueueCreateInfo>

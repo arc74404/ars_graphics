@@ -36,7 +36,7 @@ createPoolInfo(uint32_t max_sets,
 
 std::optional<vk::UniqueDescriptorPool>
 ars_graphics::createDescriptorPool(
-    const LogicalDevice& device,
+    vk::Device device,
     const std::vector<DescriptorBindingData>& descriptor_set_layout_data,
     uint32_t max_sets,
     uint32_t desc_count)
@@ -47,7 +47,7 @@ ars_graphics::createDescriptorPool(
     vk::DescriptorPoolCreateInfo pool_info =
         createPoolInfo(max_sets, pool_sizes.size(), pool_sizes.data());
 
-    auto&& res = device.get().createDescriptorPoolUnique(pool_info);
+    auto&& res = device.createDescriptorPoolUnique(pool_info);
 
     if (res.result != vk::Result::eSuccess)
     {

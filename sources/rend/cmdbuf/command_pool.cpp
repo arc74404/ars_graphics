@@ -7,7 +7,7 @@
 namespace ars_graphics
 {
 
-CommandPool::CommandPool(const LogicalDevice& logical_device,
+CommandPool::CommandPool(vk::Device logical_device,
                          const PhysicalDevice& physical_device)
 {
     auto queue_family_indices = physical_device.getQueueFamilyIndices();
@@ -18,7 +18,7 @@ CommandPool::CommandPool(const LogicalDevice& logical_device,
 
     pool_info.queueFamilyIndex = queue_family_indices.graphics_family.value();
 
-    auto&& res = logical_device.get().createCommandPoolUnique(pool_info);
+    auto&& res = logical_device.createCommandPoolUnique(pool_info);
 
     if (res.result != vk::Result::eSuccess)
     {
@@ -27,19 +27,19 @@ CommandPool::CommandPool(const LogicalDevice& logical_device,
     m_command_pool = std::move(res.value);
 }
 
-vk::UniqueCommandBuffer
-CommandPool::allocateCommandBuffer(const LogicalDevice& logical_device) const
+std::optional<vk::UniqueCommandBuffer>
+CommandPool::allocateCommandBuffer(vk::Device logical_device) const
 {
     vk::CommandBufferAllocateInfo alloc_info = {};
     alloc_info.commandPool                   = m_command_pool.get();
     alloc_info.level                         = vk::CommandBufferLevel::ePrimary;
     alloc_info.commandBufferCount            = 1;
 
-    auto&& res = logical_device.get().allocateCommandBuffersUnique(alloc_info);
+    auto&& res = logical_device.allocateCommandBuffersUnique(alloc_info);
 
     if (res.result != vk::Result::eSuccess)
     {
-        throw std::runtime_error("Failed to allocate cmdbuf");
+        return std::nullopt;
     }
     return std::move(res.value[0]);
 }

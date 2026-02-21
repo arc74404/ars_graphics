@@ -9,7 +9,7 @@ namespace ars_graphics
 
 std::optional<vk::UniqueDescriptorPool>
 createDescriptorPool(
-    const LogicalDevice& device,
+    vk::Device device,
     const std::vector<DescriptorBindingData>& descriptor_set_layout_data,
     uint32_t max_sets,
     uint32_t desc_count);

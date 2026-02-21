@@ -1,5 +1,4 @@
 #pragma once
-#include "../cmdbuf/command_buffer.hpp"
 
 #include "buffer.hpp"
 #include "staging_buffer.hpp"
@@ -11,7 +10,7 @@ namespace ars_graphics
 class GpuVertexBuffer final : public Buffer
 {
 public:
-    GpuVertexBuffer();
+    GpuVertexBuffer(vk::CommandBuffer cmd);
 
     void bind(vk::CommandBuffer command_buffer) const noexcept;
 
@@ -26,5 +25,7 @@ private:
                            const PhysicalDevice& physical_device,
                            const void* data,
                            vk::DeviceSize byte_size) override;
+
+    vk::CommandBuffer m_cmd;
 };
 }; // namespace ars_graphics

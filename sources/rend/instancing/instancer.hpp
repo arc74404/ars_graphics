@@ -9,18 +9,13 @@ template <typename InstanceDataT, typename BufferT>
 class Instancer
 {
 public:
-    BufferT generateBuffer(const LogicalDevice& logical_device,
+    BufferT generateBuffer(vk::Device logical_device,
                            const PhysicalDevice& physical_device)
     {
         BufferT buf;
         buf.setData(logical_device, physical_device, m_data.data(),
                     m_data.size() * sizeof(InstanceDataT));
         return buf;
-    }
-
-    std::vector<InstanceDataT>& get()
-    {
-        return m_data;
     }
 
     void push(const InstanceDataT& instance_data)

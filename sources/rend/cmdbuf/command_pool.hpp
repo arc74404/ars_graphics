@@ -1,5 +1,7 @@
 #pragma once
 
+#include <optional>
+
 #include "../../libs_includes/vulkan.hpp"
 #include "../device/logical_device.hpp"
 
@@ -11,11 +13,11 @@ class Device;
 class CommandPool final
 {
 public:
-    CommandPool(const LogicalDevice& logical_device,
+    CommandPool(vk::Device logical_device,
                 const PhysicalDevice& physical_device);
 
-    vk::UniqueCommandBuffer allocateCommandBuffer(
-        const LogicalDevice& logical_device) const;
+    std::optional<vk::UniqueCommandBuffer> allocateCommandBuffer(
+        vk::Device logical_device) const;
 
     void destroy();
 

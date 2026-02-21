@@ -1,13 +1,13 @@
 #pragma once
 
-#include <map>
+#include <unordered_map>
 
 #include "physical_device.hpp"
 
 namespace ars_graphics
 {
 
-struct QueueData
+struct QueueData final
 {
     uint32_t family_index;
     uint32_t queue_index;
@@ -15,17 +15,17 @@ struct QueueData
     float priority;
 };
 
-class LogicalDevice
+class LogicalDevice final
 {
 public:
     LogicalDevice() = default;
 
     LogicalDevice(const vk::PhysicalDevice& physical_device,
-                const QueueFamilyIndices& queue_family_indices);
+                  const QueueFamilyIndices& queue_family_indices);
 
     vk::Queue getQueue(const std::string& queue_name) const;
 
-    const vk::Device& get() const;
+    operator vk::Device() const;
 
 private:
     vk::PhysicalDeviceFeatures setupDeviceFeatures();
@@ -34,7 +34,7 @@ private:
 
     void setupQueues(const QueueFamilyIndices& queue_family_indices);
 
-    std::map<std::string, QueueData> m_queues;
+    std::unordered_map<std::string, QueueData> m_queues;
 
     vk::UniqueDevice m_logical_device;
 };

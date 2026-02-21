@@ -10,14 +10,14 @@
 
 namespace ars_graphics
 {
-class MeshNodeInstancing
+class MeshNodeInstancing final
 {
 public:
     void initData(const std::vector<int>& roots,
                   const std::vector<ModelNode>& nodes,
                   uint32_t meshes_count);
 
-    bool noInstanceForThisMesh(size_t index) const
+    bool noInstanceForThisMesh(size_t index) const noexcept
     {
         return m_meshes_data[index].m_data.empty();
     }
