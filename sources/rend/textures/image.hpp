@@ -30,7 +30,7 @@ class Image
 public:
     Image() = default;
 
-    Image(const LogicalDevice& logical_device,
+    Image(vk::Device logical_device,
           const PhysicalDevice& physical_device,
           const ImageConfigInfo& config_info);
 
@@ -43,8 +43,7 @@ public:
     const vk::ImageView& view() const;
 
 private:
-    void createImageView(const LogicalDevice& device,
-                         vk::ImageAspectFlags aspect_mask);
+    void createImageView(vk::Device device, vk::ImageAspectFlags aspect_mask);
 
     vk::UniqueImage m_image;
     vk::UniqueImageView m_view;

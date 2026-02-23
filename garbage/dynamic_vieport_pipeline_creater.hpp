@@ -9,7 +9,7 @@ class DynamicViewportPipelineCreater : public PipelineCreater
 public:
     virtual ~DynamicViewportPipelineCreater() = default;
 
-    DynamicViewportPipelineCreater(const LogicalDevice& device,
+    DynamicViewportPipelineCreater(vk::Device device,
                                    const ShaderManager& shader_manager);
 
     vk::PipelineViewportStateCreateInfo viewportState(
@@ -20,7 +20,5 @@ public:
 private:
     vk::PipelineDynamicStateCreateInfo dynamicStates(
         const PipelineConfigInfo& config_info) override;
-
-
 };
 } // namespace ars_graphics

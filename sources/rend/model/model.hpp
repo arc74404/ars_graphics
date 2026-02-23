@@ -11,48 +11,27 @@ namespace ars_graphics
 
 struct ModelNode final
 {
-
-    // bool isRoot() const
-    // {
-    //     return (m_parent_index == -1);
-    // }
-
     int m_mesh_index = -1;
 
     glm::mat4 m_local_transform = glm::mat4(1.0f);
 
-    // int m_parent_index = -1;
-
     std::vector<int> m_children_indices;
-};
-
-struct ParseModelNodeData final
-{
-    int mesh_index;
-    glm::mat4 matrix;
 };
 
 class Model final
 {
 public:
-    void addMesh(Mesh&& mesh);
+    Model(const std::vector<Mesh>& meshes,
+          const std::vector<ModelNode>& model_graph);
 
-    void addNode(ParseModelNodeData&& node_data);
+    Model(std::vector<Mesh>&& meshes, std::vector<ModelNode>&& model_graph);
 
-    void connectGraph(std::vector<std::vector<int>>&& node_childrens);
+    const std::vector<ModelNode>& getGraph() const noexcept;
 
-    void setRoots(std::vector<int>&& roots);
-
-    const std::vector<int>& getRoots() const;
-
-    const std::vector<ModelNode>& getNodes() const;
-
-    const std::vector<Mesh>& getMeshes() const;
+    const std::vector<Mesh>& getMeshes() const noexcept;
 
 private:
-    std::vector<int> m_roots;
-
-    std::vector<ModelNode> m_nodes;
+    std::vector<ModelNode> m_graph;
 
     std::vector<Mesh> m_meshes;
 };

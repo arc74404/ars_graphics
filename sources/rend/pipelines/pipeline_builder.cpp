@@ -1,4 +1,4 @@
-#include "pipeline_creater.hpp"
+#include "pipeline_builder.hpp"
 
 #include "../util_funcs.hpp"
 
@@ -7,14 +7,14 @@
 namespace ars_graphics
 {
 
-PipelineCreater::PipelineCreater(const LogicalDevice& device,
+PipelineBuilder::PipelineBuilder(vk::Device logical_device,
                                  const ShaderManager& shader_manager)
-    : m_device(device), m_shader_manager(shader_manager)
+    : m_device(logical_device), m_shader_manager(shader_manager)
 {
 }
 
 vk::GraphicsPipelineCreateInfo
-PipelineCreater::convertToVulkanConfigInfo(
+PipelineBuilder::convertToVulkanConfigInfo(
     const PipelineConfigInfo& config_info,
     const std::vector<vk::PipelineShaderStageCreateInfo>& shader_stages,
     const vk::PipelineVertexInputStateCreateInfo& vertex_input_state,
@@ -39,9 +39,9 @@ PipelineCreater::convertToVulkanConfigInfo(
     create_pipeline_info.pMultisampleState   = &multisampling;
     create_pipeline_info.pColorBlendState    = &color_blending;
     create_pipeline_info.pDynamicState       = &dynamic_states;
-    create_pipeline_info.layout = config_info.main_config_info.pipeline_layout;
-    create_pipeline_info.renderPass = render_pass;
-    create_pipeline_info.subpass    = 0;
+    create_pipeline_info.layout              = config_info.pipeline_layout;
+    create_pipeline_info.renderPass          = render_pass;
+    create_pipeline_info.subpass             = 0;
 
     // optional:
     create_pipeline_info.flags = vk::PipelineCreateFlags();
@@ -55,28 +55,27 @@ PipelineCreater::convertToVulkanConfigInfo(
 }
 
 void
-PipelineCreater::createShaderStages(
+PipelineBuilder::createShaderStages(
     std::vector<vk::PipelineShaderStageCreateInfo>& shader_stages,
     const PipelineConfigInfo& config_info,
     vk::ShaderModule& vertex_shader_module,
     vk::ShaderModule& fragment_shader_module)
 {
     vertex_shader_module =
-        m_shader_manager[config_info.main_config_info.vertex_shader_type].get();
+        m_shader_manager[config_info.vertex_shader_type].get();
 
     shader_stages.push_back(
         shaderinfo(vk::ShaderStageFlagBits::eVertex, vertex_shader_module));
 
     fragment_shader_module =
-        m_shader_manager[config_info.main_config_info.fragment_shader_type]
-            .get();
+        m_shader_manager[config_info.fragment_shader_type].get();
 
     shader_stages.push_back(
         shaderinfo(vk::ShaderStageFlagBits::eFragment, fragment_shader_module));
 }
 
 vk::UniquePipeline
-PipelineCreater::createPipeline(const vk::RenderPass& render_pass,
+PipelineBuilder::createPipeline(const vk::RenderPass& render_pass,
                                 const PipelineConfigInfo& config_info)
 {
     vk::Viewport viewport;
@@ -109,7 +108,7 @@ PipelineCreater::createPipeline(const vk::RenderPass& render_pass,
     vk::PipelineDynamicStateCreateInfo m_dynamic_states =
         dynamicStates(config_info);
 
-    auto&& res = m_device.get().createGraphicsPipelineUnique(
+    auto&& res = m_device.createGraphicsPipelineUnique(
         nullptr,
         convertToVulkanConfigInfo(
             config_info, shader_stages, m_vertex_input_state, m_input_assembly,
@@ -124,7 +123,7 @@ PipelineCreater::createPipeline(const vk::RenderPass& render_pass,
 }
 
 vk::PipelineInputAssemblyStateCreateInfo
-PipelineCreater::inputAssemblyState(const PipelineConfigInfo& config_info)
+PipelineBuilder::inputAssemblyState(const PipelineConfigInfo& config_info)
 {
     vk::PipelineInputAssemblyStateCreateInfo input_assembly_info;
     input_assembly_info.flags    = vk::PipelineInputAssemblyStateCreateFlags();
@@ -133,7 +132,7 @@ PipelineCreater::inputAssemblyState(const PipelineConfigInfo& config_info)
 }
 
 vk::PipelineViewportStateCreateInfo
-PipelineCreater::viewportState(const PipelineConfigInfo& config_info,
+PipelineBuilder::viewportState(const PipelineConfigInfo& config_info,
                                vk::Viewport& viewport,
                                vk::Rect2D& scissors)
 {
@@ -155,22 +154,28 @@ PipelineCreater::viewportState(const PipelineConfigInfo& config_info,
     viewport_state.scissorCount  = 1;
     viewport_state.pScissors     = &scissors;
 
+    if (config_info.dynamic_states.size() > 0)
+    {
+        viewport_state.pViewports = nullptr;
+        viewport_state.pScissors  = nullptr;
+    }
+
     return viewport_state;
 }
 
 vk::PipelineDynamicStateCreateInfo
-PipelineCreater::dynamicStates(const PipelineConfigInfo& config_info)
+PipelineBuilder::dynamicStates(const PipelineConfigInfo& config_info)
 {
     vk::PipelineDynamicStateCreateInfo res;
 
-    res.dynamicStateCount = m_dynamic_states.size();
-    res.pDynamicStates    = m_dynamic_states.data();
+    res.dynamicStateCount = config_info.dynamic_states.size();
+    res.pDynamicStates    = config_info.dynamic_states.data();
 
     return res;
 }
 
 vk::PipelineRasterizationStateCreateInfo
-PipelineCreater::rasterizerState(const PipelineConfigInfo& config_info)
+PipelineBuilder::rasterizerState(const PipelineConfigInfo& config_info)
 {
     vk::PipelineRasterizationStateCreateInfo rasterizer;
 
@@ -187,7 +192,7 @@ PipelineCreater::rasterizerState(const PipelineConfigInfo& config_info)
 }
 
 vk::PipelineMultisampleStateCreateInfo
-PipelineCreater::multisamplingState(const PipelineConfigInfo& config_info)
+PipelineBuilder::multisamplingState(const PipelineConfigInfo& config_info)
 {
     vk::PipelineMultisampleStateCreateInfo multisampling = {};
     multisampling.flags = vk::PipelineMultisampleStateCreateFlags();
@@ -197,7 +202,7 @@ PipelineCreater::multisamplingState(const PipelineConfigInfo& config_info)
 }
 
 vk::PipelineColorBlendStateCreateInfo
-PipelineCreater::colorBlendState(
+PipelineBuilder::colorBlendState(
     const PipelineConfigInfo& config_info,
     vk::PipelineColorBlendAttachmentState& color_blend_attachment)
 {
@@ -231,7 +236,7 @@ PipelineCreater::colorBlendState(
 }
 
 vk::PipelineShaderStageCreateInfo
-PipelineCreater::shaderinfo(vk::ShaderStageFlagBits flag,
+PipelineBuilder::shaderinfo(vk::ShaderStageFlagBits flag,
                             const vk::ShaderModule& shader_module)
 {
     vk::PipelineShaderStageCreateInfo vertex_shader_info = {};
@@ -243,30 +248,29 @@ PipelineCreater::shaderinfo(vk::ShaderStageFlagBits flag,
 }
 
 vk::PipelineVertexInputStateCreateInfo
-PipelineCreater::vertexInputState(const PipelineConfigInfo& config_info)
+PipelineBuilder::vertexInputState(const PipelineConfigInfo& config_info)
 {
     vk::PipelineVertexInputStateCreateInfo vertex_input_info{};
     vertex_input_info.flags = vk::PipelineVertexInputStateCreateFlags();
 
     vertex_input_info.vertexBindingDescriptionCount = 1;
     vertex_input_info.pVertexBindingDescriptions =
-        &config_info.main_config_info.vertex_binding_description;
+        &config_info.vertex_binding_description;
 
     vertex_input_info.vertexAttributeDescriptionCount =
-        config_info.main_config_info.vertex_attribute_descriptions.size();
+        config_info.vertex_attribute_descriptions.size();
     vertex_input_info.pVertexAttributeDescriptions =
-        config_info.main_config_info.vertex_attribute_descriptions.data();
+        config_info.vertex_attribute_descriptions.data();
 
     return vertex_input_info;
 }
 
 vk::PipelineDepthStencilStateCreateInfo
-PipelineCreater::depthStencil(const PipelineConfigInfo& config_info)
+PipelineBuilder::depthStencil(const PipelineConfigInfo& config_info)
 {
     vk::PipelineDepthStencilStateCreateInfo depth_stencil_info{};
 
-    depth_stencil_info.depthTestEnable =
-        config_info.main_config_info.depth_test_enable;
+    depth_stencil_info.depthTestEnable   = config_info.depth_test_enable;
     depth_stencil_info.depthWriteEnable  = vk::True;
     depth_stencil_info.depthCompareOp    = vk::CompareOp::eLess;
     depth_stencil_info.stencilTestEnable = vk::False;

@@ -6,10 +6,6 @@
 #include "../device/logical_device.hpp"
 #include "../device/physical_device.hpp"
 #include "../instance/instance.hpp"
-#include "../model/model_manager.hpp"
-#include "../pipelines/pipeline_layout_storage.hpp"
-#include "../pipelines/pipeline_manager.hpp"
-#include "../swap_chain/swap_chain.hpp"
 
 #include "render_info.hpp"
 #include "vertex_shader_data.hpp"

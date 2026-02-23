@@ -1,20 +1,18 @@
 #pragma once
 #include "synchronization_data.hpp"
 
-#include "../swap_chain/swap_chain.hpp"
-
 namespace ars_graphics
 {
-SynchronizationData::SynchronizationData(const LogicalDevice& device)
+SynchronizationData::SynchronizationData(vk::Device device)
 {
     vk::FenceCreateInfo fenceInfo{};
     fenceInfo.flags = vk::FenceCreateFlagBits::eSignaled;
 
     vk::SemaphoreCreateInfo semaphoreInfo{};
 
-    m_in_flight_fence = device.get().createFenceUnique(fenceInfo).value;
-    m_image_available = device.get().createSemaphoreUnique(semaphoreInfo).value;
-    m_render_finished = device.get().createSemaphoreUnique(semaphoreInfo).value;
+    m_in_flight_fence = device.createFenceUnique(fenceInfo).value;
+    m_image_available = device.createSemaphoreUnique(semaphoreInfo).value;
+    m_render_finished = device.createSemaphoreUnique(semaphoreInfo).value;
 }
 
 // const vk::Semaphore&

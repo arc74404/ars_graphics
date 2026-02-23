@@ -31,7 +31,6 @@ vk::PipelineDynamicStateCreateInfo
 DynamicViewportPipelineCreater::dynamicStates(
     const PipelineConfigInfo& config_info)
 {
-
     vk::PipelineDynamicStateCreateInfo res;
 
     res.dynamicStateCount = m_dynamic_states.size();

@@ -7,12 +7,12 @@
 
 namespace ars_graphics
 {
-class RenderPassCreater
+class RenderPassBuilder
 {
 public:
-    virtual ~RenderPassCreater() = default;
+    virtual ~RenderPassBuilder() = default;
 
-    RenderPassCreater(const LogicalDevice& device);
+    RenderPassBuilder(const LogicalDevice& device);
 
     vk::UniqueRenderPass createRenderPass(
         const RenderPassConfigInfo& config_info);

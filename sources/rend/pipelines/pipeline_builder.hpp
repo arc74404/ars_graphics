@@ -1,6 +1,6 @@
 #pragma once
-#define VULKAN_HPP_NO_EXCEPTIONS
-#include <vulkan/vulkan.hpp>
+
+#include "../../libs_includes/vulkan.hpp"
 
 #include <optional>
 #include <utility>
@@ -16,12 +16,12 @@ namespace ars_graphics
 
 struct PipelineBindInfo;
 
-class PipelineCreater
+class PipelineBuilder final
 {
 public:
-    virtual ~PipelineCreater() = default;
+    // virtual ~PipelineBuilder() = default;
 
-    PipelineCreater(const LogicalDevice& device,
+    PipelineBuilder(vk::Device logical_device,
                     const ShaderManager& shader_manager);
 
     vk::UniquePipeline createPipeline(const vk::RenderPass& render_pass,
@@ -51,34 +51,56 @@ private:
         vk::ShaderModule& vertex_shader_module,
         vk::ShaderModule& fragment_shader_module);
 
-    virtual vk::PipelineVertexInputStateCreateInfo vertexInputState(
+    // virtual vk::PipelineVertexInputStateCreateInfo vertexInputState(
+    //     const PipelineConfigInfo& config_info);
+    // virtual vk::PipelineInputAssemblyStateCreateInfo inputAssemblyState(
+    //     const PipelineConfigInfo& config_info);
+    // virtual vk::PipelineRasterizationStateCreateInfo rasterizerState(
+    //     const PipelineConfigInfo& config_info);
+    // virtual vk::PipelineMultisampleStateCreateInfo multisamplingState(
+    //     const PipelineConfigInfo& config_info);
+    // virtual vk::PipelineColorBlendStateCreateInfo colorBlendState(
+    //     const PipelineConfigInfo& config_info,
+    //     vk::PipelineColorBlendAttachmentState& color_blend_attachment);
+    // virtual vk::PipelineDepthStencilStateCreateInfo depthStencil(
+    //     const PipelineConfigInfo& config_info);
+    // virtual vk::PipelineViewportStateCreateInfo viewportState(
+    //     const PipelineConfigInfo& config_info,
+    //     vk::Viewport& viewport,
+    //     vk::Rect2D& scissors);
+    // virtual vk::PipelineShaderStageCreateInfo shaderinfo(
+    //     vk::ShaderStageFlagBits flag,
+    //     const vk::ShaderModule& shader_module);
+
+    // virtual vk::PipelineDynamicStateCreateInfo dynamicStates(
+    //     const PipelineConfigInfo& config_info);
+
+    vk::PipelineVertexInputStateCreateInfo vertexInputState(
         const PipelineConfigInfo& config_info);
-    virtual vk::PipelineInputAssemblyStateCreateInfo inputAssemblyState(
+    vk::PipelineInputAssemblyStateCreateInfo inputAssemblyState(
         const PipelineConfigInfo& config_info);
-    virtual vk::PipelineRasterizationStateCreateInfo rasterizerState(
+    vk::PipelineRasterizationStateCreateInfo rasterizerState(
         const PipelineConfigInfo& config_info);
-    virtual vk::PipelineMultisampleStateCreateInfo multisamplingState(
+    vk::PipelineMultisampleStateCreateInfo multisamplingState(
         const PipelineConfigInfo& config_info);
-    virtual vk::PipelineColorBlendStateCreateInfo colorBlendState(
+    vk::PipelineColorBlendStateCreateInfo colorBlendState(
         const PipelineConfigInfo& config_info,
         vk::PipelineColorBlendAttachmentState& color_blend_attachment);
-    virtual vk::PipelineDepthStencilStateCreateInfo depthStencil(
+    vk::PipelineDepthStencilStateCreateInfo depthStencil(
         const PipelineConfigInfo& config_info);
-    virtual vk::PipelineViewportStateCreateInfo viewportState(
+    vk::PipelineViewportStateCreateInfo viewportState(
         const PipelineConfigInfo& config_info,
         vk::Viewport& viewport,
         vk::Rect2D& scissors);
-    virtual vk::PipelineShaderStageCreateInfo shaderinfo(
+    vk::PipelineShaderStageCreateInfo shaderinfo(
         vk::ShaderStageFlagBits flag,
         const vk::ShaderModule& shader_module);
 
-    virtual vk::PipelineDynamicStateCreateInfo dynamicStates(
+    vk::PipelineDynamicStateCreateInfo dynamicStates(
         const PipelineConfigInfo& config_info);
 
 protected:
-    std::vector<vk::DynamicState> m_dynamic_states = {};
-
-    const LogicalDevice& m_device;
+    vk::Device m_device;
     const ShaderManager& m_shader_manager;
 };
 } // namespace ars_graphics

@@ -2,9 +2,7 @@
 
 #include <vector>
 
-#include "../cmdbuf/command_buffer.hpp"
 #include "../images/image_view.hpp"
-#include "../render/render_context.hpp"
 #include "../render/synchronization_data.hpp"
 #include "../render_pass/renderpass_manager.hpp"
 #include "../textures/image.hpp"
@@ -14,44 +12,32 @@ namespace ars_graphics
 class SwapChain;
 class DescriptorAllocator;
 
+struct FrameBuffer
+{
+    vk::UniqueFramebuffer m_framebuffer;
+    vk::UniqueImageView view;
+    Image depth_image;
+};
+
 class SwapChainFrame final
 {
 public:
-    SwapChainFrame(const LogicalDevice& logical_device,
-                   const PhysicalDevice& physical_device,
-                   const vk::Image& image,
-                   vk::Format format,
-                   vk::Format depth_format,
-                   const vk::Extent2D& extent,
-                   const RenderPassManager& renderpasses_manager);
+    SwapChainFrame(vk::UniqueCommandBuffer&& cmd, FrameBuffer&& framebuffer);
 
-    bool recreate(const LogicalDevice& logical_device,
-                  const PhysicalDevice& physical_device,
-                  const vk::Image& image,
-                  vk::Format format,
-                  vk::Format depth_format,
-                  const vk::Extent2D& extent,
-                  const RenderPassManager& renderpasses_manager);
+    bool recreate(vk::UniqueCommandBuffer&& cmd, FrameBuffer&& framebuffer);
 
-    void shareContext(RenderCtx& context, RenderPassType renderpass_type) const;
+    vk::CommandBuffer getCmd() const noexcept;
 
-    const vk::Framebuffer& getFramebuffer(RenderPassType renderpass_type) const;
+    vk::Framebuffer getFramebuffer() const noexcept;
 
-    void destroy();
-
-    // SynchronizationData m_sync;
+    void destroyCmd() noexcept;
 
 private:
-    ImageView m_view;
-
-    // depth
-    Image m_depth_image;
+    //
+    FrameBuffer m_framebuffer;
 
     //
-    std::vector<vk::UniqueFramebuffer> m_framebuffers;
-
-    //
-    CommandBuffer m_command_buffer;
+    vk::UniqueCommandBuffer m_command_buffer;
 };
 
 }; // namespace ars_graphics

@@ -66,39 +66,23 @@ chooseImageCount(const vk::PresentModeKHR& present_mode,
 
 } // namespace
 
-SwapChain::SwapChain(const LogicalDevice& logical_device,
+SwapChain::SwapChain(vk::Device logical_device,
                      const PhysicalDevice& physical_device,
-                     const vk::SurfaceKHR& surface,
-                     const RenderPassManager& renderpass_manager,
-                     const vk::Format& depth_format,
-                     const vk::SurfaceFormatKHR& surface_format,
+                     vk::SurfaceKHR surface,
+                     vk::Format depth_format,
+                     vk::SurfaceFormatKHR surface_format,
                      uint32_t width,
                      uint32_t height)
 {
     setupSwapchain(logical_device, physical_device, surface, surface_format,
                    width, height);
-
-    auto&& images =
-        logical_device.get().getSwapchainImagesKHR(m_swapchain.get());
-
-    if (false == images.has_value())
-    {
-        throw std::runtime_error("Failed getSwapchainImagesKHR in swapchain");
-    }
-
-    for (size_t i = 0; i < images.value.size(); ++i)
-    {
-        m_frames.emplace_back(logical_device, physical_device, images.value[i],
-                              surface_format.format, depth_format, m_extent,
-                              renderpass_manager);
-    }
 }
 
 void
-SwapChain::setupSwapchain(const LogicalDevice& logical_device,
+SwapChain::setupSwapchain(vk::Device logical_device,
                           const PhysicalDevice& physical_device,
-                          const vk::SurfaceKHR& surface,
-                          const vk::SurfaceFormatKHR& surface_format,
+                          vk::SurfaceKHR surface,
+                          vk::SurfaceFormatKHR surface_format,
                           uint32_t width,
                           uint32_t height)
 {
@@ -138,7 +122,7 @@ SwapChain::setupSwapchain(const LogicalDevice& logical_device,
 
     create_info.oldSwapchain = vk::SwapchainKHR(nullptr);
 
-    auto&& res = logical_device.get().createSwapchainKHRUnique(create_info);
+    auto&& res = logical_device.createSwapchainKHRUnique(create_info);
 
     if (res.result != vk::Result::eSuccess)
     {
@@ -147,43 +131,21 @@ SwapChain::setupSwapchain(const LogicalDevice& logical_device,
     m_swapchain = std::move(res.value);
 }
 
-const vk::Extent2D
+const vk::Extent2D&
 SwapChain::getExtent() const
 {
     return m_extent;
 }
 
-size_t
-SwapChain::countFrames() const
-{
-    return m_frames.size();
-}
-
 void
-SwapChain::destroy()
+SwapChain::recreate(vk::Device logical_device)
 {
-    m_swapchain.reset();
-    for (auto&& frame : m_frames)
-    {
-        frame.destroy();
-    }
-}
-
-const SwapChainFrame&
-SwapChain::operator[](uint32_t index) const
-{
-    return m_frames[index];
-}
-
-void
-SwapChain::recreate(const LogicalDevice& logical_device)
-{
-    logical_device.get().waitIdle();
+    logical_device.waitIdle();
     destroy();
 }
 
-const vk::SwapchainKHR&
-SwapChain::get() const
+SwapChain::
+operator vk::SwapchainKHR() const
 {
     return m_swapchain.get();
 }

@@ -21,13 +21,6 @@ public:
 
     const std::vector<Primitive>& getPrimitives() const;
 
-    // template <typename Buf>
-    // void push(Buf& buf)
-    // {
-    //     buf.pushInds(m_primitives.m_indices);
-    //     buf.template pushVerts<VertexType>(m_primitives.m_vertices);
-    // }
-
 private:
     std::vector<Primitive> m_primitives;
 };

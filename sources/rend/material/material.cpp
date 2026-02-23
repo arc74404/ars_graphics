@@ -9,7 +9,15 @@ namespace ars_graphics
 NonUpdatebleMaterial::NonUpdatebleMaterial(
     const InterfaceMaterialSettupper& settuper)
 {
-    m_sets_to_bind = settuper.generateSets();
+    auto&& result = settuper.generateSets();
+
+    if (false == result.has_value())
+    {
+        // error handling
+    }
+
+    auto&& [resources, sets_to_bind] = result.value();
+
     m_proxy_to_bind.resize(m_sets_to_bind.size());
 
     for (auto&& set : m_sets_to_bind)

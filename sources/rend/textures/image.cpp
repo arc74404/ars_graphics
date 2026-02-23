@@ -3,7 +3,7 @@
 namespace ars_graphics
 {
 
-Image::Image(const LogicalDevice& logical_device,
+Image::Image(vk::Device logical_device,
              const PhysicalDevice& physical_device,
              const ImageConfigInfo& config_info)
 {
@@ -25,7 +25,7 @@ Image::Image(const LogicalDevice& logical_device,
         image_info.sharingMode   = vk::SharingMode::eExclusive;
         image_info.flags         = config_info.flags;
 
-        auto&& res = logical_device.get().createImageUnique(image_info);
+        auto&& res = logical_device.createImageUnique(image_info);
 
         if (res.result != vk::Result::eSuccess)
         {
@@ -38,7 +38,7 @@ Image::Image(const LogicalDevice& logical_device,
     // Mem
     {
         vk::MemoryRequirements image_mem_requirements =
-            logical_device.get().getImageMemoryRequirements(m_image.get());
+            logical_device.getImageMemoryRequirements(m_image.get());
 
         vk::MemoryAllocateInfo image_alloc_info(
             image_mem_requirements.size,
@@ -46,21 +46,19 @@ Image::Image(const LogicalDevice& logical_device,
                 image_mem_requirements.memoryTypeBits,
                 vk::MemoryPropertyFlagBits::eDeviceLocal));
 
-        auto&& res =
-            logical_device.get().allocateMemoryUnique(image_alloc_info);
+        auto&& res = logical_device.allocateMemoryUnique(image_alloc_info);
         if (res.result != vk::Result::eSuccess)
         {
             throw std::runtime_error("Failed allocate memory in image");
         }
         m_memory = std::move(res.value);
-        logical_device.get().bindImageMemory(m_image.get(), m_memory.get(), 0);
+        logical_device.bindImageMemory(m_image.get(), m_memory.get(), 0);
     }
     createImageView(logical_device, config_info.aspect_mask);
 }
 
 void
-Image::createImageView(const LogicalDevice& device,
-                       vk::ImageAspectFlags aspect_mask)
+Image::createImageView(vk::Device device, vk::ImageAspectFlags aspect_mask)
 {
     vk::ImageViewCreateInfo create_image_view_info{};
     create_image_view_info.image        = m_image.get();
@@ -76,7 +74,7 @@ Image::createImageView(const LogicalDevice& device,
     create_image_view_info.subresourceRange.baseArrayLayer = 0;
     create_image_view_info.subresourceRange.layerCount     = 1;
 
-    auto&& res = device.get().createImageViewUnique(create_image_view_info);
+    auto&& res = device.createImageViewUnique(create_image_view_info);
     if (res.result != vk::Result::eSuccess)
     {
         throw std::runtime_error("Failed create image view");

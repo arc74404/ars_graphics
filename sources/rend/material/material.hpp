@@ -23,6 +23,8 @@ public:
     void bind(vk::CommandBuffer cmd, vk::PipelineLayout layout) const;
 
 private:
+    MaterialResources m_resources;
+
     std::vector<vk::UniqueDescriptorSet> m_sets_to_bind;
     std::vector<vk::DescriptorSet> m_proxy_to_bind;
 };
