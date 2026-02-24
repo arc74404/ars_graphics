@@ -7,13 +7,12 @@
 namespace ars_graphics
 {
 
-RenderPassCreater::RenderPassCreater(const LogicalDevice& device)
-    : m_device(device)
+RenderPassBuilder::RenderPassBuilder(vk::Device device) : m_device(device)
 {
 }
 
 vk::UniqueRenderPass
-RenderPassCreater::createRenderPass(const RenderPassConfigInfo& config_info)
+RenderPassBuilder::createRenderPass(const RenderPassConfigInfo& config_info)
 {
     auto&& color_attachment     = colorAttachment(config_info);
     auto&& color_attachment_ref = colorAttachmentRef(config_info);
@@ -34,7 +33,7 @@ RenderPassCreater::createRenderPass(const RenderPassConfigInfo& config_info)
     renderpass_info.subpassCount = 1;
     renderpass_info.pSubpasses   = &subpass;
 
-    auto&& res = m_device.get().createRenderPassUnique(renderpass_info);
+    auto&& res = m_device.createRenderPassUnique(renderpass_info);
 
     if (res.result != vk::Result::eSuccess)
     {
@@ -44,7 +43,7 @@ RenderPassCreater::createRenderPass(const RenderPassConfigInfo& config_info)
 }
 
 vk::AttachmentDescription
-RenderPassCreater::colorAttachment(
+RenderPassBuilder::colorAttachment(
     const RenderPassConfigInfo& config_info) const
 {
     vk::AttachmentDescription color_attachment{};
@@ -65,7 +64,7 @@ RenderPassCreater::colorAttachment(
     return color_attachment;
 }
 vk::AttachmentReference
-RenderPassCreater::colorAttachmentRef(
+RenderPassBuilder::colorAttachmentRef(
     const RenderPassConfigInfo& config_info) const
 {
     vk::AttachmentReference color_attachment_ref{};
@@ -76,7 +75,7 @@ RenderPassCreater::colorAttachmentRef(
 }
 
 vk::AttachmentDescription
-RenderPassCreater::depthAttachment(
+RenderPassBuilder::depthAttachment(
     const RenderPassConfigInfo& config_info) const
 {
     vk::AttachmentDescription depth_attachment{};
@@ -97,7 +96,7 @@ RenderPassCreater::depthAttachment(
     return depth_attachment;
 }
 vk::AttachmentReference
-RenderPassCreater::depthAttachmentRef(
+RenderPassBuilder::depthAttachmentRef(
     const RenderPassConfigInfo& config_info) const
 {
     vk::AttachmentReference depth_attachment_ref{};
@@ -109,7 +108,7 @@ RenderPassCreater::depthAttachmentRef(
 }
 
 vk::SubpassDescription
-RenderPassCreater::subpassGenerate(const vk::AttachmentReference& color,
+RenderPassBuilder::subpassGenerate(const vk::AttachmentReference& color,
                                    const vk::AttachmentReference& depth) const
 {
     vk::SubpassDescription subpass{};
@@ -122,3 +121,21 @@ RenderPassCreater::subpassGenerate(const vk::AttachmentReference& color,
 }
 
 } // namespace ars_graphics
+
+std::vector<vk::UniqueRenderPass>
+ars_graphics::createRenderPasses(
+    vk::Device device,
+    const std::vector<RenderPassConfigInfo>& render_pass_configs)
+{
+    std::vector<vk::UniqueRenderPass> render_passes;
+
+    RenderPassBuilder render_pass_builder(device);
+
+    for (auto&& config : render_pass_configs)
+    {
+        render_passes.emplace_back(
+            std::move(render_pass_builder.createRenderPass(config)));
+    }
+
+    return render_passes;
+}

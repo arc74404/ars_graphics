@@ -2,8 +2,6 @@
 #include "../device/logical_device.hpp"
 #include "../render_pass/render_pass.hpp"
 
-#include "swap_chain_frame.hpp"
-
 namespace ars_graphics
 {
 class SwapChain final

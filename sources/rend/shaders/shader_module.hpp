@@ -6,14 +6,8 @@
 
 namespace ars_graphics
 {
-class ShaderModule final
-{
-public:
-    ShaderModule(const LogicalDevice& device, std::ifstream& file);
 
-    const vk::ShaderModule& get() const;
+std::optional<vk::UniqueShaderModule>
+createShaderModule(vk::Device device, std::ifstream& file);
 
-private:
-    vk::UniqueShaderModule m_shader_module;
-};
 } // namespace ars_graphics

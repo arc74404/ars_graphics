@@ -2,10 +2,134 @@
 ---
 events:
   -
+    kind: "find_package-v1"
+    backtrace:
+      - "CMakeLists.txt:7 (find_package)"
+    name: "ars_utils"
+    configs:
+      -
+        filename: "ars_utilsConfig.cmake"
+        kind: "cmake"
+      -
+        filename: "ars_utils-config.cmake"
+        kind: "cmake"
+    version_request:
+      version: "1.0"
+      version_complete: "1.0"
+      exact: false
+    settings:
+      required: "required_explicit"
+      quiet: false
+      global: false
+      policy_scope: true
+      bypass_provider: false
+      names:
+        - "ars_utils"
+      path_suffixes:
+        - ""
+      paths:
+        CMAKE_FIND_USE_CMAKE_PATH: true
+        CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+        CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+        CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+        CMAKE_FIND_USE_INSTALL_PREFIX: true
+        CMAKE_FIND_USE_PACKAGE_ROOT_PATH: true
+        CMAKE_FIND_USE_CMAKE_PACKAGE_REGISTRY: true
+        CMAKE_FIND_USE_SYSTEM_PACKAGE_REGISTRY: true
+        CMAKE_FIND_ROOT_PATH_MODE: "BOTH"
+    candidates:
+      -
+        path: "C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/pkgRedirects/ars_utilsConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/pkgRedirects/ars_utils-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Users/User/source/repos/utils_lib/install/ars_utilsConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Users/User/source/repos/utils_lib/install/ars_utils-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Users/User/source/repos/utils_lib/install/lib/cmake/ars_utils/ars_utilsConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+    found:
+      path: "C:/Users/User/source/repos/utils_lib/install/lib/cmake/ars_utils/ars_utils-config.cmake"
+      mode: "config"
+      version: "1.0.0"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "C:/Users/User/source/repos/utils_lib/install"
+      ENV{PATH}:
+        - "c:\\Users\\User\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\debugCommand"
+        - "c:\\Users\\User\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\copilotCli"
+        - "C:\\Program Files\\Common Files\\Oracle\\Java\\javapath"
+        - "D:\\VulkanSDK\\1.4.313.2\\Bin"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files\\Microsoft SQL Server\\150\\Tools\\Binn\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Users\\User\\vcpkg"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA App\\NvDLISR"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Preview\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files\\Go\\bin"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files\\Microsoft SQL Server\\150\\Tools\\Binn\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files\\Microsoft SQL Server\\150\\Tools\\Binn\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files\\Microsoft SQL Server\\150\\Tools\\Binn\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Users\\User\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\User\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\vcpkg"
+        - "C:\\Users\\User\\AppData\\Local\\Programs\\cursor\\resources\\app\\bin"
+        - "C:\\Users\\User\\AppData\\Local\\Programs\\MiKTeX\\miktex\\bin\\x64\\"
+        - "C:\\Users\\User\\AppData\\Roaming\\npm"
+        - "C:\\Users\\User\\AppData\\Local\\Python\\bin"
+        - "C:\\mtools"
+        - "C:\\Users\\User\\go\\bin"
+  -
     kind: "message-v1"
     backtrace:
       - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineSystem.cmake:212 (message)"
-      - "CMakeLists.txt:15 (project)"
+      - "CMakeLists.txt:12 (project)"
     message: |
       The system is: Windows - 10.0.19045 - AMD64
   -
@@ -16,7 +140,7 @@ events:
       - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
       - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
       - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
-      - "CMakeLists.txt:15 (project)"
+      - "CMakeLists.txt:12 (project)"
     mode: "file"
     variable: "src_in"
     description: "Path to a file."
@@ -37,6 +161,7 @@ events:
       CMAKE_PREFIX_PATH:
         - "C:/vcpkg/installed/x64-windows/debug"
         - "C:/vcpkg/installed/x64-windows"
+        - "C:/Users/User/source/repos/utils_lib/install"
       ENV{PATH}:
         - "c:\\Users\\User\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\debugCommand"
         - "c:\\Users\\User\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\copilotCli"
@@ -104,17 +229,17 @@ events:
       - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
       - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
       - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
-      - "CMakeLists.txt:15 (project)"
+      - "CMakeLists.txt:12 (project)"
     message: |
       Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
       Compiler:  
-      Build flags: /MP
+      Build flags: 
       Id flags:  
       
       The output was:
       0
       Версия MSBuild 17.14.23+b0019275e для .NET Framework
-      Сборка начата 02.02.2026 16:07:40.
+      Сборка начата 24.02.2026 0:56:07.
       
       Проект "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\4.1.0-rc1\\CompilerIdC\\CompilerIdC.vcxproj" в узле 1 (целевые объекты по умолчанию).
       PrepareForBuild:
@@ -152,7 +277,7 @@ events:
           Предупреждений: 0
           Ошибок: 0
       
-      Прошло времени 00:00:00.83
+      Прошло времени 00:00:00.81
       
       
       Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
@@ -169,7 +294,7 @@ events:
       - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake:65 (__resolve_tool_path)"
       - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake:103 (__resolve_linker_path)"
       - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
-      - "CMakeLists.txt:15 (project)"
+      - "CMakeLists.txt:12 (project)"
     mode: "program"
     variable: "_CMAKE_TOOL_WITH_PATH"
     description: "Path to a program."
@@ -465,6 +590,7 @@ events:
       CMAKE_PREFIX_PATH:
         - "C:/vcpkg/installed/x64-windows/debug"
         - "C:/vcpkg/installed/x64-windows"
+        - "C:/Users/User/source/repos/utils_lib/install"
       ENV{PATH}:
         - "c:\\Users\\User\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\debugCommand"
         - "c:\\Users\\User\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\copilotCli"
@@ -533,7 +659,7 @@ events:
       - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake:65 (__resolve_tool_path)"
       - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake:104 (__resolve_linker_path)"
       - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
-      - "CMakeLists.txt:15 (project)"
+      - "CMakeLists.txt:12 (project)"
     mode: "program"
     variable: "_CMAKE_TOOL_WITH_PATH"
     description: "Path to a program."
@@ -918,6 +1044,7 @@ events:
       CMAKE_PREFIX_PATH:
         - "C:/vcpkg/installed/x64-windows/debug"
         - "C:/vcpkg/installed/x64-windows"
+        - "C:/Users/User/source/repos/utils_lib/install"
       ENV{PATH}:
         - "c:\\Users\\User\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\debugCommand"
         - "c:\\Users\\User\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\copilotCli"
@@ -984,7 +1111,7 @@ events:
     backtrace:
       - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake:238 (find_program)"
       - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
-      - "CMakeLists.txt:15 (project)"
+      - "CMakeLists.txt:12 (project)"
     mode: "program"
     variable: "CMAKE_LINKER"
     description: "Path to a program."
@@ -1280,6 +1407,7 @@ events:
       CMAKE_PREFIX_PATH:
         - "C:/vcpkg/installed/x64-windows/debug"
         - "C:/vcpkg/installed/x64-windows"
+        - "C:/Users/User/source/repos/utils_lib/install"
       ENV{PATH}:
         - "c:\\Users\\User\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\debugCommand"
         - "c:\\Users\\User\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\copilotCli"
@@ -1346,7 +1474,7 @@ events:
     backtrace:
       - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake:238 (find_program)"
       - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
-      - "CMakeLists.txt:15 (project)"
+      - "CMakeLists.txt:12 (project)"
     mode: "program"
     variable: "CMAKE_MT"
     description: "Path to a program."
@@ -1731,6 +1859,7 @@ events:
       CMAKE_PREFIX_PATH:
         - "C:/vcpkg/installed/x64-windows/debug"
         - "C:/vcpkg/installed/x64-windows"
+        - "C:/Users/User/source/repos/utils_lib/install"
       ENV{PATH}:
         - "c:\\Users\\User\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\debugCommand"
         - "c:\\Users\\User\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\copilotCli"
@@ -1797,7 +1926,7 @@ events:
     backtrace:
       - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake:238 (find_program)"
       - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
-      - "CMakeLists.txt:15 (project)"
+      - "CMakeLists.txt:12 (project)"
     mode: "program"
     variable: "CMAKE_AR"
     description: "Path to a program."
@@ -2093,6 +2222,7 @@ events:
       CMAKE_PREFIX_PATH:
         - "C:/vcpkg/installed/x64-windows/debug"
         - "C:/vcpkg/installed/x64-windows"
+        - "C:/Users/User/source/repos/utils_lib/install"
       ENV{PATH}:
         - "c:\\Users\\User\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\debugCommand"
         - "c:\\Users\\User\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\copilotCli"
@@ -2162,7 +2292,7 @@ events:
       - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
       - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
       - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
-      - "CMakeLists.txt:15 (project)"
+      - "CMakeLists.txt:12 (project)"
     mode: "file"
     variable: "src_in"
     description: "Path to a file."
@@ -2183,6 +2313,7 @@ events:
       CMAKE_PREFIX_PATH:
         - "C:/vcpkg/installed/x64-windows/debug"
         - "C:/vcpkg/installed/x64-windows"
+        - "C:/Users/User/source/repos/utils_lib/install"
       ENV{PATH}:
         - "c:\\Users\\User\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\debugCommand"
         - "c:\\Users\\User\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\copilotCli"
@@ -2250,17 +2381,17 @@ events:
       - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
       - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
       - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
-      - "CMakeLists.txt:15 (project)"
+      - "CMakeLists.txt:12 (project)"
     message: |
       Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
       Compiler:  
-      Build flags: /MP
+      Build flags: 
       Id flags:  
       
       The output was:
       0
       Версия MSBuild 17.14.23+b0019275e для .NET Framework
-      Сборка начата 02.02.2026 16:07:41.
+      Сборка начата 24.02.2026 0:56:08.
       
       Проект "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\4.1.0-rc1\\CompilerIdCXX\\CompilerIdCXX.vcxproj" в узле 1 (целевые объекты по умолчанию).
       PrepareForBuild:
@@ -2298,7 +2429,7 @@ events:
           Предупреждений: 0
           Ошибок: 0
       
-      Прошло времени 00:00:00.52
+      Прошло времени 00:00:00.53
       
       
       Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
@@ -2315,7 +2446,7 @@ events:
       - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake:65 (__resolve_tool_path)"
       - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake:104 (__resolve_linker_path)"
       - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
-      - "CMakeLists.txt:15 (project)"
+      - "CMakeLists.txt:12 (project)"
     mode: "program"
     variable: "_CMAKE_TOOL_WITH_PATH"
     description: "Path to a program."
@@ -2700,6 +2831,7 @@ events:
       CMAKE_PREFIX_PATH:
         - "C:/vcpkg/installed/x64-windows/debug"
         - "C:/vcpkg/installed/x64-windows"
+        - "C:/Users/User/source/repos/utils_lib/install"
       ENV{PATH}:
         - "c:\\Users\\User\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\debugCommand"
         - "c:\\Users\\User\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\copilotCli"
@@ -2769,7 +2901,7 @@ events:
       - "C:/Program Files/CMake/share/cmake-4.1/Modules/Platform/Windows-MSVC.cmake:546 (__windows_compiler_msvc_enable_rc)"
       - "C:/Program Files/CMake/share/cmake-4.1/Modules/Platform/Windows-MSVC-C.cmake:5 (__windows_compiler_msvc)"
       - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeCInformation.cmake:48 (include)"
-      - "CMakeLists.txt:15 (project)"
+      - "CMakeLists.txt:12 (project)"
     mode: "program"
     variable: "CMAKE_RC_COMPILER"
     description: "RC compiler"
@@ -2790,6 +2922,9 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/bin/"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/sbin/"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/bin/"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/sbin/"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/tools/"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/tools/spirv-cross/"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/tools/spirv-reflect/"
@@ -2840,6 +2975,9 @@ events:
       - "C:/vcpkg/installed/x64-windows/bin/"
       - "C:/vcpkg/installed/x64-windows/sbin/"
       - "C:/vcpkg/installed/x64-windows/"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/bin/"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/sbin/"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/"
       - "C:/vcpkg/installed/x64-windows/tools/"
       - "C:/vcpkg/installed/x64-windows/tools/spirv-cross/"
       - "C:/vcpkg/installed/x64-windows/tools/spirv-reflect/"
@@ -2890,6 +3028,9 @@ events:
       - "C:/vcpkg/installed/x64-windows/bin/"
       - "C:/vcpkg/installed/x64-windows/sbin/"
       - "C:/vcpkg/installed/x64-windows/"
+      - "C:/Users/User/source/repos/utils_lib/install/bin/"
+      - "C:/Users/User/source/repos/utils_lib/install/sbin/"
+      - "C:/Users/User/source/repos/utils_lib/install/"
       - "C:/vcpkg/installed/x64-windows/tools/"
       - "C:/vcpkg/installed/x64-windows/tools/spirv-cross/"
       - "C:/vcpkg/installed/x64-windows/tools/spirv-reflect/"
@@ -2953,6 +3094,15 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/rc.com"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/rc.exe"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/rc"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/bin/rc.com"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/bin/rc.exe"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/bin/rc"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/sbin/rc.com"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/sbin/rc.exe"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/sbin/rc"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/rc.com"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/rc.exe"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/rc"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/tools/rc.com"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/tools/rc.exe"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/tools/rc"
@@ -3103,6 +3253,15 @@ events:
       - "C:/vcpkg/installed/x64-windows/rc.com"
       - "C:/vcpkg/installed/x64-windows/rc.exe"
       - "C:/vcpkg/installed/x64-windows/rc"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/bin/rc.com"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/bin/rc.exe"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/bin/rc"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/sbin/rc.com"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/sbin/rc.exe"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/sbin/rc"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/rc.com"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/rc.exe"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/rc"
       - "C:/vcpkg/installed/x64-windows/tools/rc.com"
       - "C:/vcpkg/installed/x64-windows/tools/rc.exe"
       - "C:/vcpkg/installed/x64-windows/tools/rc"
@@ -3253,6 +3412,15 @@ events:
       - "C:/vcpkg/installed/x64-windows/rc.com"
       - "C:/vcpkg/installed/x64-windows/rc.exe"
       - "C:/vcpkg/installed/x64-windows/rc"
+      - "C:/Users/User/source/repos/utils_lib/install/bin/rc.com"
+      - "C:/Users/User/source/repos/utils_lib/install/bin/rc.exe"
+      - "C:/Users/User/source/repos/utils_lib/install/bin/rc"
+      - "C:/Users/User/source/repos/utils_lib/install/sbin/rc.com"
+      - "C:/Users/User/source/repos/utils_lib/install/sbin/rc.exe"
+      - "C:/Users/User/source/repos/utils_lib/install/sbin/rc"
+      - "C:/Users/User/source/repos/utils_lib/install/rc.com"
+      - "C:/Users/User/source/repos/utils_lib/install/rc.exe"
+      - "C:/Users/User/source/repos/utils_lib/install/rc"
       - "C:/vcpkg/installed/x64-windows/tools/rc.com"
       - "C:/vcpkg/installed/x64-windows/tools/rc.exe"
       - "C:/vcpkg/installed/x64-windows/tools/rc"
@@ -3394,6 +3562,7 @@ events:
       CMAKE_PREFIX_PATH:
         - "C:/vcpkg/installed/x64-windows/debug"
         - "C:/vcpkg/installed/x64-windows"
+        - "C:/Users/User/source/repos/utils_lib/install"
       ENV{PATH}:
         - "c:\\Users\\User\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\debugCommand"
         - "c:\\Users\\User\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\copilotCli"
@@ -3466,14 +3635,14 @@ events:
     backtrace:
       - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCompilerABI.cmake:83 (try_compile)"
       - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt:15 (project)"
+      - "CMakeLists.txt:12 (project)"
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-a8jkd1"
-      binary: "C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-a8jkd1"
+      source: "C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-uy05kh"
+      binary: "C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-uy05kh"
     cmakeVariables:
-      CMAKE_C_FLAGS: "/MP"
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
       CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
       CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
       VCPKG_INSTALLED_DIR: "C:/vcpkg/installed"
@@ -3484,40 +3653,40 @@ events:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-a8jkd1'
+        Change Dir: 'C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-uy05kh'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_651c1.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_292ef.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         Версия MSBuild 17.14.23+b0019275e для .NET Framework
-        Сборка начата 02.02.2026 16:07:41.
+        Сборка начата 24.02.2026 0:56:09.
         
-        Проект "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-a8jkd1\\cmTC_651c1.vcxproj" в узле 1 (целевые объекты по умолчанию).
+        Проект "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-uy05kh\\cmTC_292ef.vcxproj" в узле 1 (целевые объекты по умолчанию).
         PrepareForBuild:
-          Создание каталога "cmTC_651c1.dir\\Debug\\".
+          Создание каталога "cmTC_292ef.dir\\Debug\\".
           Структурированный вывод включен. Форматирование диагностики компилятора будет отражать иерархию ошибок. Подробнее см. https://aka.ms/cpp/structured-output.
-          Создание каталога "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-a8jkd1\\Debug\\".
-          Создание каталога "cmTC_651c1.dir\\Debug\\cmTC_651c1.tlog\\".
+          Создание каталога "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-uy05kh\\Debug\\".
+          Создание каталога "cmTC_292ef.dir\\Debug\\cmTC_292ef.tlog\\".
         InitializeBuildStatus:
-          Создание "cmTC_651c1.dir\\Debug\\cmTC_651c1.tlog\\unsuccessfulbuild", так как было задано "AlwaysCreate".
-          Обращение к "cmTC_651c1.dir\\Debug\\cmTC_651c1.tlog\\unsuccessfulbuild".
+          Создание "cmTC_292ef.dir\\Debug\\cmTC_292ef.tlog\\unsuccessfulbuild", так как было задано "AlwaysCreate".
+          Обращение к "cmTC_292ef.dir\\Debug\\cmTC_292ef.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /MP /Od /Ob0 /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Fo"cmTC_651c1.dir\\Debug\\\\" /Fd"cmTC_651c1.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.1\\Modules\\CMakeCCompilerABI.c"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Fo"cmTC_292ef.dir\\Debug\\\\" /Fd"cmTC_292ef.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.1\\Modules\\CMakeCCompilerABI.c"
           Оптимизирующий компилятор Microsoft (R) C/C++ версии 19.44.35219 для x64
           (C) Корпорация Майкрософт (Microsoft Corporation).  Все права защищены.
-          cl /c /Zi /W1 /WX- /diagnostics:column /MP /Od /Ob0 /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Fo"cmTC_651c1.dir\\Debug\\\\" /Fd"cmTC_651c1.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.1\\Modules\\CMakeCCompilerABI.c"
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Fo"cmTC_292ef.dir\\Debug\\\\" /Fd"cmTC_292ef.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.1\\Modules\\CMakeCCompilerABI.c"
           CMakeCCompilerABI.c
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-a8jkd1\\Debug\\cmTC_651c1.exe" /INCREMENTAL /ILK:"cmTC_651c1.dir\\Debug\\cmTC_651c1.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-a8jkd1/Debug/cmTC_651c1.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-a8jkd1/Debug/cmTC_651c1.lib" /MACHINE:X64  /machine:x64 cmTC_651c1.dir\\Debug\\CMakeCCompilerABI.obj
-          cmTC_651c1.vcxproj -> C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-a8jkd1\\Debug\\cmTC_651c1.exe
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-uy05kh\\Debug\\cmTC_292ef.exe" /INCREMENTAL /ILK:"cmTC_292ef.dir\\Debug\\cmTC_292ef.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-uy05kh/Debug/cmTC_292ef.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-uy05kh/Debug/cmTC_292ef.lib" /MACHINE:X64  /machine:x64 cmTC_292ef.dir\\Debug\\CMakeCCompilerABI.obj
+          cmTC_292ef.vcxproj -> C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-uy05kh\\Debug\\cmTC_292ef.exe
         FinalizeBuildStatus:
-          Файл "cmTC_651c1.dir\\Debug\\cmTC_651c1.tlog\\unsuccessfulbuild" удаляется.
-          Обращение к "cmTC_651c1.dir\\Debug\\cmTC_651c1.tlog\\cmTC_651c1.lastbuildstate".
-        Сборка проекта "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-a8jkd1\\cmTC_651c1.vcxproj" завершена (целевые объекты по умолчанию).
+          Файл "cmTC_292ef.dir\\Debug\\cmTC_292ef.tlog\\unsuccessfulbuild" удаляется.
+          Обращение к "cmTC_292ef.dir\\Debug\\cmTC_292ef.tlog\\cmTC_292ef.lastbuildstate".
+        Сборка проекта "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-uy05kh\\cmTC_292ef.vcxproj" завершена (целевые объекты по умолчанию).
         
         Сборка успешно завершена.
             Предупреждений: 0
             Ошибок: 0
         
-        Прошло времени 00:00:00.28
+        Прошло времени 00:00:00.27
         
       exitCode: 0
   -
@@ -3525,7 +3694,7 @@ events:
     backtrace:
       - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCompilerABI.cmake:253 (message)"
       - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt:15 (project)"
+      - "CMakeLists.txt:12 (project)"
     message: |
       Parsed C implicit link information:
         link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|link\\.exe|lld-link(\\.exe)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
@@ -3543,7 +3712,7 @@ events:
       - "C:/Program Files/CMake/share/cmake-4.1/Modules/Internal/CMakeDetermineLinkerId.cmake:36 (message)"
       - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCompilerABI.cmake:299 (cmake_determine_linker_id)"
       - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt:15 (project)"
+      - "CMakeLists.txt:12 (project)"
     message: |
       Running the C compiler's linker: "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/HostX64/x64/link.exe" "-v"
       Microsoft (R) Incremental Linker Version 14.44.35219.0
@@ -3553,14 +3722,14 @@ events:
     backtrace:
       - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCompilerABI.cmake:83 (try_compile)"
       - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt:15 (project)"
+      - "CMakeLists.txt:12 (project)"
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-3pnto2"
-      binary: "C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-3pnto2"
+      source: "C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-aml7h5"
+      binary: "C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-aml7h5"
     cmakeVariables:
-      CMAKE_CXX_FLAGS: "/MP"
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /EHsc"
       CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
       CMAKE_CXX_SCAN_FOR_MODULES: "OFF"
       CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
@@ -3572,40 +3741,53 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-3pnto2'
+        Change Dir: 'C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-aml7h5'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_427e1.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_dac87.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         Версия MSBuild 17.14.23+b0019275e для .NET Framework
-        Сборка начата 02.02.2026 16:07:42.
+        Сборка начата 24.02.2026 0:56:09.
         
-        Проект "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-3pnto2\\cmTC_427e1.vcxproj" в узле 1 (целевые объекты по умолчанию).
+        Проект "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-aml7h5\\cmTC_dac87.vcxproj" в узле 1 (целевые объекты по умолчанию).
         PrepareForBuild:
-          Создание каталога "cmTC_427e1.dir\\Debug\\".
+          Создание каталога "cmTC_dac87.dir\\Debug\\".
           Структурированный вывод включен. Форматирование диагностики компилятора будет отражать иерархию ошибок. Подробнее см. https://aka.ms/cpp/structured-output.
-          Создание каталога "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-3pnto2\\Debug\\".
-          Создание каталога "cmTC_427e1.dir\\Debug\\cmTC_427e1.tlog\\".
+          Создание каталога "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-aml7h5\\Debug\\".
+          Создание каталога "cmTC_dac87.dir\\Debug\\cmTC_dac87.tlog\\".
         InitializeBuildStatus:
-          Создание "cmTC_427e1.dir\\Debug\\cmTC_427e1.tlog\\unsuccessfulbuild", так как было задано "AlwaysCreate".
-          Обращение к "cmTC_427e1.dir\\Debug\\cmTC_427e1.tlog\\unsuccessfulbuild".
+          Создание "cmTC_dac87.dir\\Debug\\cmTC_dac87.tlog\\unsuccessfulbuild", так как было задано "AlwaysCreate".
+          Обращение к "cmTC_dac87.dir\\Debug\\cmTC_dac87.tlog\\unsuccessfulbuild".
+        ComputeStdModulesCompileInputs:
+          Чтение файла манифеста библиотеки "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\modules\\modules.json", который предоставляет данные для библиотеки "microsoft/STL".
+          Добавление источника модуля "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\modules\\std.ixx" из библиотеки "microsoft/STL" для сборки с этим проектом.
+          Добавление источника модуля "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\modules\\std.compat.ixx" из библиотеки "microsoft/STL" для сборки с этим проектом.
+        MakeDirsForCl:
+          Создание каталога "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-aml7h5\\cmTC_dac87.dir\\Debug\\microsoft\\STL".
+        SetModuleDependencies:
+          Создание каталога "cmTC_dac87.dir\\Debug\\cmTC_dac87_MD.tlog\\".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /MP /Od /Ob0 /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /std:c++20 /Fo"cmTC_427e1.dir\\Debug\\\\" /Fd"cmTC_427e1.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.1\\Modules\\CMakeCXXCompilerABI.cpp"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /std:c++latest /Fo"cmTC_dac87.dir\\Debug\\\\" /Fd"cmTC_dac87.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.1\\Modules\\CMakeCXXCompilerABI.cpp"
           Оптимизирующий компилятор Microsoft (R) C/C++ версии 19.44.35219 для x64
           (C) Корпорация Майкрософт (Microsoft Corporation).  Все права защищены.
-          cl /c /Zi /W1 /WX- /diagnostics:column /MP /Od /Ob0 /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /std:c++20 /Fo"cmTC_427e1.dir\\Debug\\\\" /Fd"cmTC_427e1.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.1\\Modules\\CMakeCXXCompilerABI.cpp"
+          /std:c++latest предоставляется как предварительная версия языковых функций из последнего
+          рабочего черновика C++. Мы приветствуем сообщения об ошибках и предложения к улучшению.
+          Однако обратите внимание, что эти функции предоставляются как есть, без поддержки и могут
+          измениться или быть удалены по мере развития рабочего черновика. Дополнительные сведения:
+          https://go.microsoft.com/fwlink/?linkid=2045807.
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /std:c++latest /Fo"cmTC_dac87.dir\\Debug\\\\" /Fd"cmTC_dac87.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.1\\Modules\\CMakeCXXCompilerABI.cpp"
           CMakeCXXCompilerABI.cpp
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-3pnto2\\Debug\\cmTC_427e1.exe" /INCREMENTAL /ILK:"cmTC_427e1.dir\\Debug\\cmTC_427e1.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-3pnto2/Debug/cmTC_427e1.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-3pnto2/Debug/cmTC_427e1.lib" /MACHINE:X64  /machine:x64 cmTC_427e1.dir\\Debug\\CMakeCXXCompilerABI.obj
-          cmTC_427e1.vcxproj -> C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-3pnto2\\Debug\\cmTC_427e1.exe
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-aml7h5\\Debug\\cmTC_dac87.exe" /INCREMENTAL /ILK:"cmTC_dac87.dir\\Debug\\cmTC_dac87.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-aml7h5/Debug/cmTC_dac87.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-aml7h5/Debug/cmTC_dac87.lib" /MACHINE:X64  /machine:x64 cmTC_dac87.dir\\Debug\\CMakeCXXCompilerABI.obj
+          cmTC_dac87.vcxproj -> C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-aml7h5\\Debug\\cmTC_dac87.exe
         FinalizeBuildStatus:
-          Файл "cmTC_427e1.dir\\Debug\\cmTC_427e1.tlog\\unsuccessfulbuild" удаляется.
-          Обращение к "cmTC_427e1.dir\\Debug\\cmTC_427e1.tlog\\cmTC_427e1.lastbuildstate".
-        Сборка проекта "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-3pnto2\\cmTC_427e1.vcxproj" завершена (целевые объекты по умолчанию).
+          Файл "cmTC_dac87.dir\\Debug\\cmTC_dac87.tlog\\unsuccessfulbuild" удаляется.
+          Обращение к "cmTC_dac87.dir\\Debug\\cmTC_dac87.tlog\\cmTC_dac87.lastbuildstate".
+        Сборка проекта "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-aml7h5\\cmTC_dac87.vcxproj" завершена (целевые объекты по умолчанию).
         
         Сборка успешно завершена.
             Предупреждений: 0
             Ошибок: 0
         
-        Прошло времени 00:00:00.29
+        Прошло времени 00:00:00.31
         
       exitCode: 0
   -
@@ -3613,7 +3795,7 @@ events:
     backtrace:
       - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCompilerABI.cmake:253 (message)"
       - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt:15 (project)"
+      - "CMakeLists.txt:12 (project)"
     message: |
       Parsed CXX implicit link information:
         link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|link\\.exe|lld-link(\\.exe)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
@@ -3631,7 +3813,7 @@ events:
       - "C:/Program Files/CMake/share/cmake-4.1/Modules/Internal/CMakeDetermineLinkerId.cmake:36 (message)"
       - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCompilerABI.cmake:299 (cmake_determine_linker_id)"
       - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt:15 (project)"
+      - "CMakeLists.txt:12 (project)"
     message: |
       Running the CXX compiler's linker: "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/HostX64/x64/link.exe" "-v"
       Microsoft (R) Incremental Linker Version 14.44.35219.0
@@ -3647,14 +3829,14 @@ events:
       - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeFindDependencyMacro.cmake:78 (find_package)"
       - "C:/vcpkg/installed/x64-windows/share/glfw3/glfw3Config.cmake:2 (find_dependency)"
       - "C:/vcpkg/scripts/buildsystems/vcpkg.cmake:908 (_find_package)"
-      - "CMakeLists.txt:17 (find_package)"
+      - "CMakeLists.txt:14 (find_package)"
     checks:
       - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
     directories:
-      source: "C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-h5ixi5"
-      binary: "C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-h5ixi5"
+      source: "C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-fjr8vx"
+      binary: "C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-fjr8vx"
     cmakeVariables:
-      CMAKE_C_FLAGS: "/MP"
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
       CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
       CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
       VCPKG_INSTALLED_DIR: "C:/vcpkg/installed"
@@ -3665,40 +3847,40 @@ events:
       variable: "CMAKE_HAVE_LIBC_PTHREAD"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-h5ixi5'
+        Change Dir: 'C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-fjr8vx'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_3dfc4.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_1e83b.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         Версия MSBuild 17.14.23+b0019275e для .NET Framework
-        Сборка начата 02.02.2026 16:07:42.
+        Сборка начата 24.02.2026 0:56:10.
         
-        Проект "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-h5ixi5\\cmTC_3dfc4.vcxproj" в узле 1 (целевые объекты по умолчанию).
+        Проект "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-fjr8vx\\cmTC_1e83b.vcxproj" в узле 1 (целевые объекты по умолчанию).
         PrepareForBuild:
-          Создание каталога "cmTC_3dfc4.dir\\Debug\\".
+          Создание каталога "cmTC_1e83b.dir\\Debug\\".
           Структурированный вывод включен. Форматирование диагностики компилятора будет отражать иерархию ошибок. Подробнее см. https://aka.ms/cpp/structured-output.
-          Создание каталога "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-h5ixi5\\Debug\\".
-          Создание каталога "cmTC_3dfc4.dir\\Debug\\cmTC_3dfc4.tlog\\".
+          Создание каталога "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-fjr8vx\\Debug\\".
+          Создание каталога "cmTC_1e83b.dir\\Debug\\cmTC_1e83b.tlog\\".
         InitializeBuildStatus:
-          Создание "cmTC_3dfc4.dir\\Debug\\cmTC_3dfc4.tlog\\unsuccessfulbuild", так как было задано "AlwaysCreate".
-          Обращение к "cmTC_3dfc4.dir\\Debug\\cmTC_3dfc4.tlog\\unsuccessfulbuild".
+          Создание "cmTC_1e83b.dir\\Debug\\cmTC_1e83b.tlog\\unsuccessfulbuild", так как было задано "AlwaysCreate".
+          Обращение к "cmTC_1e83b.dir\\Debug\\cmTC_1e83b.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /MP /Od /Ob0 /D _MBCS /D CMAKE_HAVE_LIBC_PTHREAD /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Fo"cmTC_3dfc4.dir\\Debug\\\\" /Fd"cmTC_3dfc4.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-h5ixi5\\src.c"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Fo"cmTC_1e83b.dir\\Debug\\\\" /Fd"cmTC_1e83b.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-fjr8vx\\src.c"
           Оптимизирующий компилятор Microsoft (R) C/C++ версии 19.44.35219 для x64
           (C) Корпорация Майкрософт (Microsoft Corporation).  Все права защищены.
-          cl /c /Zi /W1 /WX- /diagnostics:column /MP /Od /Ob0 /D _MBCS /D CMAKE_HAVE_LIBC_PTHREAD /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Fo"cmTC_3dfc4.dir\\Debug\\\\" /Fd"cmTC_3dfc4.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-h5ixi5\\src.c"
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Fo"cmTC_1e83b.dir\\Debug\\\\" /Fd"cmTC_1e83b.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-fjr8vx\\src.c"
           src.c
-        C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-h5ixi5\\src.c(1,10): error C1083: Не удается открыть файл включение: pthread.h: No such file or directory, [C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-h5ixi5\\cmTC_3dfc4.vcxproj]
-        Сборка проекта "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-h5ixi5\\cmTC_3dfc4.vcxproj" завершена (целевые объекты по умолчанию) с ошибкой.
+        C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-fjr8vx\\src.c(1,10): error C1083: Не удается открыть файл включение: pthread.h: No such file or directory, [C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-fjr8vx\\cmTC_1e83b.vcxproj]
+        Сборка проекта "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-fjr8vx\\cmTC_1e83b.vcxproj" завершена (целевые объекты по умолчанию) с ошибкой.
         
         Ошибка сборки.
         
-        "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-h5ixi5\\cmTC_3dfc4.vcxproj" (целевой объект по умолчанию) (1) ->
+        "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-fjr8vx\\cmTC_1e83b.vcxproj" (целевой объект по умолчанию) (1) ->
         (Целевой объект ClCompile) -> 
-          C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-h5ixi5\\src.c(1,10): error C1083: Не удается открыть файл включение: pthread.h: No such file or directory, [C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-h5ixi5\\cmTC_3dfc4.vcxproj]
+          C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-fjr8vx\\src.c(1,10): error C1083: Не удается открыть файл включение: pthread.h: No such file or directory, [C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-fjr8vx\\cmTC_1e83b.vcxproj]
         
             Предупреждений: 0
             Ошибок: 1
         
-        Прошло времени 00:00:00.17
+        Прошло времени 00:00:00.22
         
       exitCode: 1
   -
@@ -3711,14 +3893,14 @@ events:
       - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeFindDependencyMacro.cmake:78 (find_package)"
       - "C:/vcpkg/installed/x64-windows/share/glfw3/glfw3Config.cmake:2 (find_dependency)"
       - "C:/vcpkg/scripts/buildsystems/vcpkg.cmake:908 (_find_package)"
-      - "CMakeLists.txt:17 (find_package)"
+      - "CMakeLists.txt:14 (find_package)"
     checks:
       - "Looking for pthread_create in pthreads"
     directories:
-      source: "C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-82bucv"
-      binary: "C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-82bucv"
+      source: "C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-lyz5tg"
+      binary: "C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-lyz5tg"
     cmakeVariables:
-      CMAKE_C_FLAGS: "/MP"
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
       CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
       CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
       VCPKG_INSTALLED_DIR: "C:/vcpkg/installed"
@@ -3729,42 +3911,42 @@ events:
       variable: "CMAKE_HAVE_PTHREADS_CREATE"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-82bucv'
+        Change Dir: 'C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-lyz5tg'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_837a9.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_2c84c.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         Версия MSBuild 17.14.23+b0019275e для .NET Framework
-        Сборка начата 02.02.2026 16:07:43.
+        Сборка начата 24.02.2026 0:56:10.
         
-        Проект "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-82bucv\\cmTC_837a9.vcxproj" в узле 1 (целевые объекты по умолчанию).
+        Проект "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-lyz5tg\\cmTC_2c84c.vcxproj" в узле 1 (целевые объекты по умолчанию).
         PrepareForBuild:
-          Создание каталога "cmTC_837a9.dir\\Debug\\".
+          Создание каталога "cmTC_2c84c.dir\\Debug\\".
           Структурированный вывод включен. Форматирование диагностики компилятора будет отражать иерархию ошибок. Подробнее см. https://aka.ms/cpp/structured-output.
-          Создание каталога "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-82bucv\\Debug\\".
-          Создание каталога "cmTC_837a9.dir\\Debug\\cmTC_837a9.tlog\\".
+          Создание каталога "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-lyz5tg\\Debug\\".
+          Создание каталога "cmTC_2c84c.dir\\Debug\\cmTC_2c84c.tlog\\".
         InitializeBuildStatus:
-          Создание "cmTC_837a9.dir\\Debug\\cmTC_837a9.tlog\\unsuccessfulbuild", так как было задано "AlwaysCreate".
-          Обращение к "cmTC_837a9.dir\\Debug\\cmTC_837a9.tlog\\unsuccessfulbuild".
+          Создание "cmTC_2c84c.dir\\Debug\\cmTC_2c84c.tlog\\unsuccessfulbuild", так как было задано "AlwaysCreate".
+          Обращение к "cmTC_2c84c.dir\\Debug\\cmTC_2c84c.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /MP /Od /Ob0 /D _MBCS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Fo"cmTC_837a9.dir\\Debug\\\\" /Fd"cmTC_837a9.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-82bucv\\CheckFunctionExists.c"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Fo"cmTC_2c84c.dir\\Debug\\\\" /Fd"cmTC_2c84c.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-lyz5tg\\CheckFunctionExists.c"
           Оптимизирующий компилятор Microsoft (R) C/C++ версии 19.44.35219 для x64
           (C) Корпорация Майкрософт (Microsoft Corporation).  Все права защищены.
-          cl /c /Zi /W1 /WX- /diagnostics:column /MP /Od /Ob0 /D _MBCS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Fo"cmTC_837a9.dir\\Debug\\\\" /Fd"cmTC_837a9.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-82bucv\\CheckFunctionExists.c"
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Fo"cmTC_2c84c.dir\\Debug\\\\" /Fd"cmTC_2c84c.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-lyz5tg\\CheckFunctionExists.c"
           CheckFunctionExists.c
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-82bucv\\Debug\\cmTC_837a9.exe" /INCREMENTAL /ILK:"cmTC_837a9.dir\\Debug\\cmTC_837a9.ilk" /NOLOGO pthreads.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-82bucv/Debug/cmTC_837a9.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-82bucv/Debug/cmTC_837a9.lib" /MACHINE:X64  /machine:x64 cmTC_837a9.dir\\Debug\\CheckFunctionExists.obj
-        LINK : fatal error LNK1104: не удается открыть файл "pthreads.lib" [C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-82bucv\\cmTC_837a9.vcxproj]
-        Сборка проекта "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-82bucv\\cmTC_837a9.vcxproj" завершена (целевые объекты по умолчанию) с ошибкой.
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-lyz5tg\\Debug\\cmTC_2c84c.exe" /INCREMENTAL /ILK:"cmTC_2c84c.dir\\Debug\\cmTC_2c84c.ilk" /NOLOGO pthreads.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-lyz5tg/Debug/cmTC_2c84c.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-lyz5tg/Debug/cmTC_2c84c.lib" /MACHINE:X64  /machine:x64 cmTC_2c84c.dir\\Debug\\CheckFunctionExists.obj
+        LINK : fatal error LNK1104: не удается открыть файл "pthreads.lib" [C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-lyz5tg\\cmTC_2c84c.vcxproj]
+        Сборка проекта "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-lyz5tg\\cmTC_2c84c.vcxproj" завершена (целевые объекты по умолчанию) с ошибкой.
         
         Ошибка сборки.
         
-        "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-82bucv\\cmTC_837a9.vcxproj" (целевой объект по умолчанию) (1) ->
+        "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-lyz5tg\\cmTC_2c84c.vcxproj" (целевой объект по умолчанию) (1) ->
         (Целевой объект Link) -> 
-          LINK : fatal error LNK1104: не удается открыть файл "pthreads.lib" [C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-82bucv\\cmTC_837a9.vcxproj]
+          LINK : fatal error LNK1104: не удается открыть файл "pthreads.lib" [C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-lyz5tg\\cmTC_2c84c.vcxproj]
         
             Предупреждений: 0
             Ошибок: 1
         
-        Прошло времени 00:00:00.21
+        Прошло времени 00:00:00.22
         
       exitCode: 1
   -
@@ -3777,14 +3959,14 @@ events:
       - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeFindDependencyMacro.cmake:78 (find_package)"
       - "C:/vcpkg/installed/x64-windows/share/glfw3/glfw3Config.cmake:2 (find_dependency)"
       - "C:/vcpkg/scripts/buildsystems/vcpkg.cmake:908 (_find_package)"
-      - "CMakeLists.txt:17 (find_package)"
+      - "CMakeLists.txt:14 (find_package)"
     checks:
       - "Looking for pthread_create in pthread"
     directories:
-      source: "C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-vbyu60"
-      binary: "C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-vbyu60"
+      source: "C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-1lh39q"
+      binary: "C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-1lh39q"
     cmakeVariables:
-      CMAKE_C_FLAGS: "/MP"
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
       CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
       CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
       VCPKG_INSTALLED_DIR: "C:/vcpkg/installed"
@@ -3795,49 +3977,49 @@ events:
       variable: "CMAKE_HAVE_PTHREAD_CREATE"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-vbyu60'
+        Change Dir: 'C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-1lh39q'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_469bc.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_52811.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         Версия MSBuild 17.14.23+b0019275e для .NET Framework
-        Сборка начата 02.02.2026 16:07:43.
+        Сборка начата 24.02.2026 0:56:10.
         
-        Проект "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-vbyu60\\cmTC_469bc.vcxproj" в узле 1 (целевые объекты по умолчанию).
+        Проект "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-1lh39q\\cmTC_52811.vcxproj" в узле 1 (целевые объекты по умолчанию).
         PrepareForBuild:
-          Создание каталога "cmTC_469bc.dir\\Debug\\".
+          Создание каталога "cmTC_52811.dir\\Debug\\".
           Структурированный вывод включен. Форматирование диагностики компилятора будет отражать иерархию ошибок. Подробнее см. https://aka.ms/cpp/structured-output.
-          Создание каталога "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-vbyu60\\Debug\\".
-          Создание каталога "cmTC_469bc.dir\\Debug\\cmTC_469bc.tlog\\".
+          Создание каталога "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-1lh39q\\Debug\\".
+          Создание каталога "cmTC_52811.dir\\Debug\\cmTC_52811.tlog\\".
         InitializeBuildStatus:
-          Создание "cmTC_469bc.dir\\Debug\\cmTC_469bc.tlog\\unsuccessfulbuild", так как было задано "AlwaysCreate".
-          Обращение к "cmTC_469bc.dir\\Debug\\cmTC_469bc.tlog\\unsuccessfulbuild".
+          Создание "cmTC_52811.dir\\Debug\\cmTC_52811.tlog\\unsuccessfulbuild", так как было задано "AlwaysCreate".
+          Обращение к "cmTC_52811.dir\\Debug\\cmTC_52811.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /MP /Od /Ob0 /D _MBCS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Fo"cmTC_469bc.dir\\Debug\\\\" /Fd"cmTC_469bc.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-vbyu60\\CheckFunctionExists.c"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Fo"cmTC_52811.dir\\Debug\\\\" /Fd"cmTC_52811.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-1lh39q\\CheckFunctionExists.c"
           Оптимизирующий компилятор Microsoft (R) C/C++ версии 19.44.35219 для x64
           (C) Корпорация Майкрософт (Microsoft Corporation).  Все права защищены.
-          cl /c /Zi /W1 /WX- /diagnostics:column /MP /Od /Ob0 /D _MBCS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Fo"cmTC_469bc.dir\\Debug\\\\" /Fd"cmTC_469bc.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-vbyu60\\CheckFunctionExists.c"
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Fo"cmTC_52811.dir\\Debug\\\\" /Fd"cmTC_52811.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-1lh39q\\CheckFunctionExists.c"
           CheckFunctionExists.c
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-vbyu60\\Debug\\cmTC_469bc.exe" /INCREMENTAL /ILK:"cmTC_469bc.dir\\Debug\\cmTC_469bc.ilk" /NOLOGO pthread.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-vbyu60/Debug/cmTC_469bc.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-vbyu60/Debug/cmTC_469bc.lib" /MACHINE:X64  /machine:x64 cmTC_469bc.dir\\Debug\\CheckFunctionExists.obj
-        LINK : fatal error LNK1104: не удается открыть файл "pthread.lib" [C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-vbyu60\\cmTC_469bc.vcxproj]
-        Сборка проекта "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-vbyu60\\cmTC_469bc.vcxproj" завершена (целевые объекты по умолчанию) с ошибкой.
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-1lh39q\\Debug\\cmTC_52811.exe" /INCREMENTAL /ILK:"cmTC_52811.dir\\Debug\\cmTC_52811.ilk" /NOLOGO pthread.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-1lh39q/Debug/cmTC_52811.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/CMakeScratch/TryCompile-1lh39q/Debug/cmTC_52811.lib" /MACHINE:X64  /machine:x64 cmTC_52811.dir\\Debug\\CheckFunctionExists.obj
+        LINK : fatal error LNK1104: не удается открыть файл "pthread.lib" [C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-1lh39q\\cmTC_52811.vcxproj]
+        Сборка проекта "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-1lh39q\\cmTC_52811.vcxproj" завершена (целевые объекты по умолчанию) с ошибкой.
         
         Ошибка сборки.
         
-        "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-vbyu60\\cmTC_469bc.vcxproj" (целевой объект по умолчанию) (1) ->
+        "C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-1lh39q\\cmTC_52811.vcxproj" (целевой объект по умолчанию) (1) ->
         (Целевой объект Link) -> 
-          LINK : fatal error LNK1104: не удается открыть файл "pthread.lib" [C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-vbyu60\\cmTC_469bc.vcxproj]
+          LINK : fatal error LNK1104: не удается открыть файл "pthread.lib" [C:\\Users\\User\\source\\repos\\arsrender_lib\\build\\CMakeFiles\\CMakeScratch\\TryCompile-1lh39q\\cmTC_52811.vcxproj]
         
             Предупреждений: 0
             Ошибок: 1
         
-        Прошло времени 00:00:00.23
+        Прошло времени 00:00:00.22
         
       exitCode: 1
   -
     kind: "find_package-v1"
     backtrace:
       - "C:/vcpkg/scripts/buildsystems/vcpkg.cmake:908 (_find_package)"
-      - "CMakeLists.txt:17 (find_package)"
+      - "CMakeLists.txt:14 (find_package)"
     name: "glfw3"
     configs:
       -
@@ -3901,6 +4083,7 @@ events:
       CMAKE_PREFIX_PATH:
         - "C:/vcpkg/installed/x64-windows/debug"
         - "C:/vcpkg/installed/x64-windows"
+        - "C:/Users/User/source/repos/utils_lib/install"
       ENV{PATH}:
         - "c:\\Users\\User\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\debugCommand"
         - "c:\\Users\\User\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\copilotCli"
@@ -3971,7 +4154,7 @@ events:
   -
     kind: "find-v1"
     backtrace:
-      - "CMakeLists.txt:18 (find_path)"
+      - "CMakeLists.txt:15 (find_path)"
     mode: "path"
     variable: "TINYGLTF_INCLUDE_DIRS"
     description: "Path to a file."
@@ -3990,6 +4173,8 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/include/"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/include/"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/Common Files/Oracle/Java/javapath/"
@@ -4031,6 +4216,8 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/"
       - "C:/vcpkg/installed/x64-windows/include/"
       - "C:/vcpkg/installed/x64-windows/"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/include/"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/"
       - "C:/vcpkg/installed/x64-windows/Program Files/Common Files/Oracle/Java/javapath/"
@@ -4072,6 +4259,8 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/"
       - "C:/vcpkg/installed/x64-windows/include/"
       - "C:/vcpkg/installed/x64-windows/"
+      - "C:/Users/User/source/repos/utils_lib/install/include/"
+      - "C:/Users/User/source/repos/utils_lib/install/"
       - "C:/Users/User/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/"
       - "C:/Users/User/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/"
       - "C:/Program Files/Common Files/Oracle/Java/javapath/"
@@ -4114,6 +4303,8 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/tiny_gltf.h"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/include/tiny_gltf.h"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/tiny_gltf.h"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/include/tiny_gltf.h"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/tiny_gltf.h"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/tiny_gltf.h"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/tiny_gltf.h"
       - "C:/vcpkg/installed/x64-windows/debug/Program Files/Common Files/Oracle/Java/javapath/tiny_gltf.h"
@@ -4158,6 +4349,7 @@ events:
       CMAKE_PREFIX_PATH:
         - "C:/vcpkg/installed/x64-windows/debug"
         - "C:/vcpkg/installed/x64-windows"
+        - "C:/Users/User/source/repos/utils_lib/install"
       ENV{PATH}:
         - "c:\\Users\\User\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\debugCommand"
         - "c:\\Users\\User\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\copilotCli"
@@ -4230,7 +4422,7 @@ events:
     backtrace:
       - "C:/Program Files/CMake/share/cmake-4.1/Modules/FindVulkan.cmake:387 (find_path)"
       - "C:/vcpkg/scripts/buildsystems/vcpkg.cmake:908 (_find_package)"
-      - "CMakeLists.txt:19 (find_package)"
+      - "CMakeLists.txt:16 (find_package)"
     mode: "path"
     variable: "Vulkan_INCLUDE_DIR"
     description: "Path to a file."
@@ -4249,6 +4441,8 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/include/"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/include/"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/"
       - "C:/vcpkg/installed/x64-windows/debug/VulkanSDK/1.4.313.2/include/"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/"
@@ -4291,6 +4485,8 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/"
       - "C:/vcpkg/installed/x64-windows/include/"
       - "C:/vcpkg/installed/x64-windows/"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/include/"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/"
       - "C:/vcpkg/installed/x64-windows/VulkanSDK/1.4.313.2/include/"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/"
       - "C:/vcpkg/installed/x64-windows/Users/User/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/"
@@ -4333,6 +4529,8 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/"
       - "C:/vcpkg/installed/x64-windows/include/"
       - "C:/vcpkg/installed/x64-windows/"
+      - "C:/Users/User/source/repos/utils_lib/install/include/"
+      - "C:/Users/User/source/repos/utils_lib/install/"
       - "D:/VulkanSDK/1.4.313.2/include/"
       - "C:/Users/User/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/"
       - "C:/Users/User/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/"
@@ -4376,6 +4574,8 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/vulkan/vulkan.h"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/include/vulkan/vulkan.h"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/vulkan/vulkan.h"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/include/vulkan/vulkan.h"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/vulkan/vulkan.h"
       - "C:/vcpkg/installed/x64-windows/debug/VulkanSDK/1.4.313.2/include/vulkan/vulkan.h"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/vulkan/vulkan.h"
       - "C:/vcpkg/installed/x64-windows/debug/Users/User/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/vulkan/vulkan.h"
@@ -4421,6 +4621,7 @@ events:
       CMAKE_PREFIX_PATH:
         - "C:/vcpkg/installed/x64-windows/debug"
         - "C:/vcpkg/installed/x64-windows"
+        - "C:/Users/User/source/repos/utils_lib/install"
       ENV{PATH}:
         - "c:\\Users\\User\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\debugCommand"
         - "c:\\Users\\User\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\copilotCli"
@@ -4493,7 +4694,7 @@ events:
     backtrace:
       - "C:/Program Files/CMake/share/cmake-4.1/Modules/FindVulkan.cmake:394 (find_library)"
       - "C:/vcpkg/scripts/buildsystems/vcpkg.cmake:908 (_find_package)"
-      - "CMakeLists.txt:19 (find_package)"
+      - "CMakeLists.txt:16 (find_package)"
     mode: "library"
     variable: "Vulkan_LIBRARY"
     description: "Path to a library."
@@ -4512,6 +4713,8 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/lib/"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/lib/"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/"
       - "C:/vcpkg/installed/x64-windows/debug/lib/manual-link/"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/lib/manual-link/"
       - "C:/vcpkg/installed/x64-windows/debug/VulkanSDK/1.4.313.2/lib/"
@@ -4559,6 +4762,8 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/"
       - "C:/vcpkg/installed/x64-windows/lib/"
       - "C:/vcpkg/installed/x64-windows/"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/lib/"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/"
       - "C:/vcpkg/installed/x64-windows/debug/lib/manual-link/"
       - "C:/vcpkg/installed/x64-windows/lib/manual-link/"
       - "C:/vcpkg/installed/x64-windows/VulkanSDK/1.4.313.2/lib/"
@@ -4606,6 +4811,8 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/"
       - "C:/vcpkg/installed/x64-windows/lib/"
       - "C:/vcpkg/installed/x64-windows/"
+      - "C:/Users/User/source/repos/utils_lib/install/lib/"
+      - "C:/Users/User/source/repos/utils_lib/install/"
       - "C:/vcpkg/installed/x64-windows/debug/lib/manual-link/"
       - "C:/vcpkg/installed/x64-windows/lib/manual-link/"
       - "D:/VulkanSDK/1.4.313.2/lib/"
@@ -4657,6 +4864,7 @@ events:
       CMAKE_PREFIX_PATH:
         - "C:/vcpkg/installed/x64-windows/debug"
         - "C:/vcpkg/installed/x64-windows"
+        - "C:/Users/User/source/repos/utils_lib/install"
       ENV{PATH}:
         - "c:\\Users\\User\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\debugCommand"
         - "c:\\Users\\User\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\copilotCli"
@@ -4733,7 +4941,7 @@ events:
     backtrace:
       - "C:/Program Files/CMake/share/cmake-4.1/Modules/FindVulkan.cmake:402 (find_program)"
       - "C:/vcpkg/scripts/buildsystems/vcpkg.cmake:908 (_find_package)"
-      - "CMakeLists.txt:19 (find_package)"
+      - "CMakeLists.txt:16 (find_package)"
     mode: "program"
     variable: "Vulkan_GLSLC_EXECUTABLE"
     description: "Path to a program."
@@ -4754,6 +4962,9 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/bin/"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/sbin/"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/bin/"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/sbin/"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/tools/"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/tools/spirv-cross/"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/tools/spirv-reflect/"
@@ -4805,6 +5016,9 @@ events:
       - "C:/vcpkg/installed/x64-windows/bin/"
       - "C:/vcpkg/installed/x64-windows/sbin/"
       - "C:/vcpkg/installed/x64-windows/"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/bin/"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/sbin/"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/"
       - "C:/vcpkg/installed/x64-windows/tools/"
       - "C:/vcpkg/installed/x64-windows/tools/spirv-cross/"
       - "C:/vcpkg/installed/x64-windows/tools/spirv-reflect/"
@@ -4856,6 +5070,9 @@ events:
       - "C:/vcpkg/installed/x64-windows/bin/"
       - "C:/vcpkg/installed/x64-windows/sbin/"
       - "C:/vcpkg/installed/x64-windows/"
+      - "C:/Users/User/source/repos/utils_lib/install/bin/"
+      - "C:/Users/User/source/repos/utils_lib/install/sbin/"
+      - "C:/Users/User/source/repos/utils_lib/install/"
       - "C:/vcpkg/installed/x64-windows/tools/"
       - "C:/vcpkg/installed/x64-windows/tools/spirv-cross/"
       - "C:/vcpkg/installed/x64-windows/tools/spirv-reflect/"
@@ -4920,6 +5137,15 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/glslc.com"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/glslc.exe"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/glslc"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/bin/glslc.com"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/bin/glslc.exe"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/bin/glslc"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/sbin/glslc.com"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/sbin/glslc.exe"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/sbin/glslc"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/glslc.com"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/glslc.exe"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/glslc"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/tools/glslc.com"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/tools/glslc.exe"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/tools/glslc"
@@ -5073,6 +5299,15 @@ events:
       - "C:/vcpkg/installed/x64-windows/glslc.com"
       - "C:/vcpkg/installed/x64-windows/glslc.exe"
       - "C:/vcpkg/installed/x64-windows/glslc"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/bin/glslc.com"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/bin/glslc.exe"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/bin/glslc"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/sbin/glslc.com"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/sbin/glslc.exe"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/sbin/glslc"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/glslc.com"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/glslc.exe"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/glslc"
       - "C:/vcpkg/installed/x64-windows/tools/glslc.com"
       - "C:/vcpkg/installed/x64-windows/tools/glslc.exe"
       - "C:/vcpkg/installed/x64-windows/tools/glslc"
@@ -5226,6 +5461,15 @@ events:
       - "C:/vcpkg/installed/x64-windows/glslc.com"
       - "C:/vcpkg/installed/x64-windows/glslc.exe"
       - "C:/vcpkg/installed/x64-windows/glslc"
+      - "C:/Users/User/source/repos/utils_lib/install/bin/glslc.com"
+      - "C:/Users/User/source/repos/utils_lib/install/bin/glslc.exe"
+      - "C:/Users/User/source/repos/utils_lib/install/bin/glslc"
+      - "C:/Users/User/source/repos/utils_lib/install/sbin/glslc.com"
+      - "C:/Users/User/source/repos/utils_lib/install/sbin/glslc.exe"
+      - "C:/Users/User/source/repos/utils_lib/install/sbin/glslc"
+      - "C:/Users/User/source/repos/utils_lib/install/glslc.com"
+      - "C:/Users/User/source/repos/utils_lib/install/glslc.exe"
+      - "C:/Users/User/source/repos/utils_lib/install/glslc"
       - "C:/vcpkg/installed/x64-windows/tools/glslc.com"
       - "C:/vcpkg/installed/x64-windows/tools/glslc.exe"
       - "C:/vcpkg/installed/x64-windows/tools/glslc"
@@ -5245,6 +5489,7 @@ events:
       CMAKE_PREFIX_PATH:
         - "C:/vcpkg/installed/x64-windows/debug"
         - "C:/vcpkg/installed/x64-windows"
+        - "C:/Users/User/source/repos/utils_lib/install"
       ENV{PATH}:
         - "c:\\Users\\User\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\debugCommand"
         - "c:\\Users\\User\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\copilotCli"
@@ -5317,7 +5562,7 @@ events:
     backtrace:
       - "C:/Program Files/CMake/share/cmake-4.1/Modules/FindVulkan.cmake:410 (find_program)"
       - "C:/vcpkg/scripts/buildsystems/vcpkg.cmake:908 (_find_package)"
-      - "CMakeLists.txt:19 (find_package)"
+      - "CMakeLists.txt:16 (find_package)"
     mode: "program"
     variable: "Vulkan_GLSLANG_VALIDATOR_EXECUTABLE"
     description: "Path to a program."
@@ -5338,6 +5583,9 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/bin/"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/sbin/"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/bin/"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/sbin/"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/tools/"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/tools/spirv-cross/"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/tools/spirv-reflect/"
@@ -5389,6 +5637,9 @@ events:
       - "C:/vcpkg/installed/x64-windows/bin/"
       - "C:/vcpkg/installed/x64-windows/sbin/"
       - "C:/vcpkg/installed/x64-windows/"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/bin/"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/sbin/"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/"
       - "C:/vcpkg/installed/x64-windows/tools/"
       - "C:/vcpkg/installed/x64-windows/tools/spirv-cross/"
       - "C:/vcpkg/installed/x64-windows/tools/spirv-reflect/"
@@ -5440,6 +5691,9 @@ events:
       - "C:/vcpkg/installed/x64-windows/bin/"
       - "C:/vcpkg/installed/x64-windows/sbin/"
       - "C:/vcpkg/installed/x64-windows/"
+      - "C:/Users/User/source/repos/utils_lib/install/bin/"
+      - "C:/Users/User/source/repos/utils_lib/install/sbin/"
+      - "C:/Users/User/source/repos/utils_lib/install/"
       - "C:/vcpkg/installed/x64-windows/tools/"
       - "C:/vcpkg/installed/x64-windows/tools/spirv-cross/"
       - "C:/vcpkg/installed/x64-windows/tools/spirv-reflect/"
@@ -5504,6 +5758,15 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/glslangValidator.com"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/glslangValidator.exe"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/glslangValidator"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/bin/glslangValidator.com"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/bin/glslangValidator.exe"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/bin/glslangValidator"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/sbin/glslangValidator.com"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/sbin/glslangValidator.exe"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/sbin/glslangValidator"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/glslangValidator.com"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/glslangValidator.exe"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/glslangValidator"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/tools/glslangValidator.com"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/tools/glslangValidator.exe"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/tools/glslangValidator"
@@ -5657,6 +5920,15 @@ events:
       - "C:/vcpkg/installed/x64-windows/glslangValidator.com"
       - "C:/vcpkg/installed/x64-windows/glslangValidator.exe"
       - "C:/vcpkg/installed/x64-windows/glslangValidator"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/bin/glslangValidator.com"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/bin/glslangValidator.exe"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/bin/glslangValidator"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/sbin/glslangValidator.com"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/sbin/glslangValidator.exe"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/sbin/glslangValidator"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/glslangValidator.com"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/glslangValidator.exe"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/glslangValidator"
       - "C:/vcpkg/installed/x64-windows/tools/glslangValidator.com"
       - "C:/vcpkg/installed/x64-windows/tools/glslangValidator.exe"
       - "C:/vcpkg/installed/x64-windows/tools/glslangValidator"
@@ -5810,6 +6082,15 @@ events:
       - "C:/vcpkg/installed/x64-windows/glslangValidator.com"
       - "C:/vcpkg/installed/x64-windows/glslangValidator.exe"
       - "C:/vcpkg/installed/x64-windows/glslangValidator"
+      - "C:/Users/User/source/repos/utils_lib/install/bin/glslangValidator.com"
+      - "C:/Users/User/source/repos/utils_lib/install/bin/glslangValidator.exe"
+      - "C:/Users/User/source/repos/utils_lib/install/bin/glslangValidator"
+      - "C:/Users/User/source/repos/utils_lib/install/sbin/glslangValidator.com"
+      - "C:/Users/User/source/repos/utils_lib/install/sbin/glslangValidator.exe"
+      - "C:/Users/User/source/repos/utils_lib/install/sbin/glslangValidator"
+      - "C:/Users/User/source/repos/utils_lib/install/glslangValidator.com"
+      - "C:/Users/User/source/repos/utils_lib/install/glslangValidator.exe"
+      - "C:/Users/User/source/repos/utils_lib/install/glslangValidator"
       - "C:/vcpkg/installed/x64-windows/tools/glslangValidator.com"
       - "C:/vcpkg/installed/x64-windows/tools/glslangValidator.exe"
       - "C:/vcpkg/installed/x64-windows/tools/glslangValidator"
@@ -5829,6 +6110,7 @@ events:
       CMAKE_PREFIX_PATH:
         - "C:/vcpkg/installed/x64-windows/debug"
         - "C:/vcpkg/installed/x64-windows"
+        - "C:/Users/User/source/repos/utils_lib/install"
       ENV{PATH}:
         - "c:\\Users\\User\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\debugCommand"
         - "c:\\Users\\User\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\copilotCli"
@@ -5901,7 +6183,7 @@ events:
     backtrace:
       - "C:/vcpkg/scripts/buildsystems/vcpkg.cmake:188 (find_program)"
       - "C:/vcpkg/scripts/buildsystems/vcpkg.cmake:621 (z_vcpkg_set_powershell_path)"
-      - "CMakeLists.txt:25 (add_executable)"
+      - "CMakeLists.txt:22 (add_executable)"
     mode: "program"
     variable: "Z_VCPKG_PWSH_PATH"
     description: "Path to a program."
@@ -5922,6 +6204,9 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/bin/"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/sbin/"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/bin/"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/sbin/"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/tools/"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/tools/spirv-cross/"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/tools/spirv-reflect/"
@@ -5972,6 +6257,9 @@ events:
       - "C:/vcpkg/installed/x64-windows/bin/"
       - "C:/vcpkg/installed/x64-windows/sbin/"
       - "C:/vcpkg/installed/x64-windows/"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/bin/"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/sbin/"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/"
       - "C:/vcpkg/installed/x64-windows/tools/"
       - "C:/vcpkg/installed/x64-windows/tools/spirv-cross/"
       - "C:/vcpkg/installed/x64-windows/tools/spirv-reflect/"
@@ -6022,6 +6310,9 @@ events:
       - "C:/vcpkg/installed/x64-windows/bin/"
       - "C:/vcpkg/installed/x64-windows/sbin/"
       - "C:/vcpkg/installed/x64-windows/"
+      - "C:/Users/User/source/repos/utils_lib/install/bin/"
+      - "C:/Users/User/source/repos/utils_lib/install/sbin/"
+      - "C:/Users/User/source/repos/utils_lib/install/"
       - "C:/vcpkg/installed/x64-windows/tools/"
       - "C:/vcpkg/installed/x64-windows/tools/spirv-cross/"
       - "C:/vcpkg/installed/x64-windows/tools/spirv-reflect/"
@@ -6085,6 +6376,15 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/pwsh.com"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/pwsh.exe"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/pwsh"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/bin/pwsh.com"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/bin/pwsh.exe"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/bin/pwsh"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/sbin/pwsh.com"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/sbin/pwsh.exe"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/sbin/pwsh"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/pwsh.com"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/pwsh.exe"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/pwsh"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/tools/pwsh.com"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/tools/pwsh.exe"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/tools/pwsh"
@@ -6235,6 +6535,15 @@ events:
       - "C:/vcpkg/installed/x64-windows/pwsh.com"
       - "C:/vcpkg/installed/x64-windows/pwsh.exe"
       - "C:/vcpkg/installed/x64-windows/pwsh"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/bin/pwsh.com"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/bin/pwsh.exe"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/bin/pwsh"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/sbin/pwsh.com"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/sbin/pwsh.exe"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/sbin/pwsh"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/pwsh.com"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/pwsh.exe"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/pwsh"
       - "C:/vcpkg/installed/x64-windows/tools/pwsh.com"
       - "C:/vcpkg/installed/x64-windows/tools/pwsh.exe"
       - "C:/vcpkg/installed/x64-windows/tools/pwsh"
@@ -6385,6 +6694,15 @@ events:
       - "C:/vcpkg/installed/x64-windows/pwsh.com"
       - "C:/vcpkg/installed/x64-windows/pwsh.exe"
       - "C:/vcpkg/installed/x64-windows/pwsh"
+      - "C:/Users/User/source/repos/utils_lib/install/bin/pwsh.com"
+      - "C:/Users/User/source/repos/utils_lib/install/bin/pwsh.exe"
+      - "C:/Users/User/source/repos/utils_lib/install/bin/pwsh"
+      - "C:/Users/User/source/repos/utils_lib/install/sbin/pwsh.com"
+      - "C:/Users/User/source/repos/utils_lib/install/sbin/pwsh.exe"
+      - "C:/Users/User/source/repos/utils_lib/install/sbin/pwsh"
+      - "C:/Users/User/source/repos/utils_lib/install/pwsh.com"
+      - "C:/Users/User/source/repos/utils_lib/install/pwsh.exe"
+      - "C:/Users/User/source/repos/utils_lib/install/pwsh"
       - "C:/vcpkg/installed/x64-windows/tools/pwsh.com"
       - "C:/vcpkg/installed/x64-windows/tools/pwsh.exe"
       - "C:/vcpkg/installed/x64-windows/tools/pwsh"
@@ -6526,6 +6844,7 @@ events:
       CMAKE_PREFIX_PATH:
         - "C:/vcpkg/installed/x64-windows/debug"
         - "C:/vcpkg/installed/x64-windows"
+        - "C:/Users/User/source/repos/utils_lib/install"
       ENV{PATH}:
         - "c:\\Users\\User\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\debugCommand"
         - "c:\\Users\\User\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\copilotCli"
@@ -6598,7 +6917,7 @@ events:
     backtrace:
       - "C:/vcpkg/scripts/buildsystems/vcpkg.cmake:193 (find_program)"
       - "C:/vcpkg/scripts/buildsystems/vcpkg.cmake:621 (z_vcpkg_set_powershell_path)"
-      - "CMakeLists.txt:25 (add_executable)"
+      - "CMakeLists.txt:22 (add_executable)"
     mode: "program"
     variable: "Z_VCPKG_BUILTIN_POWERSHELL_PATH"
     description: "Path to a program."
@@ -6619,6 +6938,9 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/bin/"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/sbin/"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/bin/"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/sbin/"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/tools/"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/tools/spirv-cross/"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/tools/spirv-reflect/"
@@ -6669,6 +6991,9 @@ events:
       - "C:/vcpkg/installed/x64-windows/bin/"
       - "C:/vcpkg/installed/x64-windows/sbin/"
       - "C:/vcpkg/installed/x64-windows/"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/bin/"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/sbin/"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/"
       - "C:/vcpkg/installed/x64-windows/tools/"
       - "C:/vcpkg/installed/x64-windows/tools/spirv-cross/"
       - "C:/vcpkg/installed/x64-windows/tools/spirv-reflect/"
@@ -6719,6 +7044,9 @@ events:
       - "C:/vcpkg/installed/x64-windows/bin/"
       - "C:/vcpkg/installed/x64-windows/sbin/"
       - "C:/vcpkg/installed/x64-windows/"
+      - "C:/Users/User/source/repos/utils_lib/install/bin/"
+      - "C:/Users/User/source/repos/utils_lib/install/sbin/"
+      - "C:/Users/User/source/repos/utils_lib/install/"
       - "C:/vcpkg/installed/x64-windows/tools/"
       - "C:/vcpkg/installed/x64-windows/tools/spirv-cross/"
       - "C:/vcpkg/installed/x64-windows/tools/spirv-reflect/"
@@ -6782,6 +7110,15 @@ events:
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/powershell.com"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/powershell.exe"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/powershell"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/bin/powershell.com"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/bin/powershell.exe"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/bin/powershell"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/sbin/powershell.com"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/sbin/powershell.exe"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/sbin/powershell"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/powershell.com"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/powershell.exe"
+      - "C:/vcpkg/installed/x64-windows/debug/Users/User/source/repos/utils_lib/install/powershell"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/tools/powershell.com"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/tools/powershell.exe"
       - "C:/vcpkg/installed/x64-windows/debug/vcpkg/installed/x64-windows/tools/powershell"
@@ -6932,6 +7269,15 @@ events:
       - "C:/vcpkg/installed/x64-windows/powershell.com"
       - "C:/vcpkg/installed/x64-windows/powershell.exe"
       - "C:/vcpkg/installed/x64-windows/powershell"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/bin/powershell.com"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/bin/powershell.exe"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/bin/powershell"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/sbin/powershell.com"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/sbin/powershell.exe"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/sbin/powershell"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/powershell.com"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/powershell.exe"
+      - "C:/vcpkg/installed/x64-windows/Users/User/source/repos/utils_lib/install/powershell"
       - "C:/vcpkg/installed/x64-windows/tools/powershell.com"
       - "C:/vcpkg/installed/x64-windows/tools/powershell.exe"
       - "C:/vcpkg/installed/x64-windows/tools/powershell"
@@ -7082,6 +7428,15 @@ events:
       - "C:/vcpkg/installed/x64-windows/powershell.com"
       - "C:/vcpkg/installed/x64-windows/powershell.exe"
       - "C:/vcpkg/installed/x64-windows/powershell"
+      - "C:/Users/User/source/repos/utils_lib/install/bin/powershell.com"
+      - "C:/Users/User/source/repos/utils_lib/install/bin/powershell.exe"
+      - "C:/Users/User/source/repos/utils_lib/install/bin/powershell"
+      - "C:/Users/User/source/repos/utils_lib/install/sbin/powershell.com"
+      - "C:/Users/User/source/repos/utils_lib/install/sbin/powershell.exe"
+      - "C:/Users/User/source/repos/utils_lib/install/sbin/powershell"
+      - "C:/Users/User/source/repos/utils_lib/install/powershell.com"
+      - "C:/Users/User/source/repos/utils_lib/install/powershell.exe"
+      - "C:/Users/User/source/repos/utils_lib/install/powershell"
       - "C:/vcpkg/installed/x64-windows/tools/powershell.com"
       - "C:/vcpkg/installed/x64-windows/tools/powershell.exe"
       - "C:/vcpkg/installed/x64-windows/tools/powershell"
@@ -7122,400 +7477,7 @@ events:
       CMAKE_PREFIX_PATH:
         - "C:/vcpkg/installed/x64-windows/debug"
         - "C:/vcpkg/installed/x64-windows"
-      ENV{PATH}:
-        - "c:\\Users\\User\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\debugCommand"
-        - "c:\\Users\\User\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\copilotCli"
-        - "C:\\Program Files\\Common Files\\Oracle\\Java\\javapath"
-        - "D:\\VulkanSDK\\1.4.313.2\\Bin"
-        - "C:\\WINDOWS\\system32"
-        - "C:\\WINDOWS"
-        - "C:\\WINDOWS\\System32\\Wbem"
-        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
-        - "C:\\WINDOWS\\System32\\OpenSSH\\"
-        - "C:\\Program Files\\dotnet\\"
-        - "C:\\Program Files\\Microsoft SQL Server\\150\\Tools\\Binn\\"
-        - "C:\\Program Files\\CMake\\bin"
-        - "C:\\Program Files\\Git\\cmd"
-        - "C:\\Users\\User\\vcpkg"
-        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA App\\NvDLISR"
-        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
-        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Preview\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64"
-        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
-        - "C:\\Program Files\\nodejs\\"
-        - "C:\\Program Files\\Go\\bin"
-        - "C:\\WINDOWS\\system32"
-        - "C:\\WINDOWS"
-        - "C:\\WINDOWS\\System32\\Wbem"
-        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
-        - "C:\\WINDOWS\\System32\\OpenSSH\\"
-        - "C:\\Program Files\\dotnet\\"
-        - "C:\\Program Files\\Microsoft SQL Server\\150\\Tools\\Binn\\"
-        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
-        - "C:\\Program Files\\CMake\\bin"
-        - "C:\\Program Files\\Git\\cmd"
-        - "C:\\WINDOWS\\system32"
-        - "C:\\WINDOWS"
-        - "C:\\WINDOWS\\System32\\Wbem"
-        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
-        - "C:\\WINDOWS\\System32\\OpenSSH\\"
-        - "C:\\Program Files\\dotnet\\"
-        - "C:\\Program Files\\Microsoft SQL Server\\150\\Tools\\Binn\\"
-        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
-        - "C:\\Program Files\\CMake\\bin"
-        - "C:\\Program Files\\Git\\cmd"
-        - "C:\\WINDOWS\\system32"
-        - "C:\\WINDOWS"
-        - "C:\\WINDOWS\\System32\\Wbem"
-        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
-        - "C:\\WINDOWS\\System32\\OpenSSH\\"
-        - "C:\\Program Files\\dotnet\\"
-        - "C:\\Program Files\\Microsoft SQL Server\\150\\Tools\\Binn\\"
-        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
-        - "C:\\Program Files\\CMake\\bin"
-        - "C:\\Program Files\\Git\\cmd"
-        - "C:\\Users\\User\\AppData\\Local\\Microsoft\\WindowsApps"
-        - "C:\\Users\\User\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
-        - "C:\\vcpkg"
-        - "C:\\Users\\User\\AppData\\Local\\Programs\\cursor\\resources\\app\\bin"
-        - "C:\\Users\\User\\AppData\\Local\\Programs\\MiKTeX\\miktex\\bin\\x64\\"
-        - "C:\\Users\\User\\AppData\\Roaming\\npm"
-        - "C:\\Users\\User\\AppData\\Local\\Python\\bin"
-        - "C:\\mtools"
-        - "C:\\Users\\User\\go\\bin"
-      CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/vulkan_app"
-      CMAKE_SYSTEM_PREFIX_PATH:
-        - "C:/Program Files"
-        - "C:/Program Files (x86)"
-        - "C:/Program Files/CMake"
-        - "C:/Program Files (x86)/vulkan_app"
-      CMAKE_FIND_ROOT_PATH: "C:/vcpkg/installed/x64-windows/debug;C:/vcpkg/installed/x64-windows"
-...
-
----
-events:
-  -
-    kind: "find_package-v1"
-    backtrace:
-      - "C:/vcpkg/scripts/buildsystems/vcpkg.cmake:908 (_find_package)"
-      - "CMakeLists.txt:20 (find_package)"
-    name: "ars_utils"
-    configs:
-      -
-        filename: "ars_utilsConfig.cmake"
-        kind: "cmake"
-      -
-        filename: "ars_utils-config.cmake"
-        kind: "cmake"
-    version_request:
-      version: "1.0"
-      version_complete: "1.0"
-      exact: false
-    settings:
-      required: "required_explicit"
-      quiet: false
-      global: false
-      policy_scope: true
-      bypass_provider: false
-      names:
-        - "ars_utils"
-      path_suffixes:
-        - ""
-      paths:
-        CMAKE_FIND_USE_CMAKE_PATH: true
-        CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
-        CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
-        CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
-        CMAKE_FIND_USE_INSTALL_PREFIX: true
-        CMAKE_FIND_USE_PACKAGE_ROOT_PATH: true
-        CMAKE_FIND_USE_CMAKE_PACKAGE_REGISTRY: true
-        CMAKE_FIND_USE_SYSTEM_PACKAGE_REGISTRY: true
-        CMAKE_FIND_ROOT_PATH_MODE: "BOTH"
-    candidates:
-      -
-        path: "C:/vcpkg/installed/x64-windows/debug/ars_utilsConfig.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/vcpkg/installed/x64-windows/debug/ars_utils-config.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/vcpkg/installed/x64-windows/debug/ars_utilsConfig.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/vcpkg/installed/x64-windows/debug/ars_utils-config.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/vcpkg/installed/x64-windows/ars_utilsConfig.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/vcpkg/installed/x64-windows/ars_utils-config.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/pkgRedirects/ars_utilsConfig.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Users/User/source/repos/arsrender_lib/build/CMakeFiles/pkgRedirects/ars_utils-config.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/vcpkg/installed/x64-windows/debug/ars_utilsConfig.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/vcpkg/installed/x64-windows/debug/ars_utils-config.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/vcpkg/installed/x64-windows/ars_utilsConfig.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/vcpkg/installed/x64-windows/ars_utils-config.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Users/User/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/ars_utilsConfig.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Users/User/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/ars_utils-config.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Users/User/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/ars_utilsConfig.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Users/User/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/ars_utils-config.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Program Files/Common Files/Oracle/Java/javapath/ars_utilsConfig.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Program Files/Common Files/Oracle/Java/javapath/ars_utils-config.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "D:/VulkanSDK/1.4.313.2/Bin/ars_utilsConfig.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "D:/VulkanSDK/1.4.313.2/Bin/ars_utils-config.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Windows/System32/ars_utilsConfig.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Windows/System32/ars_utils-config.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Windows/ars_utilsConfig.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Windows/ars_utils-config.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Windows/System32/wbem/ars_utilsConfig.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Windows/System32/wbem/ars_utils-config.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Windows/System32/WindowsPowerShell/v1.0/ars_utilsConfig.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Windows/System32/WindowsPowerShell/v1.0/ars_utils-config.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Windows/System32/OpenSSH/ars_utilsConfig.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Windows/System32/OpenSSH/ars_utils-config.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Program Files/dotnet/ars_utilsConfig.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Program Files/dotnet/ars_utils-config.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Program Files/Microsoft SQL Server/150/Tools/Binn/ars_utilsConfig.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Program Files/Microsoft SQL Server/150/Tools/Binn/ars_utils-config.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Program Files/CMake/ars_utilsConfig.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Program Files/CMake/ars_utils-config.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Program Files/Git/cmd/ars_utilsConfig.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Program Files/Git/cmd/ars_utils-config.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/ars_utilsConfig.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/ars_utils-config.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/ars_utilsConfig.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/ars_utils-config.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/ars_utilsConfig.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/ars_utils-config.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Program Files/nodejs/ars_utilsConfig.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Program Files/nodejs/ars_utils-config.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Program Files/Go/ars_utilsConfig.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Program Files/Go/ars_utils-config.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Users/User/AppData/Local/Microsoft/WindowsApps/ars_utilsConfig.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Users/User/AppData/Local/Microsoft/WindowsApps/ars_utils-config.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Users/User/AppData/Local/Programs/Microsoft VS Code/ars_utilsConfig.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Users/User/AppData/Local/Programs/Microsoft VS Code/ars_utils-config.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/vcpkg/ars_utilsConfig.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/vcpkg/ars_utils-config.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Users/User/AppData/Local/Programs/cursor/resources/app/ars_utilsConfig.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Users/User/AppData/Local/Programs/cursor/resources/app/ars_utils-config.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Users/User/AppData/Local/Programs/MiKTeX/miktex/bin/x64/ars_utilsConfig.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Users/User/AppData/Local/Programs/MiKTeX/miktex/bin/x64/ars_utils-config.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Users/User/AppData/Local/Python/ars_utilsConfig.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Users/User/AppData/Local/Python/ars_utils-config.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/mtools/ars_utilsConfig.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/mtools/ars_utils-config.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Users/User/go/ars_utilsConfig.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Users/User/go/ars_utils-config.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Program Files/ars_utilsConfig.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Program Files/ars_utils-config.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Program Files/CMake/ars_utilsConfig.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Program Files/CMake/ars_utils-config.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Program Files (x86)/ars_utilsConfig.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Program Files (x86)/ars_utils-config.cmake"
-        mode: "config"
-        reason: "no_exist"
-    found: null
-    search_context:
-      CMAKE_PREFIX_PATH:
-        - "C:/vcpkg/installed/x64-windows/debug"
-        - "C:/vcpkg/installed/x64-windows"
+        - "C:/Users/User/source/repos/utils_lib/install"
       ENV{PATH}:
         - "c:\\Users\\User\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\debugCommand"
         - "c:\\Users\\User\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\copilotCli"

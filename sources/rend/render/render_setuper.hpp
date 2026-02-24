@@ -1,26 +1,31 @@
 #pragma once
 
+#include "../../gui/window/interface_window.hpp"
 #include "../../libs_includes/vulkan.hpp"
 #include "../cmdbuf/command_pool.hpp"
 #include "../device/logical_device.hpp"
 #include "../device/physical_device.hpp"
-#include "../gui/window/interface_window.hpp"
 #include "../instance/instance.hpp"
+#include "../render_pass/render_pass_creater.hpp"
 #include "../scene/interface_scene.hpp"
+#include "../shaders/shader_config_info.hpp"
 #include "../swap_chain/swap_chain.hpp"
+#include "../swap_chain/swap_chain_frame.hpp"
 
 #include "synchronization_data.hpp"
 
 namespace ars_graphics
 {
 
-struct RenderConfigInfo
+struct RenderSetuperConfigInfo
 {
-    RenderConfigInfo();
+    RenderSetuperConfigInfo();
 
     std::string inst_name;
 
-    std::vector<RenderPassConfigInfo> render_pass_configs;
+    std::vector<RenderPassConfigInfo> render_pass_configs; // render passes
+
+    std::vector<ShaderConfigInfo> shaders;
 
     IWindow& window;
 };
@@ -34,22 +39,44 @@ struct Formats
     vk::Format m_depth_format;
     vk::SurfaceFormatKHR m_surface_format;
 };
+struct Sync
+{
+    Sync(vk::Device device, size_t count)
+    {
+        for (int i = 0; i < count; ++i)
+        {
+            m_data.emplace_back(device);
+        }
+    }
+    std::vector<SynchronizationData> m_data;
+};
 
-class RendererImpl final
+class RenderSetuper final
 {
 public:
-    RendererImpl(const RenderConfigInfo& render_info);
+    RenderSetuper(const RenderSetuperConfigInfo& render_info);
 
-    ~RendererImpl()
+    ~RenderSetuper()
     {
         clear();
     }
 
-    void bindScene(IScene& scene);
+    /// getters
+    vk::RenderPass getRenderPass(uint32_t render_pass_index) const;
 
-    void render();
+    const SwapChainFrame& getFrame(uint32_t frame_index,
+                                   uint32_t render_pass_index) const;
 
+    uint32_t getFrameNumber() const;
+
+    const vk::Extent2D& getExtent() const;
+
+    ///
     void clear();
+
+    void waitFence(uint8_t index) const;
+
+    vk::ResultValue<uint32_t> acquireNextImage(uint8_t index);
 
 private:
     // pipeline for bind
@@ -88,37 +115,13 @@ private:
 
     SwapChain m_swapchain;
 
-    // TODO: make in an other place
-
-    std::vector<SwapChainFrame> createFrames(vk::RenderPass render_pass) const;
     std::vector<std::vector<SwapChainFrame>> createAllFrames() const;
     std::vector<std::vector<SwapChainFrame>>
-        m_frames; // n frames on 3 different render passes
-
-    vk::UniqueFramebuffer createFramebuffer(vk::RenderPass render_pass,
-                                            vk::ImageView view,
-                                            vk::ImageView depth_view) const;
+        m_frames; // n frames on m different render passes
 
     // synchronization
 
-    void waitFence(uint8_t index);
-
-    vk::ResultValue<uint32_t> acquireNextImage(uint8_t index);
-
-    uint32_t frame_number = 0;
-
-    struct Sync
-    {
-        Sync(const LogicalDevice& device, size_t count)
-        {
-            for (int i = 0; i < count; ++i)
-            {
-                m_data.emplace_back(device);
-            }
-        }
-        std::vector<SynchronizationData> m_data;
-    };
-
+    uint32_t m_frame_number = 0;
     Sync m_sync;
 };
 

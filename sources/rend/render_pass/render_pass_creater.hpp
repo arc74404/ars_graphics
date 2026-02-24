@@ -12,7 +12,7 @@ class RenderPassBuilder
 public:
     virtual ~RenderPassBuilder() = default;
 
-    RenderPassBuilder(const LogicalDevice& device);
+    RenderPassBuilder(vk::Device);
 
     vk::UniqueRenderPass createRenderPass(
         const RenderPassConfigInfo& config_info);
@@ -33,6 +33,12 @@ private:
         const vk::AttachmentReference& depth) const;
 
 private:
-    const LogicalDevice& m_device;
+    vk::Device m_device;
 };
+
+std::vector<vk::UniqueRenderPass>
+createRenderPasses(
+    vk::Device device,
+    const std::vector<RenderPassConfigInfo>& render_pass_configs);
+
 } // namespace ars_graphics

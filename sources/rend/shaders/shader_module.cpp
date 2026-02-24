@@ -19,16 +19,8 @@ readFile(std::ifstream& file)
 }
 } // namespace
 
-namespace ars_graphics
-{
-
-const vk::ShaderModule&
-ShaderModule::get() const
-{
-    return m_shader_module.get();
-}
-
-ShaderModule::ShaderModule(const LogicalDevice& device, std::ifstream& file)
+std::optional<vk::UniqueShaderModule>
+createShaderModule(vk::Device device, std::ifstream& file)
 {
     std::vector<char>&& source_code = readFile(file);
 
@@ -37,13 +29,11 @@ ShaderModule::ShaderModule(const LogicalDevice& device, std::ifstream& file)
     module_info.codeSize                   = source_code.size();
     module_info.pCode = reinterpret_cast<const uint32_t*>(source_code.data());
 
-    auto&& res = device.get().createShaderModuleUnique(module_info);
+    auto&& res = device.createShaderModuleUnique(module_info);
 
     if (res.result != vk::Result::eSuccess)
     {
-        throw std::runtime_error("Failed create shader module");
+        return std::nullopt;
     }
-    m_shader_module = std::move(res.value);
+    return std::move(res.value);
 }
-
-} // namespace ars_graphics
