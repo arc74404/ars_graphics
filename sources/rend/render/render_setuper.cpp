@@ -39,13 +39,16 @@ RenderSetuper::RenderSetuper(const RenderSetuperConfigInfo& render_info)
     : m_instance(render_info.inst_name),
       m_surface(render_info.window.createSurface(m_instance)),
       m_physical_device(m_instance, m_surface),
-      m_logical_device(m_physical_device.get(),
+      m_logical_device(m_physical_device,
                        m_physical_device.getQueueFamilyIndices()),
       m_command_pool(m_logical_device, m_physical_device),
       m_formats(m_physical_device.calculateSwapchainDepthFormat(),
                 chooseSurfaceFormat(
                     m_physical_device.calculateSurfaceFormats(m_surface))),
-      m_render_passes(createRenderPasses(render_info.render_pass_configs)),
+      m_render_passes(createRenderPasses(m_logical_device,
+                                         render_info.render_pass_configs,
+                                         m_formats.m_surface_format.format,
+                                         m_formats.m_depth_format)),
       m_swapchain(m_logical_device,
                   m_physical_device,
                   m_surface,
@@ -82,4 +85,75 @@ RenderSetuper::getExtent() const
     return m_swapchain.getExtent();
 }
 
+vk::Extent2D
+RenderSetuper::getWindowSize() const
+{
+    vk::SurfaceCapabilitiesKHR capabilities =
+        vk::PhysicalDevice(m_physical_device)
+            .getSurfaceCapabilitiesKHR(m_surface)
+            .value;
+    return capabilities.currentExtent;
+}
+
+vk::Result
+RenderSetuper::submit(uint32_t image_index, vk::CommandBuffer cmd)
+{
+    vk::SubmitInfo submit_info = {};
+
+    vk::PipelineStageFlags wait_stages[] = {
+        vk::PipelineStageFlagBits::eColorAttachmentOutput};
+
+    vk::Semaphore signal_semaphores[] = {
+        m_sync.m_data[image_index].m_render_finished.get()};
+
+    submit_info.waitSemaphoreCount = 1;
+    submit_info.pWaitSemaphores =
+        &m_sync.m_data[m_frame_number].m_image_available.get();
+    submit_info.pWaitDstStageMask    = wait_stages;
+    submit_info.commandBufferCount   = 1;
+    submit_info.pCommandBuffers      = &cmd;
+    submit_info.signalSemaphoreCount = 1;
+    submit_info.pSignalSemaphores    = signal_semaphores;
+
+    return m_logical_device.getQueue("graphics")
+        .submit(submit_info,
+                m_sync.m_data[m_frame_number].m_in_flight_fence.get());
+}
+
+vk::Result
+RenderSetuper::present(uint32_t image_index)
+{
+    vk::PresentInfoKHR presentInfo{};
+    presentInfo.waitSemaphoreCount = 1;
+    presentInfo.pWaitSemaphores =
+        &(m_sync.m_data[image_index].m_render_finished.get());
+    presentInfo.swapchainCount = 1;
+    presentInfo.pSwapchains    = &vk::SwapchainKHR(m_swapchain);
+    presentInfo.pImageIndices  = &image_index;
+
+    vk::ResultValue<uint64_t> present_result = {vk::Result::eSuccess, 0};
+
+    VkPresentInfoKHR vkPresentInfo = presentInfo;
+    VkResult rawResult             = vkQueuePresentKHR(
+        static_cast<VkQueue>(m_logical_device.getQueue("present")),
+        &vkPresentInfo);
+
+    return static_cast<vk::Result>(rawResult);
+}
+vk::Result
+RenderSetuper::endRender(uint32_t image_index, vk::CommandBuffer cmd)
+{
+    auto&& submit_res = submit(image_index, cmd);
+
+    auto&& present_res = present(image_index);
+
+    if (present_res == vk::Result::eErrorOutOfDateKHR ||
+        present_res == vk::Result::eSuboptimalKHR)
+    {
+        recreate(getWindowSize());
+        return;
+    }
+
+    m_frame_number = (m_frame_number + 1) % m_frames[0].size();
+}
 } // namespace ars_graphics

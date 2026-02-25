@@ -125,7 +125,9 @@ RenderPassBuilder::subpassGenerate(const vk::AttachmentReference& color,
 std::vector<vk::UniqueRenderPass>
 ars_graphics::createRenderPasses(
     vk::Device device,
-    const std::vector<RenderPassConfigInfo>& render_pass_configs)
+    const std::vector<RenderPassUserConfigInfo>& render_pass_configs,
+    vk::Format color,
+    vk::Format depth)
 {
     std::vector<vk::UniqueRenderPass> render_passes;
 
@@ -134,7 +136,11 @@ ars_graphics::createRenderPasses(
     for (auto&& config : render_pass_configs)
     {
         render_passes.emplace_back(
-            std::move(render_pass_builder.createRenderPass(config)));
+            std::move(render_pass_builder.createRenderPass(
+                {.color_format = color,
+                 .depth_format = depth,
+                 .clear_color  = config.clear_color,
+                 .clear_depth  = config.clear_depth})));
     }
 
     return render_passes;

@@ -38,12 +38,21 @@ render(const RenderContext& ctx,
 
     const vk::Extent2D& extent = setuper.getExtent();
 
-    pipeline.startRenderPass(render_pass, frame_data.getFramebuffer(), extent);
+    vk::Framebuffer framebuf =
+        setuper.getFrame(acquire.value, ctx.render_pass_index).getFramebuffer();
+
+    pipeline.startRenderPass(render_pass, framebuf, extent);
 
     pipeline.setupScope(extent);
 
     pipeline.bindSharedData(scene);
 
     pipeline.drawPrimitives(scene);
+
+    cmd.endRenderPass();
+
+    cmd.end();
+
+    setuper.endRender(acquire.value, cmd);
 }
 } // namespace ars_graphics

@@ -49,7 +49,7 @@ public:
                        vk::DeviceSize byte_size);
 
     operator vk::Buffer() const noexcept;
-    
+
     vk::DeviceSize getByteSize() const noexcept;
 
 protected:

@@ -39,6 +39,8 @@ private:
 std::vector<vk::UniqueRenderPass>
 createRenderPasses(
     vk::Device device,
-    const std::vector<RenderPassConfigInfo>& render_pass_configs);
+    const std::vector<RenderPassUserConfigInfo>& render_pass_configs,
+    vk::Format color,
+    vk::Format depth);
 
 } // namespace ars_graphics

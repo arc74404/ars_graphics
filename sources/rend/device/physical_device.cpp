@@ -215,9 +215,8 @@ PhysicalDevice::calculateSwapchainDepthFormat() const
 
     throw std::runtime_error("Failed to find supported depth format!");
 }
-
-const vk::PhysicalDevice&
-PhysicalDevice::get() const
+PhysicalDevice::
+operator vk::PhysicalDevice() const
 {
     return m_physical_device;
 }

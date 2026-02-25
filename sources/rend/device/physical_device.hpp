@@ -34,7 +34,7 @@ public:
     SwapChainSupportDetails getSurfaceSupportDetails(
         const vk::SurfaceKHR& surface) const;
 
-    const vk::PhysicalDevice& get() const;
+    operator vk::PhysicalDevice() const;
 
     vk::Format calculateSwapchainDepthFormat() const;
 

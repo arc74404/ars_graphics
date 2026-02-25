@@ -12,7 +12,8 @@ IndexBuffer::IndexBuffer()
 void
 IndexBuffer::bind(vk::CommandBuffer command_buffer) const
 {
-    command_buffer.bindIndexBuffer(get(), 0, vk::IndexType::eUint32);
+    vk::Buffer buf = *this;
+    command_buffer.bindIndexBuffer(*this, 0, vk::IndexType::eUint32);
 }
 
 void

@@ -1,8 +1,5 @@
 #include "material.hpp"
 
-#include "../shaders/shaders_data_structs/material_params.hpp"
-#include "../textures/texture_storage.hpp"
-
 namespace ars_graphics
 {
 

@@ -18,7 +18,8 @@ void
 GpuVertexBuffer::bind(vk::CommandBuffer command_buffer) const noexcept
 {
     vk::DeviceSize offsets = {0};
-    command_buffer.bindVertexBuffers(0, 1, &(get()), &offsets);
+    vk::Buffer buf         = *this;
+    command_buffer.bindVertexBuffers(0, 1, &buf, &offsets);
 }
 
 void

@@ -13,4 +13,11 @@ struct RenderPassConfigInfo final
     bool clear_color;
     bool clear_depth;
 };
+
+struct RenderPassUserConfigInfo
+{
+    bool clear_color;
+    bool clear_depth;
+};
+
 } // namespace ars_graphics

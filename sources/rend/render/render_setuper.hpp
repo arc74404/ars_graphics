@@ -19,13 +19,11 @@ namespace ars_graphics
 
 struct RenderSetuperConfigInfo
 {
-    RenderSetuperConfigInfo();
-
     std::string inst_name;
 
-    std::vector<RenderPassConfigInfo> render_pass_configs; // render passes
+    std::vector<RenderPassUserConfigInfo> render_pass_configs; // render passes
 
-    std::vector<ShaderConfigInfo> shaders;
+    std::vector<ShaderConfigInfo> shaders_config_info;
 
     IWindow& window;
 };
@@ -78,22 +76,14 @@ public:
 
     vk::ResultValue<uint32_t> acquireNextImage(uint8_t index);
 
+    vk::Result endRender(uint32_t image_index, vk::CommandBuffer cmd);
+
 private:
-    // pipeline for bind
-    // pipeline for render
-
-    virtual void updatePerFrameBuffers() = 0;
-
-    //
-    void draw(uint8_t index);
-
     void recreate(const vk::Extent2D& window_size);
 
-    void startRenderPass(uint32_t image_index);
+    vk::Extent2D getWindowSize() const;
 
-    void setupScope();
-
-    vk::Result submit(uint32_t image_index);
+    vk::Result submit(uint32_t image_index, vk::CommandBuffer cmd);
 
     vk::Result present(uint32_t image_index);
 
@@ -106,8 +96,6 @@ private:
     LogicalDevice m_logical_device;
 
     std::vector<vk::UniqueRenderPass> m_render_passes;
-    std::vector<vk::UniqueRenderPass> createRenderPasses(
-        const std::vector<RenderPassConfigInfo>& render_pass_configs) const;
 
     CommandPool m_command_pool;
 
