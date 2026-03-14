@@ -4,7 +4,7 @@
 
 #include "key.hpp"
 
-namespace ars_graphics
+namespace user_part
 {
 
 GlfwEventManager::GlfwEventManager()
@@ -87,4 +87,4 @@ GlfwEventManager::setupCallBacks(GLFWwindow* window)
     glfwSetFramebufferSizeCallback(window, framebufferResizeCallback);
     // glfwSetKeyCallback(window, keyCallback);
 }
-} // namespace ars_graphics
+} // namespace user_part

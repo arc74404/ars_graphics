@@ -29,6 +29,7 @@ file(GLOB_RECURSE REND_LIB_SOURCES
     "sources/rend_lib/descriptors/*.cpp"
     "sources/rend_lib/device/*.cpp"
     "sources/rend_lib/images/*.cpp"
+    "sources/rend_lib/instance/*.cpp"
     "sources/rend_lib/matrial/*.cpp"
     "sources/rend_lib/render/*.cpp"
 )
@@ -47,6 +48,7 @@ target_include_directories(rend_lib PUBLIC
     "sources/rend_lib/images"
     "sources/rend_lib/matrial"
     "sources/rend_lib/render"
+    "sources/rend_lib/render_pass"
 )
 
 # Линкуем зависимости к библиотеке
@@ -70,8 +72,8 @@ project(user_part)
 # Ищем main.cpp и другие файлы пользовательской части
 file(GLOB_RECURSE USER_SOURCES
     "sources/user_part/main/*.cpp"
-    # Раскомментируй, если есть gui:
-    # "sources/main/*.cpp"
+    "sources/user_part/gui/*.cpp"
+    "sources/user_part/camera/*.cpp"
 )
 
 # Создаем исполняемый файл

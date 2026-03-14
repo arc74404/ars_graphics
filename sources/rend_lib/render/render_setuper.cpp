@@ -1,5 +1,8 @@
 #include "render_setuper.hpp"
 
+#include "../descriptors/descriptor_pool.hpp"
+#include "../descriptors/descriptor_set_layout.hpp"
+
 namespace ars_graphics
 {
 
@@ -167,4 +170,11 @@ RenderSetuper::endRender(uint32_t image_index, vk::CommandBuffer cmd)
     m_frame_number = (m_frame_number + 1) % m_frames[0].size();
     return vk::Result::eSuccess;
 }
+
+uint32_t
+RenderSetuper::getFramesCount() const
+{
+    return m_frames.size();
+}
+
 } // namespace ars_graphics

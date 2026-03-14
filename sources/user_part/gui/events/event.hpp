@@ -7,7 +7,7 @@
 
 #include "key.hpp"
 
-namespace ars_graphics
+namespace user_part
 {
 struct Event
 {

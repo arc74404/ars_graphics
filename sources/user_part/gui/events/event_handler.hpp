@@ -3,7 +3,7 @@
 #include "../../camera/interface_camera.hpp"
 #include "../window/interface_window.hpp"
 
-namespace ars_graphics
+namespace user_part
 {
 
 struct EventHandlerContext

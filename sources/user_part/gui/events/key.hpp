@@ -2,7 +2,7 @@
 
 #include <optional>
 
-namespace ars_graphics
+namespace user_part
 {
 enum class Key
 {
@@ -181,4 +181,4 @@ convertGlfwKey(int key);
 KeyStatus
 convertGlfwStatus(int action);
 
-} // namespace ars_graphics
+} // namespace user_part

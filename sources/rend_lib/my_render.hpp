@@ -5,4 +5,6 @@
 #include "cmdbuf/command_pool.hpp"
 #include "descriptors/descriptor_allocator.hpp"
 #include "render/render_core.hpp"
+#include "render/render_pipeline.hpp"
 #include "render/surface_creater.hpp"
+#include "scene/interface_scene.hpp"

@@ -6,25 +6,28 @@
 
 namespace ars_graphics
 {
-class ResourceScene3D : public IResourceScene<ResourceScene>
+class ResourceScene3D : public IResourceScene<ResourceScene3D>
 {
 public:
-    void setFrameBuffersCount(size_t count)
-    {
-        m_uniform_buffers.resize(count);
-        m_model_inst_storage_buffers.resize(count);
-        m_mesh_inst_storage_buffers.resize(count);
-        m_mapping_inst_storage_buffers.resize(count);
-    }
+    ResourceScene3D(const RenderSetuper& setuper);
 
-    void updateCamera(glm::mat4 camera_matrix, uint32_t current_frame_index)
-    {
-        m_uniform_buffers[current_frame_index].setData(&camera_matrix,
-                                                       sizeof(camera_matrix));
-    }
+    void bindDescriptors(vk::CommandBuffer cmd,
+                         vk::PipelineLayout pipeline_layout,
+                         uint32_t frame_index) const;
+
+    void updateDescriptorSets(uint32_t frame_index);
+    void setFrameBuffersCount(size_t count);
+    void updateCamera(glm::mat4 camera_matrix, uint32_t current_frame_index);
+    void updateModelInstancing(
+        const std::vector<user_part::ModelInstancingData>& data,
+        uint32_t frame_index);
+    void updateMeshInstancing(
+        const std::vector<user_part::MeshInstancingData>& data,
+        uint32_t frame_index);
+    void updateMapping(const std::vector<user_part::InstanceMapping>& data);
 
 private:
-    vk::DescriptorSetLayout m_layout;
+    ars_graphics::DescriptorAllocator m_alloc;
 
     std::vector<UniformBuffer> m_uniform_buffers;
     std::vector<StorageBuffer> m_model_inst_storage_buffers;

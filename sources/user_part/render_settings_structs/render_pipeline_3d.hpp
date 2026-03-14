@@ -4,6 +4,7 @@
 
 #include "../camera/interface_camera.hpp"
 
+#include "instance_data.hpp"
 #include "resource_scene_3d.hpp"
 
 namespace ars_graphics
@@ -27,20 +28,24 @@ public:
     void drawPrimitives(const ResourceScene3D& scene) const;
 
     // user new funcs
-    void bindCamera(ICamera* camera);
+    void bindCamera(user_part::ICamera* camera);
 
 private:
-    ICamera* m_camera;
+    user_part::ICamera* m_camera;
+
+    std::vector<user_part::ModelInstancingData> m_model_instancing_data;
+
+    std::vector<user_part::MeshInstancingData> m_mesh_instancing_data;
 };
 
-void
-RenderPipeline<ResourceScene3D>::bindCamera(ICamera* camera)
+inline void
+RenderPipeline<ResourceScene3D>::bindCamera(user_part::ICamera* camera)
 {
     m_camera = camera;
 }
 
 /////////////////////////////////////
-void
+inline void
 RenderPipeline<ResourceScene3D>::updatePerFrameData(ResourceScene3D& scene,
                                                     uint32_t frame_index) const
 {
@@ -48,36 +53,35 @@ RenderPipeline<ResourceScene3D>::updatePerFrameData(ResourceScene3D& scene,
     {
         scene.updateCamera(m_camera->recalculate(), frame_index);
     }
+    scene.updateModelInstancing(m_model_instancing_data, frame_index);
+    scene.updateMeshInstancing(m_mesh_instancing_data, frame_index);
 }
-
-void
+inline void
 RenderPipeline<ResourceScene3D>::beginCmd(vk::CommandBuffer cmd) const
 {
 }
-
-void
+inline void
 RenderPipeline<ResourceScene3D>::startRenderPass(
     vk::RenderPass renderpass,
     vk::Framebuffer framebuffer,
     const vk::Extent2D& extent) const
 {
 }
-
-void
+inline void
 RenderPipeline<ResourceScene3D>::setupScope(const vk::Extent2D& extent) const
 {
 }
-
-void
+inline void
 RenderPipeline<ResourceScene3D>::bindSharedData(
     const ResourceScene3D& scene) const
 {
 }
-
-void
+inline void
 RenderPipeline<ResourceScene3D>::drawPrimitives(
     const ResourceScene3D& scene) const
 {
 }
+
+using RenderPipeline3D = RenderPipeline<ResourceScene3D>;
 
 } // namespace ars_graphics

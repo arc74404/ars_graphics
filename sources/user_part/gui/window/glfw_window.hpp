@@ -2,13 +2,11 @@
 
 #include <string>
 
-#include "interface_window.hpp"
-#define GLFW_INCLUDE_VULKAN
-#include <GLFW/glfw3.h>
-
 #include "../events/glfw_event_manager.hpp"
 
-namespace ars_graphics
+#include "interface_window.hpp"
+
+namespace user_part
 {
 
 struct GlfwWindowDeleter
@@ -42,4 +40,4 @@ private:
 
     std::unique_ptr<GLFWwindow, GlfwWindowDeleter> m_window;
 };
-} // namespace ars_graphics
+} // namespace user_part

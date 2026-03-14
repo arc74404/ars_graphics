@@ -5,9 +5,9 @@
 #include "../device/logical_device.hpp"
 
 std::optional<vk::UniqueDescriptorSetLayout>
-ars_graphics::createDescriptorSetLayout(
+ars_graphics::createDescriptorSetLayoutImpl(
     vk::Device device,
-    const std::vector<DescriptorBindingData>& bindings_data)
+    std::vector<DescriptorBindingData>&& bindings_data)
 {
     std::vector<vk::DescriptorSetLayoutBinding> layout_bindings;
     layout_bindings.reserve(bindings_data.size());

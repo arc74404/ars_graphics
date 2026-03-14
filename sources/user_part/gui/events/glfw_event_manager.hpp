@@ -8,7 +8,7 @@
 #define GLFW_INCLUDE_VULKAN
 #include <GLFW/glfw3.h>
 
-namespace ars_graphics
+namespace user_part
 {
 
 struct MouseInfo
@@ -53,4 +53,4 @@ private:
 
     std::vector<EventPtr> m_events;
 };
-} // namespace ars_graphics
+} // namespace user_part

@@ -9,6 +9,13 @@ namespace ars_graphics
 {
 struct DescriptorBindingData
 {
+    DescriptorBindingData(uint8_t bi,
+                          vk::DescriptorType t,
+                          uint8_t c,
+                          vk::ShaderStageFlags s)
+        : binding_index(bi), type(t), count(c), stage(s)
+    {
+    }
     uint8_t binding_index;
     vk::DescriptorType type;
     uint8_t count;
@@ -16,8 +23,8 @@ struct DescriptorBindingData
 };
 
 std::optional<vk::UniqueDescriptorSetLayout>
-createDescriptorSetLayout(
+createDescriptorSetLayoutImpl(
     vk::Device device,
-    const std::vector<DescriptorBindingData>& bindings_data);
+    std::vector<DescriptorBindingData>&& bindings_data);
 
 }; // namespace ars_graphics

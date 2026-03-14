@@ -3,7 +3,7 @@
 #include "../gui/events/key.hpp"
 #include "glm/glm.hpp"
 
-namespace ars_graphics
+namespace user_part
 {
 class ICamera
 {

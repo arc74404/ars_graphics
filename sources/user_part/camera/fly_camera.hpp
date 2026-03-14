@@ -2,7 +2,7 @@
 
 #include "interface_camera.hpp"
 
-namespace ars_graphics
+namespace user_part
 {
 
 struct FlyCameraSettings
@@ -49,4 +49,4 @@ private:
     float m_pitch;
     float m_aspect_ratio;
 };
-} // namespace ars_graphics
+} // namespace user_part

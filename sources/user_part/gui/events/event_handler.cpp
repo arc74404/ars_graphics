@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-namespace ars_graphics
+namespace user_part
 {
 void
 EventHandler::handle(const EventHandlerContext& ctx,

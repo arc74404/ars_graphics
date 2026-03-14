@@ -4,7 +4,7 @@
 
 #include "../events/event.hpp"
 
-namespace ars_graphics
+namespace user_part
 {
 
 class Renderer;
@@ -22,7 +22,7 @@ enum class EventType
     CLOSE
 };
 
-class IWindow : public SurfaceCreater
+class IWindow : public ars_graphics::SurfaceCreater
 {
 public:
     virtual ~IWindow() = default;
@@ -49,4 +49,4 @@ public:
 private:
     WindowConfigInfo m_config_info;
 };
-} // namespace ars_graphics
+} // namespace user_part

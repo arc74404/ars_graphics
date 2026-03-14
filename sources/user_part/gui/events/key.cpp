@@ -4,10 +4,10 @@
 
 #include <unordered_map>
 
-namespace ars_graphics
+namespace user_part
 {
 std::optional<Key>
-ars_graphics::convertGlfwKey(int key)
+convertGlfwKey(int key)
 {
     static std::unordered_map<int, Key> converter = {
         {GLFW_KEY_A,             Key::A              },
@@ -146,7 +146,7 @@ ars_graphics::convertGlfwKey(int key)
 }
 
 KeyStatus
-ars_graphics::convertGlfwStatus(int action)
+user_part::convertGlfwStatus(int action)
 {
     switch (action)
     {
@@ -160,4 +160,4 @@ ars_graphics::convertGlfwStatus(int action)
             return KeyStatus::RELEASE;
     }
 }
-} // namespace ars_graphics
+} // namespace user_part

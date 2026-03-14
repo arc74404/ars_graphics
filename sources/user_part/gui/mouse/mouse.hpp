@@ -1,13 +1,10 @@
 #pragma once
 
-namespace ars_graphics
+namespace user_part
 {
 class IMouse
 {
 public:
-
-    
-
 private:
 };
-} // namespace ars_graphics
+} // namespace user_part

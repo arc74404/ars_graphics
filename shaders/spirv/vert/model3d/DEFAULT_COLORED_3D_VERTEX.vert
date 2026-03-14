@@ -7,22 +7,26 @@ layout(binding = 9) uniform UboBuffer {
     mat4 camera;
 } ubo_buffer;
 
-layout(std430, binding = 15) readonly buffer ModelInstances {
+// Model instancing 
+layout(std430, binding = 10) readonly buffer ModelInstances {
     mat4 model_transforms[];
 } model_instances;
 
-layout(std430, binding = 16) readonly buffer MeshInstances {
+// Mesh instancing into models
+layout(std430, binding = 11) readonly buffer MeshInstances {
     mat4 mesh_transforms[];
 } mesh_instances;
 
 ///////////////
 
+// Index mapping
+
 struct InstanceMapping {
     uint model_index;
-    uint mesh_index;
+    uint mesh_index; 
 };
 
-layout(std430, binding = 17) readonly buffer MappingBuffer {
+layout(std430, binding = 12) readonly buffer MappingBuffer {
     InstanceMapping mappings[];
 } mapping_buffer;
 

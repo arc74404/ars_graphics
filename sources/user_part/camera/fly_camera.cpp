@@ -7,7 +7,7 @@
 
 #include "glm/glm.hpp"
 
-namespace ars_graphics
+namespace user_part
 {
 
 void
@@ -98,4 +98,4 @@ FlyCamera::recalculateImpl()
 
     return projection * glm::lookAt(m_position, m_position + m_front, up);
 }
-} // namespace ars_graphics
+} // namespace user_part

@@ -1,6 +1,6 @@
 #include "interface_camera.hpp"
 
-namespace ars_graphics
+namespace user_part
 {
 bool
 ICamera::needRecalculation() const noexcept
@@ -33,4 +33,4 @@ ICamera::recalculate()
 {
     return recalculateImpl();
 }
-} // namespace ars_graphics
+} // namespace user_part

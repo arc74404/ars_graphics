@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-namespace ars_graphics
+namespace user_part
 {
 GlfwWindow::~GlfwWindow()
 {
@@ -66,4 +66,4 @@ GlfwWindow::createSurface(const vk::Instance& instance)
     glfwCreateWindowSurface(instance, m_window.get(), nullptr, &row_surface);
     return vk::SurfaceKHR{row_surface};
 }
-} // namespace ars_graphics
+} // namespace user_part
