@@ -2,9 +2,9 @@
 /build
 
 /data
-
-/.vscode/settings.json
-/.vscode/browse.vc.db
+/engine
+/garbage
+/.vscode
 
 **.pdb
 **.obj
